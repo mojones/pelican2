@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+
+            <meta name="author" content="Martin" />
+
+
+
+                <meta property="og:type" content="article" />
+            <meta name="twitter:card" content="summary"/>
+
+        <meta name="keywords" content="python, tutorial, tutorial, "/>
+
+        <link rel="canonical" href="https://mojones.github.io/pelican-p4b/tutorial/dictionaries.html">
+    <meta property="og:title" content="Python tutorial part eight | Python for Biologists"/>
+    <meta property="og:url" content="https://mojones.github.io/pelican-p4b/tutorial/dictionaries.html" />
+    <meta property="og:description" content="" />
+    <meta property="og:site_name" content="Python for Biologists" />
+    <meta property="og:article:author" content="Martin" />
+        <meta property="og:article:published_time" content="2010-12-03T10:20:00+01:00" />
+        <meta property="og:article:modified_time" content="2010-12-05T19:30:00+01:00" />
+    <meta name="twitter:title" content="Python tutorial part eight | Python for Biologists">
+    <meta name="twitter:description" content="">
+
+
+        <title>    Python tutorial part eight  | Python for Biologists
+</title>
+
+                <link rel="stylesheet" type="text/css" href="https://mojones.github.io/pelican-p4b/theme/libs/bootstrap-4.2.1/dist/css/bootstrap.min.css">
+                <link rel="stylesheet" type="text/css" href="https://mojones.github.io/pelican-p4b/theme/libs/fontawesome-free-5.2.0-web/css/all.min.css">
+            <link rel="stylesheet" type="text/css" href="https://mojones.github.io/pelican-p4b/theme/css/custom.css" media="screen">
+            <link rel="stylesheet" type="text/css" href="https://mojones.github.io/pelican-p4b/theme/css/ipynb.css" media="screen">
+
+            <style>
+                #progressBar::-webkit-progress-value {
+                    background-color: ;
+                }
+                #progressBar::-moz-progress-bar {
+                    background-color: ;
+                }
+            </style>
+
+        <link href="https://mojones.github.io/pelican-p4b/theme/libs/prism.css" rel="stylesheet" />
+<script type="text/x-mathjax-config">
+
+MathJax.Hub.Config({
+tex2jax: { inlineMath: [["$","$"],["\\(","\\)"]] },
+"HTML-CSS": {
+  linebreaks: { automatic: true, width: "container" }
+}
+});
+
+</script>
+<script type="text/javascript"
+  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+    </head>
+    <body>
+        <div class="banner-wrapper row" style="background-color: #24292e;">
+            <div class="banner">
+                <nav id="navbar" class="navbar navbar-expand-md navbar-light bg-light container">
+                    <div class="container navbar-title">
+                        <a href="/"><img id="banner-logo" src="https://mojones.github.io/pelican-p4b/images/logo.png" style="height: 40px; margin: 6px 0;"></a>
+                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                    </div>
+                <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent" style="margin-bottom: 6.5px;margin-top: 6.5px">
+                    <ul class="navbar-nav">
+                        <li class="nav-item active">
+                            <a class="nav-link rem_15" href="https://mojones.github.io/pelican-p4b/python-for-biologists-online-course">Learn&nbsp;Python</a>
+                        </li>
+                    </ul>
+                    <ul class="navbar-nav">
+                        <li class="nav-item active">
+                            <a class="nav-link rem_15" href="https://mojones.github.io/pelican-p4b/aboutcontact">About</a>
+                        </li>
+                    </ul>
+                    <ul class="navbar-nav">
+                        <li id="second-item" class="nav-item">
+                            <a class="nav-link rem_15" href="https://mojones.github.io/pelican-p4b/tutorial">Python&nbsp;tutorial</a>
+                        </li>
+                     </ul>
+                     
+                     <ul class="navbar-nav">
+                        <li id="second-item" class="nav-item">
+                            <a class="nav-link rem_15" href="https://mojones.github.io/pelican-p4b/training-courses">Training&nbsp;courses</a>
+                        </li>
+                     </ul>
+                     
+                       <ul class="navbar-nav">
+                        <li id="second-item" class="nav-item">
+                            <a class="nav-link rem_15" href="https://mojones.github.io/pelican-p4b/biological-data-exploration-book">Data&nbsp;exploration&nbsp;book</a>
+                        </li>
+                     </ul>
+                     
+                </div>
+                </nav>
+            </div>
+        </div>
+        <div id="wrap">
+<div id="post-container" class="container post index">
+    <article>
+        <header class="pop-over">
+            <h1>Python tutorial part eight</h1>
+            <div class="row justify-content-between no-margin">
+                <h4 class="article-category">Category > <a class="article-category-link" href="https://mojones.github.io/pelican-p4b/">tutorial</a></h4>
+                <span class="article-date">Fri 03 December 2010</span>
+            </div>
+            <div class="meta meta-tag no-margin no-border">
+                <div>
+                        <a href="https://mojones.github.io/pelican-p4b/tag/python.html" class="tag">python</a>
+                        <a href="https://mojones.github.io/pelican-p4b/tag/tutorial.html" class="tag">tutorial</a>
+                </div>
+            </div>
+            
+        </header>
+        <div class="article_content">
+            
+            <h2>Storing paired data</h2>
+<p>Suppose we want to count the number of As in a DNA sequence. Carrying out the calculation is quite straightforward:</p>
+<div class="highlight"><pre><span></span><code>dna = &quot;ATCGATCGATCGTACGCTGA&quot;
+a_count = dna.count(&quot;A&quot;)
+</code></pre></div>
+
+<p>How will our code change if we want to generate a complete list of base counts for the sequence? We'll add a new variable for each base:</p>
+<div class="highlight"><pre><span></span><code>dna = &quot;ATCGATCGATCGTACGCTGA&quot;
+a_count = dna.count(&quot;A&quot;)
+t_count = dna.count(&quot;T&quot;)
+g_count = dna.count(&quot;G&quot;)
+c_count = dna.count(&quot;C&quot;)
+</code></pre></div>
+
+<p>and now our code is starting to look rather repetitive. It's not too bad for the four individual bases, but what if we want to generate counts for the 16 dinucleotides:</p>
+<div class="highlight"><pre><span></span><code>dna = &quot;ATCGATCGATCGTACGCTGA&quot;
+aa_count = dna.count(&quot;AA&quot;)
+at_count = dna.count(&quot;AT&quot;)
+ag_count = dna.count(&quot;AG&quot;)
+...
+</code></pre></div>
+
+<p>or the 64 trinucleotides:</p>
+<div class="highlight"><pre><span></span><code>dna = &quot;ATCGATCGATCGTACGCTGA&quot;
+aaa_count = dna.count(&quot;AAA&quot;)
+aat_count = dna.count(&quot;AAT&quot;)
+aag_count = dna.count(&quot;AAG&quot;)
+...
+</code></pre></div>
+
+<p>For trinucleotides and longer, the situation is particularly bad. The DNA sequence is 20 bases long, so it only contains 18 overlapping trinucleotides in total:</p>
+<div class="highlight"><pre><span></span><code>ATCGATCGATCGTACGCTGA
+ATC
+ TCG
+  CGA
+   GAT
+...
+</code></pre></div>
+
+<p>So there can be, at most, 18 unique trinucleotides in the sequence (and for a repetitive sequence, many fewer unique trinucleotides). This means that at least 46 out of our 64 variables will hold the value zero.</p>
+<p>One possible way round this is to store the values in a list. Let's look at an example involving dinucleotides. If we create a list of the 16 possible dinucleotides we can iterate over it, calculate the count for each one, and store all the counts in a list. Take a look at the code – the list of dinucleotides is quite long so it's been split over  four lines to make it easier to read:</p>
+<div class="highlight"><pre><span></span><code><span class="nv">dna</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="s">ATGATCGATCGAGTGA</span><span class="s2">&quot;</span>
+<span class="nv">dinucleotides</span> <span class="o">=</span> [<span class="s1">&#39;</span><span class="s">AA</span><span class="s1">&#39;</span>,<span class="s1">&#39;</span><span class="s">AT</span><span class="s1">&#39;</span>,<span class="s1">&#39;</span><span class="s">AG</span><span class="s1">&#39;</span>,<span class="s1">&#39;</span><span class="s">AC</span><span class="s1">&#39;</span>,
+                 <span class="s1">&#39;</span><span class="s">TA</span><span class="s1">&#39;</span>,<span class="s1">&#39;</span><span class="s">TT</span><span class="s1">&#39;</span>,<span class="s1">&#39;</span><span class="s">TG</span><span class="s1">&#39;</span>,<span class="s1">&#39;</span><span class="s">TC</span><span class="s1">&#39;</span>,
+                 <span class="s1">&#39;</span><span class="s">GA</span><span class="s1">&#39;</span>,<span class="s1">&#39;</span><span class="s">GT</span><span class="s1">&#39;</span>,<span class="s1">&#39;</span><span class="s">GG</span><span class="s1">&#39;</span>,<span class="s1">&#39;</span><span class="s">GC</span><span class="s1">&#39;</span>,
+                 <span class="s1">&#39;</span><span class="s">CA</span><span class="s1">&#39;</span>,<span class="s1">&#39;</span><span class="s">CT</span><span class="s1">&#39;</span>,<span class="s1">&#39;</span><span class="s">CG</span><span class="s1">&#39;</span>,<span class="s1">&#39;</span><span class="s">CC</span><span class="s1">&#39;</span>]
+<span class="nv">all_counts</span> <span class="o">=</span> []
+<span class="k">for</span> <span class="nv">dinucleotide</span> <span class="nv">in</span> <span class="nv">dinucleotides</span>:
+    <span class="nv">count</span> <span class="o">=</span> <span class="nv">dna</span>.<span class="nv">count</span><span class="ss">(</span><span class="nv">dinucleotide</span><span class="ss">)</span>
+    <span class="nv">print</span><span class="ss">(</span><span class="s2">&quot;</span><span class="s">count is </span><span class="s2">&quot;</span> <span class="o">+</span> <span class="nv">str</span><span class="ss">(</span><span class="nv">count</span><span class="ss">)</span> <span class="o">+</span> <span class="s2">&quot;</span><span class="s"> for </span><span class="s2">&quot;</span> <span class="o">+</span> <span class="nv">dinucleotide</span><span class="ss">)</span>
+    <span class="nv">all_counts</span>.<span class="nv">append</span><span class="ss">(</span><span class="nv">count</span><span class="ss">)</span>
+<span class="nv">print</span><span class="ss">(</span><span class="nv">all_counts</span><span class="ss">)</span>
+</code></pre></div>
+
+<p>Although the code is above is quite compact, and doesn't require huge numbers of variables, the output shows two problems with this approach:</p>
+<blockquote>
+<p>count is 0 for AAA 
+count is 1 for AAT 
+count is 0 for AAG 
+count is 0 for AAC 
+count is 0 for ATA 
+count is 0 for ATT 
+count is 1 for ATG 
+count is 2 for ATC 
+...
+[0, 1, 0, 0, 0, 0, 1, 2, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 2, 0, 0, 2, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 1, 1, 0, 1, 0, 0, 0, 0]</p>
+</blockquote>
+<p>Firstly, the data are still very sparse – the vast majority of the counts are zero. Secondly, the counts themselves are now disconnected from the dinucleotides. If we want to look up the count for a single dinucleotide – for example,  <code>TG</code> – we first have to figure out that <code>TG</code> was the 7th dinucleotide in the list. Only then can we get the element at the correct index:</p>
+<div class="highlight"><pre><span></span><code><span class="nv">print</span><span class="ss">(</span><span class="s2">&quot;</span><span class="s">count for TG is </span><span class="s2">&quot;</span> <span class="o">+</span> <span class="nv">str</span><span class="ss">(</span><span class="nv">all_counts</span>[<span class="mi">6</span>]<span class="ss">))</span>
+</code></pre></div>
+
+<p>We can try various tricks to get round this problem. What if we used the <code>index()</code> method to figure out the position of the dinucleotide we are looking for in the list?</p>
+<div class="highlight"><pre><span></span><code><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dinucleotides</span><span class="p">.</span><span class="k">index</span><span class="p">(</span><span class="s1">&#39;TG&#39;</span><span class="p">)</span><span class="w"> </span>
+<span class="k">print</span><span class="p">(</span><span class="n">all_counts</span><span class="o">[</span><span class="n">i</span><span class="o">]</span><span class="p">)</span><span class="w"></span>
+</code></pre></div>
+
+<p>This works because we have two lists of the same length, with a one-to-one correspondence between the elements:</p>
+<div class="highlight"><pre><span></span><code>print(dinucleotides)
+print(all_counts)
+</code></pre></div>
+
+<blockquote>
+<p>['AA', 'AT', 'AG', 'AC', 'TA', 'TT', 'TG', 'TC', 'GA', 'GT', 'GG', 'GC', 'CA', 'CT', 'CG', 'CT'] 
+[2, 2, 0, 2, 0, 0, 2, 0, 3, 0, 0, 0, 0, 0, 1, 0] </p>
+</blockquote>
+<p>This is a little bit nicer, but still has major drawbacks. We're still storing all those zeros, and now we have two lists to keep track of. We need to be incredibly careful when manipulating either of the two lists to make sure that they stay perfectly synchronized – if we make any change to one list but not the other, then there will no longer be a one-to-one correspondence between elements and we'll get the wrong answer when we try to look up a count. </p>
+<p>This approach is also slow. To find the index of a given dinucleotide in the dinucleotides list, Python has to look at each element one at a time until it finds the one we're looking for. This means that as the size of the list grows, the time taken to look up the count for a given element will grow alongside it. </p>
+<p>If we take a step back and think about the problem in more general terms, what we need is a way of storing pairs of data (in this case, dinucleotides and their counts) in a way that allows us to efficiently look up the count for any given dinucleotide. This problem of storing paired data is incredibly common in programming. We might want to store:</p>
+<ul>
+<li>protein sequence names and their sequences</li>
+<li>DNA restriction enzyme names and their motifs</li>
+<li>codons and their associated amino acid residues</li>
+<li>colleagues' names and their email addresses</li>
+<li>sample names and their co-ordinates</li>
+<li>words and their definitions</li>
+</ul>
+<p>All these are examples of what we call <strong>key-value</strong> pairs. In each case we have pairs of keys and values:</p>
+<table>
+<thead>
+<tr>
+<th>Key</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>dinucleotide</td>
+<td>count</td>
+</tr>
+<tr>
+<td>name</td>
+<td>protein sequence</td>
+</tr>
+<tr>
+<td>name</td>
+<td>restriction enzyme motif</td>
+</tr>
+<tr>
+<td>codon</td>
+<td>amino acid residue</td>
+</tr>
+<tr>
+<td>sample</td>
+<td>coordinates</td>
+</tr>
+<tr>
+<td>word</td>
+<td>definition</td>
+</tr>
+</tbody>
+</table>
+<p>The last example in this table – words and their definitions – is an interesting one because we have a tool in the physical world for storing this type of data: a dictionary. Python's tool for solving this type of problem is also called a dictionary (usually abbreviated to <strong>dict</strong>) and in this section we'll see how to create and use them. </p>
+<h2>Creating a dictionary</h2>
+<p>The syntax for creating a dictionary is similar to that for creating a list, but we use curly brackets rather than square ones. Each pair of data, consisting of a key and a value, is called an item. When storing items in a dictionary, we separate them with commas. Within an individual item, we separate the key and the value with a colon. Here's a bit of code that creates a dictionary of restriction enzymes and their regular expressions with three items:</p>
+<div class="highlight"><pre><span></span><code><span class="n">enzymes</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="err">{</span><span class="w"> </span><span class="s1">&#39;EcoRI&#39;</span><span class="err">:</span><span class="n">r</span><span class="s1">&#39;GAATTC&#39;</span><span class="p">,</span><span class="s1">&#39;AvaII&#39;</span><span class="err">:</span><span class="n">r</span><span class="s1">&#39;GG(A|T)CC&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;BisI&#39;</span><span class="err">:</span><span class="n">r</span><span class="s1">&#39;GC[ATGC]GC&#39;</span><span class="w"> </span><span class="err">}</span><span class="w"></span>
+</code></pre></div>
+
+<p>In this case, the keys and values are both strings. Splitting the dictionary definition over several lines makes it easier to read:</p>
+<div class="highlight"><pre><span></span><code><span class="n">enzymes</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="err">{</span><span class="w"> </span>
+<span class="w">    </span><span class="s1">&#39;EcoRI&#39;</span><span class="w"> </span><span class="err">:</span><span class="w"> </span><span class="n">r</span><span class="s1">&#39;GAATTC&#39;</span><span class="p">,</span><span class="w"> </span>
+<span class="w">    </span><span class="s1">&#39;AvaII&#39;</span><span class="w"> </span><span class="err">:</span><span class="w"> </span><span class="n">r</span><span class="s1">&#39;GG(A|T)CC&#39;</span><span class="p">,</span><span class="w"> </span>
+<span class="w">    </span><span class="s1">&#39;BisI&#39;</span><span class="w">  </span><span class="err">:</span><span class="w"> </span><span class="n">r</span><span class="s1">&#39;GC[ATGC]GC&#39;</span><span class="w"> </span>
+<span class="err">}</span><span class="w"></span>
+</code></pre></div>
+
+<p>and doesn't affect how the code works. To retrieve a bit of data from the dictionary – i.e. to look up the motif for a particular enzyme – we write the name of the dictionary, followed by the key in square brackets:</p>
+<div class="highlight"><pre><span></span><code>print(enzymes[&#39;BisI&#39;])
+</code></pre></div>
+
+<p>The code looks very similar to using a list, but instead of giving the <em>index</em> of the element we want, we're giving the <em>key</em> for the value that we want to retrieve. </p>
+<p>Dictionaries are a very useful way to store data, but they come with some restrictions. The only types of data we are allowed to use as keys are strings and numbers, so we can't, for example, create a dictionary where the keys are file objects. Values can be whatever type of data we like. Also, keys must be unique – we can't store multiple values for the same key. </p>
+<h3>Building dicts</h3>
+<p>In real life programs, it's relatively rare that we'll want to create a dictionary all in one go like in the example above. More often, we'll want to create an empty dictionary, then add key/value pairs to it (just as we often create an empty list and then add elements to it). </p>
+<p>To create an empty dictionary we simply write a pair of curly brackets on their own, and to add elements, we use the square brackets notation on the left hand side of an assignment. Here's a bit of code that stores the restriction enzyme data one item at a time:</p>
+<div class="highlight"><pre><span></span><code><span class="n">enzymes</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="err">{}</span><span class="w"></span>
+<span class="n">enzymes</span><span class="o">[</span><span class="n">&#39;EcoRI&#39;</span><span class="o">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">r</span><span class="s1">&#39;GAATTC&#39;</span><span class="w"></span>
+<span class="n">enzymes</span><span class="o">[</span><span class="n">&#39;AvaII&#39;</span><span class="o">]</span><span class="w"> </span><span class="o">=</span><span class="w">  </span><span class="n">r</span><span class="s1">&#39;GG(A|T)CC&#39;</span><span class="w"></span>
+<span class="n">enzymes</span><span class="o">[</span><span class="n">&#39;BisI&#39;</span><span class="o">]</span><span class="w"> </span><span class="o">=</span><span class="w">  </span><span class="n">r</span><span class="s1">&#39;GC[ATGC]GC&#39;</span><span class="w"></span>
+</code></pre></div>
+
+<p>We can delete a key from a dictionary using the <code>pop()</code> method. <code>pop()</code> actually returns the value and deletes the key at the same time:</p>
+<div class="highlight"><pre><span></span><code># remove the EcoRI enzyme from the dict
+enzymes.pop(&#39;EcoRI&#39;)
+</code></pre></div>
+
+<p>Let's take another look at the dinucleotide count example from the start of the module. Here's how we store the dinucleotides and their counts in a dict:</p>
+<div class="highlight"><pre><span></span><code><span class="n">dna</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ss">&quot;AATGATGAACGAC&quot;</span><span class="w"> </span>
+<span class="n">dinucleotides</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">[</span><span class="n">&#39;AA&#39;,&#39;AT&#39;,&#39;AG&#39;,&#39;AC&#39;, </span>
+<span class="n">                 &#39;TA&#39;,&#39;TT&#39;,&#39;TG&#39;,&#39;TC&#39;, </span>
+<span class="n">                 &#39;GA&#39;,&#39;GT&#39;,&#39;GG&#39;,&#39;GC&#39;, </span>
+<span class="n">                 &#39;CA&#39;,&#39;CT&#39;,&#39;CG&#39;,&#39;CT&#39;</span><span class="o">]</span><span class="w"> </span>
+<span class="n">all_counts</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="err">{}</span><span class="w"> </span>
+<span class="k">for</span><span class="w"> </span><span class="n">dinucleotide</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="nl">dinucleotides</span><span class="p">:</span><span class="w"> </span>
+<span class="w">    </span><span class="nf">count</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dna</span><span class="p">.</span><span class="nf">count</span><span class="p">(</span><span class="n">dinucleotide</span><span class="p">)</span><span class="w"> </span>
+<span class="w">    </span><span class="k">print</span><span class="p">(</span><span class="ss">&quot;count is &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nf">str</span><span class="p">(</span><span class="nf">count</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="ss">&quot; for &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">dinucleotide</span><span class="p">)</span><span class="w"> </span>
+<span class="w">    </span><span class="n">all_counts</span><span class="o">[</span><span class="n">dinucleotide</span><span class="o">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">count</span><span class="w"> </span>
+<span class="k">print</span><span class="p">(</span><span class="n">all_counts</span><span class="p">)</span><span class="w"></span>
+</code></pre></div>
+
+<p>We can see from the output that the dinucleotides and their counts are stored together in the <code>all_counts</code> variable:</p>
+<blockquote>
+<p>{'AA': 2, 'AC': 2, 'GT': 0, 'AG': 0, 'TT': 0, 'CG': 1, 'GG': 0, 'GC': 0, 'AT': 2, 'GA': 3, 'TG': 2, 'CT': 0, 'CA': 0, 'TC': 0, 'TA': 0} </p>
+</blockquote>
+<p>We still have a lot of repetitive counts of zero, but looking up the count for a particular dinucleotide is now very straightforward:</p>
+<div class="highlight"><pre><span></span><code>print(all_counts[&#39;TA&#39;])
+</code></pre></div>
+
+<p>We no longer have to worry about either "memorizing" the order of the counts or maintaining two separate lists. 
+Let's now see if we can find a way of avoiding storing all those zero counts. We can add an <code>if</code> statement that ensures that we only store a count if it's greater than zero:</p>
+<div class="highlight"><pre><span></span><code><span class="n">dna</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ss">&quot;AATGATGAACGAC&quot;</span><span class="w"> </span>
+<span class="n">dinucleotides</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">[</span><span class="n">&#39;AA&#39;,&#39;AT&#39;,&#39;AG&#39;,&#39;AC&#39;, </span>
+<span class="n">                 &#39;TA&#39;,&#39;TT&#39;,&#39;TG&#39;,&#39;TC&#39;, </span>
+<span class="n">                 &#39;GA&#39;,&#39;GT&#39;,&#39;GG&#39;,&#39;GC&#39;, </span>
+<span class="n">                 &#39;CA&#39;,&#39;CT&#39;,&#39;CG&#39;,&#39;CT&#39;</span><span class="o">]</span><span class="w"> </span>
+<span class="n">all_counts</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="err">{}</span><span class="w"> </span>
+<span class="k">for</span><span class="w"> </span><span class="n">dinucleotide</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="nl">dinucleotides</span><span class="p">:</span><span class="w"> </span>
+<span class="w">    </span><span class="nf">count</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dna</span><span class="p">.</span><span class="nf">count</span><span class="p">(</span><span class="n">dinucleotide</span><span class="p">)</span><span class="w"> </span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="nf">count</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="err">:</span><span class="w"> </span>
+<span class="w">        </span><span class="n">all_counts</span><span class="o">[</span><span class="n">dinucleotide</span><span class="o">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">count</span><span class="w"> </span>
+<span class="k">print</span><span class="p">(</span><span class="n">all_counts</span><span class="p">)</span><span class="w"></span>
+</code></pre></div>
+
+<p>When we look at the output from the above code, we can see that the amount of data we're storing is much smaller – just the counts for the dinucleotides that actually occur in the sequence:</p>
+<blockquote>
+<p>{'AA': 2, 'AC': 2, 'CG': 1, 'AT': 2, 'GA': 3, 'TG': 2}</p>
+</blockquote>
+<p>Now we have a new problem to deal with. Looking up the count for a given dinucleotide works fine when the count is positive:</p>
+<div class="highlight"><pre><span></span><code>print(all_counts[&#39;TA&#39;])
+</code></pre></div>
+
+<p>But when the count is zero, the dinucleotide doesn't appear as a key in the dict:</p>
+<div class="highlight"><pre><span></span><code>print(all_counts[&#39;TC&#39;])
+</code></pre></div>
+
+<p>so we will get a <code>KeyError</code> when we try to look it up:</p>
+<blockquote>
+<p>KeyError: 'TC'</p>
+</blockquote>
+<p>There are two possible ways to fix this. We can check for the existence of a key in a dict (just like we can check for the existence of an element in a list), and only try to retrieve it once we know it exists:</p>
+<div class="highlight"><pre><span></span><code><span class="k">if</span> <span class="s1">&#39;</span><span class="s">TC</span><span class="s1">&#39;</span> <span class="nv">in</span> <span class="nv">all_counts</span>:
+    <span class="nv">print</span><span class="ss">(</span><span class="nv">all_counts</span><span class="ss">(</span><span class="s1">&#39;</span><span class="s">TC</span><span class="s1">&#39;</span><span class="ss">))</span>
+<span class="k">else</span>
+    <span class="nv">print</span><span class="ss">(</span><span class="mi">0</span><span class="ss">)</span>
+</code></pre></div>
+
+<p>Alternatively, we can use the dict's <code>get()</code> method. <code>get()</code> usually works just like using square brackets: the following two lines do exactly the same thing:</p>
+<div class="highlight"><pre><span></span><code>print(all_counts[&#39;TC&#39;])
+print(all_counts.get(&#39;TC&#39;))
+</code></pre></div>
+
+<p>The thing that makes <code>get()</code> really useful, however, is that it can take an optional second argument, which is the default value to be returned if the key isn't present in the dict. In this case, we know that if a given dinucleotide doesn't appear in the dict then its count is zero, so we can give zero as the default value and use <code>get()</code> to print out the count for any dinucleotide:</p>
+<div class="highlight"><pre><span></span><code><span class="nv">print</span><span class="ss">(</span><span class="s2">&quot;</span><span class="s">count for TG is </span><span class="s2">&quot;</span> <span class="o">+</span> <span class="nv">str</span><span class="ss">(</span><span class="nv">all_counts</span>.<span class="nv">get</span><span class="ss">(</span><span class="s1">&#39;</span><span class="s">TG</span><span class="s1">&#39;</span>, <span class="mi">0</span><span class="ss">)))</span> 
+<span class="nv">print</span><span class="ss">(</span><span class="s2">&quot;</span><span class="s">count for TT is </span><span class="s2">&quot;</span> <span class="o">+</span> <span class="nv">str</span><span class="ss">(</span><span class="nv">all_counts</span>.<span class="nv">get</span><span class="ss">(</span><span class="s1">&#39;</span><span class="s">TT</span><span class="s1">&#39;</span>, <span class="mi">0</span><span class="ss">)))</span>
+<span class="nv">print</span><span class="ss">(</span><span class="s2">&quot;</span><span class="s">count for GC is </span><span class="s2">&quot;</span> <span class="o">+</span> <span class="nv">str</span><span class="ss">(</span><span class="nv">all_counts</span>.<span class="nv">get</span><span class="ss">(</span><span class="s1">&#39;</span><span class="s">GC</span><span class="s1">&#39;</span>, <span class="mi">0</span><span class="ss">)))</span>
+<span class="nv">print</span><span class="ss">(</span><span class="s2">&quot;</span><span class="s">count for CG is </span><span class="s2">&quot;</span> <span class="o">+</span> <span class="nv">str</span><span class="ss">(</span><span class="nv">all_counts</span>.<span class="nv">get</span><span class="ss">(</span><span class="s1">&#39;</span><span class="s">CG</span><span class="s1">&#39;</span>, <span class="mi">0</span><span class="ss">)))</span>
+</code></pre></div>
+
+<p>As we can see from the output, we now don't have to worry about whether or not any given dinucleotide appears in the dict – <code>get()</code> takes care of everything and returns zero when appropriate:</p>
+<blockquote>
+<p>count for TG is 2
+count for TT is 0 
+count for GC is 0 
+count for CG is 1 </p>
+</blockquote>
+<p>More generally, assuming we have a dinucleotide string stored in the variable <code>dn</code>, we can run a line of code like this:</p>
+<div class="highlight"><pre><span></span><code><span class="nv">print</span><span class="ss">(</span><span class="s2">&quot;</span><span class="s">count for </span><span class="s2">&quot;</span> <span class="o">+</span> <span class="nv">dn</span> <span class="o">+</span> <span class="s2">&quot;</span><span class="s"> is </span><span class="s2">&quot;</span> <span class="o">+</span> <span class="nv">str</span><span class="ss">(</span><span class="nv">all_counts</span>.<span class="nv">get</span><span class="ss">(</span><span class="nv">dn</span>, <span class="mi">0</span><span class="ss">)))</span>
+</code></pre></div>
+
+<p>and be sure of getting the right answer.</p>
+<h2>Iterating over a dictionary</h2>
+<p>What if, instead of looking up a single item from a dictionary, we want to do something for all items? For example, imagine that we wanted to take our <code>all_counts</code> dict variable from the code above and print out all dinucleotides where the count was 2. One way to do it would be to iterate over the list of dinucleotides, looking up the count for each one and deciding whether or not to print it:</p>
+<div class="highlight"><pre><span></span><code><span class="k">for</span> <span class="nv">dinucleotide</span> <span class="nv">in</span> <span class="nv">dinucleotides</span>: 
+    <span class="k">if</span> <span class="nv">all_counts</span>.<span class="nv">get</span><span class="ss">(</span><span class="nv">dinucleotide</span>, <span class="mi">0</span><span class="ss">)</span> <span class="o">==</span> <span class="mi">2</span>: 
+        <span class="nv">print</span><span class="ss">(</span><span class="nv">dinucleotide</span><span class="ss">)</span>
+</code></pre></div>
+
+<p>As we can see from the output, this works perfectly well:</p>
+<blockquote>
+<p>AA 
+AT 
+AC 
+TG </p>
+</blockquote>
+<p>For this example, this approach works because we have a list of the dinucleotides already written as part of the program. Most of the time when we create a dict, however, we'll do it using some other method which doesn't require an explicit list of the keys. For example, here's a different way to generate a dict of dinucleotide counts which uses two nested <code>for</code> loops to enumerate all the possible dinucleotides:</p>
+<div class="highlight"><pre><span></span><code><span class="n">dna</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ss">&quot;AATGATGAACGAC&quot;</span><span class="w"> </span>
+<span class="n">bases</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">[</span><span class="n">&#39;A&#39;,&#39;T&#39;,&#39;G&#39;,&#39;C&#39;</span><span class="o">]</span><span class="w"> </span>
+<span class="n">all_counts</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="err">{}</span><span class="w"> </span>
+<span class="k">for</span><span class="w"> </span><span class="n">base1</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="nl">bases</span><span class="p">:</span><span class="w"> </span>
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="n">base2</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="nl">bases</span><span class="p">:</span><span class="w"> </span>
+<span class="w">        </span><span class="n">dinucleotide</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">base1</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">base2</span><span class="w"> </span>
+<span class="w">        </span><span class="nf">count</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dna</span><span class="p">.</span><span class="nf">count</span><span class="p">(</span><span class="n">dinucleotide</span><span class="p">)</span><span class="w"> </span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="nf">count</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="err">:</span><span class="w"> </span>
+<span class="w">            </span><span class="n">all_counts</span><span class="o">[</span><span class="n">dinucleotide</span><span class="o">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">count</span><span class="w"></span>
+</code></pre></div>
+
+<p>The resulting dict is just the same as in our previous examples, but because we haven't got a list of dinucleotides handy, we have to take a different approach to find all the dinucleotides where the count is two. Fortunately, the information we need – the list of dinucleotides that occur at least once – is stored in the dict as the keys.  </p>
+<h3>Iterating over keys</h3>
+<p>When used on a dict, the <code>keys()</code> method returns a list of all the keys in the dict:</p>
+<div class="highlight"><pre><span></span><code>print(all_counts.keys())
+</code></pre></div>
+
+<p>Looking at the output confirms that this is the list of dinucleotides we want to consider (remember that we're looking for dinucleotides with a count of two, so we don't need to consider ones that aren't in the dict as we already know that they have a count of zero):</p>
+<blockquote>
+<p>['AA', 'AC', 'CG', 'AT', 'GA', 'TG']</p>
+</blockquote>
+<p>To find all the dinucleotides that occur exactly twice in the DNA sequence we can take the output of <code>keys()</code> and iterate over it, keeping the body of the loop the same as before:</p>
+<div class="highlight"><pre><span></span><code><span class="k">for</span> <span class="nv">dinucleotide</span> <span class="nv">in</span> <span class="nv">all_counts</span>.<span class="nv">keys</span><span class="ss">()</span>:
+    <span class="k">if</span> <span class="nv">all_counts</span>.<span class="nv">get</span><span class="ss">(</span><span class="nv">dinucleotide</span><span class="ss">)</span> <span class="o">==</span> <span class="mi">2</span>:
+        <span class="nv">print</span><span class="ss">(</span><span class="nv">dinucleotide</span><span class="ss">)</span>
+</code></pre></div>
+
+<p>This version prints exactly the same set of dinucleotides as the approach that used our list:</p>
+<blockquote>
+<p>AA 
+AC 
+AT 
+TG </p>
+</blockquote>
+<p>Before we move on, take a moment to compare the output immediately above this paragraph with the output from the version that used the list from earlier in this section. You'll notice that while the set of dinucleotides is the same, the order in which they appear is different. This illustrates an important point about dicts – they are inherently unordered. That means that when we use the <code>keys()</code> method to iterate over a dict, we can't rely on processing the items in the same order that we added them. This is in contrast to lists, which always maintain the same order when looping. If we want to control the order in which keys are printed we can use the <code>sorted()</code> function to sort the list before processing it:</p>
+<div class="highlight"><pre><span></span><code><span class="k">for</span> <span class="nv">dinucleotide</span> <span class="nv">in</span> <span class="nv">sorted</span><span class="ss">(</span><span class="nv">all_counts</span>.<span class="nv">keys</span><span class="ss">())</span>:
+    <span class="k">if</span> <span class="nv">all_counts</span>.<span class="nv">get</span><span class="ss">(</span><span class="nv">dinucleotide</span><span class="ss">)</span> <span class="o">==</span> <span class="mi">2</span>:
+        <span class="nv">print</span><span class="ss">(</span><span class="nv">dinucleotide</span><span class="ss">)</span>
+</code></pre></div>
+
+<h3>Iterating over items</h3>
+<p>In the example code above, the first thing we need to do inside the loop is to look up the value for the current key. This is a very common pattern when iterating over dicts – so common, in fact, that Python has a special shorthand for it. Instead of doing this:</p>
+<div class="highlight"><pre><span></span><code><span class="k">for</span> <span class="nv">key</span> <span class="nv">in</span> <span class="nv">my_dict</span>.<span class="nv">keys</span><span class="ss">()</span>:
+    <span class="nv">value</span> <span class="o">=</span> <span class="nv">my_dict</span>.<span class="nv">get</span><span class="ss">(</span><span class="nv">key</span><span class="ss">)</span>
+    # <span class="k">do</span> <span class="nv">something</span> <span class="nv">with</span> <span class="nv">key</span> <span class="nv">and</span> <span class="nv">value</span>
+</code></pre></div>
+
+<p>We can use the <code>items()</code> method to iterate over pairs of data, rather than just keys:</p>
+<div class="highlight"><pre><span></span><code><span class="k">for</span> <span class="nv">key</span>, <span class="nv">value</span> <span class="nv">in</span> <span class="nv">my_dict</span>.<span class="nv">items</span><span class="ss">()</span>:
+    # <span class="k">do</span> <span class="nv">something</span> <span class="nv">with</span> <span class="nv">key</span> <span class="nv">and</span> <span class="nv">value</span>
+</code></pre></div>
+
+<p>The <code>items()</code> method does something slightly different from all the other methods we've seen so far in this book; rather than returning a single value, or a list of values, it returns a list of pairs of values. That's why we have to give two variable names at the start of the loop. Here's how we can use the <code>items()</code> method to process our dict of dinucleotide counts just like before:</p>
+<div class="highlight"><pre><span></span><code><span class="k">for</span> <span class="nv">dinucleotide</span>, <span class="nv">count</span> <span class="nv">in</span> <span class="nv">all_counts</span>.<span class="nv">items</span><span class="ss">()</span>:
+    <span class="k">if</span> <span class="nv">count</span> <span class="o">==</span> <span class="mi">2</span>:
+        <span class="nv">print</span><span class="ss">(</span><span class="nv">dinucleotide</span><span class="ss">)</span>
+</code></pre></div>
+
+<p>This method is generally preferred for iterating over items in a dict, as it is very readable. </p>
+<h3>Lookup vs. iteration</h3>
+<p>Before we finish this section; a word of warning: don't make the mistake of iterating over all the items in a dict in order to look up a single value. Imagine we want to look up the number of times the dinculeotide AT occurs in our example above. It's tempting to use the <code>items()</code> method  to write a loop that looks at each item in the dict until we find the one we're looking for:</p>
+<div class="highlight"><pre><span></span><code><span class="k">for</span> <span class="nv">dinucleotide</span>, <span class="nv">count</span> <span class="nv">in</span> <span class="nv">all_counts</span>.<span class="nv">items</span><span class="ss">()</span>:
+    <span class="k">if</span> <span class="nv">dinucleotide</span> <span class="o">==</span> <span class="s1">&#39;</span><span class="s">AT</span><span class="s1">&#39;</span>:
+        <span class="nv">print</span><span class="ss">(</span><span class="nv">count</span><span class="ss">)</span>
+</code></pre></div>
+
+<p>and this will work, but it's completely unnecessary (and slow). Instead, simply use the <code>get()</code> method to ask for the value associated with the key you want:</p>
+<div class="highlight"><pre><span></span><code>print(all_counts.get(&#39;AT&#39;))
+</code></pre></div>
+
+<h2>Recap</h2>
+<p>We started this section by examining the problem of storing paired data in Python. After looking at a couple of unsatisfactory ways to do it using tools that we've already learned about, we introduced a new type of data structure – the dict – which offers a much nicer solution to the problem of storing paired data. </p>
+<p>Later, we saw that the real benefit of using dicts is the efficient lookup they provide. We saw how to create dicts and manipulate the items in them, and several different ways to look up values for known keys. We also saw how to iterate over all the items in dictionary. </p>
+<p>In the process, we uncovered a few restrictions on what dicts are capable of – we're only allowed to use a couple of different data types for keys, they must be unique, and we can't rely on their order. Just as a physical dictionary allows us to rapidly look up the definition for a word but not the other way round, Python dictionaries allow us to rapidly look up the value associated with a key, but not the reverse.</p>
+<h2>Exercises</h2>
+<h3>DNA translation</h3>
+<p>Here's a dict which represents the genetic code – the keys are codons and the values are amino acid residues:</p>
+<div class="highlight"><pre><span></span><code>gencode = {
+    &#39;ATA&#39;:&#39;I&#39;, &#39;ATC&#39;:&#39;I&#39;, &#39;ATT&#39;:&#39;I&#39;, &#39;ATG&#39;:&#39;M&#39;,
+    &#39;ACA&#39;:&#39;T&#39;, &#39;ACC&#39;:&#39;T&#39;, &#39;ACG&#39;:&#39;T&#39;, &#39;ACT&#39;:&#39;T&#39;,
+    &#39;AAC&#39;:&#39;N&#39;, &#39;AAT&#39;:&#39;N&#39;, &#39;AAA&#39;:&#39;K&#39;, &#39;AAG&#39;:&#39;K&#39;,
+    &#39;AGC&#39;:&#39;S&#39;, &#39;AGT&#39;:&#39;S&#39;, &#39;AGA&#39;:&#39;R&#39;, &#39;AGG&#39;:&#39;R&#39;,
+    &#39;CTA&#39;:&#39;L&#39;, &#39;CTC&#39;:&#39;L&#39;, &#39;CTG&#39;:&#39;L&#39;, &#39;CTT&#39;:&#39;L&#39;,
+    &#39;CCA&#39;:&#39;P&#39;, &#39;CCC&#39;:&#39;P&#39;, &#39;CCG&#39;:&#39;P&#39;, &#39;CCT&#39;:&#39;P&#39;,
+    &#39;CAC&#39;:&#39;H&#39;, &#39;CAT&#39;:&#39;H&#39;, &#39;CAA&#39;:&#39;Q&#39;, &#39;CAG&#39;:&#39;Q&#39;,
+    &#39;CGA&#39;:&#39;R&#39;, &#39;CGC&#39;:&#39;R&#39;, &#39;CGG&#39;:&#39;R&#39;, &#39;CGT&#39;:&#39;R&#39;,
+    &#39;GTA&#39;:&#39;V&#39;, &#39;GTC&#39;:&#39;V&#39;, &#39;GTG&#39;:&#39;V&#39;, &#39;GTT&#39;:&#39;V&#39;,
+    &#39;GCA&#39;:&#39;A&#39;, &#39;GCC&#39;:&#39;A&#39;, &#39;GCG&#39;:&#39;A&#39;, &#39;GCT&#39;:&#39;A&#39;,
+    &#39;GAC&#39;:&#39;D&#39;, &#39;GAT&#39;:&#39;D&#39;, &#39;GAA&#39;:&#39;E&#39;, &#39;GAG&#39;:&#39;E&#39;,
+    &#39;GGA&#39;:&#39;G&#39;, &#39;GGC&#39;:&#39;G&#39;, &#39;GGG&#39;:&#39;G&#39;, &#39;GGT&#39;:&#39;G&#39;,
+    &#39;TCA&#39;:&#39;S&#39;, &#39;TCC&#39;:&#39;S&#39;, &#39;TCG&#39;:&#39;S&#39;, &#39;TCT&#39;:&#39;S&#39;,
+    &#39;TTC&#39;:&#39;F&#39;, &#39;TTT&#39;:&#39;F&#39;, &#39;TTA&#39;:&#39;L&#39;, &#39;TTG&#39;:&#39;L&#39;,
+    &#39;TAC&#39;:&#39;Y&#39;, &#39;TAT&#39;:&#39;Y&#39;, &#39;TAA&#39;:&#39;_&#39;, &#39;TAG&#39;:&#39;_&#39;,
+    &#39;TGC&#39;:&#39;C&#39;, &#39;TGT&#39;:&#39;C&#39;, &#39;TGA&#39;:&#39;_&#39;, &#39;TGG&#39;:&#39;W&#39;}
+</code></pre></div>
+
+<p>Copy and paste this chunk of code into a new program, then use this dict to write a program which will translate a DNA sequence into protein.  You'll have to figure out how to:</p>
+<ul>
+<li>split the DNA sequence into codons</li>
+<li>look up the amino acid residue for each codon</li>
+<li>join all the amino acids to give a protein</li>
+</ul>
+<p>Test your program on a couple of different inputs to see what happens. How does your program cope with a sequence whose length is not a multiple of 3? How does it cope with a sequence that contains unknown bases?</p>
+<h2>Solutions</h2>
+<p>You can find solutions to all the exercises, along with explanations of how they work, by signing up for the <a href="/python-for-biologists-online-course">online course</a>.</p>
+        </div>
+        <hr/>
+        <hr/>
+    </article>
+</div>
+        </div>
+<footer class="footer">
+   <div class="container bottom_border">
+   <ul class="foote_bottom_ul_amrc">
+    <h3 style="color:white;"  class="text-center">Sign up for the newsletter</h3>
+    <h5 style="color:white;"  class="text-center">Links to the best biological Python and bioinformatics content on the web, no spam.</h3>
+     <script async src="https://eomail5.com/form/fbc6d37e-0672-11ec-96e5-06b4694bee2a.js" data-form="fbc6d37e-0672-11ec-96e5-06b4694bee2a"></script>
+     </ul>
+   </div>
+   <div class="container">
+      <ul class="foote_bottom_ul_amrc">
+         <li><a href="/">HOME</a></li>
+         <li><a href="">ABOUT</a></li>
+         <li><a href="">ARCHIVE</a></li>
+      </ul>
+      <!--foote_bottom_ul_amrc ends here-->
+      <p class="text-center"></p>
+        
+          
+      </div>
+
+      <!--social_footer_ul ends here-->
+   </div>
+</footer>
+            <script type="text/javascript" src="https://mojones.github.io/pelican-p4b/theme/libs/jquery.min.js"></script>
+            <script type="text/javascript" src="https://mojones.github.io/pelican-p4b/theme/libs/bootstrap-4.2.1/dist/js/bootstrap.bundle.min.js"></script>
+
+        <script src="https://mojones.github.io/pelican-p4b/theme/libs/prism.js"></script>
+        <script src="https://mojones.github.io/pelican-p4b/theme/libs/Countable.js"></script>
+
+        <script>
+            Prism.plugins.NormalizeWhitespace.setDefaults({
+                'remove-trailing': true,
+                'remove-indent': true,
+                'left-trim': true,
+                'right-trim': true,
+                /*'break-lines': 80,
+                'indent': 2,
+                'remove-initial-line-feed': false,
+                'tabs-to-spaces': 4,
+                'spaces-to-tabs': 4*/
+            });
+        </script>
+
+
+        <script type="text/javascript" src="https://mojones.github.io/pelican-p4b/theme/js/custom.js"></script>
+            <script>
+                function validateForm(query)
+                {
+                    return (query.length > 0);
+                }
+            </script>
+    </body>
+</html>
+

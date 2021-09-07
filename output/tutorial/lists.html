@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+
+            <meta name="author" content="Martin" />
+
+
+
+                <meta property="og:type" content="article" />
+            <meta name="twitter:card" content="summary"/>
+
+        <meta name="keywords" content="python, tutorial, tutorial, "/>
+
+        <link rel="canonical" href="https://mojones.github.io/pelican-p4b/tutorial/lists.html">
+    <meta property="og:title" content="Python tutorial part four | Python for Biologists"/>
+    <meta property="og:url" content="https://mojones.github.io/pelican-p4b/tutorial/lists.html" />
+    <meta property="og:description" content="" />
+    <meta property="og:site_name" content="Python for Biologists" />
+    <meta property="og:article:author" content="Martin" />
+        <meta property="og:article:published_time" content="2010-12-03T10:20:00+01:00" />
+        <meta property="og:article:modified_time" content="2010-12-05T19:30:00+01:00" />
+    <meta name="twitter:title" content="Python tutorial part four | Python for Biologists">
+    <meta name="twitter:description" content="">
+
+
+        <title>    Python tutorial part four  | Python for Biologists
+</title>
+
+                <link rel="stylesheet" type="text/css" href="https://mojones.github.io/pelican-p4b/theme/libs/bootstrap-4.2.1/dist/css/bootstrap.min.css">
+                <link rel="stylesheet" type="text/css" href="https://mojones.github.io/pelican-p4b/theme/libs/fontawesome-free-5.2.0-web/css/all.min.css">
+            <link rel="stylesheet" type="text/css" href="https://mojones.github.io/pelican-p4b/theme/css/custom.css" media="screen">
+            <link rel="stylesheet" type="text/css" href="https://mojones.github.io/pelican-p4b/theme/css/ipynb.css" media="screen">
+
+            <style>
+                #progressBar::-webkit-progress-value {
+                    background-color: ;
+                }
+                #progressBar::-moz-progress-bar {
+                    background-color: ;
+                }
+            </style>
+
+        <link href="https://mojones.github.io/pelican-p4b/theme/libs/prism.css" rel="stylesheet" />
+<script type="text/x-mathjax-config">
+
+MathJax.Hub.Config({
+tex2jax: { inlineMath: [["$","$"],["\\(","\\)"]] },
+"HTML-CSS": {
+  linebreaks: { automatic: true, width: "container" }
+}
+});
+
+</script>
+<script type="text/javascript"
+  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+    </head>
+    <body>
+        <div class="banner-wrapper row" style="background-color: #24292e;">
+            <div class="banner">
+                <nav id="navbar" class="navbar navbar-expand-md navbar-light bg-light container">
+                    <div class="container navbar-title">
+                        <a href="/"><img id="banner-logo" src="https://mojones.github.io/pelican-p4b/images/logo.png" style="height: 40px; margin: 6px 0;"></a>
+                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                    </div>
+                <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent" style="margin-bottom: 6.5px;margin-top: 6.5px">
+                    <ul class="navbar-nav">
+                        <li class="nav-item active">
+                            <a class="nav-link rem_15" href="https://mojones.github.io/pelican-p4b/python-for-biologists-online-course">Learn&nbsp;Python</a>
+                        </li>
+                    </ul>
+                    <ul class="navbar-nav">
+                        <li class="nav-item active">
+                            <a class="nav-link rem_15" href="https://mojones.github.io/pelican-p4b/aboutcontact">About</a>
+                        </li>
+                    </ul>
+                    <ul class="navbar-nav">
+                        <li id="second-item" class="nav-item">
+                            <a class="nav-link rem_15" href="https://mojones.github.io/pelican-p4b/tutorial">Python&nbsp;tutorial</a>
+                        </li>
+                     </ul>
+                     
+                     <ul class="navbar-nav">
+                        <li id="second-item" class="nav-item">
+                            <a class="nav-link rem_15" href="https://mojones.github.io/pelican-p4b/training-courses">Training&nbsp;courses</a>
+                        </li>
+                     </ul>
+                     
+                       <ul class="navbar-nav">
+                        <li id="second-item" class="nav-item">
+                            <a class="nav-link rem_15" href="https://mojones.github.io/pelican-p4b/biological-data-exploration-book">Data&nbsp;exploration&nbsp;book</a>
+                        </li>
+                     </ul>
+                     
+                </div>
+                </nav>
+            </div>
+        </div>
+        <div id="wrap">
+<div id="post-container" class="container post index">
+    <article>
+        <header class="pop-over">
+            <h1>Python tutorial part four</h1>
+            <div class="row justify-content-between no-margin">
+                <h4 class="article-category">Category > <a class="article-category-link" href="https://mojones.github.io/pelican-p4b/">tutorial</a></h4>
+                <span class="article-date">Fri 03 December 2010</span>
+            </div>
+            <div class="meta meta-tag no-margin no-border">
+                <div>
+                        <a href="https://mojones.github.io/pelican-p4b/tag/python.html" class="tag">python</a>
+                        <a href="https://mojones.github.io/pelican-p4b/tag/tutorial.html" class="tag">tutorial</a>
+                </div>
+            </div>
+            
+        </header>
+        <div class="article_content">
+            
+            <h2>Why do we need lists and loops?</h2>
+<p>Think back over the examples that we've seen in the previous two pages – they've all involved dealing with one bit of information at a time. In the first section, we used string manipulation tools to process single sequences, and in the second section, we practised reading and writing files one at a time. </p>
+<p>If that's all that Python allowed us to do, it wouldn't be a very helpful tool for biology. In fact, there's a good chance that you're reading this website because you want to be able to write programs to help you deal with large datasets. A very common situation in biological research is to have a large collection of data (DNA sequences, SNP positions, gene expression measurements) that all need to be processed in the same way. In this section, we'll learn about the fundamental programming tools that will allow our programs to do this. </p>
+<p>So far we have learned about several different data types (strings, numbers, and file objects), all of which store a single bit of information. When we've needed to store multiple bits of information (for example, several DNA sequences) we have simply created more variables to hold them:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># set the values of all the sequence variables </span>
+<span class="n">seq_1</span> <span class="o">=</span> <span class="s2">&quot;ATCGTACGATCGATCGATCGCTAGACGTATCG&quot;</span> 
+<span class="n">seq_2</span> <span class="o">=</span> <span class="s2">&quot;actgatcgacgatcgatcgatcacgact&quot;</span> 
+<span class="n">seq_3</span> <span class="o">=</span> <span class="s2">&quot;ACTGAC-ACTGT—ACTGTA----CATGTG&quot;</span>
+</code></pre></div>
+
+<p>The limitations of this approach became clear quite quickly as we looked at the solution code – it only worked because the number of sequences were small, and we knew the number in advance. If we were to repeat the exercise with three hundred or three thousand sequences, the vast majority of the code would be given over to storing variables and it would become completely unmanageable.  And if we were to try and write a program that could process an unknown number of input sequences (for instance, by reading them from a file), we wouldn't be able to do it. To make our programs able to process multiple pieces of data, we need an entirely new type of structure which can hold many pieces of information at the same time – a <strong>list</strong>. </p>
+<p>We've also dealt exclusively with programs whose statements are executed from top to bottom in a very straightforward way. This has great advantages when first starting to think about programming – it makes it very easy to follow the flow of a program. The downside of this sequential style of programming, however, is that it leads to very redundant code - for instance, if we need to create three output files it will look like this:</p>
+<div class="highlight"><pre><span></span><code># make three files to hold the output 
+output_1 = open(header_1 + &quot;.fasta&quot;, &quot;w&quot;) 
+output_2 = open(header_2 + &quot;.fasta&quot;, &quot;w&quot;) 
+output_3 = open(header_3 + &quot;.fasta&quot;, &quot;w&quot;)
+</code></pre></div>
+
+<p>This only works if we knew in advance the number of output files we were going to need. Looking at the code, it's clear that these three lines consist of essentially the same statement being executed multiple times, with some slight variations. This idea of repetition-with-variation is incredibly common in programming problems, and Python has built in tools for expressing it – <strong>loops</strong>.</p>
+<h2>Creating lists and retrieving elements</h2>
+<p>To make a new list, we put several strings or numbers inside square brackets, separated by commas:</p>
+<div class="highlight"><pre><span></span><code>apes = [&quot;Homo sapiens&quot;, &quot;Pan troglodytes&quot;, &quot;Gorilla gorilla&quot;]
+conserved_sites = [24, 56, 132]
+</code></pre></div>
+
+<p>Each individual item in a list is called an <strong>element</strong>. To get a single element from the list, write the variable name followed by the index of the element you want in square brackets:</p>
+<div class="highlight"><pre><span></span><code>apes = [&quot;Homo sapiens&quot;, &quot;Pan troglodytes&quot;, &quot;Gorilla gorilla&quot;]
+conserved_sites = [24, 56, 132]
+print(apes[2])
+first_site = conserved_sites[2]
+</code></pre></div>
+
+<p>If we want to go in the other direction – i.e. we know which element we want but we don't know the index – we can use the <code>index()</code> method:</p>
+<div class="highlight"><pre><span></span><code>apes = [&quot;Homo sapiens&quot;, &quot;Pan troglodytes&quot;, &quot;Gorilla gorilla&quot;]
+chimp_index = apes.index(&quot;Pan troglodytes&quot;)
+# chimp_index is now 1
+</code></pre></div>
+
+<p>Remember that in Python we start counting from zero rather than one, so the first element of a list is always at index zero. If we give a negative number, Python starts counting from the end of the list rather than the beginning – so it's easy to get the last element from a list:</p>
+<div class="highlight"><pre><span></span><code>last_ape = apes[-1]
+</code></pre></div>
+
+<p>What if we want to get more than one element from a list? We can give a start and stop position, separated by a colon, to specify a range of elements:</p>
+<div class="highlight"><pre><span></span><code>ranks = [&quot;kingdom&quot;,&quot;phylum&quot;, &quot;class&quot;, &quot;order&quot;, &quot;family&quot;]
+lower_ranks = ranks[2:5]
+# lower ranks are class, order and family
+</code></pre></div>
+
+<p>Numbers are inclusive at the start and exclusive at the end. </p>
+<h3>Working with list elements</h3>
+<p>To add another element onto the end of an existing list, we can use the <code>append()</code> method:</p>
+<div class="highlight"><pre><span></span><code>apes = [&quot;Homo sapiens&quot;, &quot;Pan troglodytes&quot;, &quot;Gorilla gorilla&quot;]
+print(apes)
+apes.append(&quot;Pan paniscus&quot;)
+print(apes)
+</code></pre></div>
+
+<p><code>append()</code> is an interesting method because it actually changes the variable on which it's used – in the above example, the <code>apes</code> list goes from having three elements to having four:</p>
+<blockquote>
+<p>['Homo sapiens', 'Pan troglodytes', 'Gorilla gorilla'] 
+['Homo sapiens', 'Pan troglodytes', 'Gorilla gorilla', 'Pan paniscus'] </p>
+</blockquote>
+<p>We can get the length of a list by using the <code>len()</code> function, just like we did for strings:</p>
+<div class="highlight"><pre><span></span><code>apes = [&quot;Homo sapiens&quot;, &quot;Pan troglodytes&quot;, &quot;Gorilla gorilla&quot;]
+print(&quot;There are &quot; + str(len(apes)) + &quot; apes&quot;)
+apes.append(&quot;Pan paniscus&quot;)
+print(&quot;Now there are &quot; + str(len(apes)) + &quot; apes&quot;)
+</code></pre></div>
+
+<p>The output shows that the number of elements in <code>apes</code> really has changed:</p>
+<div class="highlight"><pre><span></span><code>There are 3 apes 
+Now there are 4 apes
+</code></pre></div>
+
+<p>We can concatenate two lists just as we did with strings, by using the plus symbol:</p>
+<div class="highlight"><pre><span></span><code>apes = [&quot;Homo sapiens&quot;, &quot;Pan troglodytes&quot;, &quot;Gorilla gorilla&quot;]
+monkeys = [&quot;Papio ursinus&quot;, &quot;Macaca mulatta&quot;]
+primates = apes + monkeys
+
+print(str(len(apes)) + &quot; apes&quot;)
+print(str(len(monkeys)) + &quot; monkeys&quot;)
+print(str(len(primates)) + &quot; primates&quot;)
+</code></pre></div>
+
+<p>As we can see from the output, this doesn't change either of the two original lists – it makes a brand new list which contains elements from both:</p>
+<blockquote>
+<p>3 apes 
+2 monkeys 
+5 primates </p>
+</blockquote>
+<p>If we want to add elements from a list onto the end of an existing list, changing it in the process, we can use the <code>extend()</code> method. <code>extend()</code> behaves like <code>append()</code> but takes a list as its argument rather than a single element. </p>
+<p>Here are two more list methods that change the variable they're used on: <code>reverse()</code> and <code>sort()</code>. Both <code>reverse()</code> and <code>sort()</code> work by changing the order of the elements in the list. If we want to print out a list to see how this works, we need to used <code>str()</code> (just as we did when printing out numbers):</p>
+<div class="highlight"><pre><span></span><code>ranks = [&quot;kingdom&quot;,&quot;phylum&quot;, &quot;class&quot;, &quot;order&quot;, &quot;family&quot;]
+print(&quot;at the start : &quot; + str(ranks))
+
+ranks.reverse()
+print(&quot;after reversing : &quot; + str(ranks))
+
+ranks.sort()
+print(&quot;after sorting : &quot; + str(ranks))
+</code></pre></div>
+
+<p>If we take a look at the output, we can see how the order of the elements in the list is changed by these two methods:</p>
+<blockquote>
+<p>at the start : ['kingdom', 'phylum', 'class', 'order', 'family'] 
+after reversing : ['family', 'order', 'class', 'phylum', 'kingdom'] 
+after sorting : ['class', 'family', 'kingdom', 'order', 'phylum'] </p>
+</blockquote>
+<p>By default, Python sorts strings in alphabetical order and numbers in ascending numerical order. </p>
+<h2>Writing a loop</h2>
+<p>Imagine we wanted to take our list of apes:</p>
+<div class="highlight"><pre><span></span><code>apes = [&quot;Homo sapiens&quot;, &quot;Pan troglodytes&quot;, &quot;Gorilla gorilla&quot;]
+</code></pre></div>
+
+<p>and print out each element on a separate line, like this:</p>
+<blockquote>
+<p>Homo sapiens is an ape
+Pan troglodytes is an ape
+Gorilla gorilla is an ape</p>
+</blockquote>
+<p>One way to do it would be to just print each element separately:</p>
+<div class="highlight"><pre><span></span><code>print(apes[0] + &quot; is an ape&quot;)
+print(apes[1] + &quot; is an ape&quot;)
+print(apes[2] + &quot; is an ape&quot;)
+</code></pre></div>
+
+<p>but this is very repetitive and relies on us knowing the number of elements in the list. What we need is a way to say something along the lines of </p>
+<p><em>For each element in the list of apes, print out the element, followed by the words "is an ape".</em> </p>
+<p>Python's loop syntax allows us to express those instructions like this:</p>
+<div class="highlight"><pre><span></span><code><span class="k">for</span> <span class="nv">ape</span> <span class="nv">in</span> <span class="nv">apes</span>:
+    <span class="nv">print</span><span class="ss">(</span><span class="nv">ape</span> <span class="o">+</span> <span class="s2">&quot;</span><span class="s"> is an ape</span><span class="s2">&quot;</span><span class="ss">)</span>
+</code></pre></div>
+
+<p>Let's take a moment to look at the different parts of this loop. We start by writing <code>for x in y</code>, where <code>y</code> is the name of the list we want to process and <code>x</code> is the name we want to use for the current element each time round the loop. </p>
+<p><code>x</code> is just a variable name (so it follows all the rules that we've already learned about variable names), but it behaves slightly differently to all the other variables we've seen so far. In all previous examples, we create a variable and store something in it, and then the value of that variable doesn't change unless we change it ourselves. In contrast, when we create a variable to be used in a loop, we don't set its value – the value of the variable will be automatically set to each element of the list in turn, and it will be different each time round the loop. </p>
+<p>This first line of the loop ends with a colon, and all the subsequent lines (just one, in this case) are indented. Indented lines can start with any number of tab or space characters, but they must all be indented in the same way. This pattern – a line which ends with a colon, followed by some indented lines – is very common in Python, and we'll see it in several more places throughout this book.  A group of indented lines is often called a <strong>block</strong> of code.</p>
+<p>In this case, we refer to the indented block as the <strong>body</strong> of the loop, and the lines inside it will be executed once for each element in the list. To refer to the current element, we use the variable name that we wrote in the first line. The body of the loop can contain as many lines as we like, and can include all the functions and methods that we've learned about, with one important exception: we're not allowed to change the list while inside the body of the loop. </p>
+<p>Here's an example of a loop with a more complicated body:</p>
+<div class="highlight"><pre><span></span><code><span class="nv">apes</span> <span class="o">=</span> [<span class="s2">&quot;</span><span class="s">Homo sapiens</span><span class="s2">&quot;</span>, <span class="s2">&quot;</span><span class="s">Pan troglodytes</span><span class="s2">&quot;</span>, <span class="s2">&quot;</span><span class="s">Gorilla gorilla</span><span class="s2">&quot;</span>]
+
+<span class="k">for</span> <span class="nv">ape</span> <span class="nv">in</span> <span class="nv">apes</span>:
+    <span class="nv">name_length</span> <span class="o">=</span> <span class="nv">len</span><span class="ss">(</span><span class="nv">ape</span><span class="ss">)</span>
+    <span class="nv">first_letter</span> <span class="o">=</span> <span class="nv">ape</span>[<span class="mi">0</span>]
+    <span class="nv">print</span><span class="ss">(</span><span class="nv">ape</span> <span class="o">+</span> <span class="s2">&quot;</span><span class="s"> is an ape. Its name starts with </span><span class="s2">&quot;</span> <span class="o">+</span> <span class="nv">first_letter</span><span class="ss">)</span>
+    <span class="nv">print</span><span class="ss">(</span><span class="s2">&quot;</span><span class="s">Its name has </span><span class="s2">&quot;</span> <span class="o">+</span> <span class="nv">str</span><span class="ss">(</span><span class="nv">name_length</span><span class="ss">)</span> <span class="o">+</span> <span class="s2">&quot;</span><span class="s"> letters</span><span class="s2">&quot;</span><span class="ss">)</span>
+</code></pre></div>
+
+<p>The body of the loop in the code above has four statements, two of which are <code>print()</code> statements, so each time round the loop we'll get two lines of output. If we look at the output we can see all six lines:</p>
+<blockquote>
+<p>Homo sapiens is an ape. Its name starts with H
+Its name has 12 letters 
+Pan troglodytes is an ape. Its name starts with P
+Its name has 15 letters 
+Gorilla gorilla is an ape. Its name starts with G
+Its name has 15 letters </p>
+</blockquote>
+<p>Why is the above approach better than printing out these six lines in six separate statements? Well, for one thing, there's much less redundancy – here we only needed to write two <code>print()</code> statements. This also means that if we need to make a change to the code, we only have to make it once rather than three separate times. Another benefit of using a loop here is that if we want to add some elements to the list, we don't have to touch the loop code at all. Consequently, it doesn't matter how many elements are in the list, and it's not a problem if we don't know how many are going to be in it at the time when we write the code.</p>
+<h3>Indentation errors</h3>
+<p>Unfortunately, introducing tools like loops that require an indented block of code also introduces the possibility of a new type of error – an <code>IndentationError</code>. Notice what happens when the indentation of one of the lines in the block does not match the others❶:</p>
+<div class="highlight"><pre><span></span><code><span class="nv">apes</span> <span class="o">=</span> [<span class="s2">&quot;</span><span class="s">Homo sapiens</span><span class="s2">&quot;</span>, <span class="s2">&quot;</span><span class="s">Pan troglodytes</span><span class="s2">&quot;</span>, <span class="s2">&quot;</span><span class="s">Gorilla gorilla</span><span class="s2">&quot;</span>]
+
+<span class="k">for</span> <span class="nv">ape</span> <span class="nv">in</span> <span class="nv">apes</span>:
+    <span class="nv">name_length</span> <span class="o">=</span> <span class="nv">len</span><span class="ss">(</span><span class="nv">ape</span><span class="ss">)</span>
+  <span class="nv">first_letter</span> <span class="o">=</span> <span class="nv">ape</span>[<span class="mi">0</span>]❶
+    <span class="nv">print</span><span class="ss">(</span><span class="nv">ape</span> <span class="o">+</span> <span class="s2">&quot;</span><span class="s"> is an ape. Its name starts with </span><span class="s2">&quot;</span> <span class="o">+</span> <span class="nv">first_letter</span><span class="ss">)</span>
+    <span class="nv">print</span><span class="ss">(</span><span class="s2">&quot;</span><span class="s">Its name has </span><span class="s2">&quot;</span> <span class="o">+</span> <span class="nv">str</span><span class="ss">(</span><span class="nv">name_length</span><span class="ss">)</span> <span class="o">+</span> <span class="s2">&quot;</span><span class="s"> letters</span><span class="s2">&quot;</span><span class="ss">)</span>
+</code></pre></div>
+
+<p>When we run this code, we get an error message before the program even starts to run:</p>
+<blockquote>
+<p>IndentationError: unindent does not match any outer indentation level</p>
+</blockquote>
+<p>When you encounter an <code>IndentationError</code>, go back to your code and check that all the lines in the block match up. Also check that you are using either tabs or spaces for indentation, not both. The easiest way to do this, as mentioned at the start of this course, is to enable tab emulation in your text editor.</p>
+<h2>Using a string as a list</h2>
+<p>We've already seen how a string can pretend to be a list – we can use list index notation to get individual characters or substrings from inside a string. Can we also use loop notation to process a string as though it were a list? Yes – if we write a loop statement with a string in the position where we'd normally find a list, Python treats each character in the string as a separate element. This allows us to very easily process a string one character at a time:</p>
+<div class="highlight"><pre><span></span><code><span class="nv">name</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="s">python</span><span class="s2">&quot;</span>
+<span class="k">for</span> <span class="nv">character</span> <span class="nv">in</span> <span class="nv">name</span>:
+    <span class="nv">print</span><span class="ss">(</span><span class="s2">&quot;</span><span class="s">one character is </span><span class="s2">&quot;</span> <span class="o">+</span> <span class="nv">character</span><span class="ss">)</span>
+</code></pre></div>
+
+<p>In this case, we're just printing each individual character:</p>
+<blockquote>
+<p>one character is p
+one character is y 
+one character is t 
+one character is h 
+one character is o 
+one character is n </p>
+</blockquote>
+<p>The process of repeating a set of instructions for each element of a list (or character in a string) is called <strong>iteration</strong>, and we often talk about <strong>iterating over</strong> a list or string. </p>
+<h3>Splitting a string to make a list</h3>
+<p>So far in this chapter, all our lists have been written manually. However, there are plenty of functions and methods in Python that produce lists as their output. One such method that is particularly interesting to biologists is the <code>split()</code> method which works on strings. <code>split()</code> takes a single argument, called the <strong>delimiter</strong>, and splits the original string wherever it sees the delimiter, producing a list. Here's an example:</p>
+<div class="highlight"><pre><span></span><code>names = &quot;melanogaster,simulans,yakuba,ananassae&quot;
+species = names.split(&quot;,&quot;)
+print(str(species))
+</code></pre></div>
+
+<p>We can see from the output that the string has been split wherever there was a comma leaving us with a list of strings:</p>
+<p>['melanogaster', 'simulans', 'yakuba', 'ananassae']</p>
+<p>Of course, once we've created a list in this way we can iterate over it using a loop, just like any other list.</p>
+<h3>Iterating over lines in a file</h3>
+<p>Another very useful thing that we can iterate over is a file. Just as a string can pretend to be a list for the purposes of looping, a file object can do the same trick. When we treat a string as a list, each character becomes an individual element, but when we treat a file as a list, each line becomes an individual element. This makes processing a file line by line very easy:</p>
+<div class="highlight"><pre><span></span><code><span class="nv">file</span> <span class="o">=</span> <span class="nv">open</span><span class="ss">(</span><span class="s2">&quot;</span><span class="s">some_input.txt</span><span class="s2">&quot;</span><span class="ss">)</span>
+<span class="k">for</span> <span class="nv">line</span> <span class="nv">in</span> <span class="nv">file</span>:
+    # <span class="k">do</span> <span class="nv">something</span> <span class="nv">with</span> <span class="nv">the</span> <span class="nv">line</span>
+</code></pre></div>
+
+<p>Notice that in this example we are iterating over the file object, not over the file contents. If we iterate over the file contents like this:</p>
+<div class="highlight"><pre><span></span><code><span class="nv">file</span> <span class="o">=</span> <span class="nv">open</span><span class="ss">(</span><span class="s2">&quot;</span><span class="s">some_input.txt</span><span class="s2">&quot;</span><span class="ss">)</span>
+<span class="nv">contents</span> <span class="o">=</span> <span class="nv">file</span>.<span class="nv">read</span><span class="ss">()</span>
+<span class="k">for</span> <span class="nv">line</span> <span class="nv">in</span> <span class="nv">contents</span>:
+    # <span class="nv">warning</span>: <span class="nv">line</span> <span class="nv">contains</span> <span class="nv">just</span> <span class="nv">a</span> <span class="nv">single</span> <span class="nv">character</span><span class="o">!</span>
+</code></pre></div>
+
+<p>then each time round the loop we will be dealing with a single character, which is probably not what we want. A good way to avoid this mistake is to ask yourself, whenever you open a file, whether you want to get the contents as one big string (in which case you should use <code>read()</code>) or line-by-line (in which case you should iterate over the file object).</p>
+<p>Another common pitfall is to iterate over the same file object twice:</p>
+<div class="highlight"><pre><span></span><code><span class="nv">file</span> <span class="o">=</span> <span class="nv">open</span><span class="ss">(</span><span class="s2">&quot;</span><span class="s">some_input.txt</span><span class="s2">&quot;</span><span class="ss">)</span>
+
+# <span class="nv">print</span> <span class="nv">the</span> <span class="nv">length</span> <span class="nv">of</span> <span class="nv">each</span> <span class="nv">line</span>
+<span class="k">for</span> <span class="nv">line</span> <span class="nv">in</span> <span class="nv">file</span>:
+    <span class="nv">print</span><span class="ss">(</span><span class="s2">&quot;</span><span class="s">The length is </span><span class="s2">&quot;</span> <span class="o">+</span> <span class="nv">str</span><span class="ss">(</span><span class="nv">len</span><span class="ss">(</span><span class="nv">line</span><span class="ss">)))</span>
+
+# <span class="nv">print</span> <span class="nv">the</span> <span class="nv">first</span> <span class="nv">character</span> <span class="nv">of</span> <span class="nv">each</span> <span class="nv">line</span>
+<span class="k">for</span> <span class="nv">line</span> <span class="nv">in</span> <span class="nv">file</span>:
+    <span class="nv">print</span><span class="ss">(</span><span class="s2">&quot;</span><span class="s">The first character is </span><span class="s2">&quot;</span> <span class="o">+</span> <span class="nv">line</span>[<span class="mi">2</span>]<span class="ss">)</span>
+</code></pre></div>
+
+<p>If we run this code, we'll find that the second <code>for</code> loop never gets executed. The reason for this is that file objects are <strong>exhaustible</strong>. Once we have iterated over a file object, Python "remembers" that it is already at the end of the file, so when we try to iterate over it again, there are no lines remaining to be read. One way round this problem is to close and reopen the file each time we want to iterate over it:</p>
+<div class="highlight"><pre><span></span><code># <span class="nv">print</span> <span class="nv">the</span> <span class="nv">length</span> <span class="nv">of</span> <span class="nv">each</span> <span class="nv">line</span>
+<span class="nv">file</span> <span class="o">=</span> <span class="nv">open</span><span class="ss">(</span><span class="s2">&quot;</span><span class="s">some_input.txt</span><span class="s2">&quot;</span><span class="ss">)</span>
+<span class="k">for</span> <span class="nv">line</span> <span class="nv">in</span> <span class="nv">file</span>:
+    <span class="nv">print</span><span class="ss">(</span><span class="s2">&quot;</span><span class="s">The length is </span><span class="s2">&quot;</span> <span class="o">+</span> <span class="nv">str</span><span class="ss">(</span><span class="nv">len</span><span class="ss">(</span><span class="nv">line</span><span class="ss">)))</span>
+<span class="nv">file</span>.<span class="nv">close</span><span class="ss">()</span>
+
+# <span class="nv">print</span> <span class="nv">the</span> <span class="nv">first</span> <span class="nv">character</span> <span class="nv">of</span> <span class="nv">each</span> <span class="nv">line</span>
+<span class="nv">file</span> <span class="o">=</span> <span class="nv">open</span><span class="ss">(</span><span class="s2">&quot;</span><span class="s">some_input.txt</span><span class="s2">&quot;</span><span class="ss">)</span>
+<span class="k">for</span> <span class="nv">line</span> <span class="nv">in</span> <span class="nv">file</span>:
+    <span class="nv">print</span><span class="ss">(</span><span class="s2">&quot;</span><span class="s">The first character is </span><span class="s2">&quot;</span> <span class="o">+</span> <span class="nv">line</span>[<span class="mi">2</span>]<span class="ss">)</span>
+<span class="nv">file</span>.<span class="nv">close</span><span class="ss">()</span>
+</code></pre></div>
+
+<p>A better approach is to read the lines of the file into a list, then iterate over the list (which we can safely do multiple times). The file object <code>readlines()</code> method returns a list of all the lines in a file, and we can use it like this:</p>
+<div class="highlight"><pre><span></span><code># <span class="nv">first</span> <span class="nv">store</span> <span class="nv">a</span> <span class="nv">list</span> <span class="nv">of</span> <span class="nv">lines</span> <span class="nv">in</span> <span class="nv">the</span> <span class="nv">file</span>
+<span class="nv">file</span> <span class="o">=</span> <span class="nv">open</span><span class="ss">(</span><span class="s2">&quot;</span><span class="s">some_input.txt</span><span class="s2">&quot;</span><span class="ss">)</span>
+<span class="nv">all_lines</span> <span class="o">=</span> <span class="nv">file</span>.<span class="nv">readlines</span><span class="ss">()</span>
+
+# <span class="nv">print</span> <span class="nv">the</span> <span class="nv">lengths</span>
+<span class="k">for</span> <span class="nv">line</span> <span class="nv">in</span> <span class="nv">all_lines</span>:
+    <span class="nv">print</span><span class="ss">(</span><span class="s2">&quot;</span><span class="s">The length is </span><span class="s2">&quot;</span> <span class="o">+</span> <span class="nv">str</span><span class="ss">(</span><span class="nv">len</span><span class="ss">(</span><span class="nv">line</span><span class="ss">)))</span>
+
+# <span class="nv">print</span> <span class="nv">the</span> <span class="nv">first</span> <span class="nv">characters</span>
+<span class="k">for</span> <span class="nv">line</span> <span class="nv">in</span> <span class="nv">all_lines</span>:
+    <span class="nv">print</span><span class="ss">(</span><span class="s2">&quot;</span><span class="s">The first character is </span><span class="s2">&quot;</span> <span class="o">+</span> <span class="nv">line</span>[<span class="mi">2</span>]<span class="ss">)</span>
+</code></pre></div>
+
+<h3>Looping with ranges</h3>
+<p>Sometimes we want to iterate over a list of numbers. Imagine we have a protein sequence:</p>
+<div class="highlight"><pre><span></span><code>protein = &quot;vlspadktnv&quot;
+</code></pre></div>
+
+<p>and we want to print out the first three residues, then the first four residues, etc. etc.:</p>
+<blockquote>
+<p>vls
+vlsp
+vlspa
+vlspad
+...etc...</p>
+</blockquote>
+<p>We can use the substring notation that we learned on the previous page to extract the bit of the name we want to print. If we try writing it without a loop, then we get very repetitive code:</p>
+<div class="highlight"><pre><span></span><code>print(protein[0:1])
+print(protein[0:2])
+print(protein[0:3])
+...
+</code></pre></div>
+
+<p>Looking at this code, the structure of the problem becomes clear: each time we print out a line, the end position of the substring needs to increase by one. Obviously we need a loop to do this, but what are we going to iterate over? We can't just iterate over the protein string, because that will give us individual residues, which is not what we want. We can manually assemble a list of stop positions, and iterate over that:</p>
+<div class="highlight"><pre><span></span><code><span class="nv">stop_positions</span> <span class="o">=</span> [<span class="mi">3</span>,<span class="mi">4</span>,<span class="mi">5</span>,<span class="mi">6</span>,<span class="mi">7</span>,<span class="mi">8</span>,<span class="mi">9</span>,<span class="mi">10</span>]
+<span class="k">for</span> <span class="nv">stop</span> <span class="nv">in</span> <span class="nv">stop_positions</span>:
+    <span class="nv">substring</span> <span class="o">=</span> <span class="nv">protein</span>[<span class="mi">0</span>:<span class="nv">stop</span>]
+    <span class="nv">print</span><span class="ss">(</span><span class="nv">substring</span><span class="ss">)</span>
+</code></pre></div>
+
+<p>but this seems cumbersome, and only works if we know the length of the protein sequence in advance. 
+A better solution is to use the <code>range()</code> function. <code>range()</code> is a built in Python function that generates lists of numbers. The behaviour of <code>range()</code> depends on how many arguments we give it. Below are a few examples, with the output following directly after the code. </p>
+<p>With a single argument, <code>range()</code> will count up from zero to that number, excluding the number itself: </p>
+<div class="highlight"><pre><span></span><code><span class="k">for</span> <span class="nv">number</span> <span class="nv">in</span> <span class="nv">range</span><span class="ss">(</span><span class="mi">6</span><span class="ss">)</span>:
+    <span class="nv">print</span><span class="ss">(</span><span class="nv">number</span><span class="ss">)</span>
+</code></pre></div>
+
+<blockquote>
+<p>0
+1
+2
+3
+4
+5</p>
+</blockquote>
+<p>With two numbers, <code>range()</code> will count up from the first number (inclusive) to the second (exclusive):</p>
+<div class="highlight"><pre><span></span><code><span class="k">for</span> <span class="nv">number</span> <span class="nv">in</span> <span class="nv">range</span><span class="ss">(</span><span class="mi">3</span>, <span class="mi">8</span><span class="ss">)</span>:
+    <span class="nv">print</span><span class="ss">(</span><span class="nv">number</span><span class="ss">)</span>
+</code></pre></div>
+
+<blockquote>
+<p>3
+4
+5
+6
+7</p>
+</blockquote>
+<p>With three numbers, <code>range()</code> will count up from the first to the second with the step size given by the third:</p>
+<div class="highlight"><pre><span></span><code><span class="k">for</span> <span class="nv">number</span> <span class="nv">in</span> <span class="nv">range</span><span class="ss">(</span><span class="mi">2</span>, <span class="mi">14</span>, <span class="mi">4</span><span class="ss">)</span>:
+    <span class="nv">print</span><span class="ss">(</span><span class="nv">number</span><span class="ss">)</span>
+</code></pre></div>
+
+<blockquote>
+<p>2
+6
+10</p>
+</blockquote>
+<h2>Recap</h2>
+<p>In this section we've seen several tools that work together to allow our programs to deal elegantly with multiple pieces of data. Lists let us store many elements in a single variable, and loops let us process those elements one by one. In learning about loops, we've also been introduced to the block syntax and the importance of indentation in Python.</p>
+<p>We've also seen several useful ways in which we can use the notation we've learned for working with lists with other types of data. Depending on the circumstances, we can treat strings, files, and ranges as if they were lists. This is a very helpful feature of Python, because once we've become familiar with the syntax for working with lists, we can use it in many different place. Learning about these tools has also helped us make sense of some interesting behaviour that we observed in earlier sections. </p>
+<p>Lists are the first example we've encountered of structures that can hold multiple pieces of data. We'll encounter another such structure – the dict – in a future sectino. In fact, Python has several more such data types – you'll find a full survey of them in the chapter on complex data structures in Advanced Python for Biologists (which you can find <a href="/python-books">on the books page</a>). </p>
+<h2>Exercises</h2>
+<p>Both of these exercises require input files; <a href="/s/lists_and_loops_exercise_files.zip">click here to download them</a>. Remember, you can always find solutions and explanations for all the exercises in the Python for Biologists books. </p>
+<h3>Processing DNA in a file</h3>
+<p>The file <em>input.txt</em> contains a number of DNA sequences, one per line. Each sequence starts with the same 14 base pair fragment – a sequencing adapter that should have been removed. Write a program that will (a) trim this adapter and write the cleaned sequences to a new file and (b) print the length of each sequence to the screen. </p>
+<h3>Multiple exons from genomic DNA</h3>
+<p>The file <em>genomic_dna.txt</em> contains a section of genomic DNA, and the file exons.txt contains a list of start/stop positions of exons. Each exon is on a separate line and the start and stop positions are separated by a comma. The start and stop positions follow Python conventions; they start from zero and are inclusive at the start and exclusive at the end. Write a program that will extract the exon segments, concatenate them, and write them to a new file.</p>
+<p>This is a tricky exercise with several parts: your program will have to:
+- read the exon file line by line
+- split each exon line into two numbers
+- turn those numbers into integers
+- extract the matching part of the genomic DNA sequence
+- concatenate all the exon sequences together</p>
+<h2>SOLUTIONS</h2>
+<p>You can find solutions to all the exercises, along with explanations of how they work, by signing up for the <a href="/python-for-biologists-online-course">online course</a>.</p>
+        </div>
+        <hr/>
+        <hr/>
+    </article>
+</div>
+        </div>
+<footer class="footer">
+   <div class="container bottom_border">
+   <ul class="foote_bottom_ul_amrc">
+    <h3 style="color:white;"  class="text-center">Sign up for the newsletter</h3>
+    <h5 style="color:white;"  class="text-center">Links to the best biological Python and bioinformatics content on the web, no spam.</h3>
+     <script async src="https://eomail5.com/form/fbc6d37e-0672-11ec-96e5-06b4694bee2a.js" data-form="fbc6d37e-0672-11ec-96e5-06b4694bee2a"></script>
+     </ul>
+   </div>
+   <div class="container">
+      <ul class="foote_bottom_ul_amrc">
+         <li><a href="/">HOME</a></li>
+         <li><a href="">ABOUT</a></li>
+         <li><a href="">ARCHIVE</a></li>
+      </ul>
+      <!--foote_bottom_ul_amrc ends here-->
+      <p class="text-center"></p>
+        
+          
+      </div>
+
+      <!--social_footer_ul ends here-->
+   </div>
+</footer>
+            <script type="text/javascript" src="https://mojones.github.io/pelican-p4b/theme/libs/jquery.min.js"></script>
+            <script type="text/javascript" src="https://mojones.github.io/pelican-p4b/theme/libs/bootstrap-4.2.1/dist/js/bootstrap.bundle.min.js"></script>
+
+        <script src="https://mojones.github.io/pelican-p4b/theme/libs/prism.js"></script>
+        <script src="https://mojones.github.io/pelican-p4b/theme/libs/Countable.js"></script>
+
+        <script>
+            Prism.plugins.NormalizeWhitespace.setDefaults({
+                'remove-trailing': true,
+                'remove-indent': true,
+                'left-trim': true,
+                'right-trim': true,
+                /*'break-lines': 80,
+                'indent': 2,
+                'remove-initial-line-feed': false,
+                'tabs-to-spaces': 4,
+                'spaces-to-tabs': 4*/
+            });
+        </script>
+
+
+        <script type="text/javascript" src="https://mojones.github.io/pelican-p4b/theme/js/custom.js"></script>
+            <script>
+                function validateForm(query)
+                {
+                    return (query.length > 0);
+                }
+            </script>
+    </body>
+</html>
+

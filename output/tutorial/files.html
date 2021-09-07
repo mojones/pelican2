@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+
+            <meta name="author" content="Martin" />
+
+
+
+                <meta property="og:type" content="article" />
+            <meta name="twitter:card" content="summary"/>
+
+        <meta name="keywords" content="python, tutorial, tutorial, "/>
+
+        <link rel="canonical" href="https://mojones.github.io/pelican-p4b/tutorial/files.html">
+    <meta property="og:title" content="Python tutorial part three | Python for Biologists"/>
+    <meta property="og:url" content="https://mojones.github.io/pelican-p4b/tutorial/files.html" />
+    <meta property="og:description" content="" />
+    <meta property="og:site_name" content="Python for Biologists" />
+    <meta property="og:article:author" content="Martin" />
+        <meta property="og:article:published_time" content="2010-12-03T10:20:00+01:00" />
+        <meta property="og:article:modified_time" content="2010-12-05T19:30:00+01:00" />
+    <meta name="twitter:title" content="Python tutorial part three | Python for Biologists">
+    <meta name="twitter:description" content="">
+
+
+        <title>    Python tutorial part three  | Python for Biologists
+</title>
+
+                <link rel="stylesheet" type="text/css" href="https://mojones.github.io/pelican-p4b/theme/libs/bootstrap-4.2.1/dist/css/bootstrap.min.css">
+                <link rel="stylesheet" type="text/css" href="https://mojones.github.io/pelican-p4b/theme/libs/fontawesome-free-5.2.0-web/css/all.min.css">
+            <link rel="stylesheet" type="text/css" href="https://mojones.github.io/pelican-p4b/theme/css/custom.css" media="screen">
+            <link rel="stylesheet" type="text/css" href="https://mojones.github.io/pelican-p4b/theme/css/ipynb.css" media="screen">
+
+            <style>
+                #progressBar::-webkit-progress-value {
+                    background-color: ;
+                }
+                #progressBar::-moz-progress-bar {
+                    background-color: ;
+                }
+            </style>
+
+        <link href="https://mojones.github.io/pelican-p4b/theme/libs/prism.css" rel="stylesheet" />
+<script type="text/x-mathjax-config">
+
+MathJax.Hub.Config({
+tex2jax: { inlineMath: [["$","$"],["\\(","\\)"]] },
+"HTML-CSS": {
+  linebreaks: { automatic: true, width: "container" }
+}
+});
+
+</script>
+<script type="text/javascript"
+  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+    </head>
+    <body>
+        <div class="banner-wrapper row" style="background-color: #24292e;">
+            <div class="banner">
+                <nav id="navbar" class="navbar navbar-expand-md navbar-light bg-light container">
+                    <div class="container navbar-title">
+                        <a href="/"><img id="banner-logo" src="https://mojones.github.io/pelican-p4b/images/logo.png" style="height: 40px; margin: 6px 0;"></a>
+                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                    </div>
+                <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent" style="margin-bottom: 6.5px;margin-top: 6.5px">
+                    <ul class="navbar-nav">
+                        <li class="nav-item active">
+                            <a class="nav-link rem_15" href="https://mojones.github.io/pelican-p4b/python-for-biologists-online-course">Learn&nbsp;Python</a>
+                        </li>
+                    </ul>
+                    <ul class="navbar-nav">
+                        <li class="nav-item active">
+                            <a class="nav-link rem_15" href="https://mojones.github.io/pelican-p4b/aboutcontact">About</a>
+                        </li>
+                    </ul>
+                    <ul class="navbar-nav">
+                        <li id="second-item" class="nav-item">
+                            <a class="nav-link rem_15" href="https://mojones.github.io/pelican-p4b/tutorial">Python&nbsp;tutorial</a>
+                        </li>
+                     </ul>
+                     
+                     <ul class="navbar-nav">
+                        <li id="second-item" class="nav-item">
+                            <a class="nav-link rem_15" href="https://mojones.github.io/pelican-p4b/training-courses">Training&nbsp;courses</a>
+                        </li>
+                     </ul>
+                     
+                       <ul class="navbar-nav">
+                        <li id="second-item" class="nav-item">
+                            <a class="nav-link rem_15" href="https://mojones.github.io/pelican-p4b/biological-data-exploration-book">Data&nbsp;exploration&nbsp;book</a>
+                        </li>
+                     </ul>
+                     
+                </div>
+                </nav>
+            </div>
+        </div>
+        <div id="wrap">
+<div id="post-container" class="container post index">
+    <article>
+        <header class="pop-over">
+            <h1>Python tutorial part three</h1>
+            <div class="row justify-content-between no-margin">
+                <h4 class="article-category">Category > <a class="article-category-link" href="https://mojones.github.io/pelican-p4b/">tutorial</a></h4>
+                <span class="article-date">Fri 03 December 2010</span>
+            </div>
+            <div class="meta meta-tag no-margin no-border">
+                <div>
+                        <a href="https://mojones.github.io/pelican-p4b/tag/python.html" class="tag">python</a>
+                        <a href="https://mojones.github.io/pelican-p4b/tag/tutorial.html" class="tag">tutorial</a>
+                </div>
+            </div>
+            
+        </header>
+        <div class="article_content">
+            
+            <h2>Why are we so interested in working with files?</h2>
+<p>As we start this section, we find ourselves once again doing things in a slightly different order to most programming books. The majority of introductory programming books won't consider working with external files until much further along, so why are we introducing it now?</p>
+<p>The answer, as was the case in the last section, lies in the particular jobs that we want to use Python for. The data that we as biologists work with is stored in files, so if we're going to write useful programs we need a way to get the data out of files and into our programs (and vice versa). Writing a DNA sequence directly into a program each time we want to use it is not a very good approach to take, and you'd be right. Also, it seems inelegant to have the data we want to work on mixed up with the code that manipulates it. In this section we'll see a better way to do it.</p>
+<p>We're lucky in biology in that many of the types of data that we work with are stored in text files which are relatively simple to process using Python. Chief among these, of course, are DNA and protein sequence data, which can be stored in a variety of formats. But there are many other types of data – sequencing reads, quality scores, SNPs, phylogenetic trees, read maps, geographical sample data, genetic distance matrices – which we can access from within our Python programs. </p>
+<p>Another reason for our interest in file input/output is the need for our Python programs to work as part of a pipeline or work flow involving other, existing tools. When it comes to using Python in the real world, we often want Python to either accept data from, or provide data to, another program. Often the easiest way to do this is to have Python read, or write, files in a format that the other program already understands. </p>
+<h2>Reading text from a file</h2>
+<p>Firstly, a quick note about what we mean by text. In programming, when we talk about text files, we are not necessarily talking about something that is human readable. Rather, we are talking about a file that contains characters and lines – something that you could open and view in a text editor, regardless of whether you could actually make sense of the file or not. Examples of text files which you might have encountered include:</p>
+<ul>
+<li>FASTA files of DNA or protein sequences</li>
+<li>files containing output from command-line programs (e.g. BLAST)</li>
+<li>FASTQ files containing DNA sequencing reads</li>
+<li>HTML files</li>
+<li>and of course, Python code itself</li>
+</ul>
+<p>In contrast, most files that you encounter day-to-day will be binary files – ones which are not made up of characters and lines, but of bytes. Examples include:</p>
+<ul>
+<li>image files (JPEGs and PNGs)</li>
+<li>audio files</li>
+<li>video files</li>
+<li>compressed files (e.g. ZIP files) </li>
+</ul>
+<p>If you're not sure whether a particular file is text or binary, there's a very simple way to tell – just open it up in a text editor. If the file displays without any problem, then it's text (regardless of whether you can make sense of it or not). If you get an error or a warning from your text editor, or the file displays as a collection of indecipherable characters, then it's binary. </p>
+<p>The examples on this page are a little different from those in the previous one, because they rely on the existence of the files that we are going to manipulate. If you want to try running the examples in this chapter, you'll need to make sure that there is a file in your working directory called <code>dna.txt</code> which has a single line containing a DNA sequence. </p>
+<h2>Using open to read a file</h2>
+<p>In Python, as in the physical world, we have to open a file before we can read what's inside it. The Python function that carries out the job of opening a file is very sensibly called <code>open()</code>. It takes one argument – a string which contains the name of the file – and returns a file object:</p>
+<div class="highlight"><pre><span></span><code>my_file = open(&quot;dna.txt&quot;)
+</code></pre></div>
+
+<p>A file object is a new type which we haven't encountered before, and it's a little more complicated than the string and number types that we saw in the previous section. With strings and numbers it was easy to understand what they represented – a single bit of text, or a single number. A file object, in contrast, represents something a bit less tangible – it represents a file on your computer's hard drive. </p>
+<p>The way that we use file objects is a bit different to strings and numbers as well. If you glance back at the examples from the previous section you'll see that most of the time when we want to use a variable containing a string or number we just use the variable name:</p>
+<div class="highlight"><pre><span></span><code>my_string = &#39;abcdefg&#39;
+print(my_string)
+my_number = 42
+print(my_number + 1)
+</code></pre></div>
+
+<p>In contrast, when we're working with file objects most of our interaction will be through methods. This style of programming will seem unusual at first, but as we'll see in this chapter, the file type has a well thought-out set of methods which let us do lots of useful things.  </p>
+<p>The first thing we need to be able to do is to read the contents of the file. The file type has a <code>read()</code> method which does this. It doesn't take any arguments, and the return value is a string, which we can store in a variable. Once we've read the file contents into a variable, we can treat them just like any other string – for example, we can print them:</p>
+<div class="highlight"><pre><span></span><code>my_file = open(&quot;dna.txt&quot;)
+file_contents = my_file.read()
+print(file_contents)
+</code></pre></div>
+
+<h3>Files, contents and filenames</h3>
+<p>When learning to work with files it's very easy to get confused between a file object, a filename, and the contents of a file.  Take a look at the following bit of code:</p>
+<div class="highlight"><pre><span></span><code>my_file_name = &quot;dna.txt&quot;❶
+my_file = open(my_file_name)❷
+my_file_contents = my_file.read()❸
+</code></pre></div>
+
+<p>What's going on here? First, we store the string <code>dna.txt</code> in the variable <code>my_file_name</code>❶. Next, we use the variable <code>my_file_name</code> as the argument to the <code>open()</code> function, and store the resulting file object in the variable <code>my_file</code>❷. Finally, we call the <code>read()</code> method on the variable <code>my_file</code>, and store the resulting string in the variable <code>my_file_contents</code>❸. </p>
+<p>The important thing to understand about this code is that there are three separate variables which have different types and which are storing three very different things:</p>
+<ul>
+<li><code>my_file_name</code> is a string, and it stores the name of a file on disk.</li>
+<li><code>my_file</code> is a file object, and it represents the file itself.</li>
+<li><code>my_file_contents</code> is a string, and it stores the text that is in the file. </li>
+</ul>
+<p>Remember that variable names are arbitrary – the computer doesn't care what you call your variables. So this piece of code is exactly the same as the previous example:</p>
+<div class="highlight"><pre><span></span><code>apple = &quot;dna.txt&quot;
+banana = open(apple)
+grape = banana.read()
+</code></pre></div>
+
+<p>except it is harder to understand! In contrast, the filename (<code>dna.txt</code>) is not arbitrary – it must correspond to the name of a file on the hard drive of your computer. </p>
+<p>A common error is to try to use the <code>read()</code> method on the wrong thing. Recall that <code>read()</code> is a method that only works on file objects. If we try to use the <code>read()</code> method on the filename:</p>
+<div class="highlight"><pre><span></span><code>my_file_name = &quot;dna.txt&quot;
+my_contents = my_file_name.read()
+</code></pre></div>
+
+<p>we'll get an <code>AttributeError</code> – Python will complain that strings don't have a <code>read()</code> method:</p>
+<blockquote>
+<p>AttributeError: 'str' object has no attribute 'read'</p>
+</blockquote>
+<p>Another common error is to use the file object when we meant to use the file contents. If we try to print the file object:</p>
+<div class="highlight"><pre><span></span><code>my_file_name = &quot;dna.txt&quot;
+my_file = open(my_file_name)
+print(my_file)
+</code></pre></div>
+
+<p>we won't get an error, but we'll get an odd looking line of output:</p>
+<blockquote>
+<p><open file 'dna.txt', mode 'r' at 0x7fc5ff7784b0></p>
+</blockquote>
+<p>We won't discuss the meaning of this line now: just remember that if you try to print the contents of a file but instead you get some output that looks like the above, you have almost definitely printed the file object rather than the file contents. </p>
+<h3>Dealing with newlines</h3>
+<p>Let's take a look at the output we get when we try to print some information from a file. Imagine we have a file in the current folder which contains a single line with a short DNA sequence. </p>
+<p>We're going to write a simple program to read the DNA sequence from the file and print it out along with its length. Putting together the file functions and methods from this section, and the material we saw in the previous section, we get the following code:</p>
+<div class="highlight"><pre><span></span><code># open the file
+my_file = open(&quot;dna.txt&quot;)
+
+# read the contents
+my_dna = my_file.read()
+
+# calculate the length
+dna_length = len(my_dna)
+
+# print the output
+print(&quot;sequence is &quot; + my_dna +  &quot; and length is &quot; + str(dna_length))
+</code></pre></div>
+
+<p>When we look at the output, we can see that there are two things wrong.</p>
+<blockquote>
+<p>sequence is ACTGTACGTGCACTGATC 
+and length is 19 </p>
+</blockquote>
+<p>Firstly, the output has been split over two lines, even though we didn't ask for it. And secondly, the length is wrong – there are only 18 characters in the DNA string.</p>
+<p>Both of these problems have the same explanation: Python has included the newline character at the end of the dna.txt file as part of the contents. In other words, the variable <code>my_dna</code> has a newline character at the end of it. If we could view the <code>my_dna</code> variable directly, we would see that it looks like this:</p>
+<blockquote>
+<p>'ACTGTACGTGCACTGATC\n'</p>
+</blockquote>
+<p>This explains why the output from our program is split over two lines – the newline character is part of the string we are trying to print. It also explains why the length is wrong – Python is including the newline character when it counts the number of characters in the string. </p>
+<p>The solution is also simple. Because this is such a common problem, strings have a method for removing newlines from the end of them. The method is called <code>rstrip()</code>, and it takes one string argument which is the character that you want to remove. In this case, we want to remove the newline character (<code>\n</code>).  Here's a modified version of the code – note that the argument to <code>rstrip()</code> is itself a string so needs to be enclosed in quotes:❶</p>
+<div class="highlight"><pre><span></span><code><span class="nv">my_file</span> <span class="o">=</span> <span class="nv">open</span><span class="ss">(</span><span class="s2">&quot;</span><span class="s">dna.txt</span><span class="s2">&quot;</span><span class="ss">)</span>
+<span class="nv">my_file_contents</span> <span class="o">=</span> <span class="nv">my_file</span>.<span class="nv">read</span><span class="ss">()</span>
+
+# <span class="nv">remove</span> <span class="nv">the</span> <span class="nv">newline</span> <span class="nv">from</span> <span class="nv">the</span> <span class="k">end</span> <span class="nv">of</span> <span class="nv">the</span> <span class="nv">file</span> <span class="nv">contents</span>
+<span class="nv">my_dna</span> <span class="o">=</span> <span class="nv">my_file_contents</span>.<span class="nv">rstrip</span><span class="ss">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="ss">)</span>❶
+
+<span class="nv">dna_length</span> <span class="o">=</span> <span class="nv">len</span><span class="ss">(</span><span class="nv">my_dna</span><span class="ss">)</span>
+<span class="nv">print</span><span class="ss">(</span><span class="s2">&quot;</span><span class="s">sequence is </span><span class="s2">&quot;</span> <span class="o">+</span> <span class="nv">my_dna</span> <span class="o">+</span>  <span class="s2">&quot;</span><span class="s"> and length is </span><span class="s2">&quot;</span> <span class="o">+</span> <span class="nv">str</span><span class="ss">(</span><span class="nv">dna_length</span><span class="ss">))</span>
+</code></pre></div>
+
+<p>and now the output looks just as we expected:</p>
+<blockquote>
+<p>sequence is ACTGTACGTGCACTGATC and length is 18</p>
+</blockquote>
+<p>In the code above, we first read the file contents and then removed the newline, in two separate steps:</p>
+<div class="highlight"><pre><span></span><code>my_file_contents = my_file.read()
+my_dna = my_file_contents.rstrip(&quot;\n&quot;)
+</code></pre></div>
+
+<p>but it's more common to read the contents and remove the newline all in one go, like this:</p>
+<div class="highlight"><pre><span></span><code>my_dna = my_file.read().rstrip(&quot;\n&quot;)
+</code></pre></div>
+
+<p>This is a bit tricky to read at first as we are using two different methods (<code>read()</code> and <code>rstrip()</code>) in the same statement. The key is to read it from left to right – we take the <code>my_file</code> variable and use the <code>read()</code> method on it, then we take the output of that method (which we know is a string) and use the <code>rstrip()</code> method on it.  The result of the <code>rstrip()</code> method is then stored in the <code>my_dna</code> variable. </p>
+<p>If you find it difficult to write the whole thing as one statement like this, just break it up and do the two things separately – your programs will run just as well. </p>
+<h2>Missing files</h2>
+<p>What happens if we try to read a file that doesn't exist?</p>
+<div class="highlight"><pre><span></span><code>my_file = open(&quot;nonexistent.txt&quot;)
+</code></pre></div>
+
+<p>We get a new type of error that we've not seen before:</p>
+<blockquote>
+<p>IOError: [Errno 2] No such file or directory: 'nonexistent.txt'</p>
+</blockquote>
+<p>If you encounter this error, you've probably got the filename wrong, or are working in the wrong folder. Ideally, we'd like to be able to check if a file exists before we try to open it – we'll see how to do that in a future lesson.</p>
+<h2>Writing text to files</h2>
+<p>All the example programs that we've seen so far have produced output straight to the screen. That's great for exploring new features and when working on programs, because it allows you to see the effect of changes to the code right away. It has a few drawbacks, however, when writing code that we might want to use in real life.</p>
+<p>Printing output to the screen only works well when there isn't very much of it. It's great for short programs and status messages, but quickly becomes cumbersome for large amounts of output. Some terminals struggle with large amounts of text, or worse, have a limited scrollback capability which can cause the first bit of your output to disappear. It's not easy to search in output that's being displayed at the terminal, and long lines tend to get wrapped. Also, for many programs we want to send different bits of output to different files, rather than having it all dumped in the same place. </p>
+<p>Most importantly, terminal output vanishes when you close your terminal program. For small programs like the examples on these pages, that's not a problem – if you want to see the output again you can just rerun the program. If you have a program that requires a few hours to run, that's not such a great option. </p>
+<h3>Opening files for writing</h3>
+<p>In the previous section, we saw how to open a file and read its contents. We can also open a file and write some data to it, but we have to use the <code>open()</code> function in a slightly different way. To open a file for writing, we use a two-argument version of the <code>open()</code> function, where the second argument is a short string describing what we want to do to the file. This second argument can be <code>"r"</code>  for reading, <code>"w"</code> for writing, or <code>"a"</code> for appending. If we leave out the second argument (like we did for all the examples above), Python uses the default, which is <code>"r"</code> for reading. </p>
+<p>The difference between <code>"w"</code> and <code>"a"</code> is subtle, but important. If we open a file that already exists using the mode <code>"w"</code>, then we will overwrite the current contents with whatever data we write to it. If we open an existing file with the mode <code>"a"</code>, it will add new data onto the end of the file, but will not remove any existing content.  If there doesn't already exist a file with the specified name, then <code>"w"</code> and <code>"a"</code> behave identically – they will both create a new file to hold the output. </p>
+<p>Quite a lot of Python functions and methods have these optional arguments. For the purposes of these pages, we will only mention them when they are directly relevant to what we're doing. If you want to see all the optional arguments for a particular method or function, the best place to look is the official Python documentation – see the previous page for details. </p>
+<p>Once we've opened a file for writing, we can use the file <code>write()</code> method to write some text to it. <code>write()</code> works a lot like <code>print()</code> – it takes a single string argument -  but instead of printing the string to the screen it writes it to the file. </p>
+<p>Here's how we use <code>open()</code> with a second argument to open a file and write a single line of text to it:</p>
+<div class="highlight"><pre><span></span><code>my_file = open(&quot;out.txt&quot;, &quot;w&quot;)
+my_file.write(&quot;Hello world&quot;)
+</code></pre></div>
+
+<p>Because the output is being written to the file in this example, you won't see any output on the screen if you run it. To check that the code has worked, you'll have to run it, then open the file <code>out.txt</code> in your text editor and check that its contents are what you expect.</p>
+<p>Remember that with <code>write()</code>, just like with <code>print()</code>, we can use any string as the argument. This also means that we can use any method or function that returns a string. The following are all perfectly OK:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># write &quot;abcdef&quot;</span>
+<span class="n">my_file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&quot;abc&quot;</span> <span class="o">+</span> <span class="s2">&quot;def&quot;</span><span class="p">)</span>
+
+<span class="c1"># write &quot;8&quot;</span>
+<span class="n">my_file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">len</span><span class="p">(</span><span class="s1">&#39;AGTGCTAG&#39;</span><span class="p">)))</span>
+
+<span class="c1"># write &quot;TTGC&quot;</span>
+<span class="n">my_file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&quot;ATGC&quot;</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;A&#39;</span><span class="p">,</span> <span class="s1">&#39;T&#39;</span><span class="p">))</span>
+
+<span class="c1"># write &quot;atgc&quot;</span>
+<span class="n">my_file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&quot;ATGC&quot;</span><span class="o">.</span><span class="n">lower</span><span class="p">())</span>
+
+<span class="c1"># write contents of my_variable</span>
+<span class="n">my_file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">my_variable</span><span class="p">)</span>
+</code></pre></div>
+
+<h2>Closing files</h2>
+<p>There's one more important file method to look at before we finish this section – <code>close()</code>. Unsurprisingly, this is the opposite of <code>open()</code> (but note that it's a method, whereas <code>open()</code> is a function).  We should call <code>close()</code> after we're done reading or writing to a file – we won't go into the details here, but it's a good habit to get into as it avoids some types of bugs that can be tricky to track down. <code>close()</code> is an unusual method as it takes no arguments (so it's called with an empty pair of parentheses) and doesn't return any useful value:</p>
+<div class="highlight"><pre><span></span><code>my_file = open(&quot;out.txt&quot;, &quot;w&quot;)
+my_file.write(&quot;Hello world&quot;)
+# remember to close the file
+my_file.close()
+</code></pre></div>
+
+<h2>Paths and folders</h2>
+<p>So far, we have only dealt with opening files in the same folder that we are running our program. What if we want to open a file from a different part of the file system?</p>
+<p>The <code>open()</code> function is quite happy to deal with files from anywhere on your computer, as long as you give the full path (i.e. the sequence of folder names that tells you the location of the file). Just give the path to the file as the argument rather than the name of the file. The format of the file path looks different depending on your operating system.  If you're using Windows, the path will look like this:</p>
+<div class="highlight"><pre><span></span><code>my_file = open(&quot;c:/windows/Desktop/myfolder/myfile.txt&quot;)
+</code></pre></div>
+
+<p>Notice that the folder names are separated by forward slashes rather than the back slashes that Windows normally uses. This is to avoid problems with special characters like the ones we saw on the previous page.</p>
+<p>If you're using a Mac or Linux machine, then the path will look slightly different:</p>
+<div class="highlight"><pre><span></span><code>my_file = open(&quot;/home/martin/myfolder/myfile.txt&quot;)
+</code></pre></div>
+
+<h2>Recap</h2>
+<p>We've taken a whole chapter to introduce the various ways of reading and writing to files, because it's such an important part of building programs that are useful in real life. We've seen how working with file contents is always a two step process – we must open a file before reading or writing – and looked at several common pitfalls. </p>
+<p>We've also introduced a couple of new concepts that are more widely applicable. We've encountered our first example of an optional argument in the <code>open()</code> function (we'll see more of these in future sections).  We've also encountered the first example of a complex data type – the file object – and seen how we can do useful things with it by calling its various methods, in contrast to the simple strings and numbers that we've been working with in the previous chapter. In future sections, we'll learn about more of these complex data types and how to use them. </p>
+<h2>Exercises</h2>
+<p>To practice using files in these exercise, you'll need a file called <em>genomic_dna.txt</em> to use as a test - <a href="/s/genomic_dna.txt">click here to download it</a>. Remember, you can always find solutions to all the exercises in the <a href="/python-books">Python for Biologists books</a>. </p>
+<h3>Splitting genomic DNA</h3>
+<p>Look at the file called <em>genomic_dna.txt</em> – it contains the same piece of genomic DNA that we were using in the final exercise from the previous page. Write a program that will split the genomic DNA into coding and non-coding parts, and write these sequences to two separate files. </p>
+<h3>Writing a FASTA file</h3>
+<p>FASTA file format is a commonly used DNA and protein sequence file format. A single sequence in FASTA format looks like this:</p>
+<div class="highlight"><pre><span></span><code>&gt;sequence_name
+ATCGACTGATCGATCGTACGAT
+</code></pre></div>
+
+<p>Where <code>sequence_name</code> is a header that describes the sequence (the greater-than symbol indicates the start of the header line). Often, the header contains an accession number that relates to the record for the sequence in a public sequence database. A single FASTA file can contain multiple sequences, like this:</p>
+<div class="highlight"><pre><span></span><code>&gt;sequence_one
+ATCGATCGATCGATCGAT
+&gt;sequence_two
+ACTAGCTAGCTAGCATCG
+&gt;sequence_three
+ACTGCATCGATCGTACCT
+</code></pre></div>
+
+<p>Write a program that will create a FASTA file for the following three sequences – make sure that all sequences are in uppercase and only contain the bases A, T, G and C.</p>
+<table>
+<thead>
+<tr>
+<th>Sequence header</th>
+<th>DNA sequence</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ABC123</td>
+<td>ATCGTACGATCGATCGATCGCTAGACGTATCG</td>
+</tr>
+<tr>
+<td>DEF456</td>
+<td>actgatcgacgatcgatcgatcacgact</td>
+</tr>
+<tr>
+<td>HIJ789</td>
+<td>ACTGAC-ACTGT--ACTGTA----CATGTG</td>
+</tr>
+</tbody>
+</table>
+<h3>Writing multiple FASTA files</h3>
+<p>Use the data from the previous exercise, but instead of creating a single FASTA file, create three new FASTA files – one per sequence. The names of the FASTA files should be the same as the sequence header names, with the extension .fasta.</p>
+<h2>Solutions</h2>
+<p>You can find solutions to all the exercises, along with explanations of how they work, by signing up for the <a href="/python-for-biologists-online-course">online course</a>.</p>
+        </div>
+        <hr/>
+        <hr/>
+    </article>
+</div>
+        </div>
+<footer class="footer">
+   <div class="container bottom_border">
+   <ul class="foote_bottom_ul_amrc">
+    <h3 style="color:white;"  class="text-center">Sign up for the newsletter</h3>
+    <h5 style="color:white;"  class="text-center">Links to the best biological Python and bioinformatics content on the web, no spam.</h3>
+     <script async src="https://eomail5.com/form/fbc6d37e-0672-11ec-96e5-06b4694bee2a.js" data-form="fbc6d37e-0672-11ec-96e5-06b4694bee2a"></script>
+     </ul>
+   </div>
+   <div class="container">
+      <ul class="foote_bottom_ul_amrc">
+         <li><a href="/">HOME</a></li>
+         <li><a href="">ABOUT</a></li>
+         <li><a href="">ARCHIVE</a></li>
+      </ul>
+      <!--foote_bottom_ul_amrc ends here-->
+      <p class="text-center"></p>
+        
+          
+      </div>
+
+      <!--social_footer_ul ends here-->
+   </div>
+</footer>
+            <script type="text/javascript" src="https://mojones.github.io/pelican-p4b/theme/libs/jquery.min.js"></script>
+            <script type="text/javascript" src="https://mojones.github.io/pelican-p4b/theme/libs/bootstrap-4.2.1/dist/js/bootstrap.bundle.min.js"></script>
+
+        <script src="https://mojones.github.io/pelican-p4b/theme/libs/prism.js"></script>
+        <script src="https://mojones.github.io/pelican-p4b/theme/libs/Countable.js"></script>
+
+        <script>
+            Prism.plugins.NormalizeWhitespace.setDefaults({
+                'remove-trailing': true,
+                'remove-indent': true,
+                'left-trim': true,
+                'right-trim': true,
+                /*'break-lines': 80,
+                'indent': 2,
+                'remove-initial-line-feed': false,
+                'tabs-to-spaces': 4,
+                'spaces-to-tabs': 4*/
+            });
+        </script>
+
+
+        <script type="text/javascript" src="https://mojones.github.io/pelican-p4b/theme/js/custom.js"></script>
+            <script>
+                function validateForm(query)
+                {
+                    return (query.length > 0);
+                }
+            </script>
+    </body>
+</html>
+

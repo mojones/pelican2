@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+
+            <meta name="author" content="Martin" />
+
+
+
+                <meta property="og:type" content="article" />
+            <meta name="twitter:card" content="summary"/>
+
+        <meta name="keywords" content="programming, Python, Machine Learning, article, "/>
+
+        <link rel="canonical" href="https://mojones.github.io/pelican-p4b/inventing-animals-neural-network-python.html">
+    <meta property="og:title" content="Inventing new animals with a neural network | Python for Biologists"/>
+    <meta property="og:url" content="https://mojones.github.io/pelican-p4b/inventing-animals-neural-network-python.html" />
+    <meta property="og:description" content="" />
+    <meta property="og:site_name" content="Python for Biologists" />
+    <meta property="og:article:author" content="Martin" />
+        <meta property="og:article:published_time" content="2010-12-03T10:20:00+01:00" />
+        <meta property="og:article:modified_time" content="2010-12-05T19:30:00+01:00" />
+    <meta name="twitter:title" content="Inventing new animals with a neural network | Python for Biologists">
+    <meta name="twitter:description" content="">
+
+
+        <title>    Inventing new animals with a neural network  | Python for Biologists
+</title>
+
+                <link rel="stylesheet" type="text/css" href="https://mojones.github.io/pelican-p4b/theme/libs/bootstrap-4.2.1/dist/css/bootstrap.min.css">
+                <link rel="stylesheet" type="text/css" href="https://mojones.github.io/pelican-p4b/theme/libs/fontawesome-free-5.2.0-web/css/all.min.css">
+            <link rel="stylesheet" type="text/css" href="https://mojones.github.io/pelican-p4b/theme/css/custom.css" media="screen">
+            <link rel="stylesheet" type="text/css" href="https://mojones.github.io/pelican-p4b/theme/css/ipynb.css" media="screen">
+
+            <style>
+                #progressBar::-webkit-progress-value {
+                    background-color: ;
+                }
+                #progressBar::-moz-progress-bar {
+                    background-color: ;
+                }
+            </style>
+
+        <link href="https://mojones.github.io/pelican-p4b/theme/libs/prism.css" rel="stylesheet" />
+<script type="text/x-mathjax-config">
+
+MathJax.Hub.Config({
+tex2jax: { inlineMath: [["$","$"],["\\(","\\)"]] },
+"HTML-CSS": {
+  linebreaks: { automatic: true, width: "container" }
+}
+});
+
+</script>
+<script type="text/javascript"
+  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+    </head>
+    <body>
+        <div class="banner-wrapper row" style="background-color: #24292e;">
+            <div class="banner">
+                <nav id="navbar" class="navbar navbar-expand-md navbar-light bg-light container">
+                    <div class="container navbar-title">
+                        <a href="/"><img id="banner-logo" src="https://mojones.github.io/pelican-p4b/images/logo.png" style="height: 40px; margin: 6px 0;"></a>
+                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                    </div>
+                <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent" style="margin-bottom: 6.5px;margin-top: 6.5px">
+                    <ul class="navbar-nav">
+                        <li class="nav-item active">
+                            <a class="nav-link rem_15" href="https://mojones.github.io/pelican-p4b/python-for-biologists-online-course">Learn&nbsp;Python</a>
+                        </li>
+                    </ul>
+                    <ul class="navbar-nav">
+                        <li class="nav-item active">
+                            <a class="nav-link rem_15" href="https://mojones.github.io/pelican-p4b/aboutcontact">About</a>
+                        </li>
+                    </ul>
+                    <ul class="navbar-nav">
+                        <li id="second-item" class="nav-item">
+                            <a class="nav-link rem_15" href="https://mojones.github.io/pelican-p4b/tutorial">Python&nbsp;tutorial</a>
+                        </li>
+                     </ul>
+                     
+                     <ul class="navbar-nav">
+                        <li id="second-item" class="nav-item">
+                            <a class="nav-link rem_15" href="https://mojones.github.io/pelican-p4b/training-courses">Training&nbsp;courses</a>
+                        </li>
+                     </ul>
+                     
+                       <ul class="navbar-nav">
+                        <li id="second-item" class="nav-item">
+                            <a class="nav-link rem_15" href="https://mojones.github.io/pelican-p4b/biological-data-exploration-book">Data&nbsp;exploration&nbsp;book</a>
+                        </li>
+                     </ul>
+                     
+                </div>
+                </nav>
+            </div>
+        </div>
+        <div id="wrap">
+<div id="post-container" class="container post index">
+    <article>
+        <header class="pop-over">
+            <h1>Inventing new animals with a neural network</h1>
+            <div class="row justify-content-between no-margin">
+                <h4 class="article-category">Category > <a class="article-category-link" href="https://mojones.github.io/pelican-p4b/">article</a></h4>
+                <span class="article-date">Fri 03 December 2010</span>
+            </div>
+            <div class="meta meta-tag no-margin no-border">
+                <div>
+                        <a href="https://mojones.github.io/pelican-p4b/tag/programming.html" class="tag">programming</a>
+                        <a href="https://mojones.github.io/pelican-p4b/tag/python.html" class="tag">Python</a>
+                        <a href="https://mojones.github.io/pelican-p4b/tag/machine-learning.html" class="tag">Machine Learning</a>
+                </div>
+            </div>
+            
+        </header>
+        <div class="article_content">
+            
+            <h1>Inventing new animals with a neural network</h1>
+<p>I've just built a new computer to do some deep learning experiments, so I though'd I'd start off by checking that everything is working with a fun project - training a neural network to come up with new names for plants and animals.</p>
+<p>If you're not interested in the code, and just want to see some funny names, skip the two next bits and scroll down to where it says "Generating species names".</p>
+<h2>Setting up</h2>
+<p>For this project I'm not actually going to be writing any code to create the neural network - instead I'm going to be using <a href="https://github.com/sherjilozair/char-rnn-tensorflow">this repo</a> which implements a character based recursive neural network (RNN) using Python and the Tensorflow library. <strong>Character based</strong> means that the network is going to "see" one character at a time, and <strong>recursive</strong> means that it's going to operate on the sequence of characters one at a time. For a much better explanation than I could give, check out <a href="http://karpathy.github.io/2015/05/21/rnn-effectiveness/">this article</a>.</p>
+<p>If you want to follow along, clone the repo I linked above then install either the <code>tensorflow</code> or <code>tensorflow-gpu</code> Python packages, depending on whether you want to train using CPU only or a GPU. For the latter, you'll also need to install the relevant libraries - this took me a few attempts to get working due to version missmatches, but <a href="https://gist.github.com/ashokpant/5c4e9481615f54af4025ab2085f85869">this set of instructions</a> eventually set things right. When you get to the point where you can fire up a Python shell and run <code>import tensorflow</code> without errors then you're probably good to go.</p>
+<h2>Creating the training data</h2>
+<p>When training neural networks, more data is generally considered to be better :-) so we'll go straight to the source for our list of names - <a href="https://www.ncbi.nlm.nih.gov/taxonomy">the NCBI taxonomy</a>. We can download a dump of the taxonomy from <a href="ftp://ftp.ncbi.nih.gov/pub/taxonomy/taxdump.tar.gz">this URL</a>, extract it and end up with the two files we need - <em>names.dmp</em> contains the actual names, and <em>nodes.dmp</em> tells us what rank each name is. For this project we want to treat names of species (like <em>short-snouted elephant shrew</em> or <em>Elephantulus brachyrhynchus</em>) separately from names of groups of organisms (like <em>marsupials</em> or <em>Metatheria</em>).</p>
+<p>I won't bore you with the details of these files' structure, but here's a Python program that will read the files and create a new text file for each taxonomic rank (species, genus, order, etc.):</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># create a dict to store the rank for each taxid</span>
+<span class="n">ranks</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;taxonomy/nodes.dmp&#39;</span><span class="p">):</span>
+    <span class="p">(</span><span class="n">taxid</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">rank</span><span class="p">,</span> <span class="o">*</span><span class="n">_</span><span class="p">)</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\t</span><span class="s2">|</span><span class="se">\t</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="n">ranks</span><span class="p">[</span><span class="n">taxid</span><span class="p">]</span> <span class="o">=</span> <span class="n">rank</span>
+
+<span class="c1"># create dicts to store the common and scientific names for each taxix</span>
+<span class="n">common_names</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="n">scientific_names</span> <span class="o">=</span> <span class="p">{}</span>
+
+<span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;taxonomy/names.dmp&quot;</span><span class="p">):</span>
+    <span class="p">(</span><span class="n">taxid</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">name_type</span><span class="p">)</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\t</span><span class="s2">|</span><span class="se">\t</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="n">name_type</span> <span class="o">=</span> <span class="n">name_type</span><span class="o">.</span><span class="n">rstrip</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\t</span><span class="s2">|</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+
+    <span class="c1"># we are only interested in common names and scientific common_names</span>
+    <span class="c1"># not things like authorities</span>
+    <span class="k">if</span> <span class="n">name_type</span> <span class="o">==</span> <span class="s1">&#39;common name&#39;</span> <span class="ow">or</span> <span class="n">name_type</span> <span class="o">==</span> <span class="s1">&#39;genbank common name&#39;</span><span class="p">:</span>
+        <span class="n">common_names</span><span class="p">[</span><span class="n">taxid</span><span class="p">]</span> <span class="o">=</span> <span class="n">name</span>
+    <span class="k">elif</span> <span class="n">name_type</span> <span class="o">==</span> <span class="s1">&#39;scientific name&#39;</span><span class="p">:</span>
+        <span class="n">scientific_names</span><span class="p">[</span><span class="n">taxid</span><span class="p">]</span> <span class="o">=</span> <span class="n">name</span>
+
+<span class="c1"># write out a single line for each common names</span>
+<span class="c1"># repeatedly opening files like this is incredibly inefficient, but we only</span>
+<span class="c1"># have to run this once so it doesn&#39;t really matter</span>
+<span class="k">for</span> <span class="n">taxid</span><span class="p">,</span> <span class="n">common_name</span> <span class="ow">in</span> <span class="n">common_names</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">ranks</span><span class="p">[</span><span class="n">taxid</span><span class="p">]</span> <span class="o">+</span> <span class="s1">&#39;.names&#39;</span><span class="p">,</span> <span class="s1">&#39;a&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">output</span><span class="p">:</span>
+        <span class="n">output</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">{}</span><span class="s2"> (</span><span class="si">{}</span><span class="s2">)</span><span class="se">\n</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">common_name</span><span class="p">,</span> <span class="n">scientific_names</span><span class="p">[</span><span class="n">taxid</span><span class="p">]))</span>
+</code></pre></div>
+
+<h2>Generating species names</h2>
+<p>Let's take a look at the species names first. The <em>species.names</em> file looks like this:</p>
+<div class="highlight"><pre><span></span><code>Tate&#39;s Sulawesian shrew rat (Tateomys rhinogradoides)
+triangle keelback (Xenochrophis trianguligerus)
+orange-bellied Himalayan squirrel (Dremomys lokriah)
+Russell&#39;s viper (Daboia russelii)
+blackback land crab (Gecarcinus lateralis)
+</code></pre></div>
+
+<p>One name per line, in the standardish format of common name followed by scientific name in parentheses. Let's train our neural network on this input, then ask it to generate a bunch of similar names. The way that this particular RNN implementation works is that we have to specify how many training epochs we want to run. One epoch is a complete run through the training data, so what we're really specifying here is how many times we want the RNN to "see" each name before it tries to generate some more. We're interested in how well the RNN does at coming up with realistic names after different amounts of training, so we'll use a small Python script which will train for 1,2,4,8,16 and 32 epochs then ask the RNN to generate some new names:</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">subprocess</span>
+
+<span class="n">input_dir</span> <span class="o">=</span> <span class="s2">&quot;species_names&quot;</span>
+
+<span class="k">for</span> <span class="n">epochs</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">2</span> <span class="o">**</span> <span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">7</span><span class="p">)]:</span>
+    <span class="c1"># first train for the number of epochs we want...</span>
+    <span class="n">subprocess</span><span class="o">.</span><span class="n">call</span><span class="p">(</span>
+      <span class="s2">&quot;python train.py --data_dir </span><span class="si">{}</span><span class="s2"> --save_dir </span><span class="si">{}</span><span class="s2">.save --num_epochs </span><span class="si">{}</span><span class="s2">&quot;</span>
+      <span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">input_dir</span><span class="p">,</span><span class="n">input_dir</span><span class="p">,</span> <span class="n">epochs</span><span class="p">),</span> <span class="n">shell</span><span class="o">=</span><span class="kc">True</span>
+      <span class="p">)</span>
+    <span class="c1"># ...then sample from the model</span>
+    <span class="n">subprocess</span><span class="o">.</span><span class="n">call</span><span class="p">(</span>
+    <span class="s2">&quot;python sample.py --save_dir </span><span class="si">{}</span><span class="s2">.save -n 10000 &gt;epoch_</span><span class="si">{}</span><span class="s2">_</span><span class="si">{}</span><span class="s2">.txt&quot;</span>
+    <span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">input_dir</span><span class="p">,</span> <span class="n">input_dir</span><span class="p">,</span> <span class="n">epochs</span><span class="p">),</span> <span class="n">shell</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</code></pre></div>
+
+<p>This is mostly just housekeeping, making sure that we don't overwrite file names and that the RNN looks in the right directory for the input data - it expects there to be a file in the input directory called <em>input.txt</em>. Remember that for this example, this is just the species names.</p>
+<p>After one epoch of training, the RNN makes up names like this:</p>
+<div class="highlight"><pre><span></span><code><span class="n">hambward</span><span class="p">&#39;</span><span class="n">u</span> <span class="n">tald</span> <span class="p">(</span><span class="n">Butken</span> <span class="n">peoroides</span><span class="p">)</span>
+<span class="n">Chebin</span> <span class="n">sengtil</span> <span class="n">foad</span> <span class="n">dobarbly</span> <span class="p">(</span><span class="n">Rhixox</span> <span class="n">boitora</span><span class="p">)</span>
+<span class="n">regbef</span> <span class="n">gloud</span> <span class="p">(</span><span class="n">Mecuphopis</span> <span class="n">frus</span><span class="p">)</span>
+<span class="n">bored</span> <span class="p">(</span><span class="n">Maluse</span> <span class="n">pryssilefsatti</span><span class="p">)</span>
+<span class="n">Keriolun</span> <span class="n">breunother</span> <span class="n">pinarg</span> <span class="p">(</span><span class="n">Otomonthus</span> <span class="n">leidagrus</span><span class="p">)</span>
+</code></pre></div>
+
+<p>It's already learned a bunch of features from the training data:</p>
+<ul>
+<li>each name should be on a separate line</li>
+<li>the second bit of each name pair is in parentheses</li>
+<li>the second bit of the name starts with a capital letter</li>
+<li>the second name is normally two words along</li>
+</ul>
+<p>Notice that I'm saying "the second bit" rathar than "the scientific name" so that we remember that the model doesn't know anything about scientific or common names - it's just learning what it sees in the input file.</p>
+<p>Sometimes it makes mistakes - lines like this also appear in the sample after one epoch:</p>
+<p><code>no-highlight
+ lasey floid Reunblaw (uJ
+ AnartInee grosbotus)
+ flowt gerwerr (Gicrosigotus amalostis)atoym shroyboin (Amoudoncum ostertafitei)</code></p>
+<p>Interestingly, the scientific names look a lot more convincing at this stage than the common names. I could readily believe that there really was a species called <em>Otomonthus leidagrus</em>.</p>
+<p>Incidentally, the input file for the species names is 1.3MB and has 31,233 names in it. Training for one epoch and sampling takes 20 seconds on a 1080 Ti with all the parameters at default.</p>
+<p>Let's see how we do with two epochs of training:</p>
+<div class="highlight"><pre><span></span><code>Hadsear scarbear (Gebre anseiensis)
+Arglewon rotter (Hylagnus liphritus)
+shark magin (Cobrinius puldensi)
+leufand cacollen (Rhhorostalis fumpyccippata)
+</code></pre></div>
+
+<p>With the additional training, the RNN has pretty much stopped making mistakes with the overall format - I can't find any examples of missing or multiple scientific names. And there are even a few hints that it's starting to pick up ideas about common names. For example, some names start to show up that look like animals that are named after their discoverer:</p>
+<div class="highlight"><pre><span></span><code>Bungle&#39;s traty fluck-gadfich (Dinvera biluma)
+Magad&#39;s alfin flong (Mobyena cangellatus)
+Peles&#39;s toad (Canina arorosa)
+</code></pre></div>
+
+<p>Which is a pattern that occurs fairly frequently in the training data. Most of the common names are still pretty rubbish though; I picked out a few favourites from this version of the RNN:</p>
+<div class="highlight"><pre><span></span><code>Arglewon rotter (Hylagnus liphritus)
+shark magin (Cobrinius puldensi)
+Korte strasse mouse (Lunchop-arterti)
+Kraspwern maucter&#39;s gaided ructake (Lebacia persanee)
+Chiche-ternier voubfish (Canipoconius kyrmorhermane)
+</code></pre></div>
+
+<p>but most of these make the list simply by virtue of being pronouncable (with some effort).</p>
+<p>Let's try four epochs of training:</p>
+<div class="highlight"><pre><span></span><code>elepinelian bat frog (Hypiscalus guannaqii)
+Chiglone corpon surcul (Hy1mopsoma dermi)
+Imalian hinach styching (Hipoblur joddensis)
+blonnded giant sal (Pinistomys squisnama)
+Tralorphese flerlegarin (Fea)
+whistrest robber brog (Arecularia libyana)
+</code></pre></div>
+
+<p>The big difference that jumps out here is the inclusion of a lot more obvious animal words in the names - here's a sampling:</p>
+<div class="highlight"><pre><span></span><code>noby thingey frog (Glemanthonias tristiaris)
+buedforn fly (Sp. phelyplocalopus)
+Hcapeld farchfish (Gyanomys Essertatus)
+spineskered rat (Psalachoxaeus gobeas)
+cripe gutse mouse (Orcaerhilis mullipepti1)
+</code></pre></div>
+
+<p>Quite a lot of these names have multiple different types of animal in them:</p>
+<div class="highlight"><pre><span></span><code>Hollow-cobest eel bat (Gephelophnya arvigense)
+lack-osfish bat snake (Parrohynus fursticarus)
+elepinelian bat frog (Hypiscalus guannaqii)
+</code></pre></div>
+
+<p>I note that the RNN has a fondness for short animal names at this stage (bat, rat, fly, etc.). Some of the best picks from this version are pretty convincing:</p>
+<div class="highlight"><pre><span></span><code>stark-eyed bungle (Gantterus gailensis)
+spotted owfish (Strimus curhicis)
+palidiesha fly (Atheles kunaria)
+lead-taired readfish (etheonge puricolicota)
+cat-ferred marshonfish (Colisas emeysinus)
+Shurate&#39;s hailfish (Pseydripella purcadaria)
+Simas grouse (Pyngomidirna altiftonchus)
+</code></pre></div>
+
+<p>Bumping the training period up to 8 epochs seems to result in only a vague increase in the frequency of convincing names - some of these definitely sound like real species to me:</p>
+<div class="highlight"><pre><span></span><code>stark-toedfin lizard (Totragobius astrica)
+pinyper bat (Pritopterus nentalis)
+suckerberry bat (Trildus rau)
+sallow frog (pydrurus nelthordi)
+rufous mouse (Melanurhesca ovivulax)
+Arerie tree frog (Hyllongerana penathenai)
+</code></pre></div>
+
+<p>Glancing through the whole list, there are a lot of frogs, probably because there are a lot in the training data (frogs are colourful and big enough to see without a microscope, which means that they tend to get noticed and named).</p>
+<p>The pattern is the same for the 16- and 32-epoch versions, so let's just skip straight to the 64-epoch version (which is where the score stopped improving) and see what we get. Here's a random chunk from the output:</p>
+<div class="highlight"><pre><span></span><code>cardinal gecko (Osteocleops medevolacus)
+grauren huna (Oligosoma dakteli)
+devil pocay (Tangarois fuscicola)
+Malgashan&#39;s threedierd (Phoedyurus borrovi)
+blue brown moth (Dendrhina arlengensis)
+</code></pre></div>
+
+<p>Not bad. Four out of five sound like they could be real animals, although probably not well-known ones :-). Looking through the rest of the output we can pick out some colourful plants and animals:</p>
+<div class="highlight"><pre><span></span><code>brown oak (Turdusia japonica)
+red spinyfyatella beetle (Deliocochthys sestralis)
+red-backed lovery (Taxispicus cinvae)
+white-spotted grout (Macropomaria seydiana)
+</code></pre></div>
+
+<p>And some with names that are very descriptive:</p>
+<div class="highlight"><pre><span></span><code>Spine slender turtle (Musculus mexoxguty)
+spot-vented goby (Apogon yunites)
+slender awl robin (Musco godanensis)
+</code></pre></div>
+
+<p>Even if sometimes the descriptions apply to body parts that the creature is unlikely to posess, as in the case of the <code>yellow-breasted long-tailed forest frog (Idchodomys perii)</code>.</p>
+<p>A nice pattern that emerges here is geographical identifiers in names:</p>
+<div class="highlight"><pre><span></span><code>Texanut river&#39;s Gallican fire-lined anole (Anolis abba)
+tropical soldiager (Mogpesus purpurum)
+Japanese palopessain (Callonolus princebrus)
+Southern straw gult (Rhous aecilopa)
+African banded bat (Hippocampus kilegi)
+</code></pre></div>
+
+<p>We get quite a few names with multiple animal types in them, all of which somehow sound quite dangerous:</p>
+<div class="highlight"><pre><span></span><code>Madago-streak goatfish (Chaetodon semilialis)
+bear python (Angioneus cornbyi)
+Barbert tanglegored fox frog (Leptodontis apoenii)
+</code></pre></div>
+
+<p>After all, who would want to battle with an animal that combined the abilities of a python and a bear? Although, the <code>tanglegored fox frog</code> sounds like it's permanently injured....</p>
+<p>Some of the names are biologically implausible, like the <code>fruit forestfish (Pinux hasmannicum)</code>, which I guess has left its marine habitat to graze in the forrest canopy, or the <code>two-throated gar-eye limepit (Toribolatus exocarbaniculus)</code>, whose second thoat must presumably serve some important evolutionary function. The most unfortunately named animal in this batch is probably the <code>Arctanengus shitterfly (Anora cf. asoldii)</code>.</p>
+<p>Here are the rest of my favourites - some of these names are really quite lovely and I can easily imagine them being picked deliberately (<code>Norten's pookberry</code> in particular sounds like a delicious fruit):</p>
+<div class="highlight"><pre><span></span><code>dusky lizard (Aetophliparia sagula)
+laughing leaf frog (Plectroceps cinena)
+chameleon bluewing (Frangolayanum limbata)
+golden-nose cocket gomme snake (Choenopterus kouelipunctus)
+smouthed plum (Vireopis splendenaneenoi)
+yellow robber frog (Pristimantis salvatus)
+Alpine&#39;s stickral cichlid (Purus pearmandylina)
+Cemeran big-bands bat (Polymmus caerulis)
+Norten&#39;s pookberry (Metalus frascineus)
+</code></pre></div>
+
+<h2>Generating group names</h2>
+<p>Having been quite impressed with the performance of the RNN on species names, I'm curious to see how it copes with a much smaller training dataset of group names. These are names for groups of plants and animals (things like jellyfishes, birds, cacti, geckos, etc.) Each name also consists of a common and a scientific name, and the format of the training data is very similar to that of the species names:</p>
+<div class="highlight"><pre><span></span><code>sea wasps (Cubozoa)
+mammals (Mammalia)
+swordfishes (Xiphiidae)
+acorn barnacles (Balanidae)
+diving beetles (Hygrobiidae)
+nutmeg family (Myristicaceae)
+</code></pre></div>
+
+<p>but there is much less data - just 3,237 names in the file, which I created by concatenating all of the names for the ranks above species.</p>
+<p>Because the training dataset is much smaller, training for a single epoch fails to learn even the basics of the name structure:</p>
+<div class="highlight"><pre><span></span><code> iooniee
+rrdo iaicvttktiirdsMndr nfeus
+o innarsbsolPH(teepa
+rcae(ade))igoahra
+ fernapfgser( lopousysdacx )
+</code></pre></div>
+
+<p>After 4 epochs we start to see a few lines that follow the <code>common name (Scientific name)</code> pattern, but it's not until 32 epochs that I can pick out some plausible names:</p>
+<div class="highlight"><pre><span></span><code>Jorn worms (Terpenidae)
+bunderfishes (Hacpothlopsto)
+ola spider family (Solagaceae)
+goonderch toads (Hygpidae)
+trockfishes (Brombelus)
+</code></pre></div>
+
+<p>Even after 512 epochs of training, most of the names are gibberish. Some of the most convincing names include obvious animal names:</p>
+<div class="highlight"><pre><span></span><code>lidic crabs (Melagbaria)
+gumal salamanders (Oemiodrosamensis cagulus)
+heeb frogs (Isdrocaridae)
+croab beetles (Grachthyoratidae)
+flowerflies (Cercinae)
+braps bees (Bucoloida)
+warver family (Pholamiaceae)
+gred sharks (Hadrantidae)
+</code></pre></div>
+
+<p>But my favourites are probably the ones that are pronouncable, but which don't (as far as I know) contain any real animal names. These all sound like they would be good names for types of animals in a sci-fi setting:</p>
+<div class="highlight"><pre><span></span><code>eathids (Rhonomatidae)
+spimetters (Equus)
+cutlifishes &amp; smoths (Plotiodera)
+grass spodwiders (Hypranthrhiliinae)
+legacles (Holiotthyla)
+</code></pre></div>
+
+<p>I can totally imagine a group of space travellers emerging from their ship after landing on a planet and finding themselves surrounded by various species of <code>spimetters</code>.</p>
+<p>I also like the more melifluous names that the network comes up with, like the <code>millow mites (Gelus)</code> and <code>sea tigers (Nostrinae)</code>. And I have to confess an affection for the oddly redundant <code>owl tree trees (Onteogatos)</code>.</p>
+<h2>Conclusion and acknowledgements</h2>
+<p>That's where we're going to leave this experiment, as my eyes are now glazed over from staring at lists of made up animals and trying to figure out how to pronounce them :-) </p>
+<p>Thanks to <a href="https://github.com/sherjilozair">sherjilozair</a> on GitHub for making the code available. This post was strongly inspired by the ones I've read on <a href="http://aiweirdness.com/">AI weirdness</a> so check it out if you liked this. And if this kind of thing sounds interesting to you and you'd like to get started with Python, check out the <a href="/python-for-biologists-online-course">Python for Biologist online course</a>. </p>
+<p>PS. If anyone reading this far down has an artistic side, and wants to come up with illustrations for any of these names, please let me know so I can add links here... I'd love to see what other people think a <code>white-spotted grout</code> or a <code>Spine slender turtle</code> look like. </p>
+        </div>
+        <hr/>
+        <hr/>
+    </article>
+</div>
+        </div>
+<footer class="footer">
+   <div class="container bottom_border">
+   <ul class="foote_bottom_ul_amrc">
+    <h3 style="color:white;"  class="text-center">Sign up for the newsletter</h3>
+    <h5 style="color:white;"  class="text-center">Links to the best biological Python and bioinformatics content on the web, no spam.</h3>
+     <script async src="https://eomail5.com/form/fbc6d37e-0672-11ec-96e5-06b4694bee2a.js" data-form="fbc6d37e-0672-11ec-96e5-06b4694bee2a"></script>
+     </ul>
+   </div>
+   <div class="container">
+      <ul class="foote_bottom_ul_amrc">
+         <li><a href="/">HOME</a></li>
+         <li><a href="">ABOUT</a></li>
+         <li><a href="">ARCHIVE</a></li>
+      </ul>
+      <!--foote_bottom_ul_amrc ends here-->
+      <p class="text-center"></p>
+        
+          
+      </div>
+
+      <!--social_footer_ul ends here-->
+   </div>
+</footer>
+            <script type="text/javascript" src="https://mojones.github.io/pelican-p4b/theme/libs/jquery.min.js"></script>
+            <script type="text/javascript" src="https://mojones.github.io/pelican-p4b/theme/libs/bootstrap-4.2.1/dist/js/bootstrap.bundle.min.js"></script>
+
+        <script src="https://mojones.github.io/pelican-p4b/theme/libs/prism.js"></script>
+        <script src="https://mojones.github.io/pelican-p4b/theme/libs/Countable.js"></script>
+
+        <script>
+            Prism.plugins.NormalizeWhitespace.setDefaults({
+                'remove-trailing': true,
+                'remove-indent': true,
+                'left-trim': true,
+                'right-trim': true,
+                /*'break-lines': 80,
+                'indent': 2,
+                'remove-initial-line-feed': false,
+                'tabs-to-spaces': 4,
+                'spaces-to-tabs': 4*/
+            });
+        </script>
+
+
+        <script type="text/javascript" src="https://mojones.github.io/pelican-p4b/theme/js/custom.js"></script>
+            <script>
+                function validateForm(query)
+                {
+                    return (query.length > 0);
+                }
+            </script>
+    </body>
+</html>
+

@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+
+            <meta name="author" content="Martin" />
+
+
+
+                <meta property="og:type" content="article" />
+            <meta name="twitter:card" content="summary"/>
+
+        <meta name="keywords" content="python, tutorial, tutorial, "/>
+
+        <link rel="canonical" href="https://mojones.github.io/pelican-p4b/tutorial/conditions.html">
+    <meta property="og:title" content="Python tutorial part five | Python for Biologists"/>
+    <meta property="og:url" content="https://mojones.github.io/pelican-p4b/tutorial/conditions.html" />
+    <meta property="og:description" content="" />
+    <meta property="og:site_name" content="Python for Biologists" />
+    <meta property="og:article:author" content="Martin" />
+        <meta property="og:article:published_time" content="2010-12-03T10:20:00+01:00" />
+        <meta property="og:article:modified_time" content="2010-12-05T19:30:00+01:00" />
+    <meta name="twitter:title" content="Python tutorial part five | Python for Biologists">
+    <meta name="twitter:description" content="">
+
+
+        <title>    Python tutorial part five  | Python for Biologists
+</title>
+
+                <link rel="stylesheet" type="text/css" href="https://mojones.github.io/pelican-p4b/theme/libs/bootstrap-4.2.1/dist/css/bootstrap.min.css">
+                <link rel="stylesheet" type="text/css" href="https://mojones.github.io/pelican-p4b/theme/libs/fontawesome-free-5.2.0-web/css/all.min.css">
+            <link rel="stylesheet" type="text/css" href="https://mojones.github.io/pelican-p4b/theme/css/custom.css" media="screen">
+            <link rel="stylesheet" type="text/css" href="https://mojones.github.io/pelican-p4b/theme/css/ipynb.css" media="screen">
+
+            <style>
+                #progressBar::-webkit-progress-value {
+                    background-color: ;
+                }
+                #progressBar::-moz-progress-bar {
+                    background-color: ;
+                }
+            </style>
+
+        <link href="https://mojones.github.io/pelican-p4b/theme/libs/prism.css" rel="stylesheet" />
+<script type="text/x-mathjax-config">
+
+MathJax.Hub.Config({
+tex2jax: { inlineMath: [["$","$"],["\\(","\\)"]] },
+"HTML-CSS": {
+  linebreaks: { automatic: true, width: "container" }
+}
+});
+
+</script>
+<script type="text/javascript"
+  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+    </head>
+    <body>
+        <div class="banner-wrapper row" style="background-color: #24292e;">
+            <div class="banner">
+                <nav id="navbar" class="navbar navbar-expand-md navbar-light bg-light container">
+                    <div class="container navbar-title">
+                        <a href="/"><img id="banner-logo" src="https://mojones.github.io/pelican-p4b/images/logo.png" style="height: 40px; margin: 6px 0;"></a>
+                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                    </div>
+                <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent" style="margin-bottom: 6.5px;margin-top: 6.5px">
+                    <ul class="navbar-nav">
+                        <li class="nav-item active">
+                            <a class="nav-link rem_15" href="https://mojones.github.io/pelican-p4b/python-for-biologists-online-course">Learn&nbsp;Python</a>
+                        </li>
+                    </ul>
+                    <ul class="navbar-nav">
+                        <li class="nav-item active">
+                            <a class="nav-link rem_15" href="https://mojones.github.io/pelican-p4b/aboutcontact">About</a>
+                        </li>
+                    </ul>
+                    <ul class="navbar-nav">
+                        <li id="second-item" class="nav-item">
+                            <a class="nav-link rem_15" href="https://mojones.github.io/pelican-p4b/tutorial">Python&nbsp;tutorial</a>
+                        </li>
+                     </ul>
+                     
+                     <ul class="navbar-nav">
+                        <li id="second-item" class="nav-item">
+                            <a class="nav-link rem_15" href="https://mojones.github.io/pelican-p4b/training-courses">Training&nbsp;courses</a>
+                        </li>
+                     </ul>
+                     
+                       <ul class="navbar-nav">
+                        <li id="second-item" class="nav-item">
+                            <a class="nav-link rem_15" href="https://mojones.github.io/pelican-p4b/biological-data-exploration-book">Data&nbsp;exploration&nbsp;book</a>
+                        </li>
+                     </ul>
+                     
+                </div>
+                </nav>
+            </div>
+        </div>
+        <div id="wrap">
+<div id="post-container" class="container post index">
+    <article>
+        <header class="pop-over">
+            <h1>Python tutorial part five</h1>
+            <div class="row justify-content-between no-margin">
+                <h4 class="article-category">Category > <a class="article-category-link" href="https://mojones.github.io/pelican-p4b/">tutorial</a></h4>
+                <span class="article-date">Fri 03 December 2010</span>
+            </div>
+            <div class="meta meta-tag no-margin no-border">
+                <div>
+                        <a href="https://mojones.github.io/pelican-p4b/tag/python.html" class="tag">python</a>
+                        <a href="https://mojones.github.io/pelican-p4b/tag/tutorial.html" class="tag">tutorial</a>
+                </div>
+            </div>
+            
+        </header>
+        <div class="article_content">
+            
+            <h2>Programs need to make decisions</h2>
+<p>If we look back at the examples in previous sections, something that stands out is the lack of decision making. We've gone from doing simple calculations on individual bits of data to carrying out more complicated procedures on collections of data, but each individual piece of data (a sequence, a base, a species name, an exon) has been treated identically. </p>
+<p>Real life problems, however, often require our programs to act as decision makers: to examine a property of some bit of data and decide what to do with it. In this chapter, we'll see how to do that using conditional statements. Conditional statements are features of Python that allow us to build decision points in our code. They allow our programs to decide which out of a number of possible courses of action to take – instructions like "print the name of the sequence if it's longer than 300 bases" or "group two samples together if they were collected less than 10 metres apart". </p>
+<p>Before we can start using conditional statements, however, we need to understand conditions. </p>
+<h3>Conditions, True and False</h3>
+<p>A condition is simply a bit of code that can produce a true or false answer. The easiest way to understand how conditions work in Python is to try out a few examples. The following example prints out the result of testing (or evaluating) a bunch of different conditions – some mathematical examples, some using string methods, and one for testing if a value is included in a list:</p>
+<div class="highlight"><pre><span></span><code>print(3 == 5)
+print(3 &gt; 5)
+print(3 &lt;=5)
+print(len(&quot;ATGC&quot;) &gt; 5)
+print(&quot;GAATTC&quot;.count(&quot;T&quot;) &gt; 1)
+print(&quot;ATGCTT&quot;.startswith(&quot;ATG&quot;))
+print(&quot;ATGCTT&quot;.endswith(&quot;TTT&quot;))
+print(&quot;ATGCTT&quot;.isupper())
+print(&quot;ATGCTT&quot;.islower())
+print(&quot;V&quot; in [&quot;V&quot;, &quot;W&quot;, &quot;L&quot;])
+</code></pre></div>
+
+<p>If we look at the output, we can see that each of the conditions gives a true/false answer:</p>
+<blockquote>
+<p>False 
+False 
+True 
+False 
+True 
+True 
+False 
+True 
+False 
+True </p>
+</blockquote>
+<p>But what's actually being printed here? At first glance, it looks like we're printing the strings "True" and "False", but those strings don't appear anywhere in our code. What is actually being printed is the special built in values that Python uses to represent true and false – they are capitalized so that we know they're these special values.</p>
+<p>Incidentally, we can show that these values are special by trying to print them. The following code runs without errors (note the absence of quotation marks):</p>
+<div class="highlight"><pre><span></span><code>print(True)
+print(False)
+</code></pre></div>
+
+<p>whereas trying to print arbitrary unquoted words:</p>
+<div class="highlight"><pre><span></span><code>print(Hello)
+</code></pre></div>
+
+<p>always causes a <code>NameError</code>.</p>
+<p>There's a wide range of things that we can include in conditions, and it would be impossible to give an exhaustive list here. The basic building blocks are:</p>
+<ul>
+<li>equals (represented by <code>==</code>)</li>
+<li>greater and less than (represented by <code>&gt;</code> and <code>&lt;</code>)</li>
+<li>greater and less than or equal to (represented by <code>&gt;=</code> and <code>&lt;=</code>)</li>
+<li>not equal (represented by <code>!=</code>)</li>
+<li>is a value in a list (represented by <code>in</code>)</li>
+<li>are two objects the same1 (represented by <code>is</code>)</li>
+</ul>
+<p>Many data types also provide methods that return <code>True</code> or <code>False</code> values, which are often a lot more convenient to use than the building blocks above. We've already seen a few in the code sample above: for example, strings have a <code>startswith()</code> method that returns <code>True</code> if the string on which the method is called starts with the string given as an argument. We'll mention these true/false methods when they come up. </p>
+<p>Notice that the test for equality is two equals signs, not one. Forgetting the second equals sign will cause an error.</p>
+<p>Now that we know how to express tests as conditions, let's see what we can do with them. </p>
+<h3><code>if</code> statements</h3>
+<p>The simplest kind of conditional statement is an <code>if</code> statement. Hopefully the syntax is fairly simple to understand:</p>
+<div class="highlight"><pre><span></span><code><span class="nv">expression_level</span> <span class="o">=</span> <span class="mi">125</span>
+<span class="k">if</span> <span class="nv">expression_level</span> <span class="o">&gt;</span> <span class="mi">100</span>:
+    <span class="nv">print</span><span class="ss">(</span><span class="s2">&quot;</span><span class="s">gene is highly expressed</span><span class="s2">&quot;</span><span class="ss">)</span>
+</code></pre></div>
+
+<p>We write the word <code>if</code>, followed by a condition, and end the first line with a colon. There follows a block of indented lines of code (the body of the <code>if</code> statement), which will only be executed if the condition is true. This colon-plus-block pattern should be familiar to you from the sections on loops and functions. </p>
+<p>Most of the time, we want to use an <code>if</code> statement to test a property of some variable whose value we don't know at the time when we are writing the program. The example above is obviously useless, as the value of the <code>expression_level</code> variable is not going to change! </p>
+<p>Here's a slightly more interesting example – we'll define a list of gene accession names and print out just the ones that start with "a":</p>
+<div class="highlight"><pre><span></span><code><span class="nv">accs</span> <span class="o">=</span> [<span class="s1">&#39;</span><span class="s">ab56</span><span class="s1">&#39;</span>, <span class="s1">&#39;</span><span class="s">bh84</span><span class="s1">&#39;</span>, <span class="s1">&#39;</span><span class="s">hv76</span><span class="s1">&#39;</span>, <span class="s1">&#39;</span><span class="s">ay93</span><span class="s1">&#39;</span>, <span class="s1">&#39;</span><span class="s">ap97</span><span class="s1">&#39;</span>, <span class="s1">&#39;</span><span class="s">bd72</span><span class="s1">&#39;</span>]
+<span class="k">for</span> <span class="nv">accession</span> <span class="nv">in</span> <span class="nv">accs</span>:
+    <span class="k">if</span> <span class="nv">accession</span>.<span class="nv">startswith</span><span class="ss">(</span><span class="s1">&#39;</span><span class="s">a</span><span class="s1">&#39;</span><span class="ss">)</span>:
+        <span class="nv">print</span><span class="ss">(</span><span class="nv">accession</span><span class="ss">)</span>
+</code></pre></div>
+
+<p>Looking at the output allows us to check that this works as intended:</p>
+<blockquote>
+<p>ab56 
+ay93 
+ap97 </p>
+</blockquote>
+<p>If you take a close look at the code above, you'll see something interesting – the lines of code inside the loop are indented (just as we've seen before), but the line of code inside the <code>if</code> statement is indented twice – once for the loop, and once for the <code>if</code>.  This is the first time we've seen multiple levels of indentation, but it's very common once we start working with larger programs. Whenever we have one loop or <code>if</code> statement nested inside another, we'll have this type of indentation. </p>
+<p>Python is quite happy to have as many levels of indentation as needed, but you'll need to keep careful track of which lines of code belong at which level. If you find yourself writing a piece of code that requires more than three levels of indentation, it's generally an indication that that piece of code should be turned into a function. </p>
+<h3>else statements</h3>
+<p>Closely related to the <code>if</code> statement is the <code>else</code> clause. The examples above use a yes/no type of decision-making: should we print the gene accession number or not? Often we need an either/or type of decision, where we have two possible actions to take. To do this, we can add an <code>else</code> clause after the end of the body of an if statement:</p>
+<div class="highlight"><pre><span></span><code><span class="nv">expression_level</span> <span class="o">=</span> <span class="mi">125</span>
+<span class="k">if</span> <span class="nv">expression_level</span> <span class="o">&gt;</span> <span class="mi">100</span>:
+    <span class="nv">print</span><span class="ss">(</span><span class="s2">&quot;</span><span class="s">gene is highly expressed</span><span class="s2">&quot;</span><span class="ss">)</span>
+<span class="k">else</span>:
+    <span class="nv">print</span><span class="ss">(</span><span class="s2">&quot;</span><span class="s">gene is lowly expressed</span><span class="s2">&quot;</span><span class="ss">)</span>
+</code></pre></div>
+
+<p>The <code>else</code> clause doesn't have any condition of its own – rather, the else statement body is executed when the condition of the <code>if</code> statement is false. </p>
+<p>Here's an example which uses <code>if</code> and <code>else</code> to split up a list of accession names into two different files – accessions that start with "a" go into the first file, and all other accessions go into the second file:</p>
+<div class="highlight"><pre><span></span><code><span class="nv">file1</span> <span class="o">=</span> <span class="nv">open</span><span class="ss">(</span><span class="s2">&quot;</span><span class="s">one.txt</span><span class="s2">&quot;</span>, <span class="s2">&quot;</span><span class="s">w</span><span class="s2">&quot;</span><span class="ss">)</span>
+<span class="nv">file2</span> <span class="o">=</span> <span class="nv">open</span><span class="ss">(</span><span class="s2">&quot;</span><span class="s">two.txt</span><span class="s2">&quot;</span>, <span class="s2">&quot;</span><span class="s">w</span><span class="s2">&quot;</span><span class="ss">)</span>
+
+<span class="nv">accs</span> <span class="o">=</span> [<span class="s1">&#39;</span><span class="s">ab56</span><span class="s1">&#39;</span>, <span class="s1">&#39;</span><span class="s">bh84</span><span class="s1">&#39;</span>, <span class="s1">&#39;</span><span class="s">hv76</span><span class="s1">&#39;</span>, <span class="s1">&#39;</span><span class="s">ay93</span><span class="s1">&#39;</span>, <span class="s1">&#39;</span><span class="s">ap97</span><span class="s1">&#39;</span>, <span class="s1">&#39;</span><span class="s">bd72</span><span class="s1">&#39;</span>]
+
+<span class="k">for</span> <span class="nv">accession</span> <span class="nv">in</span> <span class="nv">accs</span>:
+    <span class="k">if</span> <span class="nv">accession</span>.<span class="nv">startswith</span><span class="ss">(</span><span class="s1">&#39;</span><span class="s">a</span><span class="s1">&#39;</span><span class="ss">)</span>:
+        <span class="nv">file1</span>.<span class="nv">write</span><span class="ss">(</span><span class="nv">accession</span> <span class="o">+</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="ss">)</span>
+    <span class="k">else</span>:
+        <span class="nv">file2</span>.<span class="nv">write</span><span class="ss">(</span><span class="nv">accession</span> <span class="o">+</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="ss">)</span>
+</code></pre></div>
+
+<p>Notice how there are multiple indentation levels as before, but that the <code>if</code> and <code>else</code> statements are at the same level. </p>
+<h3>elif statements</h3>
+<p>What if we have more than two possible branches? For example, say we want three files of accession names: ones that start with "a", ones that start with "b", and all others. We could have a second <code>if</code> statement nested inside the <code>else</code> clause of the first <code>if</code> statement:</p>
+<div class="highlight"><pre><span></span><code><span class="nv">file1</span> <span class="o">=</span> <span class="nv">open</span><span class="ss">(</span><span class="s2">&quot;</span><span class="s">one.txt</span><span class="s2">&quot;</span>, <span class="s2">&quot;</span><span class="s">w</span><span class="s2">&quot;</span><span class="ss">)</span>
+<span class="nv">file2</span> <span class="o">=</span> <span class="nv">open</span><span class="ss">(</span><span class="s2">&quot;</span><span class="s">two.txt</span><span class="s2">&quot;</span>, <span class="s2">&quot;</span><span class="s">w</span><span class="s2">&quot;</span><span class="ss">)</span>
+<span class="nv">file3</span> <span class="o">=</span> <span class="nv">open</span><span class="ss">(</span><span class="s2">&quot;</span><span class="s">three.txt</span><span class="s2">&quot;</span>, <span class="s2">&quot;</span><span class="s">w</span><span class="s2">&quot;</span><span class="ss">)</span>
+
+<span class="nv">accs</span> <span class="o">=</span> [<span class="s1">&#39;</span><span class="s">ab56</span><span class="s1">&#39;</span>, <span class="s1">&#39;</span><span class="s">bh84</span><span class="s1">&#39;</span>, <span class="s1">&#39;</span><span class="s">hv76</span><span class="s1">&#39;</span>, <span class="s1">&#39;</span><span class="s">ay93</span><span class="s1">&#39;</span>, <span class="s1">&#39;</span><span class="s">ap97</span><span class="s1">&#39;</span>, <span class="s1">&#39;</span><span class="s">bd72</span><span class="s1">&#39;</span>]
+
+<span class="k">for</span> <span class="nv">accession</span> <span class="nv">in</span> <span class="nv">accs</span>:
+    <span class="k">if</span> <span class="nv">accession</span>.<span class="nv">startswith</span><span class="ss">(</span><span class="s1">&#39;</span><span class="s">a</span><span class="s1">&#39;</span><span class="ss">)</span>:
+        <span class="nv">file1</span>.<span class="nv">write</span><span class="ss">(</span><span class="nv">accession</span> <span class="o">+</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="ss">)</span>
+    <span class="k">else</span>:
+        <span class="k">if</span> <span class="nv">accession</span>.<span class="nv">startswith</span><span class="ss">(</span><span class="s1">&#39;</span><span class="s">b</span><span class="s1">&#39;</span><span class="ss">)</span>:
+            <span class="nv">file2</span>.<span class="nv">write</span><span class="ss">(</span><span class="nv">accession</span> <span class="o">+</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="ss">)</span>
+        <span class="k">else</span>:
+            <span class="nv">file3</span>.<span class="nv">write</span><span class="ss">(</span><span class="nv">accession</span> <span class="o">+</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="ss">)</span>
+</code></pre></div>
+
+<p>This works, but is difficult to read – we can quickly see that we need an extra level of indentation for every additional choice we want to include. To get round this, Python has an <code>elif</code> statement, which merges together <code>else</code> and <code>if</code> and allows us to rewrite the above example in a much more elegant way:</p>
+<div class="highlight"><pre><span></span><code><span class="nv">accs</span> <span class="o">=</span> [<span class="s1">&#39;</span><span class="s">ab56</span><span class="s1">&#39;</span>, <span class="s1">&#39;</span><span class="s">bh84</span><span class="s1">&#39;</span>, <span class="s1">&#39;</span><span class="s">hv76</span><span class="s1">&#39;</span>, <span class="s1">&#39;</span><span class="s">ay93</span><span class="s1">&#39;</span>, <span class="s1">&#39;</span><span class="s">ap97</span><span class="s1">&#39;</span>, <span class="s1">&#39;</span><span class="s">bd72</span><span class="s1">&#39;</span>]
+<span class="k">for</span> <span class="nv">accession</span> <span class="nv">in</span> <span class="nv">accs</span>:
+    <span class="k">if</span> <span class="nv">accession</span>.<span class="nv">startswith</span><span class="ss">(</span><span class="s1">&#39;</span><span class="s">a</span><span class="s1">&#39;</span><span class="ss">)</span>:
+        <span class="nv">file1</span>.<span class="nv">write</span><span class="ss">(</span><span class="nv">accession</span> <span class="o">+</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="ss">)</span>
+    <span class="nv">elif</span> <span class="nv">accession</span>.<span class="nv">startswith</span><span class="ss">(</span><span class="s1">&#39;</span><span class="s">b</span><span class="s1">&#39;</span><span class="ss">)</span>:
+        <span class="nv">file2</span>.<span class="nv">write</span><span class="ss">(</span><span class="nv">accession</span> <span class="o">+</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="ss">)</span>
+    <span class="k">else</span>:
+        <span class="nv">file3</span>.<span class="nv">write</span><span class="ss">(</span><span class="nv">accession</span> <span class="o">+</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="ss">)</span>
+</code></pre></div>
+
+<p>Notice how this version of the code only needs two levels of indention. In fact, using <code>elif</code> we can have any number of branches without adding any extra indentation:</p>
+<div class="highlight"><pre><span></span><code><span class="k">for</span> <span class="nv">accession</span> <span class="nv">in</span> <span class="nv">accs</span>:
+    <span class="k">if</span> <span class="nv">accession</span>.<span class="nv">startswith</span><span class="ss">(</span><span class="s1">&#39;</span><span class="s">a</span><span class="s1">&#39;</span><span class="ss">)</span>:
+        <span class="nv">file1</span>.<span class="nv">write</span><span class="ss">(</span><span class="nv">accession</span> <span class="o">+</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="ss">)</span>
+    <span class="nv">elif</span> <span class="nv">accession</span>.<span class="nv">startswith</span><span class="ss">(</span><span class="s1">&#39;</span><span class="s">b</span><span class="s1">&#39;</span><span class="ss">)</span>:
+        <span class="nv">file2</span>.<span class="nv">write</span><span class="ss">(</span><span class="nv">accession</span> <span class="o">+</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="ss">)</span>
+    <span class="nv">elif</span> <span class="nv">accession</span>.<span class="nv">startswith</span><span class="ss">(</span><span class="s1">&#39;</span><span class="s">c</span><span class="s1">&#39;</span><span class="ss">)</span>:
+        <span class="nv">file3</span>.<span class="nv">write</span><span class="ss">(</span><span class="nv">accession</span> <span class="o">+</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="ss">)</span>
+    <span class="nv">elif</span> <span class="nv">accession</span>.<span class="nv">startswith</span><span class="ss">(</span><span class="s1">&#39;</span><span class="s">d</span><span class="s1">&#39;</span><span class="ss">)</span>:
+        <span class="nv">file4</span>.<span class="nv">write</span><span class="ss">(</span><span class="nv">accession</span> <span class="o">+</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="ss">)</span>
+    <span class="nv">elif</span> <span class="nv">accession</span>.<span class="nv">startswith</span><span class="ss">(</span><span class="s1">&#39;</span><span class="s">e</span><span class="s1">&#39;</span><span class="ss">)</span>:
+        <span class="nv">file5</span>.<span class="nv">write</span><span class="ss">(</span><span class="nv">accession</span> <span class="o">+</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="ss">)</span>
+    <span class="k">else</span>:
+        <span class="nv">file6</span>.<span class="nv">write</span><span class="ss">(</span><span class="nv">accession</span> <span class="o">+</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="ss">)</span>
+</code></pre></div>
+
+<p>Note the order of the statements in the example above; we always start with an <code>if</code> and end with an <code>else</code>, and all the <code>elif</code> statements go in the middle. This kind of <code>if/elif/else</code> structure is very useful when we have several mutually-exclusive options. In the example above, only one branch can be true for each accession number – a string can't start with both "a" and "b". If we have a situation where the branches are not mutually exclusive – i.e. where more than one branch can be taken – then we simply need a series of <code>if</code> statements:</p>
+<div class="highlight"><pre><span></span><code><span class="k">for</span> <span class="nv">accession</span> <span class="nv">in</span> <span class="nv">accs</span>:
+    <span class="k">if</span> <span class="nv">accession</span>.<span class="nv">startswith</span><span class="ss">(</span><span class="s1">&#39;</span><span class="s">a</span><span class="s1">&#39;</span><span class="ss">)</span>:
+        <span class="nv">file1</span>.<span class="nv">write</span><span class="ss">(</span><span class="nv">accession</span> <span class="o">+</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="ss">)</span>
+    <span class="k">if</span> <span class="nv">accession</span>.<span class="nv">endswith</span><span class="ss">(</span><span class="s1">&#39;</span><span class="s">z</span><span class="s1">&#39;</span><span class="ss">)</span>:
+        <span class="nv">file2</span>.<span class="nv">write</span><span class="ss">(</span><span class="nv">accession</span> <span class="o">+</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="ss">)</span>
+    <span class="k">if</span> <span class="nv">len</span><span class="ss">(</span><span class="nv">accession</span><span class="ss">)</span> <span class="o">==</span> <span class="mi">4</span>:
+        <span class="nv">file3</span>.<span class="nv">write</span><span class="ss">(</span><span class="nv">accession</span> <span class="o">+</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="ss">)</span>
+    <span class="k">if</span> <span class="nv">accession</span>.<span class="nv">count</span><span class="ss">(</span><span class="s1">&#39;</span><span class="s">j</span><span class="s1">&#39;</span><span class="ss">)</span> <span class="o">&gt;</span> <span class="mi">5</span>:
+        <span class="nv">file4</span>.<span class="nv">write</span><span class="ss">(</span><span class="nv">accession</span> <span class="o">+</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="ss">)</span>
+</code></pre></div>
+
+<p>In the example above, a single accession can satisfy more than one condition – a string can start with "a" and end with "z" – so it makes sense to use multiple <code>if</code> statements. </p>
+<h3>while loops</h3>
+<p>Here's one final thing we can do with conditions: use them to determine when to exit a loop. Previously we learned about loops that iterate over a collection of elements (like a list, a string or a file). Python has another type of loop called a <code>while</code> loop. Rather than running a set number of times, a <code>while</code> loop runs until some condition is met. For example, here's a bit of code that increments a <code>count</code> variable by one each time round the loop, stopping when the <code>count</code> variable reaches ten:</p>
+<div class="highlight"><pre><span></span><code><span class="nv">count</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="k">while</span> <span class="nv">count</span><span class="o">&lt;</span><span class="mi">10</span>:
+    <span class="nv">print</span><span class="ss">(</span><span class="nv">count</span><span class="ss">)</span>
+    <span class="nv">count</span> <span class="o">=</span> <span class="nv">count</span> <span class="o">+</span> <span class="mi">1</span>
+</code></pre></div>
+
+<p>Because normal loops in Python are so powerful, <code>while</code> loops are used much less frequently than in other languages, so we won't discuss them further. </p>
+<h2>Building up complex conditions</h2>
+<p>What if we wanted to express a condition that was made up of several parts? Imagine we want to go through our list of accessions and print out only the ones that start with "a" and end with "3".  We could use two nested <code>if</code> statements:</p>
+<div class="highlight"><pre><span></span><code><span class="nv">accs</span> <span class="o">=</span> [<span class="s1">&#39;</span><span class="s">ab56</span><span class="s1">&#39;</span>, <span class="s1">&#39;</span><span class="s">bh84</span><span class="s1">&#39;</span>, <span class="s1">&#39;</span><span class="s">hv76</span><span class="s1">&#39;</span>, <span class="s1">&#39;</span><span class="s">ay93</span><span class="s1">&#39;</span>, <span class="s1">&#39;</span><span class="s">ap97</span><span class="s1">&#39;</span>, <span class="s1">&#39;</span><span class="s">bd72</span><span class="s1">&#39;</span>]
+<span class="k">for</span> <span class="nv">accession</span> <span class="nv">in</span> <span class="nv">accs</span>:
+    <span class="k">if</span> <span class="nv">accession</span>.<span class="nv">startswith</span><span class="ss">(</span><span class="s1">&#39;</span><span class="s">a</span><span class="s1">&#39;</span><span class="ss">)</span>:
+        <span class="k">if</span> <span class="nv">accession</span>.<span class="nv">endswith</span><span class="ss">(</span><span class="s1">&#39;</span><span class="s">3</span><span class="s1">&#39;</span><span class="ss">)</span>:
+            <span class="nv">print</span><span class="ss">(</span><span class="nv">accession</span><span class="ss">)</span>
+</code></pre></div>
+
+<p>but this brings in an extra, unneeded level of indention. A better way is to join the two conditions with <code>and</code> to make a complex expression:</p>
+<div class="highlight"><pre><span></span><code><span class="nv">accs</span> <span class="o">=</span> [<span class="s1">&#39;</span><span class="s">ab56</span><span class="s1">&#39;</span>, <span class="s1">&#39;</span><span class="s">bh84</span><span class="s1">&#39;</span>, <span class="s1">&#39;</span><span class="s">hv76</span><span class="s1">&#39;</span>, <span class="s1">&#39;</span><span class="s">ay93</span><span class="s1">&#39;</span>, <span class="s1">&#39;</span><span class="s">ap97</span><span class="s1">&#39;</span>, <span class="s1">&#39;</span><span class="s">bd72</span><span class="s1">&#39;</span>]
+<span class="k">for</span> <span class="nv">accession</span> <span class="nv">in</span> <span class="nv">accs</span>:
+    <span class="k">if</span> <span class="nv">accession</span>.<span class="nv">startswith</span><span class="ss">(</span><span class="s1">&#39;</span><span class="s">a</span><span class="s1">&#39;</span><span class="ss">)</span> <span class="nv">and</span> <span class="nv">accession</span>.<span class="nv">endswith</span><span class="ss">(</span><span class="s1">&#39;</span><span class="s">3</span><span class="s1">&#39;</span><span class="ss">)</span>:
+        <span class="nv">print</span><span class="ss">(</span><span class="nv">accession</span><span class="ss">)</span>
+</code></pre></div>
+
+<p>This version is nicer in two ways: it doesn't require the extra level of indentation, and the condition reads in a very natural way.  We can also use <code>or</code> to join up two conditions, to produce a complex condition that will be true if either of the two simple conditions are true:</p>
+<div class="highlight"><pre><span></span><code><span class="nv">accs</span> <span class="o">=</span> [<span class="s1">&#39;</span><span class="s">ab56</span><span class="s1">&#39;</span>, <span class="s1">&#39;</span><span class="s">bh84</span><span class="s1">&#39;</span>, <span class="s1">&#39;</span><span class="s">hv76</span><span class="s1">&#39;</span>, <span class="s1">&#39;</span><span class="s">ay93</span><span class="s1">&#39;</span>, <span class="s1">&#39;</span><span class="s">ap97</span><span class="s1">&#39;</span>, <span class="s1">&#39;</span><span class="s">bd72</span><span class="s1">&#39;</span>]
+<span class="k">for</span> <span class="nv">accession</span> <span class="nv">in</span> <span class="nv">accs</span>:
+    <span class="k">if</span> <span class="nv">accession</span>.<span class="nv">startswith</span><span class="ss">(</span><span class="s1">&#39;</span><span class="s">a</span><span class="s1">&#39;</span><span class="ss">)</span> <span class="nv">or</span> <span class="nv">accession</span>.<span class="nv">startswith</span><span class="ss">(</span><span class="s1">&#39;</span><span class="s">b</span><span class="s1">&#39;</span><span class="ss">)</span>:
+        <span class="nv">print</span><span class="ss">(</span><span class="nv">accession</span><span class="ss">)</span>
+</code></pre></div>
+
+<p>We can even join up complex conditions to make more complex conditions – here's an example which prints accessions if they start with either "a" or "b" and end with "4":</p>
+<div class="highlight"><pre><span></span><code><span class="nv">accs</span> <span class="o">=</span> [<span class="s1">&#39;</span><span class="s">ab56</span><span class="s1">&#39;</span>, <span class="s1">&#39;</span><span class="s">bh84</span><span class="s1">&#39;</span>, <span class="s1">&#39;</span><span class="s">hv76</span><span class="s1">&#39;</span>, <span class="s1">&#39;</span><span class="s">ay93</span><span class="s1">&#39;</span>, <span class="s1">&#39;</span><span class="s">ap97</span><span class="s1">&#39;</span>, <span class="s1">&#39;</span><span class="s">bd72</span><span class="s1">&#39;</span>]
+<span class="k">for</span> <span class="nv">acc</span> <span class="nv">in</span> <span class="nv">accs</span>:
+    <span class="k">if</span> <span class="ss">(</span><span class="nv">acc</span>.<span class="nv">startswith</span><span class="ss">(</span><span class="s1">&#39;</span><span class="s">a</span><span class="s1">&#39;</span><span class="ss">)</span> <span class="nv">or</span> <span class="nv">acc</span>.<span class="nv">startswith</span><span class="ss">(</span><span class="s1">&#39;</span><span class="s">b</span><span class="s1">&#39;</span><span class="ss">))</span> <span class="nv">and</span> <span class="nv">acc</span>.<span class="nv">endswith</span><span class="ss">(</span><span class="s1">&#39;</span><span class="s">4</span><span class="s1">&#39;</span><span class="ss">)</span>:
+        <span class="nv">print</span><span class="ss">(</span><span class="nv">acc</span><span class="ss">)</span>
+</code></pre></div>
+
+<p>Notice how we have to include parentheses in the above example to avoid ambiguity. If we have three simple conditions represented by X, Y and Z, then the complex condition </p>
+<div class="highlight"><pre><span></span><code>(X or Y) and Z
+</code></pre></div>
+
+<p>is not the same as the complex condition </p>
+<div class="highlight"><pre><span></span><code>X and (Y or Z)
+</code></pre></div>
+
+<p>Finally, we can negate any type of condition by prefixing it with the word <code>not</code>. This example will print out accessions that start with "a" and don't end with 6:</p>
+<div class="highlight"><pre><span></span><code><span class="nv">accs</span> <span class="o">=</span> [<span class="s1">&#39;</span><span class="s">ab56</span><span class="s1">&#39;</span>, <span class="s1">&#39;</span><span class="s">bh84</span><span class="s1">&#39;</span>, <span class="s1">&#39;</span><span class="s">hv76</span><span class="s1">&#39;</span>, <span class="s1">&#39;</span><span class="s">ay93</span><span class="s1">&#39;</span>, <span class="s1">&#39;</span><span class="s">ap97</span><span class="s1">&#39;</span>, <span class="s1">&#39;</span><span class="s">bd72</span><span class="s1">&#39;</span>]
+<span class="k">for</span> <span class="nv">acc</span> <span class="nv">in</span> <span class="nv">accs</span>:
+    <span class="k">if</span> <span class="nv">acc</span>.<span class="nv">startswith</span><span class="ss">(</span><span class="s1">&#39;</span><span class="s">a</span><span class="s1">&#39;</span><span class="ss">)</span> <span class="nv">and</span> <span class="nv">not</span> <span class="nv">acc</span>.<span class="nv">endswith</span><span class="ss">(</span><span class="s1">&#39;</span><span class="s">6</span><span class="s1">&#39;</span><span class="ss">)</span>:
+        <span class="nv">print</span><span class="ss">(</span><span class="nv">acc</span><span class="ss">)</span>
+</code></pre></div>
+
+<p>By using a combination of <code>and</code>, <code>or</code> and <code>not</code> (along with parentheses where necessary) we can build up arbitrarily complex conditions. </p>
+<p>Note: This kind of use for conditions – identifying elements in a list – can often be done better using either the <code>filter()</code> function, or a list comprehension. You'll find examples of each in the chapters on functional programming and comprehensions respectively in Advanced Python for Biologists.</p>
+<p>These three words are collectively known as <strong>boolean operators</strong> and crop up in a lot of places. For example, imagine you want to search a protein sequence database for full length cytochrome oxidase subunit one proteins. You could simply search using the query </p>
+<blockquote>
+<p>COX1</p>
+</blockquote>
+<p>but you would encounter two big problems: any sequences that were labelled as COI rather than COX1 would be missing from the results list, and the results list would contain partial sequences. To get around these problems, you might construct a query like this:</p>
+<blockquote>
+<p>COX1 or COI and not partial</p>
+</blockquote>
+<p>which uses the same tools and logic as we've just seen in Python.</p>
+<h2>Writing true/false functions</h2>
+<p>Sometimes we want to write a function that can be used in a condition. This is very easy to do – we just make sure that our function always returns either <code>True</code> or <code>False</code>.  Remember that <code>True</code> and <code>False</code> are built in values in Python, so they can be passed around, stored in variables, and returned, just like numbers or strings. </p>
+<p>Here's a function that determines whether or not a DNA sequence is AT-rich (we'll say that a sequence is AT-rich if it has an AT content of more than 0.65):</p>
+<div class="highlight"><pre><span></span><code><span class="nv">def</span> <span class="nv">is_at_rich</span><span class="ss">(</span><span class="nv">dna</span><span class="ss">)</span>: 
+    <span class="nv">length</span> <span class="o">=</span> <span class="nv">len</span><span class="ss">(</span><span class="nv">dna</span><span class="ss">)</span> 
+    <span class="nv">a_count</span> <span class="o">=</span> <span class="nv">dna</span>.<span class="nv">upper</span><span class="ss">()</span>.<span class="nv">count</span><span class="ss">(</span><span class="s1">&#39;</span><span class="s">A</span><span class="s1">&#39;</span><span class="ss">)</span> 
+    <span class="nv">t_count</span> <span class="o">=</span> <span class="nv">dna</span>.<span class="nv">upper</span><span class="ss">()</span>.<span class="nv">count</span><span class="ss">(</span><span class="s1">&#39;</span><span class="s">T</span><span class="s1">&#39;</span><span class="ss">)</span> 
+    <span class="nv">at_content</span> <span class="o">=</span> <span class="ss">(</span><span class="nv">a_count</span> <span class="o">+</span> <span class="nv">t_count</span><span class="ss">)</span> <span class="o">/</span> <span class="nv">length</span> 
+    <span class="k">if</span> <span class="nv">at_content</span> <span class="o">&gt;</span> <span class="mi">0</span>.<span class="mi">65</span>:
+        <span class="k">return</span> <span class="nv">True</span>
+    <span class="k">else</span>:
+        <span class="k">return</span> <span class="nv">False</span>
+</code></pre></div>
+
+<p>We'll test this function on a few sequences to see if it works:</p>
+<div class="highlight"><pre><span></span><code>print(is_at_rich(&quot;ATTATCTACTA&quot;))
+print(is_at_rich(&quot;CGGCAGCGCT&quot;))
+</code></pre></div>
+
+<p>The output shows that the function returns <code>True</code> or <code>False</code> just like the other conditions we've been looking at:</p>
+<blockquote>
+<p>True
+False</p>
+</blockquote>
+<p>Therefore we can use our function in an <code>if</code> statement:</p>
+<div class="highlight"><pre><span></span><code><span class="k">if</span> <span class="nv">is_at_rich</span><span class="ss">(</span><span class="nv">my_dna</span><span class="ss">)</span>:
+    # <span class="k">do</span> <span class="nv">something</span> <span class="nv">with</span> <span class="nv">the</span> <span class="nv">sequence</span>
+</code></pre></div>
+
+<p>Because the last four lines of our function are devoted to evaluating a condition and returning <code>True</code> or <code>False</code>, we can write a slightly more compact version. In this example we evaluate the condition, and then return the result right away❶:</p>
+<div class="highlight"><pre><span></span><code><span class="nv">def</span> <span class="nv">is_at_rich</span><span class="ss">(</span><span class="nv">dna</span><span class="ss">)</span>: 
+    <span class="nv">length</span> <span class="o">=</span> <span class="nv">len</span><span class="ss">(</span><span class="nv">dna</span><span class="ss">)</span> 
+    <span class="nv">a_count</span> <span class="o">=</span> <span class="nv">dna</span>.<span class="nv">upper</span><span class="ss">()</span>.<span class="nv">count</span><span class="ss">(</span><span class="s1">&#39;</span><span class="s">A</span><span class="s1">&#39;</span><span class="ss">)</span> 
+    <span class="nv">t_count</span> <span class="o">=</span> <span class="nv">dna</span>.<span class="nv">upper</span><span class="ss">()</span>.<span class="nv">count</span><span class="ss">(</span><span class="s1">&#39;</span><span class="s">T</span><span class="s1">&#39;</span><span class="ss">)</span> 
+    <span class="nv">at_content</span> <span class="o">=</span> <span class="ss">(</span><span class="nv">a_count</span> <span class="o">+</span> <span class="nv">t_count</span><span class="ss">)</span> <span class="o">/</span> <span class="nv">length</span> 
+    <span class="k">return</span> <span class="nv">at_content</span> <span class="o">&gt;</span> <span class="mi">0</span>.<span class="mi">65</span>❶
+</code></pre></div>
+
+<p>This is a little more concise, and also easier to read once you're familiar with the idiom.</p>
+<h2>Recap</h2>
+<p>In this short section, we've dealt with two things: conditions, and the statements that use them. 
+We've seen how simple conditions can be joined together to make more complex ones, and how the concepts of truth and falsehood are built in to Python on a fundamental level. We've also seen how we can incorporate True and False in our own functions in a way that allows them to be used as part of conditions. </p>
+<p>We've been introduced to four different tools that use conditions – <code>if</code>, <code>else</code>, <code>elif</code>, and <code>while</code> – in approximate order of usefulness. You'll probably find, in the programs that you write and in your solutions to the exercises, that you use <code>if</code> and <code>else</code> very frequently, <code>elif</code> occasionally, and <code>while</code> almost never.</p>
+<h2>Exercises</h2>
+<p><a href="/s/data.csv">Click here to download</a> a text file called <em>data.csv</em>, containing some made-up data for a number of genes.  Each line contains the following fields for a single gene in this order: species name, sequence, gene name, expression level. The fields are separated by commas (hence the name of the file – csv stands for Comma Separated Values). Think of it as a representation of a table in a spreadsheet – each line is a row, and each field in a line is a column. All the exercises below use the data in this file. </p>
+<p>This is a multi part exercise which involves extracting and printing data from the file. The nature of this type of problem means that it's quite easy to get a program that runs without errors, but doesn't quite produce the correct output, so be sure to check your solutions manually. Remember, you can always find solutions and explanations for all the exercises in the <a href="/python-books">Python for Biologists books</a>. </p>
+<p>Reminder: if you're using Python 2 rather than Python 3, include this line at the top of your programs:
+from <strong>future</strong> import division</p>
+<h3>Several species</h3>
+<p>Print out the gene names for all genes belonging to Drosophila melanogaster or Drosophila simulans. </p>
+<h3>Length range</h3>
+<p>Print out the gene names for all genes between 90 and 110 bases long. </p>
+<h3>AT content</h3>
+<p>Print out the gene names for all genes whose AT content is less than 0.5 and whose expression level is greater than 200.</p>
+<h3>Complex condition</h3>
+<p>Print out the gene names for all genes whose name begins with "k" or "h" except those belonging to Drosophila melanogaster.</p>
+<h3>High low medium</h3>
+<p>For each gene, print out a message giving the gene name and saying whether its AT content is high (greater than 0.65), low (less than 0.45) or medium (between 0.45 and 0.65).</p>
+<h2>SOLUTIONS</h2>
+<p>You can find solutions to all the exercises, along with explanations of how they work, by signing up for the <a href="/python-for-biologists-online-course">online course</a>.</p>
+        </div>
+        <hr/>
+        <hr/>
+    </article>
+</div>
+        </div>
+<footer class="footer">
+   <div class="container bottom_border">
+   <ul class="foote_bottom_ul_amrc">
+    <h3 style="color:white;"  class="text-center">Sign up for the newsletter</h3>
+    <h5 style="color:white;"  class="text-center">Links to the best biological Python and bioinformatics content on the web, no spam.</h3>
+     <script async src="https://eomail5.com/form/fbc6d37e-0672-11ec-96e5-06b4694bee2a.js" data-form="fbc6d37e-0672-11ec-96e5-06b4694bee2a"></script>
+     </ul>
+   </div>
+   <div class="container">
+      <ul class="foote_bottom_ul_amrc">
+         <li><a href="/">HOME</a></li>
+         <li><a href="">ABOUT</a></li>
+         <li><a href="">ARCHIVE</a></li>
+      </ul>
+      <!--foote_bottom_ul_amrc ends here-->
+      <p class="text-center"></p>
+        
+          
+      </div>
+
+      <!--social_footer_ul ends here-->
+   </div>
+</footer>
+            <script type="text/javascript" src="https://mojones.github.io/pelican-p4b/theme/libs/jquery.min.js"></script>
+            <script type="text/javascript" src="https://mojones.github.io/pelican-p4b/theme/libs/bootstrap-4.2.1/dist/js/bootstrap.bundle.min.js"></script>
+
+        <script src="https://mojones.github.io/pelican-p4b/theme/libs/prism.js"></script>
+        <script src="https://mojones.github.io/pelican-p4b/theme/libs/Countable.js"></script>
+
+        <script>
+            Prism.plugins.NormalizeWhitespace.setDefaults({
+                'remove-trailing': true,
+                'remove-indent': true,
+                'left-trim': true,
+                'right-trim': true,
+                /*'break-lines': 80,
+                'indent': 2,
+                'remove-initial-line-feed': false,
+                'tabs-to-spaces': 4,
+                'spaces-to-tabs': 4*/
+            });
+        </script>
+
+
+        <script type="text/javascript" src="https://mojones.github.io/pelican-p4b/theme/js/custom.js"></script>
+            <script>
+                function validateForm(query)
+                {
+                    return (query.length > 0);
+                }
+            </script>
+    </body>
+</html>
+

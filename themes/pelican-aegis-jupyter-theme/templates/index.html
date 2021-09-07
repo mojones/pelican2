@@ -1,0 +1,73 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    {{ super() }}
+{% endblock title %}
+
+{% block meta_tags_in_head %}
+    {{ super() }}
+    <link rel="canonical" href="{{ SITEURL }}">
+    <meta property="og:title" content="{{ INDEX_PAGE_TITLE }}"/>
+    <meta name="twitter:title" content="{{ INDEX_PAGE_TITLE }}"/>
+    <meta property="og:url" content="{{ SITEURL }}" />
+    <meta property="og:description" content="{{ INDEX_PAGE_DESCRIPTION }}" />
+    <meta name="twitter:description" content="{{ INDEX_PAGE_DESCRIPTION }}"/>
+    <meta property="og:site_name" content="{{ SITENAME|striptags|e }}" />
+    <meta property="og:article:author" content="{{ AUTHOR }}" />
+    {% from '_includes/_defaults.html' import FEATURED_IMAGE with context %}
+    {% if FEATURED_IMAGE %}
+        <meta property="og:image" content="{{FEATURED_IMAGE}}" />
+        <meta name="twitter:image" content="{{FEATURED_IMAGE}}"/>
+    {% endif %}
+{% endblock meta_tags_in_head %}
+
+{% block content %}
+<div id="post-container" class="container post index list">
+    
+    
+    
+
+    <article>
+    
+    <h2>Welcome to Python for biologists</h2>
+    <p>Here you'll find resources for learning to program in Python for people with a background in biology</p>
+    
+    <hr>
+    <a href="/biological-data-exploration-book"> <img src="images/bde_book.png" style="width:200px;float:right;"> </a>
+    <h2>Now published: <a href="/biological-data-exploration-book">Biological Data Exploration</a>.</h2>
+    <br/>
+    <br/>
+    <p>A complete guide to cleaning, manipulating and visualizing complex biological datasets with Python.</p>
+    
+    <br style="clear:both;"/>
+
+    <br/>
+        <hr>
+        <br/>
+    <h2>If you're looking for the exercise files for any of my books, <a href="/exercise-files">click here</a>.</h2>
+    <br/>
+    <h2>If you want to get started with writing Python code take a look at the <a href="/python-for-biologists-online-course">Python for biolgists online course</a>.</h2>
+
+        <br/>
+    <h2>If you're looking for instructor-led training courses, check out <a href="/training-courses">my training courses</a> designed around biology and bioinformatics.</h2>
+
+    
+    <br/>
+        <hr>
+        <br/>
+        <div class="h4 mt-3 title mb-5 pop-over">Browse the list of recent articles:</div>
+        
+        <ul class="double-list pop-over">
+                {% for article in articles if article.category == 'article'%}
+                    <li>
+                        <a href='/{{ article.url }}'>
+                            <h2 class="tag-title">{{ article.title }}</h2>
+                            <span>{{ article.date.strftime('%d.%m.%Y') }}</span>
+                        </a>
+                    </li>
+                {% endfor %}
+                </ul>
+        <div class="mt-4"></div>
+    </article>
+</div>
+{% endblock content %}

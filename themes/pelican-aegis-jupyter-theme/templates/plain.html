@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    {{ article.title|striptags|e }} {%if article.subtitle %} - {{ article.subtitle|striptags|e }} {% endif %} | {{ super() }}
+{% endblock title %}
+
+{% block head_description %}
+    {% if article.social_media_description %}
+        {{ article.social_media_description|striptags|e }}
+    {% endif %}
+{% endblock head_description %}
+
+{% block meta_tags_in_head %}
+    {% if article.redirect %}
+        <meta http-equiv="refresh" content="0;URL={{ article.redirect}}"/>
+    {% endif %}
+    {{ super() }}
+    {% if article.tags or article.category or article.keywords %}
+        <meta name="keywords" content="{{ [article.tags|join(', '), article.category, article.keywords]|join(', ') }}"/>
+    {% endif %}
+
+    {% from '_includes/smo_metadata.html' import smo_metadata with context %}
+    {{ smo_metadata(article) }}
+{% endblock meta_tags_in_head %}
+
+{% block content %}
+<div id="post-container" class="container post index">
+    <article>
+
+        <div class="article_content">
+            {% import '_includes/translations.html' as translations with context %}
+            {{ translations.translations_for(article) }}
+            {{ article.content }}
+        </div>
+       
+    </article>
+</div>
+{% endblock content %}

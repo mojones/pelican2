@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+
+            <meta name="author" content="Martin" />
+
+
+
+                <meta property="og:type" content="article" />
+            <meta name="twitter:card" content="summary"/>
+
+        <meta name="keywords" content="python, tutorial, tutorial, "/>
+
+        <link rel="canonical" href="https://mojones.github.io/pelican-p4b/tutorial/regex.html">
+    <meta property="og:title" content="Python tutorial part seven | Python for Biologists"/>
+    <meta property="og:url" content="https://mojones.github.io/pelican-p4b/tutorial/regex.html" />
+    <meta property="og:description" content="" />
+    <meta property="og:site_name" content="Python for Biologists" />
+    <meta property="og:article:author" content="Martin" />
+        <meta property="og:article:published_time" content="2010-12-03T10:20:00+01:00" />
+        <meta property="og:article:modified_time" content="2010-12-05T19:30:00+01:00" />
+    <meta name="twitter:title" content="Python tutorial part seven | Python for Biologists">
+    <meta name="twitter:description" content="">
+
+
+        <title>    Python tutorial part seven  | Python for Biologists
+</title>
+
+                <link rel="stylesheet" type="text/css" href="https://mojones.github.io/pelican-p4b/theme/libs/bootstrap-4.2.1/dist/css/bootstrap.min.css">
+                <link rel="stylesheet" type="text/css" href="https://mojones.github.io/pelican-p4b/theme/libs/fontawesome-free-5.2.0-web/css/all.min.css">
+            <link rel="stylesheet" type="text/css" href="https://mojones.github.io/pelican-p4b/theme/css/custom.css" media="screen">
+            <link rel="stylesheet" type="text/css" href="https://mojones.github.io/pelican-p4b/theme/css/ipynb.css" media="screen">
+
+            <style>
+                #progressBar::-webkit-progress-value {
+                    background-color: ;
+                }
+                #progressBar::-moz-progress-bar {
+                    background-color: ;
+                }
+            </style>
+
+        <link href="https://mojones.github.io/pelican-p4b/theme/libs/prism.css" rel="stylesheet" />
+<script type="text/x-mathjax-config">
+
+MathJax.Hub.Config({
+tex2jax: { inlineMath: [["$","$"],["\\(","\\)"]] },
+"HTML-CSS": {
+  linebreaks: { automatic: true, width: "container" }
+}
+});
+
+</script>
+<script type="text/javascript"
+  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+    </head>
+    <body>
+        <div class="banner-wrapper row" style="background-color: #24292e;">
+            <div class="banner">
+                <nav id="navbar" class="navbar navbar-expand-md navbar-light bg-light container">
+                    <div class="container navbar-title">
+                        <a href="/"><img id="banner-logo" src="https://mojones.github.io/pelican-p4b/images/logo.png" style="height: 40px; margin: 6px 0;"></a>
+                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                    </div>
+                <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent" style="margin-bottom: 6.5px;margin-top: 6.5px">
+                    <ul class="navbar-nav">
+                        <li class="nav-item active">
+                            <a class="nav-link rem_15" href="https://mojones.github.io/pelican-p4b/python-for-biologists-online-course">Learn&nbsp;Python</a>
+                        </li>
+                    </ul>
+                    <ul class="navbar-nav">
+                        <li class="nav-item active">
+                            <a class="nav-link rem_15" href="https://mojones.github.io/pelican-p4b/aboutcontact">About</a>
+                        </li>
+                    </ul>
+                    <ul class="navbar-nav">
+                        <li id="second-item" class="nav-item">
+                            <a class="nav-link rem_15" href="https://mojones.github.io/pelican-p4b/tutorial">Python&nbsp;tutorial</a>
+                        </li>
+                     </ul>
+                     
+                     <ul class="navbar-nav">
+                        <li id="second-item" class="nav-item">
+                            <a class="nav-link rem_15" href="https://mojones.github.io/pelican-p4b/training-courses">Training&nbsp;courses</a>
+                        </li>
+                     </ul>
+                     
+                       <ul class="navbar-nav">
+                        <li id="second-item" class="nav-item">
+                            <a class="nav-link rem_15" href="https://mojones.github.io/pelican-p4b/biological-data-exploration-book">Data&nbsp;exploration&nbsp;book</a>
+                        </li>
+                     </ul>
+                     
+                </div>
+                </nav>
+            </div>
+        </div>
+        <div id="wrap">
+<div id="post-container" class="container post index">
+    <article>
+        <header class="pop-over">
+            <h1>Python tutorial part seven</h1>
+            <div class="row justify-content-between no-margin">
+                <h4 class="article-category">Category > <a class="article-category-link" href="https://mojones.github.io/pelican-p4b/">tutorial</a></h4>
+                <span class="article-date">Fri 03 December 2010</span>
+            </div>
+            <div class="meta meta-tag no-margin no-border">
+                <div>
+                        <a href="https://mojones.github.io/pelican-p4b/tag/python.html" class="tag">python</a>
+                        <a href="https://mojones.github.io/pelican-p4b/tag/tutorial.html" class="tag">tutorial</a>
+                </div>
+            </div>
+            
+        </header>
+        <div class="article_content">
+            
+            <h2>The importance of patterns in biology</h2>
+<p>A lot of what we do when writing programs for biology can be described as searching for patterns in strings. The obvious examples come from the analysis of biological sequence data – remember that DNA, RNA and protein sequences are just strings. Many of the things we want to look for in biological sequences can be described in terms of patterns:</p>
+<ul>
+<li>protein domains</li>
+<li>DNA transcription factor binding motifs</li>
+<li>restriction enzyme cut sites</li>
+<li>degenerate PCR primer sites</li>
+<li>runs of mononucleotides</li>
+</ul>
+<p>However, it's not just sequence data that can have interesting patterns. As we discussed in when talking about files, most of the other types of data we have to deal with in biology comes in the form of strings inside text files – things like:</p>
+<ul>
+<li>read mapping locations</li>
+<li>geographical sample coordinates</li>
+<li>taxonomic names</li>
+<li>gene names</li>
+<li>gene accession numbers</li>
+<li>BLAST search results</li>
+</ul>
+<p>In previous pages, we've looked at some programming tasks that involve pattern recognition in strings. We've seen how to count individual amino acid residues (and even groups of amino acid residues) in protein sequences, and how to identify restriction enzyme cut sites in DNA sequences. We've also seen how to examine parts of gene names and match them against individual characters. </p>
+<p>The common theme among all these problems is that they involve searching for a fixed pattern. But there are many problems that we want to solve that require more flexible patterns. For example:</p>
+<ul>
+<li>given a DNA sequence, what's the length of the poly-A tail?</li>
+<li>given a gene accession name, extract the part between the third character and the underscore</li>
+<li>given a protein sequence, determine if it contains this highly redundant protein domain motif</li>
+</ul>
+<p>Because these types of problems crop up in so many different fields, there's a standard set of tools in Python for dealing with them: <strong>regular expressions</strong>. Regular expressions are a topic that might not be covered in a general purpose programming book, but because they're so useful in biology, we're going to devote the whole of this section to looking at them.</p>
+<p>Although the tools for dealing with regular expressions are built in to Python, they are not made automatically available when you write a program. In order to use them we must first talk about modules. </p>
+<h3>Modules in Python</h3>
+<p>The functions and data types that we've discussed so far have been the basic ones that are likely to be needed in pretty much every program – tools for dealing with strings and numbers, for reading and writing files, and for manipulating lists of data. As such, they are automatically made available when we start to create a Python program. If we want to open a file, we simply write a statement that uses the <code>open()</code> function. </p>
+<p>However, there's another category of tools in Python which are more specialized. Regular expressions are one example, but there is a large list of specialized tools which are very useful when you need them, but are not likely to be needed for the majority of programs. Examples include tools for doing advanced mathematical calculations, for downloading data from the web, for running external programs, and for manipulating dates. Each collection of specialized tools – really just a collection of specialized functions and data types – is called a <strong>module</strong>. </p>
+<p>For reasons of efficiency, Python doesn't automatically make these modules available in each new program, as it does with the more basic tools. Instead, we have to explicitly load each module of specialized tools that we want to use inside our program. To load a module we use the <code>import</code> statement. For example, the module that deals with regular expressions is called <code>re</code>, so if we want to write a program that uses the regular expression tools we must include the line:</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">re</span>
+</code></pre></div>
+
+<p>at the top of our program. When we then want to use one of the tools from a module, we have to prefix it with the module name. For example, to use the regular expression <code>search()</code> function (which we'll discuss) we have to write:</p>
+<div class="highlight"><pre><span></span><code>re.search(pattern, string)
+</code></pre></div>
+
+<p>rather than simply:</p>
+<div class="highlight"><pre><span></span><code>search(pattern, string)
+</code></pre></div>
+
+<p>If we forget to import the module which we want to use, or forget to include the module name as part of the function call, we will get a <code>NameError</code>.</p>
+<p>We'll encounter various other modules in future pages. For the rest of this page specifically, all code examples will require the <code>import re</code> statement in order to work. For clarity, we won't include it, so if you want try running any of the examples, you'll need to add it at the start of your code.</p>
+<h3>Raw strings</h3>
+<p>Writing regular expression patterns, as we'll see in the next section of this section, requires us to type a lot of special characters. Recall from the section on manipulating text that certain combinations of characters are interpreted by Python to have a special meaning. For example, <code>\n</code> means start a new line, and <code>\t</code> means insert a tab character. </p>
+<p>Unfortunately, there are a limited number of special characters to go round, so some of the characters that have a special meaning in regular expressions clash with the characters that already have a special meaning. Python's way round this problem is to have a special rule for strings: if we put the letter <code>r</code> immediately before the opening quotation mark, then any special characters inside the string are ignored:</p>
+<div class="highlight"><pre><span></span><code>print(r&quot;\t\n&quot;)
+</code></pre></div>
+
+<p>The <code>r</code> stands for raw, which is Python's description for a string where special characters are ignored. Notice that the <code>r</code> goes outside the quotation marks – it is not part of the string itself. We can see from the output that the above code prints out the string just as we've written it:</p>
+<blockquote>
+<p>\t\n</p>
+</blockquote>
+<p>without any tabs or newlines. You'll see this special raw notation used in all the regular expression code examples on this page – even when it's not strictly necessary – because it's a good habit to get in to. </p>
+<h2>Searching for a pattern in a string</h2>
+<p>We'll start off with the simplest regular expression tool. <code>re.search()</code> is a true/false function that determines whether or not a pattern appears somewhere in a string. It takes two arguments, both strings. The first argument is the pattern that you want to search for, and the second argument is the string that you want to search in. For example, here's how we test if a DNA sequence contains an EcoRI restriction site:</p>
+<div class="highlight"><pre><span></span><code><span class="nv">dna</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="s">ATCGCGAATTCAC</span><span class="s2">&quot;</span>
+<span class="k">if</span> <span class="nv">re</span>.<span class="nv">search</span><span class="ss">(</span><span class="nv">r</span><span class="s2">&quot;</span><span class="s">GAATTC</span><span class="s2">&quot;</span>, <span class="nv">dna</span><span class="ss">)</span>:
+    <span class="nv">print</span><span class="ss">(</span><span class="s2">&quot;</span><span class="s">restriction site found!</span><span class="s2">&quot;</span><span class="ss">)</span>
+</code></pre></div>
+
+<p>Notice that we've used the raw notation for the pattern string, even though it's not strictly necessary since it doesn't contain any special characters.</p>
+<h3>Alternation</h3>
+<p>Now that we've seen a simple example of how to use <code>re.search()</code>, let's look at something a bit more interesting. This time, we'll check for the presence of an AvaII recognition site, which can have two different sequences: GGACC and GGTCC. One way to do this would be to use the techniques we learned in the previous chapter to make a complex condition using <code>or</code>:</p>
+<div class="highlight"><pre><span></span><code><span class="nv">dna</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="s">ATCGCGAATTCAC</span><span class="s2">&quot;</span>
+<span class="k">if</span> <span class="nv">re</span>.<span class="nv">search</span><span class="ss">(</span><span class="nv">r</span><span class="s2">&quot;</span><span class="s">GGACC</span><span class="s2">&quot;</span>, <span class="nv">dna</span><span class="ss">)</span> <span class="nv">or</span> <span class="nv">re</span>.<span class="nv">search</span><span class="ss">(</span><span class="nv">r</span><span class="s2">&quot;</span><span class="s">GGTCC</span><span class="s2">&quot;</span>, <span class="nv">dna</span><span class="ss">)</span>:
+    <span class="nv">print</span><span class="ss">(</span><span class="s2">&quot;</span><span class="s">restriction site found!</span><span class="s2">&quot;</span><span class="ss">)</span>
+</code></pre></div>
+
+<p>But a better way is to capture the variation in the AvaII site using a regular expression. One useful feature of regular expressions is called alternation. To represent a number of different alternatives, we write the alternatives inside parentheses separated by a pipe character. In the case of AvaII, there are two alternatives for the third base – it can be either A or T – so the pattern looks like this:</p>
+<blockquote>
+<p>GG(A|T)CC</p>
+</blockquote>
+<p>Writing the pattern as a raw string and putting it inside a call to <code>re.search()</code> gives us the code:</p>
+<div class="highlight"><pre><span></span><code><span class="nv">dna</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="s">ATCGCGAATTCAC</span><span class="s2">&quot;</span>
+<span class="k">if</span> <span class="nv">re</span>.<span class="nv">search</span><span class="ss">(</span><span class="nv">r</span><span class="s2">&quot;</span><span class="s">GG(A|T)CC</span><span class="s2">&quot;</span>, <span class="nv">dna</span><span class="ss">)</span>:
+    <span class="nv">print</span><span class="ss">(</span><span class="s2">&quot;</span><span class="s">restriction site found!</span><span class="s2">&quot;</span><span class="ss">)</span>
+</code></pre></div>
+
+<p>Notice the power of what we've done here; we've written a single pattern which captures all the variation in the sequence in one string.  </p>
+<h3>Character groups</h3>
+<p>The BisI restriction enzyme cuts at an even wider range of motifs – the pattern is GCNGC, where N represents any base. We can use the same alternation technique to represent this pattern:</p>
+<blockquote>
+<p>GC(A|T|G|C)GC</p>
+</blockquote>
+<p>However, there's another regular expression feature that lets us write the pattern more concisely. A pair of square brackets with a list of characters inside them can represent any one of these characters. So the pattern <code>GC[ATGC]GC</code> will match GCAGC, GCTGC, GCGGC and GCCGC. Here's a program that checks for the presence of a BisI restriction site using character groups:</p>
+<div class="highlight"><pre><span></span><code><span class="n">dna</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ss">&quot;ATCGCGAATTCAC&quot;</span><span class="w"></span>
+<span class="k">if</span><span class="w"> </span><span class="n">re</span><span class="p">.</span><span class="k">search</span><span class="p">(</span><span class="n">r</span><span class="ss">&quot;GC[ATGC]GC&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">dna</span><span class="p">)</span><span class="err">:</span><span class="w"></span>
+<span class="w">    </span><span class="k">print</span><span class="p">(</span><span class="ss">&quot;restriction site found!&quot;</span><span class="p">)</span><span class="w"></span>
+</code></pre></div>
+
+<p>Taken together, alternation and character groups do a pretty good job of capturing the kind of variation that we're interested in for biological programming. Before we move on, here are two short cuts that deal with specific, common scenarios. </p>
+<p>If we want a character in a pattern to match any character in the input, we can use a period or dot. For example, the pattern <code>GC.GC</code> would match all four possibilities in the BisI example above. However, the period would also match any character which is not a DNA base, or even a letter. Therefore, the whole pattern would also match GCFGC, GC&amp;GC and GC9GC, which may not be what we want, so be careful when using this feature.</p>
+<p>Sometimes it's easier, rather than listing all the acceptable characters, to specify the characters that we don't want to match. Putting a caret <code>^</code> at the start of a character group like this </p>
+<blockquote>
+<p>[^XYZ] </p>
+</blockquote>
+<p>will negate it, and match any character that isn't in the group. The example above will match any character other than X, Y or Z. </p>
+<h3>Quantifiers</h3>
+<p>The regular expression features discussed above let us describe variation in the individual characters of patterns. Another group of features, quantifiers, let us describe variation in the number of times a section of a pattern is repeated. </p>
+<p>A question mark immediately following a character means that that character is optional – it can match either zero or one times. So in the pattern <code>GAT?C</code> the T is optional, and the pattern will match either GATC or GAC. If we want to apply a question mark to more than one character, we can group the characters in parentheses. For example, in the pattern <code>GGG(AAA)?TTT</code> the group of three As is optional, so the pattern will match either GGGAAATTT or GGGTTT. </p>
+<p>A plus sign immediately following a character or group means that the character or group must be present but can be repeated any number of times – in other words, it will match one or more times. For example, the pattern <code>GGGA+TTT</code> will match three Gs, followed by one or more As, followed by three Ts. So it will match GGGATTT, GGGAATT, GGGAAATT, etc. but not GGGTTT.</p>
+<p>An asterisk immediately following a character or group means that the character or group is optional, but can also be repeated. In other words, it will match zero or more times. For example, the pattern <code>GGGA*TTT</code> will match three Gs, followed by zero or more As, followed by three Ts. So it will match GGGTTT, GGGATTT, GGGAATTT, etc. It's the most flexible quantifier.</p>
+<p>If we want to match a specific number of repeats, we can use curly brackets. Following a character or group with a single number inside curly brackets will match exactly that number of repeats. For example, the pattern <code>GA{5}T</code> will match GAAAAAT but not GAAAAT or GAAAAAAT. Following a character or group with a pair of numbers inside curly brackets separated with a comma allows us to specify an acceptable range of repeats. For example, the pattern <code>GA{2,4}T</code> means G, followed by between 2 and 4 As, followed by T. So it will match GAAT, GAAAT and GAAAAT but not GAT or GAAAAAT. </p>
+<p>Just like with substrings, we can leave out the lower or upper limits. <code>A{3,}</code> will match three or more As, and <code>G{,7}</code> will match up to seven Gs. </p>
+<h3>Positions</h3>
+<p>The final set of regular expression tools we're going to look at don't represent characters at all, but rather positions in the input string. The caret symbol <code>^</code> matches the start of a string8, and the dollar symbol <code>$</code> matches the end of a string. The pattern <code>^AAA</code> will match AAATTT but not GGGAAATTT. The pattern <code>GGG$</code> will match AAAGGG but not AAAGGGCCC. </p>
+<h3>Combining</h3>
+<p>The real power of regular expressions comes from combining these tools. We can use quantifiers together with alternations and character groups to specify very flexible patterns. For example, here's a complex pattern to identify full-length eukaryotic messenger RNA sequences: </p>
+<blockquote>
+<p>^AUG[AUGC]{30,1000}A{5,10}$</p>
+</blockquote>
+<p>Reading the pattern from left to right, it will match:</p>
+<ul>
+<li>an AUG start codon at the beginning of the sequence</li>
+<li>followed by between 30 and 1000 bases which can be A, U, G or C</li>
+<li>followed by a poly-A tail of between 5 and 10 bases at the end of the sequence</li>
+</ul>
+<p>As you can see, regular expressions can be quite tricky to read until you're familiar with them! However, it's well worth investing a bit of time learning to use them, as the same notation is used across multiple different tools. The regular expression skills that you learn in Python are transferable to other programming languages, command line tools, and text editors. </p>
+<p>The features we've discussed above are the ones most useful in biology. However, there are many more regular expression features available in Python. If you want to become a regular expression master, it's worth reading up on <em>greedy vs. minimal quantifiers</em>, <em>back-references</em>, <em>lookahead</em> and <em>lookbehind</em> assertions, and built in <em>character classes</em>.</p>
+<p>Before we move on to look at some more sophisticated uses of regular expressions, it's worth noting that there's a method similar to <code>re.search()</code> called <code>re.match()</code>. The difference is that <code>re.search()</code> will identify a pattern occurring anywhere in the string, whereas <code>re.match()</code> will only identify a pattern if it matches the entire string. Most of the time we want the former behaviour.</p>
+<h2>More ways to use patterns</h2>
+<p>In all the examples we've seen so far, we used <code>re.search()</code> as the condition in an <code>if</code> statement to decide whether or not a string contained a pattern. However, there are lots more interesting things we can do with regular expression patterns.</p>
+<h3>Extracting the part that matched</h3>
+<p>Often in our programs we want to find out not only if a pattern matched, but what part of the string was matched. To do this, we need to store the result of using <code>re.search()</code>, then use the <code>group()</code> method on the resulting object. </p>
+<p>When introducing the <code>re.search()</code> function above I said that it was a true/false function. That's not exactly correct though – if it finds a match, it doesn't return <code>True</code>, but rather an object that is evaluated as true in a conditional context (if the distinction doesn't seem important to you, then you can safely ignore it). </p>
+<p>The value that's actually returned is a <strong>match object</strong> – a new data type that we've not encountered before. Like a file object, a match object doesn't represent a simple thing, like a number or string. Instead, it represents the results of a regular expression search. And just like a file object, a match object has a number of useful methods for getting data out of it. </p>
+<p>One such method is the <code>group()</code> method. If we call this method on the result of a regular expression search, we get the portion of the input string that matched the pattern. Here's an example: imagine we want to take a DNA sequence and determine whether or not it contains any ambiguous bases – i.e. any bases that are not A, T, G or C. We can use a negated character group to write a regular expression that will match any non-ATGC base:</p>
+<blockquote>
+<p>[^ATGC]</p>
+</blockquote>
+<p>and test the sequence like this:</p>
+<div class="highlight"><pre><span></span><code><span class="nv">dna</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="s">ATCGCGYAATTCAC</span><span class="s2">&quot;</span>
+
+<span class="k">if</span> <span class="nv">re</span>.<span class="nv">search</span><span class="ss">(</span><span class="nv">r</span><span class="s2">&quot;</span><span class="s">[^ATGC]</span><span class="s2">&quot;</span>, <span class="nv">dna</span><span class="ss">)</span>:
+    <span class="nv">print</span><span class="ss">(</span><span class="s2">&quot;</span><span class="s">ambiguous base found!</span><span class="s2">&quot;</span><span class="ss">)</span>
+</code></pre></div>
+
+<p>The code above tells us that the DNA sequence contained a non-ATGC base, but it doesn't tell us exactly what the base was. To do that, we need to call the <code>group()</code> method on the match object like this:</p>
+<div class="highlight"><pre><span></span><code><span class="nv">dna</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="s">CGATNCGGAACGATC</span><span class="s2">&quot;</span>
+<span class="nv">m</span> <span class="o">=</span> <span class="nv">re</span>.<span class="nv">search</span><span class="ss">(</span><span class="nv">r</span><span class="s2">&quot;</span><span class="s">[^ATGC]</span><span class="s2">&quot;</span>, <span class="nv">dna</span><span class="ss">)</span>
+
+# <span class="nv">m</span> <span class="nv">is</span> <span class="nv">now</span> <span class="nv">a</span> <span class="nv">match</span> <span class="nv">object</span>
+<span class="k">if</span> <span class="nv">m</span>:
+    <span class="nv">print</span><span class="ss">(</span><span class="s2">&quot;</span><span class="s">ambiguous base found!</span><span class="s2">&quot;</span><span class="ss">)</span>
+    <span class="nv">ambig</span> <span class="o">=</span> <span class="nv">m</span>.<span class="nv">group</span><span class="ss">()</span>
+    <span class="nv">print</span><span class="ss">(</span><span class="s2">&quot;</span><span class="s">the base is </span><span class="s2">&quot;</span> <span class="o">+</span> <span class="nv">ambig</span><span class="ss">)</span>
+</code></pre></div>
+
+<p>The output from this program:</p>
+<blockquote>
+<p>ambiguous base found! 
+the base is N</p>
+</blockquote>
+<p>tells us not only that the sequence contained an ambiguous base, but that the ambiguous base was N.</p>
+<h3>Extracting multiple groups</h3>
+<p>What if we want to extract more than one bit of the pattern? Say we want to match a scientific name like <em>Homo sapiens</em> or <em>Drosophila melanogaster</em>. The pattern is relatively simple: multiple characters, followed by a space, followed by multiple characters:</p>
+<blockquote>
+<p>.+ .+</p>
+</blockquote>
+<p>To match multiple characters we're using a period (meaning any character) followed by a plus (meaning repeated at least once but possibly multiple times).</p>
+<p>Now let's say that we want to extract the genus name and species name into separate variables. We add parentheses around the parts of the pattern that we want to store:</p>
+<blockquote>
+<p>(.+) (.+)</p>
+</blockquote>
+<p>This is called <strong>capturing</strong> part of the pattern.  We can now refer to the captured bits of the pattern by supplying an argument to the <code>group()</code> method. <code>group(1)</code> will return the bit of the string matched by the section of the pattern in the first set of parentheses, <code>group(2)</code> will return the bit matched by the second, etc.:</p>
+<div class="highlight"><pre><span></span><code><span class="nv">scientific_name</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="s">Homo sapiens</span><span class="s2">&quot;</span>
+
+<span class="nv">m</span> <span class="o">=</span> <span class="nv">re</span>.<span class="nv">search</span><span class="ss">(</span><span class="s2">&quot;</span><span class="s">(.+) (.+)</span><span class="s2">&quot;</span>, <span class="nv">scientific_name</span><span class="ss">)</span>
+
+<span class="k">if</span> <span class="nv">m</span>: 
+    <span class="nv">genus</span> <span class="o">=</span> <span class="nv">m</span>.<span class="nv">group</span><span class="ss">(</span><span class="mi">1</span><span class="ss">)</span> 
+    <span class="nv">species</span> <span class="o">=</span> <span class="nv">m</span>.<span class="nv">group</span><span class="ss">(</span><span class="mi">2</span><span class="ss">)</span> 
+    <span class="nv">print</span><span class="ss">(</span><span class="s2">&quot;</span><span class="s">genus is </span><span class="s2">&quot;</span> <span class="o">+</span> <span class="nv">genus</span> <span class="o">+</span> <span class="s2">&quot;</span><span class="s">, species is </span><span class="s2">&quot;</span> <span class="o">+</span> <span class="nv">species</span><span class="ss">)</span>
+</code></pre></div>
+
+<p>The output shows how the two bits of the same pattern were stored in different variables. Note that the space, which was part of the pattern but not part of the captured groups, isn't in either of the two variables:</p>
+<blockquote>
+<p>genus is Homo, species is sapiens</p>
+</blockquote>
+<p>If you're keeping count, you'll realize that we now have three different roles for parentheses in regular expressions:</p>
+<ul>
+<li>surrounding the alternatives in an alternation</li>
+<li>grouping parts of a pattern for use with a quantifier</li>
+<li>defining parts of a pattern to be extracted after the match</li>
+</ul>
+<h3>Getting match positions</h3>
+<p>As well as containing information about the contents of a match, the match object also holds information about the position of the match. The <code>start()</code> and <code>end()</code> methods get the positions of the start and end of the pattern on the string. Let's go back to our ambiguous base example and find the position of the ambiguous base:</p>
+<div class="highlight"><pre><span></span><code><span class="nv">dna</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="s">CGATNCGGAACGATC</span><span class="s2">&quot;</span> 
+<span class="nv">m</span> <span class="o">=</span> <span class="nv">re</span>.<span class="nv">search</span><span class="ss">(</span><span class="nv">r</span><span class="s2">&quot;</span><span class="s">[^ATGC]</span><span class="s2">&quot;</span>, <span class="nv">dna</span><span class="ss">)</span>
+
+<span class="k">if</span> <span class="nv">m</span>: 
+    <span class="nv">print</span><span class="ss">(</span><span class="s2">&quot;</span><span class="s">ambiguous base found!</span><span class="s2">&quot;</span><span class="ss">)</span> 
+    <span class="nv">print</span><span class="ss">(</span><span class="s2">&quot;</span><span class="s">at position </span><span class="s2">&quot;</span> <span class="o">+</span> <span class="nv">str</span><span class="ss">(</span><span class="nv">m</span>.<span class="nv">start</span><span class="ss">()))</span>
+</code></pre></div>
+
+<p>Remember that we start counting from zero, so in this case, the match starting at the fifth base has a start position of four:</p>
+<blockquote>
+<p>ambiguous base found! 
+at position 4</p>
+</blockquote>
+<h3>Multiple matches</h3>
+<p>An obvious limitation of the above example is that it can only find a single ambiguous base, because <code>re.search()</code> can only find a single match. To process multiple matches, we need to switch to <code>re.finditer()</code>, which returns a list of match objects which we can process in a loop:</p>
+<div class="highlight"><pre><span></span><code><span class="nv">dna</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="s">CGCTCNTAGATGCGCRATGACTGCAYTGC</span><span class="s2">&quot;</span>
+
+<span class="nv">matches</span> <span class="o">=</span> <span class="nv">re</span>.<span class="nv">finditer</span><span class="ss">(</span><span class="nv">r</span><span class="s2">&quot;</span><span class="s">[^ATGC]</span><span class="s2">&quot;</span>, <span class="nv">dna</span><span class="ss">)</span> 
+<span class="k">for</span> <span class="nv">m</span> <span class="nv">in</span> <span class="nv">matches</span>: 
+    <span class="nv">base</span> <span class="o">=</span> <span class="nv">m</span>.<span class="nv">group</span><span class="ss">()</span> 
+    <span class="nv">pos</span>  <span class="o">=</span> <span class="nv">m</span>.<span class="nv">start</span><span class="ss">()</span> 
+    <span class="nv">print</span><span class="ss">(</span><span class="nv">base</span> <span class="o">+</span> <span class="s2">&quot;</span><span class="s"> found at position </span><span class="s2">&quot;</span> <span class="o">+</span> <span class="nv">str</span><span class="ss">(</span><span class="nv">pos</span><span class="ss">))</span>
+</code></pre></div>
+
+<p>We can see from the output that we now find all three parts of the string that match the pattern:</p>
+<blockquote>
+<p>N found at position 5 
+R found at position 15 
+Y found at position 25</p>
+</blockquote>
+<h3>Getting multiple matches as strings</h3>
+<p>A common scenario is where we want to get a list of all the parts of a string that match a given pattern. Here's a regular expression pattern that matches runs of A and T longer than five bases:</p>
+<blockquote>
+<p>[AT]{6,}</p>
+</blockquote>
+<p>Here's a DNA sequence with the bits that we want to extract in bold:</p>
+<p>ACTGC<strong>ATTATAT</strong>CGTACG<strong>AAATTATA</strong>CGCGCG</p>
+<p>We could extract the bits of the string that match the pattern using <code>re.finditer()</code> and <code>group()</code>:</p>
+<div class="highlight"><pre><span></span><code><span class="n">dna</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ss">&quot;CTGCATTATATCGTACGAAATTATACGCGCG&quot;</span><span class="w"></span>
+
+<span class="n">matches</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">re</span><span class="p">.</span><span class="n">finditer</span><span class="p">(</span><span class="n">r</span><span class="ss">&quot;[AT]{6,}&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">dna</span><span class="p">)</span><span class="w"></span>
+
+<span class="k">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="err">[]</span><span class="w"> </span>
+<span class="k">for</span><span class="w"> </span><span class="n">m</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="nl">matches</span><span class="p">:</span><span class="w"> </span>
+<span class="w">    </span><span class="k">result</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">m</span><span class="p">.</span><span class="k">group</span><span class="p">())</span><span class="w"></span>
+
+<span class="k">print</span><span class="p">(</span><span class="k">result</span><span class="p">)</span><span class="w"></span>
+</code></pre></div>
+
+<p>but because this is a common problem, there's a special method for dealing with it called <code>re.findall()</code>.  Just like the other methods we've seen, <code>re.findall()</code> takes the pattern and the string as arguments, but rather than returning a list of match objects it returns a list of strings. We can rewrite our code like this:</p>
+<div class="highlight"><pre><span></span><code><span class="n">dna</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ss">&quot;CTGCATTATATCGTACGAAATTATACGCGCG&quot;</span><span class="w"> </span>
+<span class="k">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">re</span><span class="p">.</span><span class="n">findall</span><span class="p">(</span><span class="n">r</span><span class="ss">&quot;[AT]{6,}&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">dna</span><span class="p">)</span><span class="w"> </span>
+<span class="k">print</span><span class="p">(</span><span class="k">result</span><span class="p">)</span><span class="w"></span>
+</code></pre></div>
+
+<h3>Splitting a string using a regular expression</h3>
+<p>Occasionally it can be useful to split a string using a regular expression pattern as the delimiter. The normal string <code>split()</code> method doesn't allow this, but the <code>re</code> module has a <code>split()</code> function of its own that takes a regular expression pattern as an argument. The first argument is the pattern, the second argument is the string to be split. </p>
+<p>Imagine we have a consensus DNA sequence that contains ambiguity codes, and we want to extract all runs of contiguous unambiguous bases. We need to split the DNA string wherever we see a base that isn't A, T, G or C:</p>
+<div class="highlight"><pre><span></span><code>dna = &quot;ACTNGCATRGCTACGTYACGATSCGAWTCG&quot;
+runs = re.split(r&quot;[^ATGC]&quot;, dna)
+print(runs)
+</code></pre></div>
+
+<p>The output shows how the function works – the return value is a list of strings:</p>
+<blockquote>
+<p>['ACT', 'GCAT', 'GCTACGT', 'ACGAT', 'CGA', 'TCG']</p>
+</blockquote>
+<p>Notice that the bits of the string that matched the pattern are excluded from the output (just like the delimiters are excluded from the output when we use the normal <code>split()</code> method). </p>
+<h2>Recap</h2>
+<p>In this section we learned about regular expressions, and the functions and methods that use them. 
+We started with a brief introduction to two concepts that, while not part of the regular expression tools, are necessary in order to use them – modules and raw strings. We got a brief overview of features that can be used in regular expression patterns, and a quick look at the range of different things we can do with them. Just as regular expressions themselves can range from simple to complex, so can their uses. We can use regular expressions for simple tasks – like determining whether or not a sequence contains a particular motif – or for complicated ones, like identifying messenger RNA sequences by using complex patterns. </p>
+<p>Before we move on to the exercises, it's important to recognize that for any given pattern, there are probably multiple ways to describe it using a regular expression. Near the start of the page, we came up with the pattern </p>
+<div class="highlight"><pre><span></span><code>GG(A|T)CC
+</code></pre></div>
+
+<p>to describe the AvaII restriction enzyme recognition site, but the same pattern could also be written as:</p>
+<div class="highlight"><pre><span></span><code><span class="n">GG</span><span class="o">[</span><span class="n">AT</span><span class="o">]</span><span class="n">CC</span><span class="w"></span>
+<span class="p">(</span><span class="n">GGACC</span><span class="o">|</span><span class="n">GGTCC</span><span class="p">)</span><span class="w"> </span>
+<span class="p">(</span><span class="n">GGA</span><span class="o">|</span><span class="n">GGT</span><span class="p">)</span><span class="n">CC</span><span class="w"></span>
+<span class="n">G</span><span class="err">{</span><span class="mi">2</span><span class="err">}</span><span class="o">[</span><span class="n">AT</span><span class="o">]</span><span class="n">C</span><span class="err">{</span><span class="mi">2</span><span class="err">}</span><span class="w"></span>
+</code></pre></div>
+
+<p>As with other situations where there are multiple different ways to write the same thing, it's best to be guided by what is clearest to read. </p>
+<h2>Exercises</h2>
+<p>Have a go at the following two exercises. The first is a simple multi-part problem that will give you experience writing a bunch of different regular expressions while keeping the bulk of the program the same. The second one is a classic bioinformatics problem: predicting the fragments that will be produced by digesting a given DNA sequence with a restriction enzyme. Remember, you can always find solutions and explanations for all exericses in the <a href="/python-books">Python for Biologists books</a>. </p>
+<h3>Accession names</h3>
+<p>Here's a list of made up gene accession names:</p>
+<div class="highlight"><pre><span></span><code>accessions = [&#39;xkn59438&#39;, &#39;yhdck2&#39;, &#39;eihd39d9&#39;, &#39;chdsye847&#39;, &#39;hedle3455&#39;, &#39;xjhd53e&#39;, &#39;45da&#39;, &#39;de37dp&#39;]
+</code></pre></div>
+
+<p>Copy and paste this line into your text editor (or whatever you're using to write Python code).</p>
+<p>Write a program that will print only the accession names that satisfy the following criteria – treat each criterion separately:</p>
+<ul>
+<li>contain the number 5</li>
+<li>contain the letter d or e</li>
+<li>contain the letters d and e in that order</li>
+<li>contain the letters d and e in that order with a single letter between them</li>
+<li>contain both the letters d and e in any order</li>
+<li>start with x or y</li>
+<li>start with x or y and end with e</li>
+<li>contain three or more digits in a row</li>
+<li>end with d followed by either a, r or p</li>
+</ul>
+<h3>Double digest</h3>
+<p><a href="/s/dna.txt">Click here</a> to download a file <em>dna.txt</em> which contains a made up DNA sequence. Predict the fragment lengths that we will get if we digest the sequence with two made up restriction enzymes – AbcI, whose recognition site is ANT/AAT, and AbcII, whose recognition site is GCRW/TG. <strong>The forward slashes (/) in the recognition sites represent the place where the enzyme cuts the DNA</strong>. </p>
+<h2>SOLUTIONS</h2>
+<p>You can find solutions to all the exercises, along with explanations of how they work, by signing up for the <a href="/python-for-biologists-online-course">online course</a>.</p>
+        </div>
+        <hr/>
+        <hr/>
+    </article>
+</div>
+        </div>
+<footer class="footer">
+   <div class="container bottom_border">
+   <ul class="foote_bottom_ul_amrc">
+    <h3 style="color:white;"  class="text-center">Sign up for the newsletter</h3>
+    <h5 style="color:white;"  class="text-center">Links to the best biological Python and bioinformatics content on the web, no spam.</h3>
+     <script async src="https://eomail5.com/form/fbc6d37e-0672-11ec-96e5-06b4694bee2a.js" data-form="fbc6d37e-0672-11ec-96e5-06b4694bee2a"></script>
+     </ul>
+   </div>
+   <div class="container">
+      <ul class="foote_bottom_ul_amrc">
+         <li><a href="/">HOME</a></li>
+         <li><a href="">ABOUT</a></li>
+         <li><a href="">ARCHIVE</a></li>
+      </ul>
+      <!--foote_bottom_ul_amrc ends here-->
+      <p class="text-center"></p>
+        
+          
+      </div>
+
+      <!--social_footer_ul ends here-->
+   </div>
+</footer>
+            <script type="text/javascript" src="https://mojones.github.io/pelican-p4b/theme/libs/jquery.min.js"></script>
+            <script type="text/javascript" src="https://mojones.github.io/pelican-p4b/theme/libs/bootstrap-4.2.1/dist/js/bootstrap.bundle.min.js"></script>
+
+        <script src="https://mojones.github.io/pelican-p4b/theme/libs/prism.js"></script>
+        <script src="https://mojones.github.io/pelican-p4b/theme/libs/Countable.js"></script>
+
+        <script>
+            Prism.plugins.NormalizeWhitespace.setDefaults({
+                'remove-trailing': true,
+                'remove-indent': true,
+                'left-trim': true,
+                'right-trim': true,
+                /*'break-lines': 80,
+                'indent': 2,
+                'remove-initial-line-feed': false,
+                'tabs-to-spaces': 4,
+                'spaces-to-tabs': 4*/
+            });
+        </script>
+
+
+        <script type="text/javascript" src="https://mojones.github.io/pelican-p4b/theme/js/custom.js"></script>
+            <script>
+                function validateForm(query)
+                {
+                    return (query.length > 0);
+                }
+            </script>
+    </body>
+</html>
+

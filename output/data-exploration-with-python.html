@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+
+            <meta name="author" content="Martin" />
+
+
+
+                <meta property="og:type" content="article" />
+            <meta name="twitter:card" content="summary"/>
+
+        <meta name="keywords" content="python, tutorial, books, "/>
+
+        <link rel="canonical" href="https://mojones.github.io/pelican-p4b/data-exploration-with-python.html">
+    <meta property="og:title" content="Data exploration with Python | Python for Biologists"/>
+    <meta property="og:url" content="https://mojones.github.io/pelican-p4b/data-exploration-with-python.html" />
+    <meta property="og:description" content="" />
+    <meta property="og:site_name" content="Python for Biologists" />
+    <meta property="og:article:author" content="Martin" />
+        <meta property="og:article:published_time" content="2010-12-03T10:20:00+01:00" />
+        <meta property="og:article:modified_time" content="2010-12-05T19:30:00+01:00" />
+    <meta name="twitter:title" content="Data exploration with Python | Python for Biologists">
+    <meta name="twitter:description" content="">
+
+
+        <title>    Data exploration with Python  | Python for Biologists
+</title>
+
+                <link rel="stylesheet" type="text/css" href="https://mojones.github.io/pelican-p4b/theme/libs/bootstrap-4.2.1/dist/css/bootstrap.min.css">
+                <link rel="stylesheet" type="text/css" href="https://mojones.github.io/pelican-p4b/theme/libs/fontawesome-free-5.2.0-web/css/all.min.css">
+            <link rel="stylesheet" type="text/css" href="https://mojones.github.io/pelican-p4b/theme/css/custom.css" media="screen">
+            <link rel="stylesheet" type="text/css" href="https://mojones.github.io/pelican-p4b/theme/css/ipynb.css" media="screen">
+
+            <style>
+                #progressBar::-webkit-progress-value {
+                    background-color: ;
+                }
+                #progressBar::-moz-progress-bar {
+                    background-color: ;
+                }
+            </style>
+
+        <link href="https://mojones.github.io/pelican-p4b/theme/libs/prism.css" rel="stylesheet" />
+<script type="text/x-mathjax-config">
+
+MathJax.Hub.Config({
+tex2jax: { inlineMath: [["$","$"],["\\(","\\)"]] },
+"HTML-CSS": {
+  linebreaks: { automatic: true, width: "container" }
+}
+});
+
+</script>
+<script type="text/javascript"
+  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+    </head>
+    <body>
+        <div class="banner-wrapper row" style="background-color: #24292e;">
+            <div class="banner">
+                <nav id="navbar" class="navbar navbar-expand-md navbar-light bg-light container">
+                    <div class="container navbar-title">
+                        <a href="/"><img id="banner-logo" src="https://mojones.github.io/pelican-p4b/images/logo.png" style="height: 40px; margin: 6px 0;"></a>
+                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                    </div>
+                <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent" style="margin-bottom: 6.5px;margin-top: 6.5px">
+                    <ul class="navbar-nav">
+                        <li class="nav-item active">
+                            <a class="nav-link rem_15" href="https://mojones.github.io/pelican-p4b/python-for-biologists-online-course">Learn&nbsp;Python</a>
+                        </li>
+                    </ul>
+                    <ul class="navbar-nav">
+                        <li class="nav-item active">
+                            <a class="nav-link rem_15" href="https://mojones.github.io/pelican-p4b/aboutcontact">About</a>
+                        </li>
+                    </ul>
+                    <ul class="navbar-nav">
+                        <li id="second-item" class="nav-item">
+                            <a class="nav-link rem_15" href="https://mojones.github.io/pelican-p4b/tutorial">Python&nbsp;tutorial</a>
+                        </li>
+                     </ul>
+                     
+                     <ul class="navbar-nav">
+                        <li id="second-item" class="nav-item">
+                            <a class="nav-link rem_15" href="https://mojones.github.io/pelican-p4b/training-courses">Training&nbsp;courses</a>
+                        </li>
+                     </ul>
+                     
+                       <ul class="navbar-nav">
+                        <li id="second-item" class="nav-item">
+                            <a class="nav-link rem_15" href="https://mojones.github.io/pelican-p4b/biological-data-exploration-book">Data&nbsp;exploration&nbsp;book</a>
+                        </li>
+                     </ul>
+                     
+                </div>
+                </nav>
+            </div>
+        </div>
+        <div id="wrap">
+<div id="post-container" class="container post index">
+    <article>
+
+        <div class="article_content">
+            
+            <h1>Data exploration with Python</h1>
+<p>This course focusses on using Python's scientific software libraries to manipulate and visualise large datasets. It's intended for researchers with a basic knowledge of Python who need to explore large datasets and quickly visualise patterns and relationships. </p>
+<p><em>"Martin was very good at both teaching and helping with customising/practicing on our own dataset." (September 2016)</em></p>
+<h2>Upcoming courses</h2>
+<p>None currently, watch this space or drop me an email if you'd like to host one!</p>
+<h2>Overview</h2>
+<p>One of the strengths of the Python language is the availability of mature, high-quality libraries for working with scientific data. Integration between the most popular libraries has lead to the concept of a "scientific Python stack": a collection of packages which are designed to work well together. In this workshop we will see how to leverage these libraries to efficiently work with and visualise large volumes of data.</p>
+<h3>Detailed syllabus</h3>
+<h4>1. Introduction and datasets</h4>
+<p>Jupyter (formerly iPython) is a programming environment that is rapidly becoming the de facto standard for scientific data analysis. In this session we'll learn why Jupyter is so useful, covering its ability to mix notes and code, to render inline plots, charts and tables, to use custom styles and to create polished web pages. We'll also take a look at the datasets that we'll be investigating during the course and discuss the different types of data we encounter in bioinformatics work.</p>
+<h4>2. Introduction to pandas</h4>
+<p>In this session we introduce the first part of the scientific Python stack: the pandas data manipulation package. We'll learn about Dataframes — the core data structure that much of the rest of the course will rely on — and how they allow us to quickly select, sort, filter and summarize large datasets. We'll also see how to extend existing Dataframes by writing functions to create new columns, as well as how to deal with common problems like missing or inconsistent values in datasets. We'll get our first look at data visualisation by using pandas' built in plotting ability to investigate basic properties of our datasets. </p>
+<h4>3. Grouping and pivoting with pandas</h4>
+<p>This session continues our look at pandas with advanced uses of Dataframes that allow us to answer more complicated questions. We'll look two very powerful tools: grouping, which allows us to aggregate information in datasets, and pivoting/stacking, which allows us to flexibly rearrange data (a key step in preparing datasets for visualisation). In this session we'll also go into more detail about pandas indexing system.</p>
+<h4>4. Advanced manipulation with pandas</h4>
+<p>In this final session on the pandas library we'll look at a few common types of data manipulation — binning data (very useful for working with time series), carrying out principal component analysis, and creating networks. We'll also cover some features of pandas designed for working with specific types of data like timestamps and ordered categories.</p>
+<h4>5. Introduction to seaborn</h4>
+<p>This session introduces the seaborn charting library by showing how we can use it to investigate relationships between different variables in our datasets. Initially we concentrate on showing distributions with histograms, scatter plots and regressions, as well as a few more exotic chart types like hexbins and KDE plots. We also cover heatmaps, in particular looking at how they lend themselves to displaying the type of aggregate data that we can generate with pandas.</p>
+<h4>6. Categories in seaborn</h4>
+<p>This session is devoted to seaborn's primary use case: visualising relationships across multiple categories in complex datasets. We see how we can use colour and shape to distinguish categories in single plots, and how these features work together with the pandas tools we have already seen to allow us to very quickly explore a dataset. We continue by using seaborn to build small multiple or facet plots, separating categories by rows and columns. Finally, we look at chart types that are designed to show distributions across categories: box and violin plots, and the more exotic swarm and strip plots.</p>
+<h4>7. Customisation with seaborn</h4>
+<p>For the final session on seaborn, we go over some common types of customisation that can be tricky. To achieve very fine control over the style and layout of our plots, we'll learn how to work directly with axes and chart objects to implement things like custom heatmap labels, log axis scales, and sorted categories.</p>
+<h4>8. Matplotlib</h4>
+<p>In the final teaching session, we look at the library that both pandas and seaborn rely on for their charting tools: matplotlib. We'll see how by using matplotlib directly we can do things that would be impossible in pandas or seaborn, such as adding custom annotations to our charts. We'll also look at using matplotlib to build completely new, custom visualisation by combining primitive shapes.</p>
+<h4>9. / 10. Data workshop</h4>
+<p>The two sessions on the final day are set aside for a data workshop. Students can practice applying the tools they've learned to their own datasets with the help of an instructor, or continue to work on exercises from the previous day. There may also be time for some demonstrations of topics of particular interest, such as interactive visualisation tools and animations.</p>
+        </div>
+       
+    </article>
+</div>
+        </div>
+<footer class="footer">
+   <div class="container bottom_border">
+   <ul class="foote_bottom_ul_amrc">
+    <h3 style="color:white;"  class="text-center">Sign up for the newsletter</h3>
+    <h5 style="color:white;"  class="text-center">Links to the best biological Python and bioinformatics content on the web, no spam.</h3>
+     <script async src="https://eomail5.com/form/fbc6d37e-0672-11ec-96e5-06b4694bee2a.js" data-form="fbc6d37e-0672-11ec-96e5-06b4694bee2a"></script>
+     </ul>
+   </div>
+   <div class="container">
+      <ul class="foote_bottom_ul_amrc">
+         <li><a href="/">HOME</a></li>
+         <li><a href="">ABOUT</a></li>
+         <li><a href="">ARCHIVE</a></li>
+      </ul>
+      <!--foote_bottom_ul_amrc ends here-->
+      <p class="text-center"></p>
+        
+          
+      </div>
+
+      <!--social_footer_ul ends here-->
+   </div>
+</footer>
+            <script type="text/javascript" src="https://mojones.github.io/pelican-p4b/theme/libs/jquery.min.js"></script>
+            <script type="text/javascript" src="https://mojones.github.io/pelican-p4b/theme/libs/bootstrap-4.2.1/dist/js/bootstrap.bundle.min.js"></script>
+
+        <script src="https://mojones.github.io/pelican-p4b/theme/libs/prism.js"></script>
+        <script src="https://mojones.github.io/pelican-p4b/theme/libs/Countable.js"></script>
+
+        <script>
+            Prism.plugins.NormalizeWhitespace.setDefaults({
+                'remove-trailing': true,
+                'remove-indent': true,
+                'left-trim': true,
+                'right-trim': true,
+                /*'break-lines': 80,
+                'indent': 2,
+                'remove-initial-line-feed': false,
+                'tabs-to-spaces': 4,
+                'spaces-to-tabs': 4*/
+            });
+        </script>
+
+
+        <script type="text/javascript" src="https://mojones.github.io/pelican-p4b/theme/js/custom.js"></script>
+            <script>
+                function validateForm(query)
+                {
+                    return (query.length > 0);
+                }
+            </script>
+    </body>
+</html>
+
