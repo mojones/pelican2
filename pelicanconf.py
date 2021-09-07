@@ -3,7 +3,7 @@
 
 AUTHOR = 'Martin'
 SITENAME = 'Python for Biologists'
-SITEURL = 'https://mojones.github.io/pelican-p4b/'
+SITEURL = 'https://mojones.github.io/pelican2/docs/'
 
 PATH = 'content'
 
