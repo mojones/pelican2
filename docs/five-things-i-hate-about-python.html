@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+
+            <meta name="author" content="Martin" />
+
+
+
+                <meta property="og:type" content="article" />
+            <meta name="twitter:card" content="summary"/>
+
+        <meta name="keywords" content="python, teaching, article, "/>
+
+        <link rel="canonical" href="https://mojones.github.io/pelican-p4b/five-things-i-hate-about-python.html">
+    <meta property="og:title" content="Five things I hate about teaching Python | Python for Biologists"/>
+    <meta property="og:url" content="https://mojones.github.io/pelican-p4b/five-things-i-hate-about-python.html" />
+    <meta property="og:description" content="" />
+    <meta property="og:site_name" content="Python for Biologists" />
+    <meta property="og:article:author" content="Martin" />
+        <meta property="og:article:published_time" content="2010-12-03T10:20:00+01:00" />
+        <meta property="og:article:modified_time" content="2010-12-05T19:30:00+01:00" />
+    <meta name="twitter:title" content="Five things I hate about teaching Python | Python for Biologists">
+    <meta name="twitter:description" content="">
+
+
+        <title>    Five things I hate about teaching Python  | Python for Biologists
+</title>
+
+                <link rel="stylesheet" type="text/css" href="https://mojones.github.io/pelican-p4b/theme/libs/bootstrap-4.2.1/dist/css/bootstrap.min.css">
+                <link rel="stylesheet" type="text/css" href="https://mojones.github.io/pelican-p4b/theme/libs/fontawesome-free-5.2.0-web/css/all.min.css">
+            <link rel="stylesheet" type="text/css" href="https://mojones.github.io/pelican-p4b/theme/css/custom.css" media="screen">
+            <link rel="stylesheet" type="text/css" href="https://mojones.github.io/pelican-p4b/theme/css/ipynb.css" media="screen">
+
+            <style>
+                #progressBar::-webkit-progress-value {
+                    background-color: ;
+                }
+                #progressBar::-moz-progress-bar {
+                    background-color: ;
+                }
+            </style>
+
+        <link href="https://mojones.github.io/pelican-p4b/theme/libs/prism.css" rel="stylesheet" />
+<script type="text/x-mathjax-config">
+
+MathJax.Hub.Config({
+tex2jax: { inlineMath: [["$","$"],["\\(","\\)"]] },
+"HTML-CSS": {
+  linebreaks: { automatic: true, width: "container" }
+}
+});
+
+</script>
+<script type="text/javascript"
+  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+    </head>
+    <body>
+        <div class="banner-wrapper row" style="background-color: #24292e;">
+            <div class="banner">
+                <nav id="navbar" class="navbar navbar-expand-md navbar-light bg-light container">
+                    <div class="container navbar-title">
+                        <a href="/"><img id="banner-logo" src="https://mojones.github.io/pelican-p4b/images/logo.png" style="height: 40px; margin: 6px 0;"></a>
+                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                    </div>
+                <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent" style="margin-bottom: 6.5px;margin-top: 6.5px">
+                    <ul class="navbar-nav">
+                        <li class="nav-item active">
+                            <a class="nav-link rem_15" href="https://mojones.github.io/pelican-p4b/python-for-biologists-online-course">Learn&nbsp;Python</a>
+                        </li>
+                    </ul>
+                    <ul class="navbar-nav">
+                        <li class="nav-item active">
+                            <a class="nav-link rem_15" href="https://mojones.github.io/pelican-p4b/aboutcontact">About</a>
+                        </li>
+                    </ul>
+                    <ul class="navbar-nav">
+                        <li id="second-item" class="nav-item">
+                            <a class="nav-link rem_15" href="https://mojones.github.io/pelican-p4b/tutorial">Python&nbsp;tutorial</a>
+                        </li>
+                     </ul>
+                     
+                     <ul class="navbar-nav">
+                        <li id="second-item" class="nav-item">
+                            <a class="nav-link rem_15" href="https://mojones.github.io/pelican-p4b/training-courses">Training&nbsp;courses</a>
+                        </li>
+                     </ul>
+                     
+                       <ul class="navbar-nav">
+                        <li id="second-item" class="nav-item">
+                            <a class="nav-link rem_15" href="https://mojones.github.io/pelican-p4b/biological-data-exploration-book">Data&nbsp;exploration&nbsp;book</a>
+                        </li>
+                     </ul>
+                     
+                </div>
+                </nav>
+            </div>
+        </div>
+        <div id="wrap">
+<div id="post-container" class="container post index">
+    <article>
+        <header class="pop-over">
+            <h1>Five things I hate about teaching Python</h1>
+            <div class="row justify-content-between no-margin">
+                <h4 class="article-category">Category > <a class="article-category-link" href="https://mojones.github.io/pelican-p4b/">article</a></h4>
+                <span class="article-date">Fri 03 December 2010</span>
+            </div>
+            <div class="meta meta-tag no-margin no-border">
+                <div>
+                        <a href="https://mojones.github.io/pelican-p4b/tag/python.html" class="tag">python</a>
+                        <a href="https://mojones.github.io/pelican-p4b/tag/teaching.html" class="tag">teaching</a>
+                </div>
+            </div>
+            
+        </header>
+        <div class="article_content">
+            
+            <p><strong>NOTE: this article was originally written around 2015, when I had recently started teaching Python. Point number 1 is now largely irrelevant due to the prevalence of Python 3, and the others have become less annoying. I leave this article here for historical reaons!</strong></p>
+<p>I've just finished teaching an intensive Python programming course and, as usual, spending a week thinking about how best to introduce my students to programming has given me something to write about. I realised that, while I've spent a lot time talking about why Python is a great language, I have a number of pet peeves that I've never written down.</p>
+<p>I'm not talking about the usual problems, like Python's relative lack of performance or lack of compile-time type checking – these things are deliberate design tradeoffs and changing them would involve making Python not-Python. I'm talking about the small things that cause friction, especially in a teaching environment.</p>
+<p>Note: I realize that there are good reasons for all these things to be the way they are, so don't take this too seriously. Also, let me make it clear that these are things I dislike about <strong>teaching</strong> Python, generally to novice programmers. None of these things particularly annoy me when <strong>writing</strong> Python code. </p>
+<h2>1. Floating point vs. integer division</h2>
+<p>Anyone who's written in Python for any length of time probably types this line automatically without really thinking about it:</p>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="n">division</span>
+</code></pre></div>
+
+<p>but take a moment to consider how you would explain what's going on in this piece of code to a beginner. In order to really understand what's happing here, you have to know about:</p>
+<ul>
+<li>Python's system for importing modules</li>
+<li>Python's system for grouping modules into packages</li>
+<li>the fact that there are different versions of Python with slightly different behaviour</li>
+<li>the difference between floating-point and integer numbers</li>
+<li>the mechanisms of operator overloading, whereby we can define the behaviour of things like + and / for different types</li>
+<li>the concept of polymorphic functions and operators, which allow us to treat different classes the same, some of the time</li>
+</ul>
+<p>Explaining all this to someone who has never written a line of code before is unlikely to be productive, but none of the alternatives are particularly attractive either. We can just present this as a magic piece of code and save the explanation for later (this is normally what I do). We can instruct students to use explicit floating point numbers:</p>
+<div class="highlight"><pre><span></span><code>answer = float(4)/3
+answer = 4.0/3
+</code></pre></div>
+
+<p>but eventually they will forget and use integers and find that it works some of the time. We can carefully craft our examples and exercises to avoid the need for floating point division, but this is setting students up for pain further down the line. We can use the command-line argument <code>-Q</code> to force floating-point division, or just use Python 3 for teaching, but both of these options will cause confusion once the student goes back to their own environment.</p>
+<h2>2. <code>split()</code> vs. <code>join()</code></h2>
+<p><strong>Teacher:</strong> "OK class, this is how we take a string and split it up into a list of strings using a fixed delimiter:"</p>
+<div class="highlight"><pre><span></span><code>sentence = &quot;The all-England summarize Proust competition&quot;
+words = sentence.split(&quot; &quot;)
+</code></pre></div>
+
+<p><strong>Student:</strong> "So I guess, logically, to put the words back together again we just say:</p>
+<div class="highlight"><pre><span></span><code>sentence = words.join(&quot; &quot;)
+</code></pre></div>
+
+<p>right? Look at that elegant symmetry…… Wait a minute, you're telling me it doesn't work like that? The list and the delimiter actually go the other way around, so that we have to write this ugly line?</p>
+<div class="highlight"><pre><span></span><code>sentence = &quot; &quot;.join(words)
+</code></pre></div>
+
+<p>Wow, that just looks wrong."</p>
+<p>Yes, I know that there are good reasons for collection classes to only have methods that are type-agnostic, but would it really be so bad to just <code>str()</code> everything?</p>
+<h2>3. Exhaustible files</h2>
+<p>It's perfectly logical that you shouldn't be able to iterate through a file object twice without re-opening it... once you know a fair bit about how iteration is actually implemented in Python. As a beginner, thought, it's a bit like Python is giving with one hand and taking away with the other – you can use an opened file object just like a list, except in this one specific but very important way:</p>
+<div class="highlight"><pre><span></span><code><span class="nv">my_list</span> <span class="o">=</span> [<span class="mi">1</span>,<span class="mi">2</span>,<span class="mi">3</span>,<span class="mi">4</span>]
+<span class="k">for</span> <span class="nv">number</span> <span class="nv">in</span> <span class="nv">my_list</span>:
+    <span class="nv">do_something</span><span class="ss">(</span><span class="nv">number</span><span class="ss">)</span>
+# <span class="nv">second</span> <span class="k">loop</span> <span class="nv">works</span> <span class="nv">just</span> <span class="nv">as</span> <span class="nv">you</span><span class="s1">&#39;</span><span class="s">d expect</span>
+<span class="k">for</span> <span class="nv">number</span> <span class="nv">in</span> <span class="nv">my_list</span>:
+    <span class="nv">do_something_else</span><span class="ss">(</span><span class="nv">number</span><span class="ss">)</span>
+
+<span class="nv">my_file</span> <span class="o">=</span> <span class="nv">open</span><span class="ss">(</span><span class="s2">&quot;</span><span class="s">some.input</span><span class="s2">&quot;</span><span class="ss">)</span>
+<span class="k">for</span> <span class="nv">line</span> <span class="nv">in</span> <span class="nv">my_file</span>:
+    <span class="nv">do_something</span><span class="ss">(</span><span class="nv">line</span><span class="ss">)</span>
+# <span class="nv">second</span> <span class="k">loop</span> <span class="nv">silently</span> <span class="nv">never</span> <span class="nv">runs</span>
+<span class="k">for</span> <span class="nv">line</span> <span class="nv">in</span> <span class="nv">my_file</span>:
+    <span class="nv">do_something_else</span><span class="ss">(</span><span class="nv">line</span><span class="ss">)</span>
+</code></pre></div>
+
+<p>This problem also rears its ugly head when students try to iterate over a file having already consumed its contents using <code>read()</code>:</p>
+<div class="highlight"><pre><span></span><code><span class="nv">my_file</span> <span class="o">=</span> <span class="nv">open</span><span class="ss">(</span><span class="s2">&quot;</span><span class="s">some.input</span><span class="s2">&quot;</span><span class="ss">)</span>
+<span class="nv">my_contents</span> <span class="o">=</span> <span class="nv">my_file</span>.<span class="nv">read</span><span class="ss">()</span>
+....
+# <span class="nv">this</span> <span class="k">loop</span> <span class="nv">silently</span> <span class="nv">never</span> <span class="nv">runs</span>
+<span class="k">for</span> <span class="nv">line</span> <span class="nv">in</span> <span class="nv">my_file</span>:
+    <span class="nv">do_something</span><span class="ss">(</span><span class="nv">line</span><span class="ss">)</span>
+</code></pre></div>
+
+<p>That second line can be difficult to spot for student and teacher alike when there are many intervening lines between it and the loop.</p>
+<h2>4. Lambda expressions</h2>
+<p>OK, this one is more annoying when writing code than when teaching it, since I rarely get round to talking about functional programming in introductory courses. I totally get why there should be a big, obvious flag when we are doing something clever (which lambda expressions generally are). Nevertheless, it seems a shame to have a style of coding that lends itself to elegant brevity marred by so many unnecessary keystrokes.</p>
+<p>I think that the reason this bugs me so much is that I first got into functional programming by way of Groovy, which has (to me) a very pleasing syntax for anonymous functions (actually closures):</p>
+<div class="highlight"><pre><span></span><code><span class="p">{</span><span class="n">x</span><span class="p">,</span><span class="n">y</span> <span class="o">-&gt;</span> <span class="n">x</span><span class="o">**</span><span class="n">y</span><span class="p">}</span>
+</code></pre></div>
+
+<p>compared to Python:</p>
+<div class="highlight"><pre><span></span><code>lambda x,y : x**y
+</code></pre></div>
+
+<p>Of course, Python lessens the sting of having to type <code>lambda</code> with its various comprehensions:</p>
+<div class="highlight"><pre><span></span><code><span class="nv">squares</span> <span class="o">=</span> <span class="nv">map</span><span class="ss">(</span><span class="nv">lambda</span> <span class="nv">x</span> : <span class="nv">x</span><span class="o">**</span><span class="mi">2</span>, <span class="nv">range</span><span class="ss">(</span><span class="mi">10</span><span class="ss">))</span>
+<span class="nv">squares</span> <span class="o">=</span> [<span class="nv">x</span><span class="o">**</span><span class="mi">2</span> <span class="k">for</span> <span class="nv">x</span> <span class="nv">in</span> <span class="nv">range</span><span class="ss">(</span><span class="mi">10</span><span class="ss">)</span>]
+</code></pre></div>
+
+<p>so I can't complain too loudly.</p>
+<h2>5. Variables aren't declared</h2>
+<p>It's just way too easy for beginners to make a typo that brings their progress to a screeching halt. Consider this real-life example from my most recent course:</p>
+<div class="highlight"><pre><span></span><code><span class="n">positions</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">[</span><span class="n">0</span><span class="o">]</span><span class="w"></span>
+<span class="k">for</span><span class="w"> </span><span class="n">pos</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="o">[</span><span class="n">12,54,76,103</span><span class="o">]</span><span class="err">:</span><span class="w"></span>
+<span class="w">    </span><span class="n">postions</span><span class="w">  </span><span class="o">=</span><span class="w"> </span><span class="n">positions</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="o">[</span><span class="n">pos</span><span class="o">]</span><span class="w"></span>
+<span class="k">print</span><span class="p">(</span><span class="n">positions</span><span class="p">)</span><span class="w"> </span><span class="err">#</span><span class="w"> </span><span class="n">prints</span><span class="w"> </span><span class="o">[</span><span class="n">0</span><span class="o">]</span><span class="w"> </span><span class="n">rather</span><span class="w"> </span><span class="k">than</span><span class="w"> </span><span class="o">[</span><span class="n">0,12,54,76,103</span><span class="o">]</span><span class="w"></span>
+</code></pre></div>
+
+<p>Leaving aside that this particular example could have been salvaged by using <code>positions.append()</code>, it took way to long for us to track down the typo. In real-life code, this is the kind of thing that would ideally be caught by unit testing. This is one (rare!) case in which I pine for the old days of teaching Perl – <code>use strict</code> and <code>my</code> would have taken care of this type of problem.</p>
+        </div>
+        <hr/>
+        <hr/>
+    </article>
+</div>
+        </div>
+<footer class="footer">
+   <div class="container bottom_border">
+   <ul class="foote_bottom_ul_amrc">
+    <h3 style="color:white;"  class="text-center">Sign up for the newsletter</h3>
+    <h5 style="color:white;"  class="text-center">Links to the best biological Python and bioinformatics content on the web, no spam.</h3>
+     <script async src="https://eomail5.com/form/fbc6d37e-0672-11ec-96e5-06b4694bee2a.js" data-form="fbc6d37e-0672-11ec-96e5-06b4694bee2a"></script>
+     </ul>
+   </div>
+   <div class="container">
+      <ul class="foote_bottom_ul_amrc">
+         <li><a href="/">HOME</a></li>
+         <li><a href="">ABOUT</a></li>
+         <li><a href="">ARCHIVE</a></li>
+      </ul>
+      <!--foote_bottom_ul_amrc ends here-->
+      <p class="text-center"></p>
+        
+          
+      </div>
+
+      <!--social_footer_ul ends here-->
+   </div>
+</footer>
+            <script type="text/javascript" src="https://mojones.github.io/pelican-p4b/theme/libs/jquery.min.js"></script>
+            <script type="text/javascript" src="https://mojones.github.io/pelican-p4b/theme/libs/bootstrap-4.2.1/dist/js/bootstrap.bundle.min.js"></script>
+
+        <script src="https://mojones.github.io/pelican-p4b/theme/libs/prism.js"></script>
+        <script src="https://mojones.github.io/pelican-p4b/theme/libs/Countable.js"></script>
+
+        <script>
+            Prism.plugins.NormalizeWhitespace.setDefaults({
+                'remove-trailing': true,
+                'remove-indent': true,
+                'left-trim': true,
+                'right-trim': true,
+                /*'break-lines': 80,
+                'indent': 2,
+                'remove-initial-line-feed': false,
+                'tabs-to-spaces': 4,
+                'spaces-to-tabs': 4*/
+            });
+        </script>
+
+
+        <script type="text/javascript" src="https://mojones.github.io/pelican-p4b/theme/js/custom.js"></script>
+            <script>
+                function validateForm(query)
+                {
+                    return (query.length > 0);
+                }
+            </script>
+    </body>
+</html>
+

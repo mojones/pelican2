@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+
+            <meta name="author" content="Martin" />
+
+
+
+                <meta property="og:type" content="article" />
+            <meta name="twitter:card" content="summary"/>
+
+        <meta name="keywords" content="python, tutorial, books, "/>
+
+        <link rel="canonical" href="https://mojones.github.io/pelican-p4b/linux-workflows.html">
+    <meta property="og:title" content="Linux and workflows for biologists | Python for Biologists"/>
+    <meta property="og:url" content="https://mojones.github.io/pelican-p4b/linux-workflows.html" />
+    <meta property="og:description" content="" />
+    <meta property="og:site_name" content="Python for Biologists" />
+    <meta property="og:article:author" content="Martin" />
+        <meta property="og:article:published_time" content="2010-12-03T10:20:00+01:00" />
+        <meta property="og:article:modified_time" content="2010-12-05T19:30:00+01:00" />
+    <meta name="twitter:title" content="Linux and workflows for biologists | Python for Biologists">
+    <meta name="twitter:description" content="">
+
+
+        <title>    Linux and workflows for biologists  | Python for Biologists
+</title>
+
+                <link rel="stylesheet" type="text/css" href="https://mojones.github.io/pelican-p4b/theme/libs/bootstrap-4.2.1/dist/css/bootstrap.min.css">
+                <link rel="stylesheet" type="text/css" href="https://mojones.github.io/pelican-p4b/theme/libs/fontawesome-free-5.2.0-web/css/all.min.css">
+            <link rel="stylesheet" type="text/css" href="https://mojones.github.io/pelican-p4b/theme/css/custom.css" media="screen">
+            <link rel="stylesheet" type="text/css" href="https://mojones.github.io/pelican-p4b/theme/css/ipynb.css" media="screen">
+
+            <style>
+                #progressBar::-webkit-progress-value {
+                    background-color: ;
+                }
+                #progressBar::-moz-progress-bar {
+                    background-color: ;
+                }
+            </style>
+
+        <link href="https://mojones.github.io/pelican-p4b/theme/libs/prism.css" rel="stylesheet" />
+<script type="text/x-mathjax-config">
+
+MathJax.Hub.Config({
+tex2jax: { inlineMath: [["$","$"],["\\(","\\)"]] },
+"HTML-CSS": {
+  linebreaks: { automatic: true, width: "container" }
+}
+});
+
+</script>
+<script type="text/javascript"
+  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+    </head>
+    <body>
+        <div class="banner-wrapper row" style="background-color: #24292e;">
+            <div class="banner">
+                <nav id="navbar" class="navbar navbar-expand-md navbar-light bg-light container">
+                    <div class="container navbar-title">
+                        <a href="/"><img id="banner-logo" src="https://mojones.github.io/pelican-p4b/images/logo.png" style="height: 40px; margin: 6px 0;"></a>
+                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                    </div>
+                <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent" style="margin-bottom: 6.5px;margin-top: 6.5px">
+                    <ul class="navbar-nav">
+                        <li class="nav-item active">
+                            <a class="nav-link rem_15" href="https://mojones.github.io/pelican-p4b/python-for-biologists-online-course">Learn&nbsp;Python</a>
+                        </li>
+                    </ul>
+                    <ul class="navbar-nav">
+                        <li class="nav-item active">
+                            <a class="nav-link rem_15" href="https://mojones.github.io/pelican-p4b/aboutcontact">About</a>
+                        </li>
+                    </ul>
+                    <ul class="navbar-nav">
+                        <li id="second-item" class="nav-item">
+                            <a class="nav-link rem_15" href="https://mojones.github.io/pelican-p4b/tutorial">Python&nbsp;tutorial</a>
+                        </li>
+                     </ul>
+                     
+                     <ul class="navbar-nav">
+                        <li id="second-item" class="nav-item">
+                            <a class="nav-link rem_15" href="https://mojones.github.io/pelican-p4b/training-courses">Training&nbsp;courses</a>
+                        </li>
+                     </ul>
+                     
+                       <ul class="navbar-nav">
+                        <li id="second-item" class="nav-item">
+                            <a class="nav-link rem_15" href="https://mojones.github.io/pelican-p4b/biological-data-exploration-book">Data&nbsp;exploration&nbsp;book</a>
+                        </li>
+                     </ul>
+                     
+                </div>
+                </nav>
+            </div>
+        </div>
+        <div id="wrap">
+<div id="post-container" class="container post index">
+    <article>
+
+        <div class="article_content">
+            
+            <h1>Linux and workflows for biologists</h1>
+<p>This course introduces the Linux operating system, and takes students from the very basics of using the command line to advanced techniques like shell scripting and analysing tabular data.</p>
+<p><em>"I thought the workshop was fantastic. I really enjoyed it and I learned a lot. It was extremely well run."</em></p>
+<h2>Upcoming courses</h2>
+<p>None at the moment; watch this space or drop me an email if you'd like to run this course at your institution!</p>
+<h2>Overview</h2>
+<p>Most high-throughput bioinformatics work these days takes place on the Linux command line. The programs which do the majority of the computational heavy lifting — genome assemblers, read mappers, and annotation tools — are designed to work best when used with a command-line interface. Because the command line can be an intimidating environment, many biologists learn the bare minimum needed to get their analysis tools working. This means that they miss out on the power of Linux to customise their environment and automate many parts of the bioinformatics workflow. This course will introduce the Linux command line environment from scratch and teach students how to make the most of its tools to achieve a high level of productivity when working with biological data. </p>
+<h3>Detailed syllabus</h3>
+<h4>1. The design of Linux</h4>
+<p>In the first session we briefly cover the design of Linux: how is it different from Windows/OSX and how is it best used? We'll then jump straight onto the command line and learn about the layout of the Linux filesystem and how to navigate it. We'll describe Linux's file permission system (which often trips up beginners), how paths work, and how we actually run programs on the command line. We'll learn a few tricks for using the command line more efficiently, and how to deal with programs that are misbehaving. We'll finish this session by looking at the built in help system and how to read and interpret manual pages.</p>
+<h4>2. System management</h4>
+<p>We'll first look at a few command line tools for monitoring the status of the system and keeping track of what's happening to processor power, memory, and disk space. We'll go over the process of installing new software from the built in repositories (which is easy) and from source code downloads (which is trickier). We'll also introduce some tools for benchmarking software (measuring the time/memory requirements of processing large datasets).</p>
+<h4>3. Manipulating tabular data</h4>
+<p>Many data types we want to work with in bioinformatics are stored as tabular plain text files, and here we learn all about manipulating tabular data on the command line. We'll start with simple things like extracting columns, filtering and sorting, searching for text before moving on to more complex tasks like searching for duplicated values, summarizing large files, and combining simple tools into long commands.</p>
+<h4>4. Constructing pipelines</h4>
+<p>In this session we will look at the various tools Linux has for constructing pipelines out of individual commands. Aliases, shell redirection, pipes, and shell scripting will all be introduced here. We'll also look at a couple of specific tools to help with running tools on multiple processors, and for monitoring the progress of long running tasks.</p>
+<h4>5. EMBOSS</h4>
+<p>EMBOSS is a suite of bioinformatics command-line tools explicitly designed to work in the Linux paradigm. We'll get an overview of the different sequence data formats that we might expect to work with, and put what we learned about shell scripting to biological use by building a pipeline to compare codon usage across two collections of DNA sequences.</p>
+<h4>6. Using a Linux server</h4>
+<p>Often in bioinformatics we'll be working on a Linux server rather than our own computer— typically because we need access to more computing power, or to specialized tools and datasets. In this session we'll learn how to connect to a Linux server and how to manage sessions. We'll also consider the various ways of moving data to and from a server from your own computer, and finish with a discussion of the considerations we have to make when working on a shared computer.</p>
+<h4>7. Combining methods</h4>
+<p>In the next two sessions — i.e. one full day — we'll put everything we have learned together and implement a workflow for next-gen sequence analysis. In this first session we'll carry out quality control on some paired-end Illumina data and map these reads to a reference genome. We'll then look at various approaches to automating this pipeline, allowing us to quickly do the same for a second dataset.</p>
+<h4>8. Combining methods</h4>
+<p>The second part of the next-gen workflow is to call variants to identify SNPs between our two samples and the reference genome. We'll look at the VCF file format and figure out how to filter SNPs for read coverage and quality. By counting the number of SNPs between each sample and the reference we will try to figure out something about the biology of the two samples. We'll attempt to automate this analysis in various ways so that we could easily repeat the pipeline for additional samples.</p>
+<h4>9. Customisation</h4>
+<p>Part of the Linux design is that everything can be customised. This can be intimidating at first but, given that bioinformatics work is often fairly repetitive, can be used to good effect. Here we'll learn about environment variables, custom prompts, soft links, and ssh configuration — a collection of tools with modest capabilities, but which together can make life on the command line much more pleasant. In this last session there will also be time to continue working on the next-gen sequencing pipeline.  </p>
+<p>The last afternoon is reserved for finishing off the next-gen workflow exercise, working on your own datasets, or leaving early for travel.</p>
+        </div>
+       
+    </article>
+</div>
+        </div>
+<footer class="footer">
+   <div class="container bottom_border">
+   <ul class="foote_bottom_ul_amrc">
+    <h3 style="color:white;"  class="text-center">Sign up for the newsletter</h3>
+    <h5 style="color:white;"  class="text-center">Links to the best biological Python and bioinformatics content on the web, no spam.</h3>
+     <script async src="https://eomail5.com/form/fbc6d37e-0672-11ec-96e5-06b4694bee2a.js" data-form="fbc6d37e-0672-11ec-96e5-06b4694bee2a"></script>
+     </ul>
+   </div>
+   <div class="container">
+      <ul class="foote_bottom_ul_amrc">
+         <li><a href="/">HOME</a></li>
+         <li><a href="">ABOUT</a></li>
+         <li><a href="">ARCHIVE</a></li>
+      </ul>
+      <!--foote_bottom_ul_amrc ends here-->
+      <p class="text-center"></p>
+        
+          
+      </div>
+
+      <!--social_footer_ul ends here-->
+   </div>
+</footer>
+            <script type="text/javascript" src="https://mojones.github.io/pelican-p4b/theme/libs/jquery.min.js"></script>
+            <script type="text/javascript" src="https://mojones.github.io/pelican-p4b/theme/libs/bootstrap-4.2.1/dist/js/bootstrap.bundle.min.js"></script>
+
+        <script src="https://mojones.github.io/pelican-p4b/theme/libs/prism.js"></script>
+        <script src="https://mojones.github.io/pelican-p4b/theme/libs/Countable.js"></script>
+
+        <script>
+            Prism.plugins.NormalizeWhitespace.setDefaults({
+                'remove-trailing': true,
+                'remove-indent': true,
+                'left-trim': true,
+                'right-trim': true,
+                /*'break-lines': 80,
+                'indent': 2,
+                'remove-initial-line-feed': false,
+                'tabs-to-spaces': 4,
+                'spaces-to-tabs': 4*/
+            });
+        </script>
+
+
+        <script type="text/javascript" src="https://mojones.github.io/pelican-p4b/theme/js/custom.js"></script>
+            <script>
+                function validateForm(query)
+                {
+                    return (query.length > 0);
+                }
+            </script>
+    </body>
+</html>
+

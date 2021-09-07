@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+
+            <meta name="author" content="Martin" />
+
+
+
+                <meta property="og:type" content="article" />
+            <meta name="twitter:card" content="summary"/>
+
+        <meta name="keywords" content="python, fun, article, "/>
+
+        <link rel="canonical" href="https://mojones.github.io/pelican-p4b/a-six-line-genome-assembler.html">
+    <meta property="og:title" content="A six line genome assembler | Python for Biologists"/>
+    <meta property="og:url" content="https://mojones.github.io/pelican-p4b/a-six-line-genome-assembler.html" />
+    <meta property="og:description" content="" />
+    <meta property="og:site_name" content="Python for Biologists" />
+    <meta property="og:article:author" content="Martin" />
+        <meta property="og:article:published_time" content="2010-12-03T10:20:00+01:00" />
+        <meta property="og:article:modified_time" content="2010-12-05T19:30:00+01:00" />
+    <meta name="twitter:title" content="A six line genome assembler | Python for Biologists">
+    <meta name="twitter:description" content="">
+
+
+        <title>    A six line genome assembler  | Python for Biologists
+</title>
+
+                <link rel="stylesheet" type="text/css" href="https://mojones.github.io/pelican-p4b/theme/libs/bootstrap-4.2.1/dist/css/bootstrap.min.css">
+                <link rel="stylesheet" type="text/css" href="https://mojones.github.io/pelican-p4b/theme/libs/fontawesome-free-5.2.0-web/css/all.min.css">
+            <link rel="stylesheet" type="text/css" href="https://mojones.github.io/pelican-p4b/theme/css/custom.css" media="screen">
+            <link rel="stylesheet" type="text/css" href="https://mojones.github.io/pelican-p4b/theme/css/ipynb.css" media="screen">
+
+            <style>
+                #progressBar::-webkit-progress-value {
+                    background-color: ;
+                }
+                #progressBar::-moz-progress-bar {
+                    background-color: ;
+                }
+            </style>
+
+        <link href="https://mojones.github.io/pelican-p4b/theme/libs/prism.css" rel="stylesheet" />
+<script type="text/x-mathjax-config">
+
+MathJax.Hub.Config({
+tex2jax: { inlineMath: [["$","$"],["\\(","\\)"]] },
+"HTML-CSS": {
+  linebreaks: { automatic: true, width: "container" }
+}
+});
+
+</script>
+<script type="text/javascript"
+  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+    </head>
+    <body>
+        <div class="banner-wrapper row" style="background-color: #24292e;">
+            <div class="banner">
+                <nav id="navbar" class="navbar navbar-expand-md navbar-light bg-light container">
+                    <div class="container navbar-title">
+                        <a href="/"><img id="banner-logo" src="https://mojones.github.io/pelican-p4b/images/logo.png" style="height: 40px; margin: 6px 0;"></a>
+                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                    </div>
+                <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent" style="margin-bottom: 6.5px;margin-top: 6.5px">
+                    <ul class="navbar-nav">
+                        <li class="nav-item active">
+                            <a class="nav-link rem_15" href="https://mojones.github.io/pelican-p4b/python-for-biologists-online-course">Learn&nbsp;Python</a>
+                        </li>
+                    </ul>
+                    <ul class="navbar-nav">
+                        <li class="nav-item active">
+                            <a class="nav-link rem_15" href="https://mojones.github.io/pelican-p4b/aboutcontact">About</a>
+                        </li>
+                    </ul>
+                    <ul class="navbar-nav">
+                        <li id="second-item" class="nav-item">
+                            <a class="nav-link rem_15" href="https://mojones.github.io/pelican-p4b/tutorial">Python&nbsp;tutorial</a>
+                        </li>
+                     </ul>
+                     
+                     <ul class="navbar-nav">
+                        <li id="second-item" class="nav-item">
+                            <a class="nav-link rem_15" href="https://mojones.github.io/pelican-p4b/training-courses">Training&nbsp;courses</a>
+                        </li>
+                     </ul>
+                     
+                       <ul class="navbar-nav">
+                        <li id="second-item" class="nav-item">
+                            <a class="nav-link rem_15" href="https://mojones.github.io/pelican-p4b/biological-data-exploration-book">Data&nbsp;exploration&nbsp;book</a>
+                        </li>
+                     </ul>
+                     
+                </div>
+                </nav>
+            </div>
+        </div>
+        <div id="wrap">
+<div id="post-container" class="container post index">
+    <article>
+        <header class="pop-over">
+            <h1>A six line genome assembler</h1>
+            <div class="row justify-content-between no-margin">
+                <h4 class="article-category">Category > <a class="article-category-link" href="https://mojones.github.io/pelican-p4b/">article</a></h4>
+                <span class="article-date">Fri 03 December 2010</span>
+            </div>
+            <div class="meta meta-tag no-margin no-border">
+                <div>
+                        <a href="https://mojones.github.io/pelican-p4b/tag/python.html" class="tag">python</a>
+                        <a href="https://mojones.github.io/pelican-p4b/tag/fun.html" class="tag">fun</a>
+                </div>
+            </div>
+            
+        </header>
+        <div class="article_content">
+            
+            <h1>The world’s worst genome assembler in six lines of Python</h1>
+<p>So, after I posted my new business cards the other day I got a comment to the effect that I should have made one with an aligner. That got me thinking about the biggest thing that I could conceivably fit on a business card, if I didn't care about readability. So I decided that I could probably fit an incredibly bad sequence assembly program on one. Just for fun, I wrote the whole thing in a purely functional style – a total of six lambda expressions.</p>
+<p><img src="images/0Yk2qeq.jpg"/></p>
+<p><strong>Warning: the rest of this post contains discussions of horrible code, rampant abuse of Python features, and the complete opposite of all good programming practise. Read on with caution!</strong></p>
+<p>The API is quite straightforward: give the <code>ah()</code> expression a list of DNA sequences, and it will return a consensus string. Here's an ultra-short example:</p>
+<div class="highlight"><pre><span></span><code>reads = [&#39;TCCCAGTGAACCCA&#39;, &#39;TTCCGTGCGGTTAAG&#39;, &#39;GTCCCAGTGAACCCACAA&#39;, &#39;TGAACCCACAAAACG&#39;, &#39;ACCCACAAAACGTGA&#39;, &#39;GAACCCACAAAACGTGA&#39;, &#39;TCCGTGCGGTTAAGC&#39;, &#39;TGAACCCACAAA&#39;, &#39;CCGTGCGGTTAAGCGTGA&#39;, &#39;TGACAGTCCCAGTGAA&#39;, &#39;AACCCACAAAACGTGA&#39;, &#39;AGTGAACCCACAAAACGT&#39;, &#39;GTTAAGCGTGA&#39;, &#39;CCGTGCGGTTAAGCGTGA&#39;, &#39;AGCGTGACAGT&#39;, &#39;TGCGGTTAAGCG&#39;, &#39;ACAAAACGTGATG&#39;, &#39;ACAGTCCCAGTGAACC&#39;, &#39;TAAGCGTGACAGTCCCA&#39;, &#39;TCGAATTCCGT&#39;, &#39;TTCTCGAATTCCGTGCG&#39;, &#39;ACAAAACGTG&#39;, &#39;CCACAAAACGTG&#39;, &#39;TGCGGTTAAG&#39;, &#39;GAACCCACAAAACGTGA&#39;, &#39;TCTCGAATTCC&#39;, &#39;ATTCCGTGCGGTTAA&#39;, &#39;ACCCACAAAAC&#39;, &#39;CGTGCGGTTAAGCGTGA&#39;, &#39;CCAGTGAACCCACAA&#39;, &#39;TGCGGTTAAGCGTG&#39;, &#39;CCCACAAAACG&#39;, &#39;TCTCGAATTC&#39;, &#39;AATTCCGTGCGGTT&#39;, &#39;ACAGTCCCAGTGA&#39;, &#39;GTCCCAGTGAACCCA&#39;, &#39;TGAACCCACAAA&#39;, &#39;CCCACAAAACGTG&#39;, &#39;TCCCAGTGAACCCACA&#39;, &#39;CTCGAATTCCGTGCG&#39;]
+print(ah(reads))
+# TGCGGACAAAACGTGTGAACGTGAGGTTAAGCGTGACAGTCCCAGTGAACCCACAAAACGT
+</code></pre></div>
+
+<p>And here's a local alignment to the sequence from which the fake reads were generated, just to prove that it's actually doing something slightly better than picking the longest read:</p>
+<div class="highlight"><pre><span></span><code> 6 GAATTCCGTGCGGTTAAGCGTGACAGTCCCAGTGAACCCACAAAACGT     53
+   |||   ||||.|||||||||||||||||||||||||||||||||||||
+17 GAA---CGTGAGGTTAAGCGTGACAGTCCCAGTGAACCCACAAAACGT     61
+</code></pre></div>
+
+<p>The longest read is 20 bases, and the local match region is 48 bases.</p>
+<h2>How it works</h2>
+<p>Let's start by putting each expression on its own line:</p>
+<div class="highlight"><pre><span></span><code><span class="n">cm</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">lambda</span><span class="w"> </span><span class="n">d</span><span class="p">,</span><span class="nl">ds</span><span class="p">:</span><span class="w"> </span><span class="nf">max</span><span class="p">(</span><span class="o">[</span><span class="n">m(d,e) for e in ds if e != d</span><span class="o">]</span><span class="p">)</span><span class="w"></span>
+<span class="n">m</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">lambda</span><span class="w"> </span><span class="n">d</span><span class="p">,</span><span class="nl">e</span><span class="p">:</span><span class="w"> </span><span class="nf">max</span><span class="p">(</span><span class="o">[</span><span class="n">(s(d,e,o),o,e,d) for o in range(1-len(e),len(d))</span><span class="o">]</span><span class="p">)</span><span class="w"></span>
+<span class="n">s</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">lambda</span><span class="w"> </span><span class="n">d</span><span class="p">,</span><span class="n">e</span><span class="p">,</span><span class="nl">o</span><span class="p">:</span><span class="w"> </span><span class="nf">sum</span><span class="p">(</span><span class="o">[</span><span class="n">1 for p in range(max(0-o,0), min([len(e)-o, len(e), len(d)-o</span><span class="o">]</span><span class="p">))</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">e</span><span class="o">[</span><span class="n">p</span><span class="o">]</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">d</span><span class="o">[</span><span class="n">p+o</span><span class="o">]</span><span class="err">]</span><span class="p">)</span><span class="w"></span>
+<span class="n">con</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">lambda</span><span class="w"> </span><span class="n">x</span><span class="p">,</span><span class="n">o</span><span class="p">,</span><span class="n">s</span><span class="p">,</span><span class="n">c</span><span class="w"> </span><span class="err">:</span><span class="w"> </span><span class="n">c</span><span class="o">[</span><span class="n">0:max(0,o)</span><span class="o">]</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">s</span><span class="w"> </span><span class="o">+</span><span class="w">  </span><span class="n">c</span><span class="o">[</span><span class="n">len(s)+o:</span><span class="o">]</span><span class="w"></span>
+<span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">lambda</span><span class="w"> </span><span class="n">s</span><span class="p">,</span><span class="w"> </span><span class="n">o</span><span class="w"> </span><span class="err">:</span><span class="w"> </span><span class="n">con</span><span class="p">(</span><span class="o">*</span><span class="n">cm</span><span class="p">(</span><span class="n">s</span><span class="p">,</span><span class="w"> </span><span class="n">o</span><span class="p">))</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="nf">len</span><span class="p">(</span><span class="n">o</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="n">a</span><span class="p">(</span><span class="n">con</span><span class="p">(</span><span class="o">*</span><span class="n">cm</span><span class="p">(</span><span class="n">s</span><span class="p">,</span><span class="w"> </span><span class="n">o</span><span class="p">)),</span><span class="w"> </span><span class="o">[</span><span class="n"> y for y in o if y != cm(s, o)[2</span><span class="o">]</span><span class="err">]</span><span class="p">)</span><span class="w"></span>
+<span class="n">ah</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">lambda</span><span class="w"> </span><span class="n">d</span><span class="w"> </span><span class="err">:</span><span class="w"> </span><span class="n">a</span><span class="p">(</span><span class="n">d</span><span class="o">[</span><span class="n">0</span><span class="o">]</span><span class="p">,</span><span class="n">d</span><span class="o">[</span><span class="n">1:</span><span class="o">]</span><span class="p">)</span><span class="w"></span>
+</code></pre></div>
+
+<p>Next we'll convert each expression to an equivalent function to make it slightly easier to read:</p>
+<div class="highlight"><pre><span></span><code><span class="n">def</span><span class="w"> </span><span class="n">cm</span><span class="p">(</span><span class="n">d</span><span class="p">,</span><span class="n">ds</span><span class="p">)</span><span class="err">:</span><span class="w"></span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nf">max</span><span class="p">(</span><span class="o">[</span><span class="n">m(d,e) for e in ds if e != d</span><span class="o">]</span><span class="p">)</span><span class="w"></span>
+
+<span class="n">def</span><span class="w"> </span><span class="n">m</span><span class="p">(</span><span class="n">d</span><span class="p">,</span><span class="n">e</span><span class="p">)</span><span class="err">:</span><span class="w"></span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nf">max</span><span class="p">(</span><span class="o">[</span><span class="n">(s(d,e,o),o,e,d) for o in range(1-len(e),len(d))</span><span class="o">]</span><span class="p">)</span><span class="w"></span>
+
+<span class="n">def</span><span class="w"> </span><span class="n">s</span><span class="p">(</span><span class="n">d</span><span class="p">,</span><span class="n">e</span><span class="p">,</span><span class="n">o</span><span class="p">)</span><span class="err">:</span><span class="w"></span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nf">sum</span><span class="p">(</span><span class="o">[</span><span class="n">1 for p in range(max(0-o,0), min([len(e)-o, len(e), len(d)-o</span><span class="o">]</span><span class="p">))</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">e</span><span class="o">[</span><span class="n">p</span><span class="o">]</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">d</span><span class="o">[</span><span class="n">p+o</span><span class="o">]</span><span class="err">]</span><span class="p">)</span><span class="w"></span>
+
+<span class="n">def</span><span class="w"> </span><span class="n">con</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">o</span><span class="p">,</span><span class="n">s</span><span class="p">,</span><span class="n">c</span><span class="p">)</span><span class="err">:</span><span class="w"></span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">c</span><span class="o">[</span><span class="n">0:max(0,o)</span><span class="o">]</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">s</span><span class="w"> </span><span class="o">+</span><span class="w">  </span><span class="n">c</span><span class="o">[</span><span class="n">len(s)+o:</span><span class="o">]</span><span class="w"></span>
+
+<span class="n">def</span><span class="w"> </span><span class="n">a</span><span class="p">(</span><span class="n">s</span><span class="p">,</span><span class="w"> </span><span class="n">o</span><span class="p">)</span><span class="err">:</span><span class="w"></span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">con</span><span class="p">(</span><span class="o">*</span><span class="n">cm</span><span class="p">(</span><span class="n">s</span><span class="p">,</span><span class="w"> </span><span class="n">o</span><span class="p">))</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="nf">len</span><span class="p">(</span><span class="n">o</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="n">a</span><span class="p">(</span><span class="n">con</span><span class="p">(</span><span class="o">*</span><span class="n">cm</span><span class="p">(</span><span class="n">s</span><span class="p">,</span><span class="w"> </span><span class="n">o</span><span class="p">)),</span><span class="w"> </span><span class="o">[</span><span class="n"> y for y in o if y != cm(s, o)[2</span><span class="o">]</span><span class="err">]</span><span class="p">)</span><span class="w"></span>
+
+<span class="n">def</span><span class="w"> </span><span class="n">ah</span><span class="p">(</span><span class="n">d</span><span class="p">)</span><span class="err">:</span><span class="w"></span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">a</span><span class="p">(</span><span class="n">d</span><span class="o">[</span><span class="n">0</span><span class="o">]</span><span class="p">,</span><span class="n">d</span><span class="o">[</span><span class="n">1:</span><span class="o">]</span><span class="p">)</span><span class="w"></span>
+</code></pre></div>
+
+<p>And change the names to be slightly more descriptive (this makes some lines extremely long, so you'll have to scroll right to read them), and rearrange them slightly:</p>
+<div class="highlight"><pre><span></span><code><span class="err">#</span><span class="w"> </span><span class="n">given</span><span class="w"> </span><span class="n">two</span><span class="w"> </span><span class="n">sequences</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">an</span><span class="w"> </span><span class="n">offset</span><span class="p">,</span><span class="w"> </span><span class="nf">count</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">number</span><span class="w"> </span><span class="k">of</span><span class="w"> </span><span class="n">matching</span><span class="w"> </span><span class="n">bases</span><span class="w"></span>
+<span class="n">def</span><span class="w"> </span><span class="n">score</span><span class="p">(</span><span class="n">sequence1</span><span class="p">,</span><span class="n">sequence2</span><span class="p">,</span><span class="n">offset</span><span class="p">)</span><span class="err">:</span><span class="w"></span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nf">sum</span><span class="p">(</span><span class="o">[</span><span class="n">1 for position in range(max(0-offset,0), min([len(sequence2)-offset, len(sequence2), len(sequence1)-offset</span><span class="o">]</span><span class="p">))</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">sequence2</span><span class="o">[</span><span class="n">position</span><span class="o">]</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">sequence1</span><span class="o">[</span><span class="n">position+offset</span><span class="o">]</span><span class="err">]</span><span class="p">)</span><span class="w"></span>
+
+<span class="err">#</span><span class="w"> </span><span class="n">given</span><span class="w"> </span><span class="n">two</span><span class="w"> </span><span class="n">sequences</span><span class="p">,</span><span class="w"> </span><span class="n">find</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">offset</span><span class="w"> </span><span class="n">which</span><span class="w"> </span><span class="n">gives</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">best</span><span class="w"> </span><span class="n">score</span><span class="w"></span>
+<span class="n">def</span><span class="w"> </span><span class="n">find_best_offset</span><span class="p">(</span><span class="n">sequence1</span><span class="p">,</span><span class="n">sequence2</span><span class="p">)</span><span class="err">:</span><span class="w"></span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nf">max</span><span class="p">(</span><span class="o">[</span><span class="n">(score(sequence1,sequence2,offset),offset,sequence2,sequence1) for offset in range(1-len(sequence2),len(sequence1))</span><span class="o">]</span><span class="p">)</span><span class="w"></span>
+
+<span class="err">#</span><span class="w"> </span><span class="n">given</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">single</span><span class="w"> </span><span class="k">sequence</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">collection</span><span class="w"> </span><span class="k">of</span><span class="w"> </span><span class="n">others</span><span class="p">,</span><span class="w"> </span><span class="n">find</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">other</span><span class="w"> </span><span class="k">sequence</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">best</span><span class="w"> </span><span class="k">match</span><span class="w"> </span><span class="n">score</span><span class="w"></span>
+<span class="n">def</span><span class="w"> </span><span class="n">find_best_match</span><span class="p">(</span><span class="k">sequence</span><span class="p">,</span><span class="n">others</span><span class="p">)</span><span class="err">:</span><span class="w"></span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nf">max</span><span class="p">(</span><span class="o">[</span><span class="n">find_best_offset(sequence,sequence2) for sequence2 in others if sequence2 != sequence</span><span class="o">]</span><span class="p">)</span><span class="w"></span>
+
+<span class="err">#</span><span class="w"> </span><span class="n">given</span><span class="w"> </span><span class="n">two</span><span class="w"> </span><span class="n">sequences</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">an</span><span class="w"> </span><span class="n">offset</span><span class="p">,</span><span class="w"> </span><span class="n">calculate</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">consensus</span><span class="w"></span>
+<span class="n">def</span><span class="w"> </span><span class="n">consensus</span><span class="p">(</span><span class="n">score</span><span class="p">,</span><span class="n">offset</span><span class="p">,</span><span class="n">sequence1</span><span class="p">,</span><span class="n">sequence2</span><span class="p">)</span><span class="err">:</span><span class="w"></span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">sequence2</span><span class="o">[</span><span class="n">0:max(0,offset)</span><span class="o">]</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">sequence1</span><span class="w"> </span><span class="o">+</span><span class="w">  </span><span class="n">sequence2</span><span class="o">[</span><span class="n">len(sequence1)+offset:</span><span class="o">]</span><span class="w"></span>
+
+<span class="err">#</span><span class="w"> </span><span class="n">given</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="k">sequence</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">collection</span><span class="w"> </span><span class="k">of</span><span class="w"> </span><span class="n">others</span><span class="p">,</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">complete</span><span class="w"> </span><span class="n">consensus</span><span class="w"> </span><span class="k">using</span><span class="w"> </span><span class="n">recursion</span><span class="w"></span>
+<span class="n">def</span><span class="w"> </span><span class="n">assemble</span><span class="p">(</span><span class="k">sequence</span><span class="p">,</span><span class="w"> </span><span class="n">others</span><span class="p">)</span><span class="err">:</span><span class="w"></span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">consensus</span><span class="p">(</span><span class="o">*</span><span class="n">find_best_match</span><span class="p">(</span><span class="k">sequence</span><span class="p">,</span><span class="w"> </span><span class="n">others</span><span class="p">))</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="nf">len</span><span class="p">(</span><span class="n">others</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="n">assemble</span><span class="p">(</span><span class="n">consensus</span><span class="p">(</span><span class="o">*</span><span class="n">find_best_match</span><span class="p">(</span><span class="k">sequence</span><span class="p">,</span><span class="w"> </span><span class="n">others</span><span class="p">)),</span><span class="w"> </span><span class="o">[</span><span class="n"> y for y in others if y != find_best_match(sequence, others)[2</span><span class="o">]</span><span class="err">]</span><span class="p">)</span><span class="w"></span>
+
+<span class="err">#</span><span class="w"> </span><span class="n">given</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">collection</span><span class="w"> </span><span class="k">of</span><span class="w"> </span><span class="n">sequences</span><span class="p">,</span><span class="w"> </span><span class="k">call</span><span class="w"> </span><span class="n">assemble</span><span class="p">()</span><span class="w"> </span><span class="k">to</span><span class="w"> </span><span class="k">start</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">recursion</span><span class="w"></span>
+<span class="n">def</span><span class="w"> </span><span class="n">assemble_helper</span><span class="p">(</span><span class="n">dnas</span><span class="p">)</span><span class="err">:</span><span class="w"></span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">assemble</span><span class="p">(</span><span class="n">dnas</span><span class="o">[</span><span class="n">0</span><span class="o">]</span><span class="p">,</span><span class="n">dnas</span><span class="o">[</span><span class="n">1:</span><span class="o">]</span><span class="p">)</span><span class="w"></span>
+</code></pre></div>
+
+<p>Now we can look at each function in more detail.</p>
+<p><code>score()</code> is the basic scoring function. It takes two sequences and an offset, and returns the number of characters that match. It's the simplest possible function for scoring an ungapped alignment between two sequences. It works by calculating the first and last positions of the overlapping region relative to <code>sequence2</code>, then counts up the number of positions for which the base in <code>sequence2</code> is the same as the base in <code>sequence1</code> at that position plus the offset. To get everything in one expression, it uses a list comprehension to build a list of 1's for each matching position, then sums the list. Here it is written out a bit more conventionally. The only complicated thing going on here is the calculation of the start and stop positions.</p>
+<div class="highlight"><pre><span></span><code><span class="n">def</span><span class="w"> </span><span class="n">score</span><span class="p">(</span><span class="n">sequence1</span><span class="p">,</span><span class="n">sequence2</span><span class="p">,</span><span class="n">offset</span><span class="p">)</span><span class="err">:</span><span class="w"></span>
+<span class="w">    </span><span class="n">start_of_overlap</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">max</span><span class="p">(</span><span class="mi">0</span><span class="o">-</span><span class="n">offset</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="n">end_of_overlap</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">min</span><span class="p">(</span><span class="o">[</span><span class="n">len(sequence2)-offset, len(sequence2), len(sequence1)-offset</span><span class="o">]</span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="n">total_score</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="w"></span>
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="k">position</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="k">range</span><span class="p">(</span><span class="n">start_of_overlap</span><span class="p">,</span><span class="w"> </span><span class="n">end_of_overlap</span><span class="p">)</span><span class="err">:</span><span class="w"></span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="n">sequence2</span><span class="o">[</span><span class="n">position</span><span class="o">]</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">sequence1</span><span class="o">[</span><span class="n">position+offset</span><span class="o">]</span><span class="err">:</span><span class="w"></span>
+<span class="w">            </span><span class="n">total_score</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">total_score</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="w"></span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">total_score</span><span class="w"></span>
+</code></pre></div>
+
+<p><code>find_best_offset()</code> is the function that tries to maximize the score for a pair of sequences by trying every possible offset. It works by first calculating the range of possible offsets, then using a list comprehension to build a list of tuples, one tuple for each possible offset. Each tuple contains the score, the offset, and the two sequences – this slightly weird way of storing the results is necessary so that the information can be passed to the other functions, as we'll see in a minute. To find the single best offset, we take advantage of the fact that in Python, sorting a list of tuples sorts them by their first element. Since the first element of each of our tuples is the score, if we simply ask for the <code>max()</code> of the list we get the tuple with the highest first element i.e. the one representing the best score. Here's the sensible version:</p>
+<div class="highlight"><pre><span></span><code><span class="nv">def</span> <span class="nv">find_best_offset</span><span class="ss">(</span><span class="nv">sequence1</span>,<span class="nv">sequence2</span><span class="ss">)</span>:
+    <span class="nv">lowest_offset</span> <span class="o">=</span> <span class="mi">1</span><span class="o">-</span><span class="nv">len</span><span class="ss">(</span><span class="nv">sequence2</span><span class="ss">)</span>
+    <span class="nv">highest_offset</span> <span class="o">=</span> <span class="nv">len</span><span class="ss">(</span><span class="nv">sequence1</span><span class="ss">)</span>
+    <span class="nv">all_offsets</span> <span class="o">=</span> []
+    <span class="k">for</span> <span class="nv">offset</span> <span class="nv">in</span> <span class="nv">range</span><span class="ss">(</span><span class="nv">lowest_offset</span>,<span class="nv">highest_offset</span><span class="ss">)</span>:
+        # <span class="nv">add</span> <span class="nv">the</span> <span class="mi">4</span><span class="o">-</span><span class="nv">tuple</span> <span class="k">for</span> <span class="nv">this</span> <span class="nv">offset</span>
+        <span class="nv">all_offsets</span>.<span class="nv">append</span><span class="ss">((</span><span class="nv">score</span><span class="ss">(</span><span class="nv">sequence1</span>,<span class="nv">sequence2</span>,<span class="nv">offset</span><span class="ss">)</span>,<span class="nv">offset</span>,<span class="nv">sequence2</span>,<span class="nv">sequence1</span><span class="ss">))</span>
+    <span class="k">return</span> <span class="nv">max</span><span class="ss">(</span><span class="nv">all_offsets</span><span class="ss">)</span>
+</code></pre></div>
+
+<p><code>find_best_match()</code> is probably the most straightforward function of the bunch. Given a single sequence and a list of other sequences, it finds the other sequence that has the best match by calling <code>find_best_offset()</code> for each of them in turn. It uses the same tuple-sorting trick as before to figure out which match is the best:</p>
+<div class="highlight"><pre><span></span><code><span class="nv">def</span> <span class="nv">find_best_match</span><span class="ss">(</span><span class="nv">sequence</span>,<span class="nv">others</span><span class="ss">)</span>:
+    <span class="nv">all_matches</span> <span class="o">=</span> []
+    <span class="k">for</span> <span class="nv">sequence2</span> <span class="nv">in</span> <span class="nv">others</span>:
+        <span class="k">if</span> <span class="nv">sequence2</span> <span class="o">!=</span> <span class="nv">sequence</span>:
+            <span class="nv">all_matches</span>.<span class="nv">append</span><span class="ss">(</span><span class="nv">find_best_offset</span><span class="ss">(</span><span class="nv">sequence</span>,<span class="nv">sequence2</span><span class="ss">))</span>
+    <span class="k">return</span> <span class="nv">max</span><span class="ss">(</span><span class="nv">all_matches</span><span class="ss">)</span>
+</code></pre></div>
+
+<p>The <code>consensus()</code> function gave me quite a bit of trouble. Its job is to take two sequences plus a given offset, and return the consensus sequence of the two. Of course, it doesn't do anything like what we normally mean by consensus – it simply concatenates the relevant bits of the two sequences to make a longer one. The logic behind how it works is a little bit hard to follow. We construct the consensus sequence by taking the full length of <code>sequence1</code>, and sticking any left-hand overhang from <code>sequence2</code> on the left end and any right-hand overhang from <code>sequence2</code> on the right end. In other words, you should read the return line as "return any bits of <code>sequence2</code> that stick out to the left, followed by the whole of <code>sequence1</code>, followed by any bits of <code>sequence2</code> that stick out to the right". For most overlapping pairs of sequences, either the first or last bit of the returned string will be zero-length, which is why the thing works as a single expression in the compact version.</p>
+<div class="highlight"><pre><span></span><code><span class="nv">def</span> <span class="nv">consensus</span><span class="ss">(</span><span class="nv">score</span>,<span class="nv">offset</span>,<span class="nv">sequence1</span>,<span class="nv">sequence2</span><span class="ss">)</span>:
+    <span class="nv">sequence2_left_overhang</span> <span class="o">=</span> <span class="nv">sequence2</span>[<span class="mi">0</span>:<span class="nv">max</span><span class="ss">(</span><span class="mi">0</span>,<span class="nv">offset</span><span class="ss">)</span>]
+    <span class="nv">sequence2_right_overhang</span> <span class="o">=</span> <span class="nv">sequence2</span>[<span class="nv">len</span><span class="ss">(</span><span class="nv">sequence1</span><span class="ss">)</span><span class="o">+</span><span class="nv">offset</span>:]
+    <span class="k">return</span> <span class="nv">sequence2_left_overhang</span> <span class="o">+</span> <span class="nv">sequence1</span> <span class="o">+</span> <span class="nv">sequence2_right_overhang</span>
+</code></pre></div>
+
+<p>The <code>assemble()</code> function is probably the most complicated (and certainly the most inefficient). I cheated a little bit to get it onto a single line by using the ternary operator <code>x if y else z</code>. It's a recursive function that takes a single sequence and a collection of other sequences. It finds the best match for the sequence among the others and calculates the consensus of the sequence and the best-matching other. If that's the only member of <code>others</code> (i.e. the others list has just one element) it simply returns the consensus. If the <code>others</code> list has more than one element, it removes the best matching one and calls itself recursively with the newly built consensus as the single sequence. Here it is expanded:</p>
+<div class="highlight"><pre><span></span><code><span class="nv">def</span> <span class="nv">assemble</span><span class="ss">(</span><span class="nv">sequence</span>, <span class="nv">others</span><span class="ss">)</span>:
+    # <span class="nv">remember</span>, <span class="nv">best_matching_other</span> <span class="nv">is</span> <span class="nv">a</span> <span class="mi">4</span><span class="o">-</span><span class="nv">tuple</span>
+    <span class="nv">best_matching_other</span> <span class="o">=</span> <span class="nv">find_best_match</span><span class="ss">(</span><span class="nv">sequence</span>, <span class="nv">others</span><span class="ss">)</span>
+    # <span class="nv">the</span> <span class="o">*</span> <span class="nv">expands</span> <span class="nv">the</span> <span class="nv">elements</span> <span class="nv">of</span> <span class="nv">the</span> <span class="nv">tuple</span> <span class="nv">so</span> <span class="nv">we</span> <span class="nv">can</span> <span class="nv">use</span> <span class="nv">them</span> <span class="nv">as</span> <span class="nv">arguments</span> <span class="nv">to</span> <span class="nv">consensus</span><span class="ss">()</span>
+    <span class="nv">consensus_sequence</span> <span class="o">=</span> <span class="nv">consensus</span><span class="ss">(</span><span class="o">*</span><span class="nv">best_matching_other</span><span class="ss">)</span>
+    <span class="k">if</span> <span class="nv">len</span><span class="ss">(</span><span class="nv">others</span><span class="ss">)</span> <span class="o">==</span> <span class="mi">1</span>:
+        <span class="k">return</span> <span class="nv">consensus_sequence</span>
+    <span class="k">else</span>:
+        # <span class="nv">get</span> <span class="nv">the</span> <span class="nv">second</span> <span class="nv">element</span> <span class="nv">of</span> <span class="nv">the</span> <span class="nv">best_matching_other</span> <span class="nv">tuple</span>, <span class="nv">which</span> <span class="nv">is</span> <span class="nv">the</span> <span class="nv">sequence</span>
+        <span class="nv">best_matching_sequence</span> <span class="o">=</span> <span class="nv">best_matching_other</span>[<span class="mi">2</span>]
+        <span class="nv">others</span>.<span class="nv">remove</span><span class="ss">(</span><span class="nv">best_matching_sequence</span><span class="ss">)</span>
+        <span class="k">return</span> <span class="nv">assemble</span><span class="ss">(</span><span class="nv">consensus_sequence</span>, <span class="nv">others</span><span class="ss">)</span>
+</code></pre></div>
+
+<p><code>assemble_helper()</code> is, as the name suggests, just a helper function which kicks off the recursion by calling <code>assemble()</code> with the first element as the single sequence and the remainder of the elements as the list of other sequences.</p>
+<p>Let's sum up the algorithm then (described iteratively, even though it's written recursively). To assemble a list of N DNA sequences, we take the first sequence, and find the member of the remaining N-1 sequences which has the best match. We remove this best-matching member from the list (leaving N-2 sequences) and calculate the consensus of these two sequences. We then append the newly-built consensus onto the end of the list (bringing the sequence count back up to N-1), then go back to the start and begin again. Hopefully it's clear that, since the number of sequences in the list decreases by one in each iteration, we will eventually end up with a list of just a single sequence, which is our result.</p>
+<p>A discussion of the performance of this algorithm is both beyond the scope of this post, and entirely unnecessary. Suffice it to say that it has horrible performance in terms of both computation time and results! At around 430 characters I think that the compact version is pushing the limits of what can fit on a business card in 12 point text. </p>
+        </div>
+        <hr/>
+        <hr/>
+    </article>
+</div>
+        </div>
+<footer class="footer">
+   <div class="container bottom_border">
+   <ul class="foote_bottom_ul_amrc">
+    <h3 style="color:white;"  class="text-center">Sign up for the newsletter</h3>
+    <h5 style="color:white;"  class="text-center">Links to the best biological Python and bioinformatics content on the web, no spam.</h3>
+     <script async src="https://eomail5.com/form/fbc6d37e-0672-11ec-96e5-06b4694bee2a.js" data-form="fbc6d37e-0672-11ec-96e5-06b4694bee2a"></script>
+     </ul>
+   </div>
+   <div class="container">
+      <ul class="foote_bottom_ul_amrc">
+         <li><a href="/">HOME</a></li>
+         <li><a href="">ABOUT</a></li>
+         <li><a href="">ARCHIVE</a></li>
+      </ul>
+      <!--foote_bottom_ul_amrc ends here-->
+      <p class="text-center"></p>
+        
+          
+      </div>
+
+      <!--social_footer_ul ends here-->
+   </div>
+</footer>
+            <script type="text/javascript" src="https://mojones.github.io/pelican-p4b/theme/libs/jquery.min.js"></script>
+            <script type="text/javascript" src="https://mojones.github.io/pelican-p4b/theme/libs/bootstrap-4.2.1/dist/js/bootstrap.bundle.min.js"></script>
+
+        <script src="https://mojones.github.io/pelican-p4b/theme/libs/prism.js"></script>
+        <script src="https://mojones.github.io/pelican-p4b/theme/libs/Countable.js"></script>
+
+        <script>
+            Prism.plugins.NormalizeWhitespace.setDefaults({
+                'remove-trailing': true,
+                'remove-indent': true,
+                'left-trim': true,
+                'right-trim': true,
+                /*'break-lines': 80,
+                'indent': 2,
+                'remove-initial-line-feed': false,
+                'tabs-to-spaces': 4,
+                'spaces-to-tabs': 4*/
+            });
+        </script>
+
+
+        <script type="text/javascript" src="https://mojones.github.io/pelican-p4b/theme/js/custom.js"></script>
+            <script>
+                function validateForm(query)
+                {
+                    return (query.length > 0);
+                }
+            </script>
+    </body>
+</html>
+

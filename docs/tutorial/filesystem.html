@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+
+            <meta name="author" content="Martin" />
+
+
+
+                <meta property="og:type" content="article" />
+            <meta name="twitter:card" content="summary"/>
+
+        <meta name="keywords" content="python, tutorial, tutorial, "/>
+
+        <link rel="canonical" href="https://mojones.github.io/pelican-p4b/tutorial/filesystem.html">
+    <meta property="og:title" content="Python tutorial part nine | Python for Biologists"/>
+    <meta property="og:url" content="https://mojones.github.io/pelican-p4b/tutorial/filesystem.html" />
+    <meta property="og:description" content="" />
+    <meta property="og:site_name" content="Python for Biologists" />
+    <meta property="og:article:author" content="Martin" />
+        <meta property="og:article:published_time" content="2010-12-03T10:20:00+01:00" />
+        <meta property="og:article:modified_time" content="2010-12-05T19:30:00+01:00" />
+    <meta name="twitter:title" content="Python tutorial part nine | Python for Biologists">
+    <meta name="twitter:description" content="">
+
+
+        <title>    Python tutorial part nine  | Python for Biologists
+</title>
+
+                <link rel="stylesheet" type="text/css" href="https://mojones.github.io/pelican-p4b/theme/libs/bootstrap-4.2.1/dist/css/bootstrap.min.css">
+                <link rel="stylesheet" type="text/css" href="https://mojones.github.io/pelican-p4b/theme/libs/fontawesome-free-5.2.0-web/css/all.min.css">
+            <link rel="stylesheet" type="text/css" href="https://mojones.github.io/pelican-p4b/theme/css/custom.css" media="screen">
+            <link rel="stylesheet" type="text/css" href="https://mojones.github.io/pelican-p4b/theme/css/ipynb.css" media="screen">
+
+            <style>
+                #progressBar::-webkit-progress-value {
+                    background-color: ;
+                }
+                #progressBar::-moz-progress-bar {
+                    background-color: ;
+                }
+            </style>
+
+        <link href="https://mojones.github.io/pelican-p4b/theme/libs/prism.css" rel="stylesheet" />
+<script type="text/x-mathjax-config">
+
+MathJax.Hub.Config({
+tex2jax: { inlineMath: [["$","$"],["\\(","\\)"]] },
+"HTML-CSS": {
+  linebreaks: { automatic: true, width: "container" }
+}
+});
+
+</script>
+<script type="text/javascript"
+  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+    </head>
+    <body>
+        <div class="banner-wrapper row" style="background-color: #24292e;">
+            <div class="banner">
+                <nav id="navbar" class="navbar navbar-expand-md navbar-light bg-light container">
+                    <div class="container navbar-title">
+                        <a href="/"><img id="banner-logo" src="https://mojones.github.io/pelican-p4b/images/logo.png" style="height: 40px; margin: 6px 0;"></a>
+                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                    </div>
+                <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent" style="margin-bottom: 6.5px;margin-top: 6.5px">
+                    <ul class="navbar-nav">
+                        <li class="nav-item active">
+                            <a class="nav-link rem_15" href="https://mojones.github.io/pelican-p4b/python-for-biologists-online-course">Learn&nbsp;Python</a>
+                        </li>
+                    </ul>
+                    <ul class="navbar-nav">
+                        <li class="nav-item active">
+                            <a class="nav-link rem_15" href="https://mojones.github.io/pelican-p4b/aboutcontact">About</a>
+                        </li>
+                    </ul>
+                    <ul class="navbar-nav">
+                        <li id="second-item" class="nav-item">
+                            <a class="nav-link rem_15" href="https://mojones.github.io/pelican-p4b/tutorial">Python&nbsp;tutorial</a>
+                        </li>
+                     </ul>
+                     
+                     <ul class="navbar-nav">
+                        <li id="second-item" class="nav-item">
+                            <a class="nav-link rem_15" href="https://mojones.github.io/pelican-p4b/training-courses">Training&nbsp;courses</a>
+                        </li>
+                     </ul>
+                     
+                       <ul class="navbar-nav">
+                        <li id="second-item" class="nav-item">
+                            <a class="nav-link rem_15" href="https://mojones.github.io/pelican-p4b/biological-data-exploration-book">Data&nbsp;exploration&nbsp;book</a>
+                        </li>
+                     </ul>
+                     
+                </div>
+                </nav>
+            </div>
+        </div>
+        <div id="wrap">
+<div id="post-container" class="container post index">
+    <article>
+        <header class="pop-over">
+            <h1>Python tutorial part nine</h1>
+            <div class="row justify-content-between no-margin">
+                <h4 class="article-category">Category > <a class="article-category-link" href="https://mojones.github.io/pelican-p4b/">tutorial</a></h4>
+                <span class="article-date">Fri 03 December 2010</span>
+            </div>
+            <div class="meta meta-tag no-margin no-border">
+                <div>
+                        <a href="https://mojones.github.io/pelican-p4b/tag/python.html" class="tag">python</a>
+                        <a href="https://mojones.github.io/pelican-p4b/tag/tutorial.html" class="tag">tutorial</a>
+                </div>
+            </div>
+            
+        </header>
+        <div class="article_content">
+            
+            <h2>File contents and manipulation</h2>
+<p>Reading from and writing to files was one of the first things we looked at.  For some programs, however, we're not just concerned with the contents of files, but with files and folders themselves. This is especially likely to be the case for programs that have to operate as part of a work flow involving other tools and software. For example, we may need to copy, move, rename and delete files, or we may need to process all files in a certain folder. </p>
+<p>Although it seems like a simple task (after all, the file manager tools that come with your operating system can carry most of them out), file manipulation in a language like Python is actually quite tricky. That's because the code that we write has to function identically on different operating systems – including Windows, Linux and Mac machines – which may handle files quite differently. </p>
+<p>Thankfully, Python includes a couple of modules that take care of these differences for us and provide us with a set of useful functions for manipulating files. The modules' names are <code>os</code> (short for Operating System) and <code>shutil</code> (short for SHell UTILities). In the next section we'll see how they can be used to carry out various common (but important) tasks.</p>
+<h3>A note on the code examples</h3>
+<p>Since the code examples in this page unavoidably involve interaction with the operating system, some of the details will be operating system specific. In other words, the examples in this page might not run on your computer without some tweaking. In addition to the paths being different, the success of the code examples for many functions relies on the files and folders actually being present on the computer on which the examples are run. The code examples in this page will use Linux style paths, and will refer to folders and files on my computer, so if you want to try running them, you'll probably need to change the paths to refer to files on your own computer. </p>
+<h3>Basic file manipulation</h3>
+<p>To rename an existing file, we import the <code>os</code> module, then use the <code>os.rename()</code> function. The <code>os.rename()</code> function takes two arguments, both strings. The first is the current name of the file, the second is the new name:</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">os</span>
+<span class="n">os</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="s2">&quot;old.txt&quot;</span><span class="p">,</span> <span class="s2">&quot;new.txt&quot;</span><span class="p">)</span>
+</code></pre></div>
+
+<p>The above code assumes that the file <code>old.txt</code> is in the folder where we are running our Python program (also known as the working directory). If it's elsewhere in the filesystem, then we have to give the complete path:</p>
+<div class="highlight"><pre><span></span><code>os.rename(&quot;/home/martin/biology/old.txt&quot;, &quot;/home/martin/biology/new.txt&quot;)
+</code></pre></div>
+
+<p>If we specify a different folder, but the same filename in the second argument, then the function will move the file from one folder to another:</p>
+<div class="highlight"><pre><span></span><code>os.rename(&quot;/home/martin/biology/old.txt&quot;, &quot;/home/martin/python/old.txt&quot;)
+</code></pre></div>
+
+<p>Of course, we can move and rename a file in one step if you like:</p>
+<div class="highlight"><pre><span></span><code>os.rename(&quot;/home/martin/biology/old.txt&quot;, &quot;/home/martin/python/new.txt&quot;)
+</code></pre></div>
+
+<p><code>os.rename()</code> works on folders as well as files:</p>
+<div class="highlight"><pre><span></span><code>os.rename(&quot;/home/martin/old_folder&quot;, &quot;/home/martin/new_folder&quot;)
+</code></pre></div>
+
+<p>If we try to move a file to a folder that doesn't exist we'll get an error. We need to create the new folder first with the <code>os.mkdir()</code> function:</p>
+<div class="highlight"><pre><span></span><code>os.mkdir(&quot;/home/martin/python&quot;)
+</code></pre></div>
+
+<p>If we need to create a bunch of directories all in one go, we can use the <code>os.mkdirs()</code> function (note the s on the end of the name):</p>
+<div class="highlight"><pre><span></span><code>os.mkdirs(&quot;/a/long/path/with/lots/of/folders&quot;)
+</code></pre></div>
+
+<p>To copy a file or folder we use the <code>shutil</code> module. We can copy a single file with <code>shutil.copy()</code>:</p>
+<div class="highlight"><pre><span></span><code>shutil.copy(&quot;/home/martin/original.txt&quot;, &quot;/home/martin/copy.txt&quot;)
+</code></pre></div>
+
+<p>or a folder with <code>shutil.copytree()</code>:</p>
+<div class="highlight"><pre><span></span><code>shutil.copytree(&quot;/home/martin/original_folder&quot;, &quot;/home/martin/copy_folder&quot;)
+</code></pre></div>
+
+<p>To test whether a file or folder exists, use <code>os.path.exists()</code>. This function returns <code>True</code> or <code>False</code>, so we can use it as a condition:</p>
+<div class="highlight"><pre><span></span><code><span class="k">if</span> <span class="nv">os</span>.<span class="nv">path</span>.<span class="nv">exists</span><span class="ss">(</span><span class="s2">&quot;</span><span class="s">/home/martin/email.txt</span><span class="s2">&quot;</span><span class="ss">)</span>:
+    <span class="nv">print</span><span class="ss">(</span><span class="s2">&quot;</span><span class="s">You have mail!</span><span class="s2">&quot;</span><span class="ss">)</span>
+</code></pre></div>
+
+<h3>Deleting files and folders</h3>
+<p>There are different functions for deleting files, empty folders, and non-empty folders. To delete a single file, <code>use os.remove()</code>:</p>
+<div class="highlight"><pre><span></span><code>os.remove(&quot;/home/martin/unwanted_file.txt&quot;)
+</code></pre></div>
+
+<p>To delete an empty folder, use <code>os.rmdir()</code>:</p>
+<div class="highlight"><pre><span></span><code>os.rmdir(&quot;/home/martin/empty&quot;)
+</code></pre></div>
+
+<p>To delete a folder and all the files in it, <code>use shutil.rmtree()</code>:</p>
+<div class="highlight"><pre><span></span><code>shutil.rmtree(&quot;home/martin/full&quot;)
+</code></pre></div>
+
+<h3>Listing folder contents</h3>
+<p>The <code>os.listdir()</code> function returns a list of files and folders. It takes a single argument which is a string containing the path of the folder whose contents you want to search. To get a list of the contents of the current working directory, use the string <code>"."</code> for the path: </p>
+<div class="highlight"><pre><span></span><code><span class="k">for</span> <span class="nv">file_name</span> <span class="nv">in</span> <span class="nv">os</span>.<span class="nv">listdir</span><span class="ss">(</span><span class="s2">&quot;</span><span class="s">.</span><span class="s2">&quot;</span><span class="ss">)</span>:
+    <span class="nv">print</span><span class="ss">(</span><span class="s2">&quot;</span><span class="s">one file name is </span><span class="s2">&quot;</span> <span class="o">+</span> <span class="nv">file_name</span><span class="ss">)</span>
+</code></pre></div>
+
+<p>To list the contents of a different folder, we just give the path as an argument:</p>
+<div class="highlight"><pre><span></span><code><span class="k">for</span> <span class="nv">file_name</span> <span class="nv">in</span> <span class="nv">os</span>.<span class="nv">listdir</span><span class="ss">(</span><span class="s2">&quot;</span><span class="s">/home/martin</span><span class="s2">&quot;</span><span class="ss">)</span>:
+    <span class="nv">print</span><span class="ss">(</span><span class="s2">&quot;</span><span class="s">one file name is </span><span class="s2">&quot;</span> <span class="o">+</span> <span class="nv">file_name</span><span class="ss">)</span>
+</code></pre></div>
+
+<h2>Running external programs</h2>
+<p>Another feature of Python that involves interaction with the operating system is the ability to run external programs. Just like file and folder manipulation, the ability to run other programs is very useful when using Python as part of a work flow. It allows us to use existing tools that would be very time consuming to recreate in Python, or that would run very slowly. </p>
+<p>Running external programs from within your Python code can be a tricky business, and this feature wouldn't normally be covered in an introductory programming course. However, it's so useful for biology (and science in general) that we're going to cover it here, albeit in a simplified form. </p>
+<p>As with the above section on file operations, the exact details of how external programs are run will vary with your operating system and the way your computer is set up. On UNIX-based systems, the program that you want to run might already be in your path, in which case you can simply use the name of the executable as the string to be executed. On Windows, you'll probably have to supply the full path to the program you want to run.</p>
+<h3>Running a program</h3>
+<p>The functions for running external program reside in the <code>subprocess()</code> module. The reasoning behind the name is slightly convoluted: when talking about operating systems, a running program is called a <strong>process</strong>, and a process that is started by another process is called a <strong>subprocess</strong>.</p>
+<p>To run an external program, use the <code>subprocess.call()</code> function. This function takes a single string argument containing the path to the executable you want to run:</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">subprocess</span>
+<span class="n">subprocess</span><span class="o">.</span><span class="n">call</span><span class="p">(</span><span class="s2">&quot;/bin/date&quot;</span><span class="p">)</span>
+</code></pre></div>
+
+<p>Any output that is produced by the external program is printed straight to the screen – in this case, the output from the Linux <code>date</code> program:</p>
+<blockquote>
+<p>Fri Jul 26 15:15:26 BST 2013 </p>
+</blockquote>
+<p>If we want to supply command line options to the external program then we just include them in the string, and set the optional shell argument to <code>True</code>. Here we call the Linux <code>date</code> program with the options which cause it to just print the month:</p>
+<div class="highlight"><pre><span></span><code>subprocess.call(&quot;/bin/date +%B&quot;, shell=True)
+</code></pre></div>
+
+<blockquote>
+<p>July</p>
+</blockquote>
+<h3>Capturing program output</h3>
+<p>Often, we want to run some external program and then store the output in a variable so that we can do something useful with it. For this, we use <code>subprocess.check_output()</code>, which takes exactly the same arguments as <code>subprocess.call()</code>:</p>
+<div class="highlight"><pre><span></span><code>current_month = subprocess.check_output(&quot;/bin/date +%B&quot;, shell=True)
+</code></pre></div>
+
+<p>Just like when reading file contents, the output from an external program can run over multiples lines, so the string that's returned by <code>subprocess.check_output()</code> might contain multiple lines separated by newline characters. </p>
+<h2>User input makes our programs more flexible</h2>
+<p>The exercises and examples that we've seen so far have used two different ways of getting data into a program. For small bits of data, like short DNA sequences, restriction enzyme motifs, and gene accession names, we've simply stored the data directly in a variable like this:</p>
+<div class="highlight"><pre><span></span><code>dna = &quot;ATCGATCGTGACTAGCTACG&quot;
+</code></pre></div>
+
+<p>When data is mixed in with the code in this manner, it is said to be <strong>hard-coded</strong>. </p>
+<p>For larger pieces of data, like longer DNA sequences and tabular data, we've typically read the information from an external text file. For many purposes, this is a better solution than hard-coding the data, as it allows the separation of data and code, making our programs easier to read. However, in all the examples we've seen so far, the names of the files from which the data are read are still hard-coded. </p>
+<p>Both of these approaches to getting data into our program have the same shortcomings – if we want to change the input data, we have to open the code and edit it. In the case of hard-coded variables, we have to edit the statement where the variables are created. In the case of files, we have two choices – we can either edit the contents of the file, or edit the hard-coded filename. </p>
+<p>Real life useful programs don't generally work that way. Instead, they allow us to specify input files and options at the time when we run the program, rather than when we're writing it. This allows programs to be much more flexible and easier to use, especially for a person who didn't write the code in the first place.</p>
+<p>In the next couple of sections we're going to see tools for getting user input, but more importantly we're going to talk about the transition from writing a program that's only useful to you, to writing one that can be used by other people. This involves starting to think about the experience of using a program from the perspective of a user. </p>
+<p>There are many reasons why you might need your programs to be usable by somebody who's not familiar with the code. If you write a program that solves a problem for you, chances are that it could solve a problem for your colleagues and collaborators as well. If you write a program that forms a significant part of a piece of work which you later want to publish, you may have to make sure that whoever is peer reviewing your paper can get your program working as well. Of course, making your program easier to use for other people means that it will also be easier to use for you, a few months after you have written it when you have completely forgotten how the code works!</p>
+<h3>Interactive user input</h3>
+<p>To get interactive input from the user in our programs, we can use the <code>raw_input()</code> function. <code>raw_input()</code> takes a single string argument, which is the prompt to be displayed to the user, and returns the value typed in as a string:</p>
+<div class="highlight"><pre><span></span><code><span class="n">accession</span> <span class="o">=</span> <span class="n">raw_input</span><span class="p">(</span><span class="s2">&quot;Enter the accession name&quot;</span><span class="p">)</span>
+<span class="c1"># do something with the accession variable</span>
+</code></pre></div>
+
+<p>Note: in Python 3, this function has been renamed to <code>input()</code>.</p>
+<p>The <code>raw_input()</code> function behaves a little differently to other functions and methods we've seen, because it has to wait for something to happen before it can return a value – the user has to type in a string and press enter. The user input will be returned as a string (so if we need to use is as something else – e.g. a number – we'll have to do the conversion manually) and will end with a newline (so we might want to use <code>rstrip()</code> to remove it).</p>
+<p>Capturing user input in this way requires us to think quite carefully about how our program behaves. Programs that we write to carry out analysis of large datasets will often take a considerable amount of time to run, so it's important that we minimize the chances of the user having to rerun them. When using the <code>raw_input()</code> function, there are two situations in particular that we want to avoid. </p>
+<p>One is the situation where we have a long-running program that requires some user input, but doesn't make this fact clear to the user. What can happen in this scenario is that the user starts the program running and then switches their attention to something else, assuming that the program will continue to make progress in the background. If the user doesn't notice (or is not at their computer) when the program reaches the point where it requires input and halts, the program may be stuck waiting for input for a long time. </p>
+<p>The other scenario to avoid is where a program runs for some time before asking the user for input, then fails to work due to an incorrect input or typo, requiring the user to restart the program from scratch. </p>
+<p>A good way to avoid both of these problems is to design our programs so that they collect all necessary user input at the start, before any long-running tasks are carried out. We can also reduce the chances of incorrect input on the part of the user by offering clear instructions and documentation. </p>
+<p>An important part of user input is input validation – checking that the input supplied by the user makes sense. For example, you might require that a particular input is a number between some minimum and maximum values, or that it's a DNA sequence without ambiguous bases, or that it's the name of a file that must exist. A good strategy for input validation is to check the input as soon as it's received, and give the user a second chance to enter their input if it's found to be invalid. Here's an example which uses a while loop to give the user multiple attemps to enter a number between 1 and 10:</p>
+<div class="highlight"><pre><span></span><code><span class="nv">answer</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span> 
+<span class="k">while</span> <span class="nv">answer</span> <span class="o">&lt;</span> <span class="mi">1</span> <span class="nv">or</span> <span class="nv">answer</span> <span class="o">&gt;</span> <span class="mi">10</span>: 
+    <span class="nv">answer</span> <span class="o">=</span> <span class="nv">int</span><span class="ss">(</span><span class="nv">raw_input</span><span class="ss">(</span><span class="s2">&quot;</span><span class="s">enter a number between 1 and 10</span><span class="se">\n</span><span class="s2">&quot;</span><span class="ss">))</span> 
+<span class="nv">print</span><span class="ss">(</span><span class="s2">&quot;</span><span class="s">final answer is </span><span class="s2">&quot;</span> <span class="o">+</span> <span class="nv">str</span><span class="ss">(</span><span class="nv">answer</span><span class="ss">))</span>
+</code></pre></div>
+
+<p>A better way to do this is to use Python exception system: see the chapter on exceptions in Advanced Python for Biologists for details. </p>
+<p>One big drawback of getting user input interactively is that it makes it harder to run a program unsupervised as part of a work flow. For most biological analyses, specifying program options when it's run using command line arguments is a better approach.</p>
+<h3>Command line arguments</h3>
+<p>If you're used to using existing programs that have a command line user interface (as opposed to a graphical one) then you're probably familiar with command line arguments. These are the strings that you type on the command line after the name of a program you want to run:</p>
+<blockquote>
+<p>myprogram one two three</p>
+</blockquote>
+<p>In the above command line, <code>one</code>, <code>two</code> and <code>three</code> are the command line options. To use command line arguments in our Python scripts, we import the <code>sys</code> module. We can then access the command line arguments by using the special list <code>sys.argv</code>. Running the following code:</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">sys</span> 
+<span class="nb">print</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">)</span>
+</code></pre></div>
+
+<p>with the command line:</p>
+<blockquote>
+<p>python myprogram.py one two three</p>
+</blockquote>
+<p>shows how the elements of <code>sys.argv</code> are made up of the arguments given on the command line:</p>
+<blockquote>
+<p>['myprogram.py', 'one', 'two', 'three']</p>
+</blockquote>
+<p>Note that the first element of <code>sys.argv</code> is always the name of the program itself, so the first command line argument is at index one, the second at index two, etc. </p>
+<p>Just like with <code>raw_input()</code>, options and filenames given on the command line are stored as strings so if, for example, we want to use a command line argument as a number, we'll have to convert it with <code>int()</code>. </p>
+<p>Command line arguments are a good way of getting input for your Python programs for a number of reasons. All the data your program needs will be present at the start of your program, so you can do any necessary input validation (like checking that files are present) before starting any processing. Also, your program will be able to be run as part of a shell script, and the options will appear in the user's shell history. </p>
+<h2>Recap</h2>
+<p>We started this page by examining two features of Python that allow your programs to interact with the operating system – file manipulation and external processes. We learned which functions to use for common file system operations, and which modules they belong to. We also saw two ways to call external programs from within your Python program. </p>
+<p>When using these techniques to solve real life problems, or when working on the exercises, remember that you may encounter errors that are nothing to do with your program. For instance, when trying to rename a file you may get an error if a specified file doesn't exist or you don't have the necessary permissions to rename it. Similarly, if you get unexpected output when running an external program the problem may lie with the external program or with the way that you're calling it, rather than with your Python program. This is in contrast to the rest of the exercises in this book, which are mostly self contained. If you run into difficulties when using the tools in this chapter, check the external factors as well as checking your program code. </p>
+<p>In the last portion, we saw two different ways to get user input when your program runs. Using command line arguments is generally better for the type of programming that forms part of scientific research. In real world scientific programming, we often need to make a command line interface that's usable by non-programmers. For a detailed discussion of building user interfaces, with many more examples, see the chapter in Effective Python development for Biologists (which you can find on <a href="/python-books">the books page</a>).</p>
+<h2>Exercises</h2>
+<p>Both of these exercises use the same set of files - <a href="/s/sequence_files.zip">click here to download them</a>, then extract the zip file to a convenient folder. Remember, you can always find solutions and explanations for all exercises in the <a href="/python-books">Python for Biologists books</a>.</p>
+<h3>Binning DNA sequences</h3>
+<p>Write a program which creates nine new folders – one for sequences between 100 and 199 bases long, one for sequences between 200 and 299 bases long, etc. Write out each DNA sequence in the input files to a separate file in the appropriate folder. </p>
+<p>Your program will have to:</p>
+<ul>
+<li>iterate over the files in the folder</li>
+<li>iterate over the lines in each file</li>
+<li>figure out which bin each DNA sequence should go in based on its length</li>
+<li>write out each DNA sequence to a new file in the right folder</li>
+</ul>
+<h3>Kmer counting</h3>
+<p>Write a program that will calculate the number of all kmers of a given length across all DNA sequences in the input files and display just the ones that occur more than a given number of times. You program should take two command line arguments – the kmer length, and the cutoff number. </p>
+<h2>SOLUTIONS</h2>
+<p>You can find solutions to all the exercises, along with explanations of how they work, by signing up for the <a href="/python-for-biologists-online-course">online course</a>.</p>
+        </div>
+        <hr/>
+        <hr/>
+    </article>
+</div>
+        </div>
+<footer class="footer">
+   <div class="container bottom_border">
+   <ul class="foote_bottom_ul_amrc">
+    <h3 style="color:white;"  class="text-center">Sign up for the newsletter</h3>
+    <h5 style="color:white;"  class="text-center">Links to the best biological Python and bioinformatics content on the web, no spam.</h3>
+     <script async src="https://eomail5.com/form/fbc6d37e-0672-11ec-96e5-06b4694bee2a.js" data-form="fbc6d37e-0672-11ec-96e5-06b4694bee2a"></script>
+     </ul>
+   </div>
+   <div class="container">
+      <ul class="foote_bottom_ul_amrc">
+         <li><a href="/">HOME</a></li>
+         <li><a href="">ABOUT</a></li>
+         <li><a href="">ARCHIVE</a></li>
+      </ul>
+      <!--foote_bottom_ul_amrc ends here-->
+      <p class="text-center"></p>
+        
+          
+      </div>
+
+      <!--social_footer_ul ends here-->
+   </div>
+</footer>
+            <script type="text/javascript" src="https://mojones.github.io/pelican-p4b/theme/libs/jquery.min.js"></script>
+            <script type="text/javascript" src="https://mojones.github.io/pelican-p4b/theme/libs/bootstrap-4.2.1/dist/js/bootstrap.bundle.min.js"></script>
+
+        <script src="https://mojones.github.io/pelican-p4b/theme/libs/prism.js"></script>
+        <script src="https://mojones.github.io/pelican-p4b/theme/libs/Countable.js"></script>
+
+        <script>
+            Prism.plugins.NormalizeWhitespace.setDefaults({
+                'remove-trailing': true,
+                'remove-indent': true,
+                'left-trim': true,
+                'right-trim': true,
+                /*'break-lines': 80,
+                'indent': 2,
+                'remove-initial-line-feed': false,
+                'tabs-to-spaces': 4,
+                'spaces-to-tabs': 4*/
+            });
+        </script>
+
+
+        <script type="text/javascript" src="https://mojones.github.io/pelican-p4b/theme/js/custom.js"></script>
+            <script>
+                function validateForm(query)
+                {
+                    return (query.length > 0);
+                }
+            </script>
+    </body>
+</html>
+

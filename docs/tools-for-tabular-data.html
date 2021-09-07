@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+
+            <meta name="author" content="Martin" />
+
+
+
+                <meta property="og:type" content="article" />
+            <meta name="twitter:card" content="summary"/>
+
+        <meta name="keywords" content="linux, command line, bioinformatics, article, "/>
+
+        <link rel="canonical" href="https://mojones.github.io/pelican-p4b/tools-for-tabular-data.html">
+    <meta property="og:title" content="Tools for tabular data | Python for Biologists"/>
+    <meta property="og:url" content="https://mojones.github.io/pelican-p4b/tools-for-tabular-data.html" />
+    <meta property="og:description" content="" />
+    <meta property="og:site_name" content="Python for Biologists" />
+    <meta property="og:article:author" content="Martin" />
+        <meta property="og:article:published_time" content="2010-12-03T10:20:00+01:00" />
+        <meta property="og:article:modified_time" content="2010-12-05T19:30:00+01:00" />
+    <meta name="twitter:title" content="Tools for tabular data | Python for Biologists">
+    <meta name="twitter:description" content="">
+
+
+        <title>    Tools for tabular data  | Python for Biologists
+</title>
+
+                <link rel="stylesheet" type="text/css" href="https://mojones.github.io/pelican-p4b/theme/libs/bootstrap-4.2.1/dist/css/bootstrap.min.css">
+                <link rel="stylesheet" type="text/css" href="https://mojones.github.io/pelican-p4b/theme/libs/fontawesome-free-5.2.0-web/css/all.min.css">
+            <link rel="stylesheet" type="text/css" href="https://mojones.github.io/pelican-p4b/theme/css/custom.css" media="screen">
+            <link rel="stylesheet" type="text/css" href="https://mojones.github.io/pelican-p4b/theme/css/ipynb.css" media="screen">
+
+            <style>
+                #progressBar::-webkit-progress-value {
+                    background-color: ;
+                }
+                #progressBar::-moz-progress-bar {
+                    background-color: ;
+                }
+            </style>
+
+        <link href="https://mojones.github.io/pelican-p4b/theme/libs/prism.css" rel="stylesheet" />
+<script type="text/x-mathjax-config">
+
+MathJax.Hub.Config({
+tex2jax: { inlineMath: [["$","$"],["\\(","\\)"]] },
+"HTML-CSS": {
+  linebreaks: { automatic: true, width: "container" }
+}
+});
+
+</script>
+<script type="text/javascript"
+  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+    </head>
+    <body>
+        <div class="banner-wrapper row" style="background-color: #24292e;">
+            <div class="banner">
+                <nav id="navbar" class="navbar navbar-expand-md navbar-light bg-light container">
+                    <div class="container navbar-title">
+                        <a href="/"><img id="banner-logo" src="https://mojones.github.io/pelican-p4b/images/logo.png" style="height: 40px; margin: 6px 0;"></a>
+                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                    </div>
+                <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent" style="margin-bottom: 6.5px;margin-top: 6.5px">
+                    <ul class="navbar-nav">
+                        <li class="nav-item active">
+                            <a class="nav-link rem_15" href="https://mojones.github.io/pelican-p4b/python-for-biologists-online-course">Learn&nbsp;Python</a>
+                        </li>
+                    </ul>
+                    <ul class="navbar-nav">
+                        <li class="nav-item active">
+                            <a class="nav-link rem_15" href="https://mojones.github.io/pelican-p4b/aboutcontact">About</a>
+                        </li>
+                    </ul>
+                    <ul class="navbar-nav">
+                        <li id="second-item" class="nav-item">
+                            <a class="nav-link rem_15" href="https://mojones.github.io/pelican-p4b/tutorial">Python&nbsp;tutorial</a>
+                        </li>
+                     </ul>
+                     
+                     <ul class="navbar-nav">
+                        <li id="second-item" class="nav-item">
+                            <a class="nav-link rem_15" href="https://mojones.github.io/pelican-p4b/training-courses">Training&nbsp;courses</a>
+                        </li>
+                     </ul>
+                     
+                       <ul class="navbar-nav">
+                        <li id="second-item" class="nav-item">
+                            <a class="nav-link rem_15" href="https://mojones.github.io/pelican-p4b/biological-data-exploration-book">Data&nbsp;exploration&nbsp;book</a>
+                        </li>
+                     </ul>
+                     
+                </div>
+                </nav>
+            </div>
+        </div>
+        <div id="wrap">
+<div id="post-container" class="container post index">
+    <article>
+        <header class="pop-over">
+            <h1>Tools for tabular data</h1>
+            <div class="row justify-content-between no-margin">
+                <h4 class="article-category">Category > <a class="article-category-link" href="https://mojones.github.io/pelican-p4b/">article</a></h4>
+                <span class="article-date">Fri 03 December 2010</span>
+            </div>
+            <div class="meta meta-tag no-margin no-border">
+                <div>
+                        <a href="https://mojones.github.io/pelican-p4b/tag/linux.html" class="tag">linux</a>
+                        <a href="https://mojones.github.io/pelican-p4b/tag/command-line.html" class="tag">command line</a>
+                        <a href="https://mojones.github.io/pelican-p4b/tag/bioinformatics.html" class="tag">bioinformatics</a>
+                </div>
+            </div>
+            
+        </header>
+        <div class="article_content">
+            
+            <h1>Manipulating tabular output with command-line tools</h1>
+<h2>Introduction</h2>
+<p>Surprisingly, given that this is a website about programming, this article is going to be about how to avoid programming. Specifically: how to use simple existing command line tools to process tabular data. </p>
+<p>Even for folks who are comfortable writing programs to process tabular data, being able to use command-line tools to slice, dice and generally manipulate data files is a useful skill to have. For very simple tasks it's often quicker to write a command line to do the job rather than switching mental gears and starting to write a new program. Also, the command line tools we'll be discussing here are likely to be faster than Python for many jobs. </p>
+<p>If this kind of tutorial is useful to you, then <a href="/newsletter">sign up for the newsletter</a> to get more of it.</p>
+<h2>Tabular data</h2>
+<p>By tabular data I mean simple text files where each line stores a single record and consists of a number of different fields separated by a delimiter. The delimiter – i.e. the thing that separates the fields – can be anything, but the most common examples are tabs, spaces, or commas. In this last case, we sometimes refer to the file as being in Comma Separated Value or CSV format.</p>
+<p>Let's look at a few concrete examples. A common type of tabular file that we encounter in biology is BLAST output. Normally when we run BLAST, we get the output in a human-readable format which shows the alignments (or if we're using a web BLAST server we get a nice webpage with graphics). This format is easy for humans to read but not so easy for computers to deal with; if we need to do some processing of out BLAST results then tabular output is often a better option. We can get tabular output from BLAST by giving it the <code>-m 9</code> option if we're using the old BLAST package, or giving it the <code>-outfmt 7</code> option if we're using the newer BLAST+ package. If we're using a web-based BLAST server, we can download our results in tabular format using the download link at the top</p>
+<p>However we get hold of our tabular BLAST results they're going to look something like this:</p>
+<div class="highlight"><pre><span></span><code><span class="err">#</span> <span class="nt">blastp</span>
+<span class="err">#</span> <span class="nt">Iteration</span><span class="o">:</span> <span class="nt">0</span>
+<span class="err">#</span> <span class="nt">Query</span><span class="o">:</span> <span class="nt">my_protein</span>
+<span class="err">#</span> <span class="nt">RID</span><span class="o">:</span> <span class="nt">BFFAX0Z3015</span>
+<span class="err">#</span> <span class="nt">Database</span><span class="o">:</span> <span class="nt">nr</span>
+<span class="err">#</span> <span class="nt">Fields</span><span class="o">:</span> <span class="nt">query</span> <span class="nt">id</span><span class="o">,</span> <span class="nt">subject</span> <span class="nt">ids</span><span class="o">,</span> <span class="o">%</span> <span class="nt">identity</span><span class="o">,</span> <span class="o">%</span> <span class="nt">positives</span><span class="o">,</span> <span class="nt">alignment</span> <span class="nt">length</span><span class="o">,</span> <span class="nt">mismatches</span><span class="o">,</span> <span class="nt">gap</span> <span class="nt">opens</span><span class="o">,</span> <span class="nt">q</span><span class="o">.</span> <span class="nt">start</span><span class="o">,</span> <span class="nt">q</span><span class="o">.</span> <span class="nt">end</span><span class="o">,</span> <span class="nt">s</span><span class="o">.</span> <span class="nt">start</span><span class="o">,</span> <span class="nt">s</span><span class="o">.</span> <span class="nt">end</span><span class="o">,</span> <span class="nt">evalue</span><span class="o">,</span> <span class="nt">bit</span> <span class="nt">score</span>
+<span class="err">#</span> <span class="nt">100</span> <span class="nt">hits</span> <span class="nt">found</span>
+<span class="nt">my_protein</span> <span class="nt">gi</span><span class="o">|</span><span class="nt">60654447</span><span class="o">|</span><span class="nt">gb</span><span class="o">|</span><span class="nt">AAX29914</span><span class="p">.</span><span class="nc">1</span><span class="o">|</span> <span class="nt">100</span><span class="p">.</span><span class="nc">00</span> <span class="nt">100</span><span class="p">.</span><span class="nc">00</span> <span class="nt">599</span> <span class="nt">0</span> <span class="nt">0</span> <span class="nt">1</span> <span class="nt">599</span> <span class="nt">1</span> <span class="nt">599</span> <span class="nt">0</span><span class="p">.</span><span class="nc">0</span> <span class="nt">1243</span>
+<span class="nt">my_protein</span> <span class="nt">gi</span><span class="o">|</span><span class="nt">397526517</span><span class="o">|</span><span class="nt">ref</span><span class="o">|</span><span class="nt">XP_003833169</span><span class="p">.</span><span class="nc">1</span><span class="o">|</span> <span class="nt">99</span><span class="p">.</span><span class="nc">50</span> <span class="nt">100</span><span class="p">.</span><span class="nc">00</span> <span class="nt">599</span> <span class="nt">3</span> <span class="nt">0</span> <span class="nt">1</span> <span class="nt">599</span> <span class="nt">1</span> <span class="nt">599</span> <span class="nt">0</span><span class="p">.</span><span class="nc">0</span> <span class="nt">1240</span>
+<span class="nt">my_protein</span> <span class="nt">gi</span><span class="o">|</span><span class="nt">18104967</span><span class="o">|</span><span class="nt">ref</span><span class="o">|</span><span class="nt">NP_000953</span><span class="p">.</span><span class="nc">2</span><span class="o">|;</span><span class="nt">gi</span><span class="o">|</span><span class="nt">317373262</span><span class="o">|</span><span class="nt">sp</span><span class="o">|</span><span class="nt">P23219</span><span class="p">.</span><span class="nc">2</span><span class="o">|</span><span class="nt">PGH1_HUMAN</span> <span class="nt">99</span><span class="p">.</span><span class="nc">83</span> <span class="nt">99</span><span class="p">.</span><span class="nc">83</span> <span class="nt">599</span> <span class="nt">1</span> <span class="nt">0</span> <span class="nt">1</span> <span class="nt">599</span> <span class="nt">1</span> <span class="nt">599</span> <span class="nt">0</span><span class="p">.</span><span class="nc">0</span> <span class="nt">1240</span>
+<span class="nt">my_protein</span> <span class="nt">gi</span><span class="o">|</span><span class="nt">674214810</span><span class="o">|</span><span class="nt">gb</span><span class="o">|</span><span class="nt">AIK97765</span><span class="p">.</span><span class="nc">1</span><span class="o">|</span> <span class="nt">99</span><span class="p">.</span><span class="nc">83</span> <span class="nt">99</span><span class="p">.</span><span class="nc">83</span> <span class="nt">599</span> <span class="nt">1</span> <span class="nt">0</span> <span class="nt">1</span> <span class="nt">599</span> <span class="nt">1</span> <span class="nt">599</span> <span class="nt">0</span><span class="p">.</span><span class="nc">0</span> <span class="nt">1239</span>
+<span class="nt">my_protein</span> <span class="nt">gi</span><span class="o">|</span><span class="nt">694936914</span><span class="o">|</span><span class="nt">ref</span><span class="o">|</span><span class="nt">XP_009455498</span><span class="p">.</span><span class="nc">1</span><span class="o">|</span> <span class="nt">99</span><span class="p">.</span><span class="nc">33</span> <span class="nt">100</span><span class="p">.</span><span class="nc">00</span> <span class="nt">599</span> <span class="nt">4</span> <span class="nt">0</span> <span class="nt">1</span> <span class="nt">599</span> <span class="nt">1</span> <span class="nt">599</span> <span class="nt">0</span><span class="p">.</span><span class="nc">0</span> <span class="nt">1239</span>
+<span class="o">...</span>
+</code></pre></div>
+
+<p>This is only the first few lines; in reality there will be many more, but they'll all share the same format. The first few lines are comments which tell us various things – the name of the query, the number of hits, etc. By far the most important comment line is this one:</p>
+<div class="highlight"><pre><span></span><code># <span class="nv">Fields</span>: <span class="nv">query</span> <span class="nv">id</span>, <span class="nv">subject</span> <span class="nv">ids</span>, <span class="o">%</span> <span class="nv">identity</span>, <span class="o">%</span> <span class="nv">positives</span>, <span class="nv">alignment</span> <span class="nv">length</span>, <span class="nv">mismatches</span>, <span class="nv">gap</span> <span class="nv">opens</span>, <span class="nv">q</span>. <span class="nv">start</span>, <span class="nv">q</span>. <span class="k">end</span>, <span class="nv">s</span>. <span class="nv">start</span>, <span class="nv">s</span>. <span class="k">end</span>, <span class="nv">evalue</span>, <span class="nv">bit</span> <span class="nv">score</span>
+</code></pre></div>
+
+<p>because it tells us the order of the fields in each of the result lines – in other words, it tells us how to interpret the other lines. From looking at the list of fields we can see that, for example, the second field in each line is the name of the subject sequence, and the fifth field is the length of the match.</p>
+<p>We'll be using BLAST tabular output for the examples in this tutorial, but it's worth remembering that exactly the same tools can be used for any type of tabular data. For example, here's the first few lines of a BED file which holds annotation for genomic coordinates:</p>
+<div class="highlight"><pre><span></span><code>browser position chr7:127471196-127495720
+browser hide all
+track name=&quot;ItemRGBDemo&quot; description=&quot;Item RGB demonstration&quot; visibility=2
+itemRgb=&quot;On&quot;
+chr7    127471196  127472363  Pos1  0  +  127471196  127472363  255,0,0
+chr7    127472363  127473530  Pos2  0  +  127472363  127473530  255,0,0
+chr7    127473530  127474697  Pos3  0  +  127473530  127474697  255,0,0
+chr7    127474697  127475864  Pos4  0  +  127474697  127475864  255,0,0
+chr7    127475864  127477031  Neg1  0  -  127475864  127477031  0,0,255
+chr7    127477031  127478198  Neg2  0  -  127477031  127478198  0,0,255
+chr7    127478198  127479365  Neg3  0  -  127478198  127479365  0,0,255
+chr7    127479365  127480532  Pos5  0  +  127479365  127480532  255,0,0
+chr7    127480532  127481699  Neg4  0  -  127480532  127481699  0,0,255
+</code></pre></div>
+
+<p>The data being stored are different, but the layout is just the same as our BLAST example: a handful of comment lines at the top followed by a bunch of lines with tab-separated fields. One more example: here's GFF format, also used for annotating sequence data:</p>
+<div class="highlight"><pre><span></span><code>X   Ensembl Repeat  2419108 2419128 42  .   .   hid=trf; hstart=1; hend=21
+X   Ensembl Repeat  2419108 2419410 2502    -   .   hid=AluSx; hstart=1; hend=303
+X   Ensembl Repeat  2419108 2419128 0   .   .   hid=dust; hstart=2419108; hend=2419128
+X   Ensembl Pred.trans. 2416676 2418760 450.19  -   2   genscan=GENSCAN00000019335
+X   Ensembl Variation   2413425 2413425 .   +   .
+X   Ensembl Variation   2413805 2413805 .   +   .
+</code></pre></div>
+
+<p>Thinking about the data formats that you encounter in your own work will furnish further examples. </p>
+<p>Before we dive in and start looking at the tools we can use to manipulate tabular data, a few points about your computing environment. In this tutorial we'll be looking at command-line tools – <code>cut</code>, <code>sort</code>, <code>head</code>, <code>tail</code>, <code>uniq</code>, <code>wc</code>, <code>sed</code> and <code>awk</code>. If you're running Linux, or any UNIX-flavoured operating system, including OSX, these tools are part of the standard library and should already be installed. If you're using Windows, you'll need to either install them (<a href="https://www.cygwin.com/">cygwin</a> is probably the best way to do this) or find somebody who can give you an account on a Linux server. </p>
+<p>All the example command lines we'll be looking at use the BLAST example from above – if you want to play along at home <a href="https://raw.githubusercontent.com/mojones/random_scripts/master/blast_example.txt">you can download a copy here</a>. For the command-line examples below, the lines starting with a dollar sign ($) are the ones that we type, and the first few lines of the output is shown below. This will look slightly different on your machine depending on your settings. </p>
+<h2>Getting rid of comments</h2>
+<p>The first thing we need to do in order to start processing the file is to remove the comment lines at the start. There are seven comment lines, so we need to start looking at the eighth line. The easiest way to do this is with <code>tail</code>. The <code>tail</code> command is normally used for extracting the last few lines of a file, but with the <code>-n</code> option we can tell it to extract all the lines starting from a given line. Here, we want to start at line number eight, so we can use the command</p>
+<div class="highlight"><pre><span></span><code>$ tail -n +8 blast_example.txt
+my_protein  gi<span class="p">|</span><span class="m">60654447</span><span class="p">|</span>gb<span class="p">|</span>AAX29914.1<span class="p">|</span>  <span class="m">100</span>.00  <span class="m">100</span>.00  <span class="m">599</span> <span class="m">0</span>   <span class="m">0</span>   <span class="m">1</span>   <span class="m">599</span> <span class="m">1</span>   <span class="m">599</span> <span class="m">0</span>.0  <span class="m">1243</span>
+my_protein  gi<span class="p">|</span><span class="m">397526517</span><span class="p">|</span>ref<span class="p">|</span>XP_003833169.1<span class="p">|</span>    <span class="m">99</span>.50   <span class="m">100</span>.00  <span class="m">599</span> <span class="m">3</span>   <span class="m">0</span>   <span class="m">1</span>   <span class="m">599</span> <span class="m">1</span>   <span class="m">599</span> <span class="m">0</span>.0  <span class="m">1240</span>
+my_protein  gi<span class="p">|</span><span class="m">18104967</span><span class="p">|</span>ref<span class="p">|</span>NP_000953.2<span class="p">|;</span>gi<span class="p">|</span><span class="m">317373262</span><span class="p">|</span>sp<span class="p">|</span>P23219.2<span class="p">|</span>PGH1_HUMAN    <span class="m">99</span>.83   <span class="m">99</span>.83   <span class="m">599</span> <span class="m">1</span>   <span class="m">0</span>   <span class="m">1</span>   <span class="m">599</span> <span class="m">1</span>   <span class="m">599</span> <span class="m">0</span>.0  <span class="m">1240</span>
+my_protein  gi<span class="p">|</span><span class="m">674214810</span><span class="p">|</span>gb<span class="p">|</span>AIK97765.1<span class="p">|</span> <span class="m">99</span>.83   <span class="m">99</span>.83   <span class="m">599</span> <span class="m">1</span>   <span class="m">0</span>   <span class="m">1</span>   <span class="m">599</span> <span class="m">1</span>   <span class="m">599</span> <span class="m">0</span>.0  <span class="m">1239</span>
+my_protein  gi<span class="p">|</span><span class="m">694936914</span><span class="p">|</span>ref<span class="p">|</span>XP_009455498.1<span class="p">|</span>    <span class="m">99</span>.33   <span class="m">100</span>.00  <span class="m">599</span> <span class="m">4</span>   <span class="m">0</span>   <span class="m">1</span>   <span class="m">599</span> <span class="m">1</span>   <span class="m">599</span> <span class="m">0</span>.0  <span class="m">1239</span>
+my_protein  gi<span class="p">|</span><span class="m">387018</span><span class="p">|</span>gb<span class="p">|</span>AAA36439.1<span class="p">|</span>    <span class="m">99</span>.50   <span class="m">99</span>.50   <span class="m">599</span> <span class="m">3</span>   <span class="m">0</span>   <span class="m">1</span>   <span class="m">599</span> <span class="m">1</span>   <span class="m">599</span> <span class="m">0</span>.0  <span class="m">1236</span>
+</code></pre></div>
+
+<p>Notice that we have to put a plus sign (+) before the 8. The output of this command will be all the lines of the file from the eighth line onwards, which we can either save by redirecting it into a new file:</p>
+<div class="highlight"><pre><span></span><code>$ tail -n +8 blast_example.txt &gt;blast_example_nocomments.txt
+</code></pre></div>
+
+<p>or use a pipe to send the output directly to another program:</p>
+<div class="highlight"><pre><span></span><code>$ tail -n +8 blast_example.txt <span class="p">|</span> some_other_program
+</code></pre></div>
+
+<p>For the rest of the examples we'll use the file <em>blast_example_nocomments.txt</em> so that we don't need to worry about the comment lines.</p>
+<h2>Extracting fields</h2>
+<p>One of the simplest things we can do with tabular data is to just display the fields we're interested in. The command for doing this is called <code>cut</code>, and we use the <code>-f</code> option to say which field we want to extract. For example, we can extract just the percent identity for each hit, which is stored in the third field:</p>
+<div class="highlight"><pre><span></span><code>$ cut -f <span class="m">3</span> blast_example_nocomments.txt
+<span class="m">100</span>.00
+<span class="m">99</span>.50
+<span class="m">99</span>.83
+<span class="m">99</span>.83
+<span class="m">99</span>.33
+<span class="m">99</span>.50
+</code></pre></div>
+
+<p>To get multiple fields, we just list them separated by commas. Here's how to get the hit name, number of missmatches, and bitscore:</p>
+<div class="highlight"><pre><span></span><code>$ cut -f <span class="m">2</span>,6,13 blast_example_nocomments.txt
+gi<span class="p">|</span><span class="m">60654447</span><span class="p">|</span>gb<span class="p">|</span>AAX29914.1<span class="p">|</span>  <span class="m">0</span>    <span class="m">1243</span>
+gi<span class="p">|</span><span class="m">397526517</span><span class="p">|</span>ref<span class="p">|</span>XP_003833169.1<span class="p">|</span>    <span class="m">3</span>    <span class="m">1240</span>
+gi<span class="p">|</span><span class="m">18104967</span><span class="p">|</span>ref<span class="p">|</span>NP_000953.2<span class="p">|;</span>gi<span class="p">|</span><span class="m">317373262</span><span class="p">|</span>sp<span class="p">|</span>P23219.2<span class="p">|</span>PGH1_HUMAN    <span class="m">1</span>    <span class="m">1240</span>
+gi<span class="p">|</span><span class="m">674214810</span><span class="p">|</span>gb<span class="p">|</span>AIK97765.1<span class="p">|</span> <span class="m">1</span>    <span class="m">1239</span>
+gi<span class="p">|</span><span class="m">694936914</span><span class="p">|</span>ref<span class="p">|</span>XP_009455498.1<span class="p">|</span>    <span class="m">4</span>    <span class="m">1239</span>
+gi<span class="p">|</span><span class="m">387018</span><span class="p">|</span>gb<span class="p">|</span>AAA36439.1<span class="p">|</span>    <span class="m">3</span>    <span class="m">1236</span>
+gi<span class="p">|</span><span class="m">76885916</span><span class="p">|</span>gb<span class="p">|</span>ABA60099.1<span class="p">|</span>  <span class="m">1</span>    <span class="m">1234</span>
+...
+</code></pre></div>
+
+<p>Notice that in the output from this command, the fields don't line up nicely because some of the hit names are longer than others. By piping the results to the <code>column -t</code> command we can get the fields to line up:</p>
+<div class="highlight"><pre><span></span><code>$ cut -f <span class="m">2</span>,6,13 blast_example_nocomments.txt <span class="p">|</span> column -t
+gi<span class="p">|</span><span class="m">60654447</span><span class="p">|</span>gb<span class="p">|</span>AAX29914.1<span class="p">|</span>                                        <span class="m">0</span>  <span class="m">1243</span>
+gi<span class="p">|</span><span class="m">60654447</span><span class="p">|</span>gb<span class="p">|</span>AAX29914.1<span class="p">|</span>                                        <span class="m">0</span>  <span class="m">1243</span>
+gi<span class="p">|</span><span class="m">60654447</span><span class="p">|</span>gb<span class="p">|</span>AAX29914.1<span class="p">|</span>                                        <span class="m">0</span>  <span class="m">1243</span>
+gi<span class="p">|</span><span class="m">397526517</span><span class="p">|</span>ref<span class="p">|</span>XP_003833169.1<span class="p">|</span>                                  <span class="m">3</span>  <span class="m">1240</span>
+gi<span class="p">|</span><span class="m">18104967</span><span class="p">|</span>ref<span class="p">|</span>NP_000953.2<span class="p">|;</span>gi<span class="p">|</span><span class="m">317373262</span><span class="p">|</span>sp<span class="p">|</span>P23219.2<span class="p">|</span>PGH1_HUMAN  <span class="m">1</span>  <span class="m">1240</span>
+gi<span class="p">|</span><span class="m">674214810</span><span class="p">|</span>gb<span class="p">|</span>AIK97765.1<span class="p">|</span>                                       <span class="m">1</span>  <span class="m">1239</span>
+gi<span class="p">|</span><span class="m">674214810</span><span class="p">|</span>gb<span class="p">|</span>AIK97765.1<span class="p">|</span>                                       <span class="m">1</span>  <span class="m">1239</span>
+gi<span class="p">|</span><span class="m">694936914</span><span class="p">|</span>ref<span class="p">|</span>XP_009455498.1<span class="p">|</span>                                  <span class="m">4</span>  <span class="m">1239</span>
+gi<span class="p">|</span><span class="m">387018</span><span class="p">|</span>gb<span class="p">|</span>AAA36439.1<span class="p">|</span>                                          <span class="m">3</span>  <span class="m">1236</span>
+gi<span class="p">|</span><span class="m">76885916</span><span class="p">|</span>gb<span class="p">|</span>ABA60099.1<span class="p">|</span>                                        <span class="m">1</span>  <span class="m">1234</span>
+</code></pre></div>
+
+<p>Be careful when using <code>column -t</code>, as the fields are effectively padded to the length of the longest value, so if you have a very long value somewhere in the file you'll end up with a lot of whitespace. Note that if you want to use <code>cut</code> on a file where the delimiter is something other than a tab, you'll need to use the <code>-d</code> option. For example, on a CSV file use</p>
+<div class="highlight"><pre><span></span><code>$ cut -d , -f <span class="m">1</span>,2,3 myfile.txt
+</code></pre></div>
+
+<h2>Sorting tabular data</h2>
+<p>The <code>sort</code> command, by default, sorts alphabetically on entire lines, so if we use it without any options it will effectively sort on the query name (if our BLAST report contains multiple queries) and then on the hit name (since that is the second field):</p>
+<div class="highlight"><pre><span></span><code>$ sort blast_example_nocomments.txt
+my_protein  gi<span class="p">|</span><span class="m">109110319</span><span class="p">|</span>ref<span class="p">|</span>XP_001088270.1<span class="p">|;</span>gi<span class="p">|</span><span class="m">544492470</span><span class="p">|</span>ref<span class="p">|</span>XP_005580931.1<span class="p">|;</span>gi<span class="p">|</span><span class="m">685591740</span><span class="p">|</span>ref<span class="p">|</span>XP_009186406.1<span class="p">|</span>  <span class="m">98</span>.33   <span class="m">99</span>.33   <span class="m">599</span> <span class="m">10</span>  <span class="m">0</span>   <span class="m">1</span>   <span class="m">599</span> <span class="m">1</span>   <span class="m">599</span> <span class="m">0</span>.0  <span class="m">1227</span>
+my_protein  gi<span class="p">|</span><span class="m">109110321</span><span class="p">|</span>ref<span class="p">|</span>XP_001088157.1<span class="p">|</span>    <span class="m">98</span>.32   <span class="m">99</span>.33   <span class="m">596</span> <span class="m">10</span>  <span class="m">0</span>   <span class="m">4</span>   <span class="m">599</span> <span class="m">37</span>  <span class="m">632</span> <span class="m">0</span>.0  <span class="m">1222</span>
+my_protein  gi<span class="p">|</span><span class="m">130485856</span><span class="p">|</span>ref<span class="p">|</span>NP_001076150.1<span class="p">|;</span>gi<span class="p">|</span><span class="m">75039091</span><span class="p">|</span>sp<span class="p">|</span>O97554.1<span class="p">|</span>PGH1_RABIT<span class="p">;</span>gi<span class="p">|</span><span class="m">4103591</span><span class="p">|</span>gb<span class="p">|</span>AAD01796.1<span class="p">|</span>   <span class="m">91</span>.49   <span class="m">95</span>.83   <span class="m">576</span> <span class="m">49</span>  <span class="m">0</span>   <span class="m">24</span>  <span class="m">599</span> <span class="m">31</span>  <span class="m">606</span> <span class="m">0</span>.0  <span class="m">1121</span>
+my_protein  gi<span class="p">|</span><span class="m">14278642</span><span class="p">|</span>pdb<span class="p">|</span>1HT5<span class="p">|</span>A<span class="p">;</span>gi<span class="p">|</span><span class="m">14278643</span><span class="p">|</span>pdb<span class="p">|</span>1HT5<span class="p">|</span>B<span class="p">;</span>gi<span class="p">|</span><span class="m">14278644</span><span class="p">|</span>pdb<span class="p">|</span>1HT8<span class="p">|</span>A<span class="p">;</span>gi<span class="p">|</span><span class="m">14278645</span><span class="p">|</span>pdb<span class="p">|</span>1HT8<span class="p">|</span>B <span class="m">93</span>.83   <span class="m">97</span>.10   <span class="m">551</span> <span class="m">34</span>  <span class="m">0</span>   <span class="m">32</span>  <span class="m">582</span> <span class="m">1</span>   <span class="m">551</span> <span class="m">0</span>.0  <span class="m">1093</span>
+my_protein  gi<span class="p">|</span><span class="m">157835592</span><span class="p">|</span>pdb<span class="p">|</span>2OYE<span class="p">|</span>P<span class="p">;</span>gi<span class="p">|</span><span class="m">157835593</span><span class="p">|</span>pdb<span class="p">|</span>2OYU<span class="p">|</span>P <span class="m">92</span>.57   <span class="m">95</span>.85   <span class="m">579</span> <span class="m">43</span>  <span class="m">0</span>   <span class="m">21</span>  <span class="m">599</span> <span class="m">22</span>  <span class="m">600</span> <span class="m">0</span>.0  <span class="m">1130</span>
+....
+my_protein  gi<span class="p">|</span><span class="m">76885914</span><span class="p">|</span>gb<span class="p">|</span>ABA60098.1<span class="p">|</span>  <span class="m">99</span>.83   <span class="m">99</span>.83   <span class="m">596</span> <span class="m">1</span>   <span class="m">0</span>   <span class="m">4</span>   <span class="m">599</span> <span class="m">35</span>  <span class="m">630</span> <span class="m">0</span>.0  <span class="m">1233</span>
+my_protein  gi<span class="p">|</span><span class="m">76885916</span><span class="p">|</span>gb<span class="p">|</span>ABA60099.1<span class="p">|</span>  <span class="m">99</span>.83   <span class="m">99</span>.83   <span class="m">596</span> <span class="m">1</span>   <span class="m">0</span>   <span class="m">4</span>   <span class="m">599</span> <span class="m">35</span>  <span class="m">630</span> <span class="m">0</span>.0  <span class="m">1234</span>
+my_protein  gi<span class="p">|</span><span class="m">999675</span><span class="p">|</span>pdb<span class="p">|</span>1PRH<span class="p">|</span>A<span class="p">;</span>gi<span class="p">|</span><span class="m">999676</span><span class="p">|</span>pdb<span class="p">|</span>1PRH<span class="p">|</span>B   <span class="m">93</span>.48   <span class="m">96</span>.92   <span class="m">552</span> <span class="m">36</span>  <span class="m">0</span>   <span class="m">32</span>  <span class="m">583</span> <span class="m">1</span>   <span class="m">552</span> <span class="m">0</span>.0  <span class="m">1091</span>
+</code></pre></div>
+
+<p>For our example file, where the hit names begin with GI numbers, this effectively sorts by GI number (though notice that the sorting is not numerical: 76885916 comes before 999675 because it starts with a lower digit, even though it's a higher number).</p>
+<p>We can get much more use out of <code>sort</code> if we specify the field we want to sort on. To do this we use the <code>-k</code> option (short for <strong>key</strong>) and give two numbers (separated by a comma) which are the first and last fields to sort on. This looks a bit weird since most of the time we want to sort on just a single field, so the first and last fields are the same. Here's how we sort by percent identity:</p>
+<div class="highlight"><pre><span></span><code>$ sort -k3,3  blast_example_nocomments.txt
+my_protein  gi<span class="p">|</span><span class="m">60654447</span><span class="p">|</span>gb<span class="p">|</span>AAX29914.1<span class="p">|</span>  <span class="m">100</span>.00  <span class="m">100</span>.00  <span class="m">599</span> <span class="m">0</span>   <span class="m">0</span>   <span class="m">1</span>   <span class="m">599</span> <span class="m">1</span>   <span class="m">599</span> <span class="m">0</span>.0  <span class="m">1243</span>
+my_protein  gi<span class="p">|</span><span class="m">507558178</span><span class="p">|</span>ref<span class="p">|</span>XP_004662827.1<span class="p">|</span>    <span class="m">90</span>.62   <span class="m">94</span>.79   <span class="m">576</span> <span class="m">54</span>  <span class="m">0</span>   <span class="m">24</span>  <span class="m">599</span> <span class="m">25</span>  <span class="m">600</span> <span class="m">0</span>.0  <span class="m">1103</span>
+my_protein  gi<span class="p">|</span><span class="m">507558180</span><span class="p">|</span>ref<span class="p">|</span>XP_004662828.1<span class="p">|</span>    <span class="m">90</span>.62   <span class="m">94</span>.79   <span class="m">576</span> <span class="m">54</span>  <span class="m">0</span>   <span class="m">24</span>  <span class="m">599</span> <span class="m">25</span>  <span class="m">600</span> <span class="m">0</span>.0  <span class="m">1103</span>
+my_protein  gi<span class="p">|</span><span class="m">507558182</span><span class="p">|</span>ref<span class="p">|</span>XP_004662829.1<span class="p">|</span>    <span class="m">90</span>.62   <span class="m">94</span>.79   <span class="m">576</span> <span class="m">54</span>  <span class="m">0</span>   <span class="m">24</span>  <span class="m">599</span> <span class="m">24</span>  <span class="m">599</span> <span class="m">0</span>.0  <span class="m">1102</span>
+my_protein  gi<span class="p">|</span><span class="m">586470237</span><span class="p">|</span>ref<span class="p">|</span>XP_006865713.1<span class="p">|</span>    <span class="m">90</span>.62   <span class="m">96</span>.01   <span class="m">576</span> <span class="m">54</span>  <span class="m">0</span>   <span class="m">24</span>  <span class="m">599</span> <span class="m">25</span>  <span class="m">600</span> <span class="m">0</span>.0  <span class="m">1094</span>
+...
+my_protein  gi<span class="p">|</span><span class="m">674214810</span><span class="p">|</span>gb<span class="p">|</span>AIK97765.1<span class="p">|</span> <span class="m">99</span>.83   <span class="m">99</span>.83   <span class="m">599</span> <span class="m">1</span>   <span class="m">0</span>   <span class="m">1</span>   <span class="m">599</span> <span class="m">1</span>   <span class="m">599</span> <span class="m">0</span>.0  <span class="m">1239</span>
+my_protein  gi<span class="p">|</span><span class="m">76885914</span><span class="p">|</span>gb<span class="p">|</span>ABA60098.1<span class="p">|</span>  <span class="m">99</span>.83   <span class="m">99</span>.83   <span class="m">596</span> <span class="m">1</span>   <span class="m">0</span>   <span class="m">4</span>   <span class="m">599</span> <span class="m">35</span>  <span class="m">630</span> <span class="m">0</span>.0  <span class="m">1233</span>
+my_protein  gi<span class="p">|</span><span class="m">76885916</span><span class="p">|</span>gb<span class="p">|</span>ABA60099.1<span class="p">|</span>  <span class="m">99</span>.83   <span class="m">99</span>.83   <span class="m">596</span> <span class="m">1</span>   <span class="m">0</span>   <span class="m">4</span>   <span class="m">599</span> <span class="m">35</span>  <span class="m">630</span> <span class="m">0</span>.0  <span class="m">1234</span>
+</code></pre></div>
+
+<p>Percent identity is the third field, so the first and last fields to sort on are both three. Looking closely at the output above reveals something odd: the first line, where the percent identity is 100, should be last, but instead it is first. The reason for this is that we're still sorting alphabetically, so 100 comes before 99 because it starts with a 1. To switch to numerical sorting, we use the  <code>-n</code> option:</p>
+<div class="highlight"><pre><span></span><code>$ sort -k3,3  -n blast_example_nocomments.txt
+my_protein  gi<span class="p">|</span><span class="m">507558178</span><span class="p">|</span>ref<span class="p">|</span>XP_004662827.1<span class="p">|</span>    <span class="m">90</span>.62   <span class="m">94</span>.79   <span class="m">576</span> <span class="m">54</span>  <span class="m">0</span>   <span class="m">24</span>  <span class="m">599</span> <span class="m">25</span>  <span class="m">600</span> <span class="m">0</span>.0  <span class="m">1103</span>
+my_protein  gi<span class="p">|</span><span class="m">507558180</span><span class="p">|</span>ref<span class="p">|</span>XP_004662828.1<span class="p">|</span>    <span class="m">90</span>.62   <span class="m">94</span>.79   <span class="m">576</span> <span class="m">54</span>  <span class="m">0</span>   <span class="m">24</span>  <span class="m">599</span> <span class="m">25</span>  <span class="m">600</span> <span class="m">0</span>.0  <span class="m">1103</span>
+my_protein  gi<span class="p">|</span><span class="m">507558182</span><span class="p">|</span>ref<span class="p">|</span>XP_004662829.1<span class="p">|</span>    <span class="m">90</span>.62   <span class="m">94</span>.79   <span class="m">576</span> <span class="m">54</span>  <span class="m">0</span>   <span class="m">24</span>  <span class="m">599</span> <span class="m">24</span>  <span class="m">599</span> <span class="m">0</span>.0  <span class="m">1102</span>
+...
+my_protein  gi<span class="p">|</span><span class="m">76885914</span><span class="p">|</span>gb<span class="p">|</span>ABA60098.1<span class="p">|</span>  <span class="m">99</span>.83   <span class="m">99</span>.83   <span class="m">596</span> <span class="m">1</span>   <span class="m">0</span>   <span class="m">4</span>   <span class="m">599</span> <span class="m">35</span>  <span class="m">630</span> <span class="m">0</span>.0  <span class="m">1233</span>
+my_protein  gi<span class="p">|</span><span class="m">76885916</span><span class="p">|</span>gb<span class="p">|</span>ABA60099.1<span class="p">|</span>  <span class="m">99</span>.83   <span class="m">99</span>.83   <span class="m">596</span> <span class="m">1</span>   <span class="m">0</span>   <span class="m">4</span>   <span class="m">599</span> <span class="m">35</span>  <span class="m">630</span> <span class="m">0</span>.0  <span class="m">1234</span>
+my_protein  gi<span class="p">|</span><span class="m">60654447</span><span class="p">|</span>gb<span class="p">|</span>AAX29914.1<span class="p">|</span>  <span class="m">100</span>.00  <span class="m">100</span>.00  <span class="m">599</span> <span class="m">0</span>   <span class="m">0</span>   <span class="m">1</span>   <span class="m">599</span> <span class="m">1</span>   <span class="m">599</span> <span class="m">0</span>.0  <span class="m">1243</span>
+</code></pre></div>
+
+<p>and the hit with 100% identity moves to its correct place at the end of the output. If we want to see the highest identity first – i.e. to reverse the sorting order – we can just use the <code>-r</code> option:</p>
+<div class="highlight"><pre><span></span><code>$ sort -k3,3  -n -r blast_example_nocomments.txt
+my_protein  gi<span class="p">|</span><span class="m">60654447</span><span class="p">|</span>gb<span class="p">|</span>AAX29914.1<span class="p">|</span>  <span class="m">100</span>.00  <span class="m">100</span>.00  <span class="m">599</span> <span class="m">0</span>   <span class="m">0</span>   <span class="m">1</span>   <span class="m">599</span> <span class="m">1</span>   <span class="m">599</span> <span class="m">0</span>.0  <span class="m">1243</span>
+my_protein  gi<span class="p">|</span><span class="m">76885916</span><span class="p">|</span>gb<span class="p">|</span>ABA60099.1<span class="p">|</span>  <span class="m">99</span>.83   <span class="m">99</span>.83   <span class="m">596</span> <span class="m">1</span>   <span class="m">0</span>   <span class="m">4</span>   <span class="m">599</span> <span class="m">35</span>  <span class="m">630</span> <span class="m">0</span>.0  <span class="m">1234</span>
+my_protein  gi<span class="p">|</span><span class="m">76885914</span><span class="p">|</span>gb<span class="p">|</span>ABA60098.1<span class="p">|</span>  <span class="m">99</span>.83   <span class="m">99</span>.83   <span class="m">596</span> <span class="m">1</span>   <span class="m">0</span>   <span class="m">4</span>   <span class="m">599</span> <span class="m">35</span>  <span class="m">630</span> <span class="m">0</span>.0  <span class="m">1233</span>
+...
+my_protein  gi<span class="p">|</span><span class="m">507558182</span><span class="p">|</span>ref<span class="p">|</span>XP_004662829.1<span class="p">|</span>    <span class="m">90</span>.62   <span class="m">94</span>.79   <span class="m">576</span> <span class="m">54</span>  <span class="m">0</span>   <span class="m">24</span>  <span class="m">599</span> <span class="m">24</span>  <span class="m">599</span> <span class="m">0</span>.0  <span class="m">1102</span>
+my_protein  gi<span class="p">|</span><span class="m">507558180</span><span class="p">|</span>ref<span class="p">|</span>XP_004662828.1<span class="p">|</span>    <span class="m">90</span>.62   <span class="m">94</span>.79   <span class="m">576</span> <span class="m">54</span>  <span class="m">0</span>   <span class="m">24</span>  <span class="m">599</span> <span class="m">25</span>  <span class="m">600</span> <span class="m">0</span>.0  <span class="m">1103</span>
+my_protein  gi<span class="p">|</span><span class="m">507558178</span><span class="p">|</span>ref<span class="p">|</span>XP_004662827.1<span class="p">|</span>    <span class="m">90</span>.62   <span class="m">94</span>.79   <span class="m">576</span> <span class="m">54</span>  <span class="m">0</span>   <span class="m">24</span>  <span class="m">599</span> <span class="m">25</span>  <span class="m">600</span> <span class="m">0</span>.0  <span class="m">1103</span>
+</code></pre></div>
+
+<p>If we want to sort on multiple fields we can use multiple <strong>-k</strong> options. For example, here's how we sort by percent identity (field number three) then by hit length (field number five):</p>
+<div class="highlight"><pre><span></span><code>$ sort -k3,3  -k5,5 -n -r blast_example_nocomments.txt
+</code></pre></div>
+
+<h2>Head</h2>
+<p>Often when we sort BLAST hits by some criterion we're interested in the first or last hits. For example, we might only want to see the five longest hits. To do this, we can take the output of <code>sort</code> and pipe it directly into <code>head</code>. The <code>head</code> command displays just the few lines of its input – by default, the first ten lines, though we can specify a different number with the <code>-n</code> option. Here's how we extract the five longest hits from our BLAST report – we <code>sort</code> by hit length (the fifth field) in reverse order then pipe the results into <code>head</code> and extract the first 5 lines:</p>
+<div class="highlight"><pre><span></span><code>$ sort -k5,5 -n -r blast_example_nocomments.txt <span class="p">|</span> head -n <span class="m">5</span>
+my_protein  gi<span class="p">|</span><span class="m">724957135</span><span class="p">|</span>ref<span class="p">|</span>XP_010353695.1<span class="p">|</span>    <span class="m">98</span>.33   <span class="m">98</span>.83   <span class="m">599</span> <span class="m">10</span>  <span class="m">0</span>   <span class="m">1</span>   <span class="m">599</span> <span class="m">1</span>   <span class="m">599</span> <span class="m">0</span>.0  <span class="m">1224</span>
+my_protein  gi<span class="p">|</span><span class="m">694936914</span><span class="p">|</span>ref<span class="p">|</span>XP_009455498.1<span class="p">|</span>    <span class="m">99</span>.33   <span class="m">100</span>.00  <span class="m">599</span> <span class="m">4</span>   <span class="m">0</span>   <span class="m">1</span>   <span class="m">599</span> <span class="m">1</span>   <span class="m">599</span> <span class="m">0</span>.0  <span class="m">1239</span>
+my_protein  gi<span class="p">|</span><span class="m">674214810</span><span class="p">|</span>gb<span class="p">|</span>AIK97765.1<span class="p">|</span>         <span class="m">99</span>.83   <span class="m">99</span>.83   <span class="m">599</span> <span class="m">1</span>   <span class="m">0</span>   <span class="m">1</span>   <span class="m">599</span> <span class="m">1</span>   <span class="m">599</span> <span class="m">0</span>.0  <span class="m">1239</span>
+my_protein  gi<span class="p">|</span><span class="m">635071455</span><span class="p">|</span>ref<span class="p">|</span>XP_007966350.1<span class="p">|</span>    <span class="m">98</span>.33   <span class="m">99</span>.33   <span class="m">599</span> <span class="m">10</span>  <span class="m">0</span>   <span class="m">1</span>   <span class="m">599</span> <span class="m">60</span>  <span class="m">658</span> <span class="m">0</span>.0  <span class="m">1225</span>
+my_protein  gi<span class="p">|</span><span class="m">60654447</span><span class="p">|</span>gb<span class="p">|</span>AAX29914.1<span class="p">|</span>         <span class="m">100</span>.00   <span class="m">100</span>.00  <span class="m">599</span> <span class="m">0</span>   <span class="m">0</span>   <span class="m">1</span>   <span class="m">599</span> <span class="m">1</span>   <span class="m">599</span> <span class="m">0</span>.0  <span class="m">1243</span>
+</code></pre></div>
+
+<p>If we combine this with the <code>cut</code> command that we discussed earlier, we can do more sophisticated things. For example, we can look at just the hit names and bitscores for the five longest hits by piping the results of the above command into <code>cut</code> and extracting the second and thirteenth fields:</p>
+<div class="highlight"><pre><span></span><code>$ sort -k5,5 -n -r blast_example_nocomments.txt <span class="p">|</span> head -n <span class="m">5</span> <span class="p">|</span> cut -f <span class="m">2</span>,13
+gi<span class="p">|</span><span class="m">724957135</span><span class="p">|</span>ref<span class="p">|</span>XP_010353695.1<span class="p">|</span>     <span class="m">1224</span>
+gi<span class="p">|</span><span class="m">694936914</span><span class="p">|</span>ref<span class="p">|</span>XP_009455498.1<span class="p">|</span>     <span class="m">1239</span>
+gi<span class="p">|</span><span class="m">674214810</span><span class="p">|</span>gb<span class="p">|</span>AIK97765.1<span class="p">|</span>          <span class="m">1239</span>
+gi<span class="p">|</span><span class="m">635071455</span><span class="p">|</span>ref<span class="p">|</span>XP_007966350.1<span class="p">|</span>     <span class="m">1225</span>
+gi<span class="p">|</span><span class="m">60654447</span><span class="p">|</span>gb<span class="p">|</span>AAX29914.1<span class="p">|</span>           <span class="m">1243</span>
+</code></pre></div>
+
+<p>This is an interesting example because the field that we're using for sorting – the hit length – doesn't form part of the final output. Because of this, we have to be careful with the order of commands – the <code>sort</code> has to come before the <code>cut</code>. If we try and do it the other way round:</p>
+<div class="highlight"><pre><span></span><code>$ cut -f <span class="m">2</span>,13 <span class="p">|</span> sort -k5,5 -n -r blast_example_nocomments.txt <span class="p">|</span> head -n <span class="m">5</span>
+</code></pre></div>
+
+<p>it won't work, because by the time <code>sort</code> sees the data the hit length field is no longer there – it's been removed by <code>cut</code>.</p>
+<h2>Filtering with awk</h2>
+<p>The last example we saw involved grabbing the five longest hits; what if, instead, we wanted to grab <em>all</em> the hits that were longer than a given length? We can't use the <code>sort</code>/<code>head</code> approach outlined above, because we don't know in advance how many lines we want to display. Instead, we need a tool that's capable of filtering lines based on specific criteria, and the one we're going to use is called <code>awk</code>. The <code>awk</code> command is a very flexible tool for text manipulation and can do lots of things; here we're only going to use a tiny bit of its capability. To use <code>awk</code> for filtering, we run it with a command string that describes the criterion which lines must pass. Inside this string, we can use <code>$1</code> to refer to the first field, <code>$2</code> to refer to the second, and so on. We can also use mathematical comparisons like equals and less-than. A few examples will make it clearer – here's how we display just the hits that are longer than 590 bases (i.e. just the lines where the fifth field is greater than 590):</p>
+<div class="highlight"><pre><span></span><code>$ awk <span class="s1">&#39;$5 &gt; 590&#39;</span> blast_example_nocomments.txt
+my_protein  gi<span class="p">|</span><span class="m">60654447</span><span class="p">|</span>gb<span class="p">|</span>AAX29914.1<span class="p">|</span>  <span class="m">100</span>.00  <span class="m">100</span>.00  <span class="m">599</span> <span class="m">0</span>   <span class="m">0</span>   <span class="m">1</span>   <span class="m">599</span> <span class="m">1</span>   <span class="m">599</span> <span class="m">0</span>.0  <span class="m">1243</span>
+my_protein  gi<span class="p">|</span><span class="m">397526517</span><span class="p">|</span>ref<span class="p">|</span>XP_003833169.1<span class="p">|</span>    <span class="m">99</span>.50   <span class="m">100</span>.00  <span class="m">599</span> <span class="m">3</span>   <span class="m">0</span>   <span class="m">1</span>   <span class="m">599</span> <span class="m">1</span>   <span class="m">599</span> <span class="m">0</span>.0  <span class="m">1240</span>
+my_protein  gi<span class="p">|</span><span class="m">18104967</span><span class="p">|</span>ref<span class="p">|</span>NP_000953.2<span class="p">|;</span>gi<span class="p">|</span><span class="m">317373262</span><span class="p">|</span>sp<span class="p">|</span>P23219.2<span class="p">|</span>PGH1_HUMAN    <span class="m">99</span>.83   <span class="m">99</span>.83   <span class="m">599</span> <span class="m">1</span>   <span class="m">0</span>   <span class="m">1</span>   <span class="m">599</span> <span class="m">1</span>   <span class="m">599</span> <span class="m">0</span>.0  <span class="m">1240</span>
+my_protein  gi<span class="p">|</span><span class="m">674214810</span><span class="p">|</span>gb<span class="p">|</span>AIK97765.1<span class="p">|</span> <span class="m">99</span>.83   <span class="m">99</span>.83   <span class="m">599</span> <span class="m">1</span>   <span class="m">0</span>   <span class="m">1</span>   <span class="m">599</span> <span class="m">1</span>   <span class="m">599</span> <span class="m">0</span>.0  <span class="m">1239</span>
+my_protein  gi<span class="p">|</span><span class="m">694936914</span><span class="p">|</span>ref<span class="p">|</span>XP_009455498.1<span class="p">|</span>    <span class="m">99</span>.33   <span class="m">100</span>.00  <span class="m">599</span> <span class="m">4</span>   <span class="m">0</span>   <span class="m">1</span>   <span class="m">599</span> <span class="m">1</span>   <span class="m">599</span> <span class="m">0</span>.0  <span class="m">1239</span>
+my_protein  gi<span class="p">|</span><span class="m">387018</span><span class="p">|</span>gb<span class="p">|</span>AAA36439.1<span class="p">|</span>    <span class="m">99</span>.50   <span class="m">99</span>.50   <span class="m">599</span> <span class="m">3</span>   <span class="m">0</span>   <span class="m">1</span>   <span class="m">599</span> <span class="m">1</span>   <span class="m">599</span> <span class="m">0</span>.0  <span class="m">1236</span>
+my_protein  gi<span class="p">|</span><span class="m">76885916</span><span class="p">|</span>gb<span class="p">|</span>ABA60099.1<span class="p">|</span>  <span class="m">99</span>.83   <span class="m">99</span>.83   <span class="m">596</span> <span class="m">1</span>   <span class="m">0</span>   <span class="m">4</span>   <span class="m">599</span> <span class="m">35</span>  <span class="m">630</span> <span class="m">0</span>.0  <span class="m">1234</span>
+my_protein  gi<span class="p">|</span><span class="m">76885914</span><span class="p">|</span>gb<span class="p">|</span>ABA60098.1<span class="p">|</span>  <span class="m">99</span>.83   <span class="m">99</span>.83   <span class="m">596</span> <span class="m">1</span>   <span class="m">0</span>   <span class="m">4</span>   <span class="m">599</span> <span class="m">35</span>  <span class="m">630</span> <span class="m">0</span>.0  <span class="m">1233</span>
+my_protein  gi<span class="p">|</span><span class="m">109110319</span><span class="p">|</span>ref<span class="p">|</span>XP_001088270.1<span class="p">|;</span>gi<span class="p">|</span><span class="m">544492470</span><span class="p">|</span>ref<span class="p">|</span>XP_005580931.1<span class="p">|;</span>gi<span class="p">|</span><span class="m">685591740</span><span class="p">|</span>ref<span class="p">|</span>XP_009186406.1<span class="p">|</span>  <span class="m">98</span>.33   <span class="m">99</span>.33   <span class="m">599</span> <span class="m">10</span>  <span class="m">0</span>   <span class="m">1</span>   <span class="m">599</span> <span class="m">1</span>   <span class="m">599</span> <span class="m">0</span>.0  <span class="m">1227</span>
+my_protein  gi<span class="p">|</span><span class="m">635071455</span><span class="p">|</span>ref<span class="p">|</span>XP_007966350.1<span class="p">|</span>    <span class="m">98</span>.33   <span class="m">99</span>.33   <span class="m">599</span> <span class="m">10</span>  <span class="m">0</span>   <span class="m">1</span>   <span class="m">599</span> <span class="m">60</span>  <span class="m">658</span> <span class="m">0</span>.0  <span class="m">1225</span>
+my_protein  gi<span class="p">|</span><span class="m">724957135</span><span class="p">|</span>ref<span class="p">|</span>XP_010353695.1<span class="p">|</span>    <span class="m">98</span>.33   <span class="m">98</span>.83   <span class="m">599</span> <span class="m">10</span>  <span class="m">0</span>   <span class="m">1</span>   <span class="m">599</span> <span class="m">1</span>   <span class="m">599</span> <span class="m">0</span>.0  <span class="m">1224</span>
+my_protein  gi<span class="p">|</span><span class="m">109110321</span><span class="p">|</span>ref<span class="p">|</span>XP_001088157.1<span class="p">|</span>    <span class="m">98</span>.32   <span class="m">99</span>.33   <span class="m">596</span> <span class="m">10</span>  <span class="m">0</span>   <span class="m">4</span>   <span class="m">599</span> <span class="m">37</span>  <span class="m">632</span> <span class="m">0</span>.0  <span class="m">1222</span>
+my_protein  gi<span class="p">|</span><span class="m">544492468</span><span class="p">|</span>ref<span class="p">|</span>XP_005580930.1<span class="p">|;</span>gi<span class="p">|</span><span class="m">355567462</span><span class="p">|</span>gb<span class="p">|</span>EHH23803.1<span class="p">|;</span>gi<span class="p">|</span><span class="m">355753051</span><span class="p">|</span>gb<span class="p">|</span>EHH57097.1<span class="p">|</span>    <span class="m">98</span>.32   <span class="m">99</span>.33   <span class="m">596</span> <span class="m">10</span>  <span class="m">0</span>   <span class="m">4</span>   <span class="m">599</span> <span class="m">37</span>  <span class="m">632</span> <span class="m">0</span>.0  <span class="m">1221</span>
+my_protein  gi<span class="p">|</span><span class="m">403266039</span><span class="p">|</span>ref<span class="p">|</span>XP_003925205.1<span class="p">|</span>    <span class="m">97</span>.16   <span class="m">98</span>.50   <span class="m">599</span> <span class="m">17</span>  <span class="m">0</span>   <span class="m">1</span>   <span class="m">599</span> <span class="m">1</span>   <span class="m">599</span> <span class="m">0</span>.0  <span class="m">1209</span>
+my_protein  gi<span class="p">|</span><span class="m">667269156</span><span class="p">|</span>ref<span class="p">|</span>XP_008570258.1<span class="p">|</span>    <span class="m">92</span>.80   <span class="m">95</span>.98   <span class="m">597</span> <span class="m">43</span>  <span class="m">0</span>   <span class="m">3</span>   <span class="m">599</span> <span class="m">35</span>  <span class="m">631</span> <span class="m">0</span>.0  <span class="m">1123</span>
+my_protein  gi<span class="p">|</span><span class="m">470608129</span><span class="p">|</span>ref<span class="p">|</span>XP_004314816.1<span class="p">|</span>    <span class="m">90</span>.95   <span class="m">94</span>.81   <span class="m">597</span> <span class="m">54</span>  <span class="m">0</span>   <span class="m">3</span>   <span class="m">599</span> <span class="m">4</span>   <span class="m">600</span> <span class="m">0</span>.0  <span class="m">1122</span>
+my_protein  gi<span class="p">|</span><span class="m">403310639</span><span class="p">|</span>ref<span class="p">|</span>NP_001258093.1<span class="p">|</span>    <span class="m">91</span>.82   <span class="m">91</span>.82   <span class="m">599</span> <span class="m">1</span>   <span class="m">1</span>   <span class="m">1</span>   <span class="m">599</span> <span class="m">1</span>   <span class="m">551</span> <span class="m">0</span>.0  <span class="m">1115</span>
+my_protein  gi<span class="p">|</span><span class="m">194033503</span><span class="p">|</span>ref<span class="p">|</span>XP_001926164.1<span class="p">|</span>    <span class="m">91</span>.12   <span class="m">95</span>.48   <span class="m">597</span> <span class="m">53</span>  <span class="m">0</span>   <span class="m">3</span>   <span class="m">599</span> <span class="m">4</span>   <span class="m">600</span> <span class="m">0</span>.0  <span class="m">1102</span>
+</code></pre></div>
+
+<p>Here's how we display just the hits that include the very start of the query sequence (i.e. the lines where the eighth field is equal to one):</p>
+<div class="highlight"><pre><span></span><code>$ awk <span class="s1">&#39;$8 == 1&#39;</span> blast_example_nocomments.txt
+my_protein  gi<span class="p">|</span><span class="m">60654447</span><span class="p">|</span>gb<span class="p">|</span>AAX29914.1<span class="p">|</span>  <span class="m">100</span>.00  <span class="m">100</span>.00  <span class="m">599</span> <span class="m">0</span>   <span class="m">0</span>   <span class="m">1</span>   <span class="m">599</span> <span class="m">1</span>   <span class="m">599</span> <span class="m">0</span>.0  <span class="m">1243</span>
+my_protein  gi<span class="p">|</span><span class="m">397526517</span><span class="p">|</span>ref<span class="p">|</span>XP_003833169.1<span class="p">|</span>    <span class="m">99</span>.50   <span class="m">100</span>.00  <span class="m">599</span> <span class="m">3</span>   <span class="m">0</span>   <span class="m">1</span>   <span class="m">599</span> <span class="m">1</span>   <span class="m">599</span> <span class="m">0</span>.0  <span class="m">1240</span>
+my_protein  gi<span class="p">|</span><span class="m">18104967</span><span class="p">|</span>ref<span class="p">|</span>NP_000953.2<span class="p">|;</span>gi<span class="p">|</span><span class="m">317373262</span><span class="p">|</span>sp<span class="p">|</span>P23219.2<span class="p">|</span>PGH1_HUMAN    <span class="m">99</span>.83   <span class="m">99</span>.83   <span class="m">599</span> <span class="m">1</span>   <span class="m">0</span>   <span class="m">1</span>   <span class="m">599</span> <span class="m">1</span>   <span class="m">599</span> <span class="m">0</span>.0  <span class="m">1240</span>
+my_protein  gi<span class="p">|</span><span class="m">674214810</span><span class="p">|</span>gb<span class="p">|</span>AIK97765.1<span class="p">|</span> <span class="m">99</span>.83   <span class="m">99</span>.83   <span class="m">599</span> <span class="m">1</span>   <span class="m">0</span>   <span class="m">1</span>   <span class="m">599</span> <span class="m">1</span>   <span class="m">599</span> <span class="m">0</span>.0  <span class="m">1239</span>
+my_protein  gi<span class="p">|</span><span class="m">694936914</span><span class="p">|</span>ref<span class="p">|</span>XP_009455498.1<span class="p">|</span>    <span class="m">99</span>.33   <span class="m">100</span>.00  <span class="m">599</span> <span class="m">4</span>   <span class="m">0</span>   <span class="m">1</span>   <span class="m">599</span> <span class="m">1</span>   <span class="m">599</span> <span class="m">0</span>.0  <span class="m">1239</span>
+my_protein  gi<span class="p">|</span><span class="m">387018</span><span class="p">|</span>gb<span class="p">|</span>AAA36439.1<span class="p">|</span>    <span class="m">99</span>.50   <span class="m">99</span>.50   <span class="m">599</span> <span class="m">3</span>   <span class="m">0</span>   <span class="m">1</span>   <span class="m">599</span> <span class="m">1</span>   <span class="m">599</span> <span class="m">0</span>.0  <span class="m">1236</span>
+my_protein  gi<span class="p">|</span><span class="m">109110319</span><span class="p">|</span>ref<span class="p">|</span>XP_001088270.1<span class="p">|;</span>gi<span class="p">|</span><span class="m">544492470</span><span class="p">|</span>ref<span class="p">|</span>XP_005580931.1<span class="p">|;</span>gi<span class="p">|</span><span class="m">685591740</span><span class="p">|</span>ref<span class="p">|</span>XP_009186406.1<span class="p">|</span>  <span class="m">98</span>.33   <span class="m">99</span>.33   <span class="m">599</span> <span class="m">10</span>  <span class="m">0</span>   <span class="m">1</span>   <span class="m">599</span> <span class="m">1</span>   <span class="m">599</span> <span class="m">0</span>.0  <span class="m">1227</span>
+my_protein  gi<span class="p">|</span><span class="m">635071455</span><span class="p">|</span>ref<span class="p">|</span>XP_007966350.1<span class="p">|</span>    <span class="m">98</span>.33   <span class="m">99</span>.33   <span class="m">599</span> <span class="m">10</span>  <span class="m">0</span>   <span class="m">1</span>   <span class="m">599</span> <span class="m">60</span>  <span class="m">658</span> <span class="m">0</span>.0  <span class="m">1225</span>
+my_protein  gi<span class="p">|</span><span class="m">724957135</span><span class="p">|</span>ref<span class="p">|</span>XP_010353695.1<span class="p">|</span>    <span class="m">98</span>.33   <span class="m">98</span>.83   <span class="m">599</span> <span class="m">10</span>  <span class="m">0</span>   <span class="m">1</span>   <span class="m">599</span> <span class="m">1</span>   <span class="m">599</span> <span class="m">0</span>.0  <span class="m">1224</span>
+my_protein  gi<span class="p">|</span><span class="m">403266039</span><span class="p">|</span>ref<span class="p">|</span>XP_003925205.1<span class="p">|</span>    <span class="m">97</span>.16   <span class="m">98</span>.50   <span class="m">599</span> <span class="m">17</span>  <span class="m">0</span>   <span class="m">1</span>   <span class="m">599</span> <span class="m">1</span>   <span class="m">599</span> <span class="m">0</span>.0  <span class="m">1209</span>
+my_protein  gi<span class="p">|</span><span class="m">403310639</span><span class="p">|</span>ref<span class="p">|</span>NP_001258093.1<span class="p">|</span>    <span class="m">91</span>.82   <span class="m">91</span>.82   <span class="m">599</span> <span class="m">1</span>   <span class="m">1</span>   <span class="m">1</span>   <span class="m">599</span> <span class="m">1</span>   <span class="m">551</span> <span class="m">0</span>.0  <span class="m">1115</span>
+</code></pre></div>
+
+<p>Here's how we display just the hits with fewer than four missmatches (i.e. the lines where the sixth field is less than four):</p>
+<div class="highlight"><pre><span></span><code>$ awk <span class="s1">&#39;$6 &lt; 4&#39;</span> blast_example_nocomments.txt
+my_protein  gi<span class="p">|</span><span class="m">60654447</span><span class="p">|</span>gb<span class="p">|</span>AAX29914.1<span class="p">|</span>  <span class="m">100</span>.00  <span class="m">100</span>.00  <span class="m">599</span> <span class="m">0</span>   <span class="m">0</span>   <span class="m">1</span>   <span class="m">599</span> <span class="m">1</span>   <span class="m">599</span> <span class="m">0</span>.0  <span class="m">1243</span>
+my_protein  gi<span class="p">|</span><span class="m">397526517</span><span class="p">|</span>ref<span class="p">|</span>XP_003833169.1<span class="p">|</span>    <span class="m">99</span>.50   <span class="m">100</span>.00  <span class="m">599</span> <span class="m">3</span>   <span class="m">0</span>   <span class="m">1</span>   <span class="m">599</span> <span class="m">1</span>   <span class="m">599</span> <span class="m">0</span>.0  <span class="m">1240</span>
+my_protein  gi<span class="p">|</span><span class="m">18104967</span><span class="p">|</span>ref<span class="p">|</span>NP_000953.2<span class="p">|;</span>gi<span class="p">|</span><span class="m">317373262</span><span class="p">|</span>sp<span class="p">|</span>P23219.2<span class="p">|</span>PGH1_HUMAN    <span class="m">99</span>.83   <span class="m">99</span>.83   <span class="m">599</span> <span class="m">1</span>   <span class="m">0</span>   <span class="m">1</span>   <span class="m">599</span> <span class="m">1</span>   <span class="m">599</span> <span class="m">0</span>.0  <span class="m">1240</span>
+my_protein  gi<span class="p">|</span><span class="m">674214810</span><span class="p">|</span>gb<span class="p">|</span>AIK97765.1<span class="p">|</span> <span class="m">99</span>.83   <span class="m">99</span>.83   <span class="m">599</span> <span class="m">1</span>   <span class="m">0</span>   <span class="m">1</span>   <span class="m">599</span> <span class="m">1</span>   <span class="m">599</span> <span class="m">0</span>.0  <span class="m">1239</span>
+my_protein  gi<span class="p">|</span><span class="m">387018</span><span class="p">|</span>gb<span class="p">|</span>AAA36439.1<span class="p">|</span>    <span class="m">99</span>.50   <span class="m">99</span>.50   <span class="m">599</span> <span class="m">3</span>   <span class="m">0</span>   <span class="m">1</span>   <span class="m">599</span> <span class="m">1</span>   <span class="m">599</span> <span class="m">0</span>.0  <span class="m">1236</span>
+my_protein  gi<span class="p">|</span><span class="m">76885916</span><span class="p">|</span>gb<span class="p">|</span>ABA60099.1<span class="p">|</span>  <span class="m">99</span>.83   <span class="m">99</span>.83   <span class="m">596</span> <span class="m">1</span>   <span class="m">0</span>   <span class="m">4</span>   <span class="m">599</span> <span class="m">35</span>  <span class="m">630</span> <span class="m">0</span>.0  <span class="m">1234</span>
+my_protein  gi<span class="p">|</span><span class="m">76885914</span><span class="p">|</span>gb<span class="p">|</span>ABA60098.1<span class="p">|</span>  <span class="m">99</span>.83   <span class="m">99</span>.83   <span class="m">596</span> <span class="m">1</span>   <span class="m">0</span>   <span class="m">4</span>   <span class="m">599</span> <span class="m">35</span>  <span class="m">630</span> <span class="m">0</span>.0  <span class="m">1233</span>
+my_protein  gi<span class="p">|</span><span class="m">530391358</span><span class="p">|</span>ref<span class="p">|</span>XP_005252162.1<span class="p">|</span>    <span class="m">99</span>.47   <span class="m">99</span>.65   <span class="m">571</span> <span class="m">3</span>   <span class="m">0</span>   <span class="m">29</span>  <span class="m">599</span> <span class="m">4</span>   <span class="m">574</span> <span class="m">0</span>.0  <span class="m">1186</span>
+my_protein  gi<span class="p">|</span><span class="m">403310639</span><span class="p">|</span>ref<span class="p">|</span>NP_001258093.1<span class="p">|</span>    <span class="m">91</span>.82   <span class="m">91</span>.82   <span class="m">599</span> <span class="m">1</span>   <span class="m">1</span>   <span class="m">1</span>   <span class="m">599</span> <span class="m">1</span>   <span class="m">551</span> <span class="m">0</span>.0  <span class="m">1115</span>
+</code></pre></div>
+
+<p>You get the idea. We can combine multiple criteria with <code>&amp;&amp;</code> – here's how we display just the hits with fewer than four miss-matches whose length is less than 599 bases:</p>
+<div class="highlight"><pre><span></span><code>$ awk <span class="s1">&#39;$6 &lt; 4 &amp;&amp; $5 &lt; 599&#39;</span> blast_example_nocomments.txt
+my_protein  gi<span class="p">|</span><span class="m">76885916</span><span class="p">|</span>gb<span class="p">|</span>ABA60099.1<span class="p">|</span>  <span class="m">99</span>.83   <span class="m">99</span>.83   <span class="m">596</span> <span class="m">1</span>   <span class="m">0</span>   <span class="m">4</span>   <span class="m">599</span> <span class="m">35</span>  <span class="m">630</span> <span class="m">0</span>.0  <span class="m">1234</span>
+my_protein  gi<span class="p">|</span><span class="m">76885914</span><span class="p">|</span>gb<span class="p">|</span>ABA60098.1<span class="p">|</span>  <span class="m">99</span>.83   <span class="m">99</span>.83   <span class="m">596</span> <span class="m">1</span>   <span class="m">0</span>   <span class="m">4</span>   <span class="m">599</span> <span class="m">35</span>  <span class="m">630</span> <span class="m">0</span>.0  <span class="m">1233</span>
+my_protein  gi<span class="p">|</span><span class="m">530391358</span><span class="p">|</span>ref<span class="p">|</span>XP_005252162.1<span class="p">|</span>    <span class="m">99</span>.47   <span class="m">99</span>.65   <span class="m">571</span> <span class="m">3</span>   <span class="m">0</span>   <span class="m">29</span>  <span class="m">599</span> <span class="m">4</span>   <span class="m">574</span> <span class="m">0</span>.0  <span class="m">1186</span>
+</code></pre></div>
+
+<p>Unsurprisingly, combining <code>awk</code> with the other tools allows us to ask even more specific questions. For example, what are the bitscores (field number 13) of the hits with at least 99% identical positions (field number 3)? To get the answer, we filter the lines using <code>awk</code> then pipe the output to <code>cut</code> to extract just the fields we want:</p>
+<div class="highlight"><pre><span></span><code> $ awk &#39;$3 &gt;= 99&#39; blast_example_nocomments.txt | cut -f 13
+ 1243
+ 1240
+ 1240
+ 1239
+ 1239
+ 1236
+ 1234
+ 1233
+ 1186
+</code></pre></div>
+
+<h2>Summarizing output</h2>
+<p>All of the examples we've seen so far result in multiple lines of output, but sometimes we want to summarize the output. Consider a variation on the example above: how many hits have at least 99% identical bases? We know how to use <code>awk</code> to filter out just the hits that satisfy the criterion, so all we need to do is count the number of lines of output we get. The <code>wc</code> tool (the name is short for word count) will do this if we use the <code>-l</code> (for lines) option:</p>
+<div class="highlight"><pre><span></span><code>$ awk <span class="s1">&#39;$3 &gt;= 99&#39;</span> blast_example_nocomments.txt <span class="p">|</span> wc -l
+<span class="m">9</span>
+</code></pre></div>
+
+<p>So that rather than getting back a list, we now get back a single number. Another way to summarize output is to take the average of a list of numbers – for example, what's the average bitscore of all hits with at least 99% identity? A combination of <code>awk</code> and <code>cut</code> will give us the bitscores:</p>
+<div class="highlight"><pre><span></span><code>$ awk <span class="s1">&#39;$3 &gt;= 99&#39;</span> blast_example_nocomments.txt <span class="p">|</span> cut -f <span class="m">13</span>
+ <span class="m">1243</span>
+ <span class="m">1240</span>
+ <span class="m">1240</span>
+ <span class="m">1239</span>
+ <span class="m">1239</span>
+ <span class="m">1236</span>
+ <span class="m">1234</span>
+ <span class="m">1233</span>
+ <span class="m">1186</span>
+</code></pre></div>
+
+<p>and in fact, <code>awk</code> is also capable of calculating the mean average. The command that does so is <code>'{a+=$13} END{print a/NR}'</code>, which roughly translates as "for each line, add the thirteenth field to a variable called <code>a</code>, then at the end of the file divide <code>a</code> by the number of lines and print it". Any further explanation of this command string would require a massive diversion into the syntax of <code>awk</code>, so we'll just treat it as a magic string for now and look at how it's used:</p>
+<div class="highlight"><pre><span></span><code>$ awk <span class="s1">&#39;$3 &gt;= 99&#39;</span> blast_example_nocomments.txt <span class="p">|</span> awk <span class="s1">&#39;{a+=$13} END{print a/NR}&#39;</span>
+<span class="m">1232</span>.22
+</code></pre></div>
+
+<p>To calculate the average for a different field, we just replace <code>$13</code> with something else. Notice that in the above example we're using <code>awk</code> twice: once to filter out the lines and once to calculate the average. We could do the whole thing in a single <code>awk</code> command:</p>
+<div class="highlight"><pre><span></span><code>$ awk <span class="s1">&#39;$3 &gt;= 99  {a+=$13;b+=1} END{print a/b}&#39;</span> blast_example_nocomments.txt
+<span class="m">1232</span>.22
+</code></pre></div>
+
+<p>but it's harder to read and would take even more space to explain. </p>
+<p>An interesting feature of BLAST reports is that we can (depending on the settings) potentially have multiple hits to a single subject sequence, which will show up as multiple lines with identical second columns. To turn a list with duplicates into a unique list, we use the <code>uniq</code> command. For example, to get a list of all unique subject sequence names:</p>
+<div class="highlight"><pre><span></span><code>$ cut -f <span class="m">2</span> blast_example_nocomments.txt <span class="p">|</span> uniq 
+gi<span class="p">|</span><span class="m">60654447</span><span class="p">|</span>gb<span class="p">|</span>AAX29914.1<span class="p">|</span>
+gi<span class="p">|</span><span class="m">397526517</span><span class="p">|</span>ref<span class="p">|</span>XP_003833169.1<span class="p">|</span>
+gi<span class="p">|</span><span class="m">18104967</span><span class="p">|</span>ref<span class="p">|</span>NP_000953.2<span class="p">|;</span>gi<span class="p">|</span><span class="m">317373262</span><span class="p">|</span>sp<span class="p">|</span>P23219.2<span class="p">|</span>PGH1_HUMAN
+gi<span class="p">|</span><span class="m">674214810</span><span class="p">|</span>gb<span class="p">|</span>AIK97765.1<span class="p">|</span>
+...
+gi<span class="p">|</span><span class="m">14278642</span><span class="p">|</span>pdb<span class="p">|</span>1HT5<span class="p">|</span>A<span class="p">;</span>gi<span class="p">|</span><span class="m">14278643</span><span class="p">|</span>pdb<span class="p">|</span>1HT5<span class="p">|</span>B<span class="p">;</span>gi<span class="p">|</span><span class="m">14278644</span><span class="p">|</span>pdb<span class="p">|</span>1HT8<span class="p">|</span>A<span class="p">;</span>gi<span class="p">|</span><span class="m">14278645</span><span class="p">|</span>pdb<span class="p">|</span>1HT8<span class="p">|</span>B
+gi<span class="p">|</span><span class="m">999675</span><span class="p">|</span>pdb<span class="p">|</span>1PRH<span class="p">|</span>A<span class="p">;</span>gi<span class="p">|</span><span class="m">999676</span><span class="p">|</span>pdb<span class="p">|</span>1PRH<span class="p">|</span>B
+gi<span class="p">|</span><span class="m">507932370</span><span class="p">|</span>ref<span class="p">|</span>XP_004677426.1<span class="p">|</span>
+gi<span class="p">|</span><span class="m">7245654</span><span class="p">|</span>pdb<span class="p">|</span>1EBV<span class="p">|</span>A
+</code></pre></div>
+
+<p>If we compare the number of lines with and without <code>uniq</code>, we can get see how many subject names are duplicates:</p>
+<div class="highlight"><pre><span></span><code>$ cut -f <span class="m">2</span> blast_example_nocomments.txt <span class="p">|</span> wc -l
+<span class="m">102</span>
+$ cut -f <span class="m">2</span> blast_example_nocomments.txt <span class="p">|</span> uniq <span class="p">|</span> wc -l
+<span class="m">98</span>
+</code></pre></div>
+
+<p>In this case we get 102 lines but only 98 unique lines, so we know that 4 are duplicated. But we have no way of knowing how the duplicates are distributed; do we have a single subject sequence with five hits (resulting in four duplicates) or four subject sequences each with two hits (also resulting in four duplicates)? To find out, we can add the <code>-c</code> option to <code>uniq</code>, which will prefix each line with the number of times it occurs:</p>
+<div class="highlight"><pre><span></span><code>$ cut -f <span class="m">2</span> blast_example_nocomments.txt <span class="p">|</span> uniq -c
+      <span class="m">3</span> gi<span class="p">|</span><span class="m">60654447</span><span class="p">|</span>gb<span class="p">|</span>AAX29914.1<span class="p">|</span>
+      <span class="m">1</span> gi<span class="p">|</span><span class="m">397526517</span><span class="p">|</span>ref<span class="p">|</span>XP_003833169.1<span class="p">|</span>
+      <span class="m">1</span> gi<span class="p">|</span><span class="m">18104967</span><span class="p">|</span>ref<span class="p">|</span>NP_000953.2<span class="p">|;</span>gi<span class="p">|</span><span class="m">317373262</span><span class="p">|</span>sp<span class="p">|</span>P23219.2<span class="p">|</span>PGH1_HUMAN
+      <span class="m">2</span> gi<span class="p">|</span><span class="m">674214810</span><span class="p">|</span>gb<span class="p">|</span>AIK97765.1<span class="p">|</span>
+      <span class="m">1</span> gi<span class="p">|</span><span class="m">694936914</span><span class="p">|</span>ref<span class="p">|</span>XP_009455498.1<span class="p">|</span>
+      ...
+      <span class="m">1</span> gi<span class="p">|</span><span class="m">471370351</span><span class="p">|</span>ref<span class="p">|</span>XP_004375688.1<span class="p">|</span>
+      <span class="m">2</span> gi<span class="p">|</span><span class="m">545512378</span><span class="p">|</span>ref<span class="p">|</span>XP_005625066.1<span class="p">|</span>
+      ...
+      <span class="m">1</span> gi<span class="p">|</span><span class="m">507932370</span><span class="p">|</span>ref<span class="p">|</span>XP_004677426.1<span class="p">|</span>
+      <span class="m">1</span> gi<span class="p">|</span><span class="m">7245654</span><span class="p">|</span>pdb<span class="p">|</span>1EBV<span class="p">|</span>A
+</code></pre></div>
+
+<p>An important limitation of <code>uniq</code> is that it only identifies duplicated lines that are adjacent in the file. This is fine in the case of subject sequence names, because BLAST groups multiple hits to the same sequence together, but if we try the same trick with a field where duplicated values are spread throughout the file it won't work. For example, we might want to see how many hits there are of each length (remember, alignment length is the fifth field), but if we try doing this:</p>
+<div class="highlight"><pre><span></span><code>$ cut -f <span class="m">5</span> blast_example_nocomments.txt <span class="p">|</span> uniq -c
+      <span class="m">1</span> <span class="m">599</span>
+      <span class="m">2</span> <span class="m">123</span>
+      <span class="m">3</span> <span class="m">599</span>
+      <span class="m">1</span> <span class="m">123</span>
+      <span class="m">2</span> <span class="m">599</span>
+      ...
+</code></pre></div>
+
+<p>we can see that the lines containing 599 have not been correctly grouped together because they are not adjacent. To make this command work we need to <code>sort</code> the alignment lengths numerically before passing them to <code>uniq</code>:</p>
+<div class="highlight"><pre><span></span><code>$ cut -f <span class="m">5</span> blast_example_nocomments.txt <span class="p">|</span> sort -n <span class="p">|</span> uniq -c
+      <span class="m">3</span> <span class="m">123</span>
+      <span class="m">1</span> <span class="m">309</span>
+      <span class="m">2</span> <span class="m">551</span>
+      <span class="m">1</span> <span class="m">552</span>
+      <span class="m">2</span> <span class="m">553</span>
+      <span class="m">1</span> <span class="m">567</span>
+     <span class="m">12</span> <span class="m">568</span>
+      <span class="m">1</span> <span class="m">569</span>
+      <span class="m">2</span> <span class="m">570</span>
+      <span class="m">3</span> <span class="m">571</span>
+      <span class="m">1</span> <span class="m">573</span>
+      <span class="m">5</span> <span class="m">574</span>
+      <span class="m">1</span> <span class="m">575</span>
+     <span class="m">35</span> <span class="m">576</span>
+      <span class="m">9</span> <span class="m">579</span>
+      <span class="m">1</span> <span class="m">580</span>
+      <span class="m">4</span> <span class="m">582</span>
+      <span class="m">4</span> <span class="m">596</span>
+      <span class="m">3</span> <span class="m">597</span>
+     <span class="m">11</span> <span class="m">599</span>
+</code></pre></div>
+
+<p>Sorting the lengths in this way not only gives us the correct counts, but also makes it easier to interpret the results. </p>
+<h2>Editing fields</h2>
+<p>In the last section of this tutorial we'll look at a few different ways that we can make changes to the fields in a tabular data file. Let's start with our old friend <code>awk</code>; we already know that inside an <code>awk</code> command we can use <code>$3</code>, for example, to get the value of the third field. We can also use the same notation to set the value of the third field – say, to a specific number:</p>
+<div class="highlight"><pre><span></span><code>$ awk <span class="s1">&#39;$3=123456789&#39;</span> blast_example_nocomments.txt 
+my_protein gi<span class="p">|</span><span class="m">60654447</span><span class="p">|</span>gb<span class="p">|</span>AAX29914.1<span class="p">|</span> <span class="m">123456789</span> <span class="m">100</span>.00 <span class="m">599</span> <span class="m">0</span> <span class="m">0</span> <span class="m">1</span> <span class="m">599</span> <span class="m">1</span> <span class="m">599</span> <span class="m">0</span>.0 <span class="m">1243</span>
+my_protein gi<span class="p">|</span><span class="m">60654447</span><span class="p">|</span>gb<span class="p">|</span>AAX29914.1<span class="p">|</span> <span class="m">123456789</span> <span class="m">100</span>.00 <span class="m">123</span> <span class="m">0</span> <span class="m">0</span> <span class="m">1</span> <span class="m">599</span> <span class="m">602</span> <span class="m">866</span> <span class="m">0</span>.0 <span class="m">1243</span>
+my_protein gi<span class="p">|</span><span class="m">60654447</span><span class="p">|</span>gb<span class="p">|</span>AAX29914.1<span class="p">|</span> <span class="m">123456789</span> <span class="m">100</span>.00 <span class="m">123</span> <span class="m">0</span> <span class="m">0</span> <span class="m">1</span> <span class="m">599</span> <span class="m">702</span> <span class="m">904</span> <span class="m">0</span>.0 <span class="m">1243</span>
+my_protein gi<span class="p">|</span><span class="m">397526517</span><span class="p">|</span>ref<span class="p">|</span>XP_003833169.1<span class="p">|</span> <span class="m">123456789</span> <span class="m">100</span>.00 <span class="m">599</span> <span class="m">3</span> <span class="m">0</span> <span class="m">1</span> <span class="m">599</span> <span class="m">1</span> <span class="m">599</span> <span class="m">0</span>.0 <span class="m">1240</span>
+...
+</code></pre></div>
+
+<p>This by itself is not very useful – let's look at a more realistic example. Imagine that we want to express the proportion of identical bases for each hit as a decimal fraction rather than as a percentage. To accomplish this, we use the <code>awk</code> command <code>'$3=$3/100'</code> i.e. "set the new value of the third field to be the current value of the third field divided by one hundred":</p>
+<div class="highlight"><pre><span></span><code>$ awk <span class="s1">&#39;$3=$3/100&#39;</span> blast_example_nocomments.txt 
+my_protein gi<span class="p">|</span><span class="m">60654447</span><span class="p">|</span>gb<span class="p">|</span>AAX29914.1<span class="p">|</span> <span class="m">1</span> <span class="m">100</span>.00 <span class="m">599</span> <span class="m">0</span> <span class="m">0</span> <span class="m">1</span> <span class="m">599</span> <span class="m">1</span> <span class="m">599</span> <span class="m">0</span>.0 <span class="m">1243</span>
+my_protein gi<span class="p">|</span><span class="m">60654447</span><span class="p">|</span>gb<span class="p">|</span>AAX29914.1<span class="p">|</span> <span class="m">1</span> <span class="m">100</span>.00 <span class="m">123</span> <span class="m">0</span> <span class="m">0</span> <span class="m">1</span> <span class="m">599</span> <span class="m">602</span> <span class="m">866</span> <span class="m">0</span>.0 <span class="m">1243</span>
+my_protein gi<span class="p">|</span><span class="m">60654447</span><span class="p">|</span>gb<span class="p">|</span>AAX29914.1<span class="p">|</span> <span class="m">1</span> <span class="m">100</span>.00 <span class="m">123</span> <span class="m">0</span> <span class="m">0</span> <span class="m">1</span> <span class="m">599</span> <span class="m">702</span> <span class="m">904</span> <span class="m">0</span>.0 <span class="m">1243</span>
+my_protein gi<span class="p">|</span><span class="m">397526517</span><span class="p">|</span>ref<span class="p">|</span>XP_003833169.1<span class="p">|</span> <span class="m">0</span>.995 <span class="m">100</span>.00 <span class="m">599</span> <span class="m">3</span> <span class="m">0</span> <span class="m">1</span> <span class="m">599</span> <span class="m">1</span> <span class="m">599</span> <span class="m">0</span>.0 <span class="m">1240</span>
+my_protein gi<span class="p">|</span><span class="m">18104967</span><span class="p">|</span>ref<span class="p">|</span>NP_000953.2<span class="p">|;</span>gi<span class="p">|</span><span class="m">317373262</span><span class="p">|</span>sp<span class="p">|</span>P23219.2<span class="p">|</span>PGH1_HUMAN <span class="m">0</span>.9983 <span class="m">99</span>.83 <span class="m">599</span> <span class="m">1</span> <span class="m">0</span> <span class="m">1</span> <span class="m">599</span> <span class="m">1</span> <span class="m">599</span> <span class="m">0</span>.0 <span class="m">1240</span>
+my_protein gi<span class="p">|</span><span class="m">674214810</span><span class="p">|</span>gb<span class="p">|</span>AIK97765.1<span class="p">|</span> <span class="m">0</span>.9983 <span class="m">99</span>.83 <span class="m">599</span> <span class="m">1</span> <span class="m">0</span> <span class="m">1</span> <span class="m">599</span> <span class="m">1</span> <span class="m">599</span> <span class="m">0</span>.0 <span class="m">1239</span>
+my_protein gi<span class="p">|</span><span class="m">674214810</span><span class="p">|</span>gb<span class="p">|</span>AIK97765.1<span class="p">|</span> <span class="m">0</span>.9983 <span class="m">99</span>.83 <span class="m">123</span> <span class="m">1</span> <span class="m">0</span> <span class="m">1</span> <span class="m">599</span> <span class="m">600</span> <span class="m">700</span> <span class="m">0</span>.0 <span class="m">1239</span>
+my_protein gi<span class="p">|</span><span class="m">694936914</span><span class="p">|</span>ref<span class="p">|</span>XP_009455498.1<span class="p">|</span> <span class="m">0</span>.9933 <span class="m">100</span>.00 <span class="m">599</span> <span class="m">4</span> <span class="m">0</span> <span class="m">1</span> <span class="m">599</span> <span class="m">1</span> <span class="m">599</span> <span class="m">0</span>.0 <span class="m">1239</span>
+my_protein gi<span class="p">|</span><span class="m">387018</span><span class="p">|</span>gb<span class="p">|</span>AAA36439.1<span class="p">|</span> <span class="m">0</span>.995 <span class="m">99</span>.50 <span class="m">599</span> <span class="m">3</span> <span class="m">0</span> <span class="m">1</span> <span class="m">599</span> <span class="m">1</span> <span class="m">599</span> <span class="m">0</span>.0 <span class="m">1236</span>
+...
+</code></pre></div>
+
+<p>You'll notice that in the output shown above, <code>awk</code> has separated each field with a space rather than a tab as they were originally. Depending on what we want to do with the data at this point, this may not be a problem, but if we want to get the original tab separator back we just have to set the <code>-OFS</code> (short for <strong>Output Field Separator</strong>) option to the tab character, which we represent as <code>'t'</code>:</p>
+<div class="highlight"><pre><span></span><code>$ awk  <span class="s1">&#39;$3=$3/100&#39;</span> <span class="nv">OFS</span><span class="o">=</span><span class="s1">&#39;t&#39;</span> blast_example_nocomments.txt 
+my_protein  gi<span class="p">|</span><span class="m">60654447</span><span class="p">|</span>gb<span class="p">|</span>AAX29914.1<span class="p">|</span>  <span class="m">1</span>   <span class="m">100</span>.00  <span class="m">599</span> <span class="m">0</span>   <span class="m">0</span>   <span class="m">1</span>   <span class="m">599</span> <span class="m">1</span>   <span class="m">599</span> <span class="m">0</span>.0 <span class="m">1243</span>
+my_protein  gi<span class="p">|</span><span class="m">60654447</span><span class="p">|</span>gb<span class="p">|</span>AAX29914.1<span class="p">|</span>  <span class="m">1</span>   <span class="m">100</span>.00  <span class="m">123</span> <span class="m">0</span>   <span class="m">0</span>   <span class="m">1</span>   <span class="m">599</span> <span class="m">602</span> <span class="m">866</span> <span class="m">0</span>.0 <span class="m">1243</span>
+my_protein  gi<span class="p">|</span><span class="m">60654447</span><span class="p">|</span>gb<span class="p">|</span>AAX29914.1<span class="p">|</span>  <span class="m">1</span>   <span class="m">100</span>.00  <span class="m">123</span> <span class="m">0</span>   <span class="m">0</span>   <span class="m">1</span>   <span class="m">599</span> <span class="m">702</span> <span class="m">904</span> <span class="m">0</span>.0 <span class="m">1243</span>
+my_protein  gi<span class="p">|</span><span class="m">397526517</span><span class="p">|</span>ref<span class="p">|</span>XP_003833169.1<span class="p">|</span>    <span class="m">0</span>.995   <span class="m">100</span>.00  <span class="m">599</span> <span class="m">3</span>   <span class="m">0</span>   <span class="m">1</span>   <span class="m">599</span> <span class="m">1</span>   <span class="m">599</span> <span class="m">0</span>.0 <span class="m">1240</span>
+my_protein  gi<span class="p">|</span><span class="m">18104967</span><span class="p">|</span>ref<span class="p">|</span>NP_000953.2<span class="p">|;</span>gi<span class="p">|</span><span class="m">317373262</span><span class="p">|</span>sp<span class="p">|</span>P23219.2<span class="p">|</span>PGH1_HUMAN    <span class="m">0</span>.9983  <span class="m">99</span>.83   <span class="m">599</span> <span class="m">1</span>   <span class="m">0</span>   <span class="m">1</span>   <span class="m">599</span> <span class="m">1</span>   <span class="m">599</span> <span class="m">0</span>.0 <span class="m">1240</span>
+my_protein  gi<span class="p">|</span><span class="m">674214810</span><span class="p">|</span>gb<span class="p">|</span>AIK97765.1<span class="p">|</span> <span class="m">0</span>.9983  <span class="m">99</span>.83   <span class="m">599</span> <span class="m">1</span>   <span class="m">0</span>   <span class="m">1</span>   <span class="m">599</span> <span class="m">1</span>   <span class="m">599</span> <span class="m">0</span>.0 <span class="m">1239</span>
+my_protein  gi<span class="p">|</span><span class="m">674214810</span><span class="p">|</span>gb<span class="p">|</span>AIK97765.1<span class="p">|</span> <span class="m">0</span>.9983  <span class="m">99</span>.83   <span class="m">123</span> <span class="m">1</span>   <span class="m">0</span>   <span class="m">1</span>   <span class="m">599</span> <span class="m">600</span> <span class="m">700</span> <span class="m">0</span>.0 <span class="m">1239</span>
+...
+</code></pre></div>
+
+<p>If we want to make multiple edits to each line, we simply separate them with a comma. Imagine that we have want to take our list of hits to a protein sequence and translate the start/stop positions to the corresponding DNA sequence by multiplying them both by three. Here's how we do it (remember that the query start and stop are fields number 8 and 9):</p>
+<div class="highlight"><pre><span></span><code>$ awk  <span class="s1">&#39;$8=$8*3,$9=$9*3&#39;</span> <span class="nv">OFS</span><span class="o">=</span><span class="s1">&#39;t&#39;</span> blast_example_nocomments.txt 
+my_protein  gi<span class="p">|</span><span class="m">60654447</span><span class="p">|</span>gb<span class="p">|</span>AAX29914.1<span class="p">|</span>  <span class="m">100</span>.00  <span class="m">100</span>.00  <span class="m">599</span> <span class="m">0</span>   <span class="m">0</span>   <span class="m">3</span>   <span class="m">1797</span>    <span class="m">1</span>   <span class="m">599</span> <span class="m">0</span>.0 <span class="m">1243</span>
+my_protein  gi<span class="p">|</span><span class="m">60654447</span><span class="p">|</span>gb<span class="p">|</span>AAX29914.1<span class="p">|</span>  <span class="m">100</span>.00  <span class="m">100</span>.00  <span class="m">123</span> <span class="m">0</span>   <span class="m">0</span>   <span class="m">3</span>   <span class="m">1797</span>    <span class="m">602</span> <span class="m">866</span> <span class="m">0</span>.0 <span class="m">1243</span>
+my_protein  gi<span class="p">|</span><span class="m">60654447</span><span class="p">|</span>gb<span class="p">|</span>AAX29914.1<span class="p">|</span>  <span class="m">100</span>.00  <span class="m">100</span>.00  <span class="m">123</span> <span class="m">0</span>   <span class="m">0</span>   <span class="m">3</span>   <span class="m">1797</span>    <span class="m">702</span> <span class="m">904</span> <span class="m">0</span>.0 <span class="m">1243</span>
+my_protein  gi<span class="p">|</span><span class="m">397526517</span><span class="p">|</span>ref<span class="p">|</span>XP_003833169.1<span class="p">|</span>    <span class="m">99</span>.50   <span class="m">100</span>.00  <span class="m">599</span> <span class="m">3</span>   <span class="m">0</span>   <span class="m">3</span>   <span class="m">1797</span>    <span class="m">1</span>   <span class="m">599</span> <span class="m">0</span>.0 <span class="m">1240</span>
+...
+</code></pre></div>
+
+<p>Notice that the command for multiplication is an asterisk (<code>*</code>), not an x. </p>
+<p>Finally, what if we want to alter just a part of a field, rather than the whole field? For example, all those bar characters (<code>|</code>) in the subject hit names make them difficult to read, so we might want to change them to spaces. We could do this job with <code>awk</code>, but the <code>sed</code> tool is a bit easier to use in this case. When using <code>sed</code> to replace one character with another, we give it a command string that looks like this: <code>'s/X/Y/g'</code>, where <code>X</code> is the character we want to change and <strong>Y</strong> is the replacement. In our example, we want to change all bar characters to spaces:</p>
+<div class="highlight"><pre><span></span><code>$ sed <span class="s1">&#39;s/|/ /g&#39;</span> blast_example_nocomments.txt
+
+my_protein  gi <span class="m">60654447</span> gb AAX29914.1   <span class="m">100</span>.00  <span class="m">100</span>.00  <span class="m">599</span> <span class="m">0</span>   <span class="m">0</span>   <span class="m">1</span>   <span class="m">599</span> <span class="m">1</span>   <span class="m">599</span> <span class="m">0</span>.0  <span class="m">1243</span>
+my_protein  gi <span class="m">60654447</span> gb AAX29914.1   <span class="m">100</span>.00  <span class="m">100</span>.00  <span class="m">123</span> <span class="m">0</span>   <span class="m">0</span>   <span class="m">1</span>   <span class="m">599</span> <span class="m">602</span> <span class="m">866</span> <span class="m">0</span>.0  <span class="m">1243</span>
+my_protein  gi <span class="m">60654447</span> gb AAX29914.1   <span class="m">100</span>.00  <span class="m">100</span>.00  <span class="m">123</span> <span class="m">0</span>   <span class="m">0</span>   <span class="m">1</span>   <span class="m">599</span> <span class="m">702</span> <span class="m">904</span> <span class="m">0</span>.0  <span class="m">1243</span>
+my_protein  gi <span class="m">397526517</span> ref XP_003833169.1     <span class="m">99</span>.50   <span class="m">100</span>.00  <span class="m">599</span> <span class="m">3</span>   <span class="m">0</span>   <span class="m">1</span>   <span class="m">599</span> <span class="m">1</span>   <span class="m">599</span> <span class="m">0</span>.0  <span class="m">1240</span>
+</code></pre></div>
+
+<p>It's important to note that these last few examples of editing fields do not alter the original file – if we want to save the ouput then we need to redirect it to a new file. </p>
+<h2>Doing more complicated things</h2>
+<p>The examples in this tutorial just give a very brief overview of the capabilities of command-line tools to deal with tabular data. Each of the tools mentioned here – especially <code>sed</code> and <code>awk</code> – have many more options and are capable of doing much more complicated jobs. However, as command-lines and scripts get larger, they become harder to edit and maintain. </p>
+<p>For any job involving tabular data that's more complex than the examples outlined above, it's probably best to switch to a "real" programming language. Head over to the books page, or take a look at the tutorial.</p>
+        </div>
+        <hr/>
+        <hr/>
+    </article>
+</div>
+        </div>
+<footer class="footer">
+   <div class="container bottom_border">
+   <ul class="foote_bottom_ul_amrc">
+    <h3 style="color:white;"  class="text-center">Sign up for the newsletter</h3>
+    <h5 style="color:white;"  class="text-center">Links to the best biological Python and bioinformatics content on the web, no spam.</h3>
+     <script async src="https://eomail5.com/form/fbc6d37e-0672-11ec-96e5-06b4694bee2a.js" data-form="fbc6d37e-0672-11ec-96e5-06b4694bee2a"></script>
+     </ul>
+   </div>
+   <div class="container">
+      <ul class="foote_bottom_ul_amrc">
+         <li><a href="/">HOME</a></li>
+         <li><a href="">ABOUT</a></li>
+         <li><a href="">ARCHIVE</a></li>
+      </ul>
+      <!--foote_bottom_ul_amrc ends here-->
+      <p class="text-center"></p>
+        
+          
+      </div>
+
+      <!--social_footer_ul ends here-->
+   </div>
+</footer>
+            <script type="text/javascript" src="https://mojones.github.io/pelican-p4b/theme/libs/jquery.min.js"></script>
+            <script type="text/javascript" src="https://mojones.github.io/pelican-p4b/theme/libs/bootstrap-4.2.1/dist/js/bootstrap.bundle.min.js"></script>
+
+        <script src="https://mojones.github.io/pelican-p4b/theme/libs/prism.js"></script>
+        <script src="https://mojones.github.io/pelican-p4b/theme/libs/Countable.js"></script>
+
+        <script>
+            Prism.plugins.NormalizeWhitespace.setDefaults({
+                'remove-trailing': true,
+                'remove-indent': true,
+                'left-trim': true,
+                'right-trim': true,
+                /*'break-lines': 80,
+                'indent': 2,
+                'remove-initial-line-feed': false,
+                'tabs-to-spaces': 4,
+                'spaces-to-tabs': 4*/
+            });
+        </script>
+
+
+        <script type="text/javascript" src="https://mojones.github.io/pelican-p4b/theme/js/custom.js"></script>
+            <script>
+                function validateForm(query)
+                {
+                    return (query.length > 0);
+                }
+            </script>
+    </body>
+</html>
+

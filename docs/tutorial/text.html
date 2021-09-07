@@ -1,0 +1,623 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+
+            <meta name="author" content="Martin" />
+
+
+
+                <meta property="og:type" content="article" />
+            <meta name="twitter:card" content="summary"/>
+
+        <meta name="keywords" content="python, tutorial, tutorial, "/>
+
+        <link rel="canonical" href="https://mojones.github.io/pelican-p4b/tutorial/text.html">
+    <meta property="og:title" content="Python tutorial part two | Python for Biologists"/>
+    <meta property="og:url" content="https://mojones.github.io/pelican-p4b/tutorial/text.html" />
+    <meta property="og:description" content="" />
+    <meta property="og:site_name" content="Python for Biologists" />
+    <meta property="og:article:author" content="Martin" />
+        <meta property="og:article:published_time" content="2010-12-03T10:20:00+01:00" />
+        <meta property="og:article:modified_time" content="2010-12-05T19:30:00+01:00" />
+    <meta name="twitter:title" content="Python tutorial part two | Python for Biologists">
+    <meta name="twitter:description" content="">
+
+
+        <title>    Python tutorial part two  | Python for Biologists
+</title>
+
+                <link rel="stylesheet" type="text/css" href="https://mojones.github.io/pelican-p4b/theme/libs/bootstrap-4.2.1/dist/css/bootstrap.min.css">
+                <link rel="stylesheet" type="text/css" href="https://mojones.github.io/pelican-p4b/theme/libs/fontawesome-free-5.2.0-web/css/all.min.css">
+            <link rel="stylesheet" type="text/css" href="https://mojones.github.io/pelican-p4b/theme/css/custom.css" media="screen">
+            <link rel="stylesheet" type="text/css" href="https://mojones.github.io/pelican-p4b/theme/css/ipynb.css" media="screen">
+
+            <style>
+                #progressBar::-webkit-progress-value {
+                    background-color: ;
+                }
+                #progressBar::-moz-progress-bar {
+                    background-color: ;
+                }
+            </style>
+
+        <link href="https://mojones.github.io/pelican-p4b/theme/libs/prism.css" rel="stylesheet" />
+<script type="text/x-mathjax-config">
+
+MathJax.Hub.Config({
+tex2jax: { inlineMath: [["$","$"],["\\(","\\)"]] },
+"HTML-CSS": {
+  linebreaks: { automatic: true, width: "container" }
+}
+});
+
+</script>
+<script type="text/javascript"
+  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+    </head>
+    <body>
+        <div class="banner-wrapper row" style="background-color: #24292e;">
+            <div class="banner">
+                <nav id="navbar" class="navbar navbar-expand-md navbar-light bg-light container">
+                    <div class="container navbar-title">
+                        <a href="/"><img id="banner-logo" src="https://mojones.github.io/pelican-p4b/images/logo.png" style="height: 40px; margin: 6px 0;"></a>
+                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                    </div>
+                <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent" style="margin-bottom: 6.5px;margin-top: 6.5px">
+                    <ul class="navbar-nav">
+                        <li class="nav-item active">
+                            <a class="nav-link rem_15" href="https://mojones.github.io/pelican-p4b/python-for-biologists-online-course">Learn&nbsp;Python</a>
+                        </li>
+                    </ul>
+                    <ul class="navbar-nav">
+                        <li class="nav-item active">
+                            <a class="nav-link rem_15" href="https://mojones.github.io/pelican-p4b/aboutcontact">About</a>
+                        </li>
+                    </ul>
+                    <ul class="navbar-nav">
+                        <li id="second-item" class="nav-item">
+                            <a class="nav-link rem_15" href="https://mojones.github.io/pelican-p4b/tutorial">Python&nbsp;tutorial</a>
+                        </li>
+                     </ul>
+                     
+                     <ul class="navbar-nav">
+                        <li id="second-item" class="nav-item">
+                            <a class="nav-link rem_15" href="https://mojones.github.io/pelican-p4b/training-courses">Training&nbsp;courses</a>
+                        </li>
+                     </ul>
+                     
+                       <ul class="navbar-nav">
+                        <li id="second-item" class="nav-item">
+                            <a class="nav-link rem_15" href="https://mojones.github.io/pelican-p4b/biological-data-exploration-book">Data&nbsp;exploration&nbsp;book</a>
+                        </li>
+                     </ul>
+                     
+                </div>
+                </nav>
+            </div>
+        </div>
+        <div id="wrap">
+<div id="post-container" class="container post index">
+    <article>
+        <header class="pop-over">
+            <h1>Python tutorial part two</h1>
+            <div class="row justify-content-between no-margin">
+                <h4 class="article-category">Category > <a class="article-category-link" href="https://mojones.github.io/pelican-p4b/">tutorial</a></h4>
+                <span class="article-date">Fri 03 December 2010</span>
+            </div>
+            <div class="meta meta-tag no-margin no-border">
+                <div>
+                        <a href="https://mojones.github.io/pelican-p4b/tag/python.html" class="tag">python</a>
+                        <a href="https://mojones.github.io/pelican-p4b/tag/tutorial.html" class="tag">tutorial</a>
+                </div>
+            </div>
+            
+        </header>
+        <div class="article_content">
+            
+            <h2>Why are we so interested in working with text?</h2>
+<p>Open the first page of a book about learning Python, and the chances are that the first examples of code you'll see will involve numbers. There's a good reason for that: numbers are generally simpler to work with than text – there are not too many things you can do with them (once you've got basic arithmetic out of the way) and so they lend themselves well to examples that are easy to understand.  It's also a pretty safe bet that the average person reading a programming book is doing so because they need to do some number-crunching. </p>
+<p>So what makes this website different – why is this first page about text rather than numbers? The answer is that, as biologists, we have a particular interest in dealing with text rather than numbers (though of course, we'll need to learn how to manipulate numbers too). Specifically, we're interested in particular types of text that we call sequences – the DNA and protein sequences that constitute much of the data that we deal with in biology.</p>
+<p>There are other reasons that we have a greater interest in working with text than the average novice programmer. As scientists, the programs that we write often need to work as part of a pipeline, alongside other programs that have been written by other people. To do this, we'll often need to write code that can understand the output from some other program (we call this parsing) or produce output in a format that another program can operate on. Both of these tasks require manipulating text.</p>
+<p>I've hinted above that computers consider numbers and text to be different in some way. That's an important idea, and one that we'll return to in more detail later. For now, I want to introduce an important piece of jargon – the word <strong>string</strong>. String is the word we use to refer to a piece of text in a computer program (it just means a string of characters). From this point on we'll use the word string when we're talking about computer code, and we'll reserve the word sequence for when we're discussing biological sequences like DNA and protein. </p>
+<h2>Printing a message to the screen</h2>
+<p>The first thing we're going to learn is how to print a message to the screen. Here's a line of Python code that will cause a friendly message to be printed. </p>
+<div class="highlight"><pre><span></span><code>print(&quot;Hello world&quot;)
+</code></pre></div>
+
+<p>Let's take a look at the various bits of this line of code, and give some of them names:</p>
+<p>The whole line is called a <strong>statement</strong>.</p>
+<p><code>print()</code> is the name of a <strong>function</strong>. The function tells Python, in vague terms, what we want to do – in this case, we want to print some text. The function name is always followed by parentheses. </p>
+<p>The bits of text inside the parentheses are called the <strong>arguments</strong> to the function. In this case, we just have one argument (later on we'll see examples of functions that take more than one argument, in which case the arguments are separated by commas). </p>
+<p>The arguments tell Python what we want to do more specifically – in this case, the argument tells Python exactly what it is we want to print: the message "Hello World".</p>
+<p>Assuming you've followed the instructions in the previous page and set up your Python environment, type the line of code above into your favourite text editor, save it, and run it. You should see a single line of output like this:</p>
+<blockquote>
+<p>Hello world</p>
+</blockquote>
+<h2>Quotes are important</h2>
+<p>In normal writing, we only surround a bit of text in quotes when we want to show that they are being spoken. In Python, however, strings are always surrounded by quotes. That is how Python is able to tell the difference between the instructions (like the function name) and the data (the thing we want to print). We can use either single or double quotes for strings – Python will happily accept either. The following two statements behave exactly the same:</p>
+<div class="highlight"><pre><span></span><code>print(&quot;Hello world&quot;)
+print(&#39;Hello world&#39;)
+</code></pre></div>
+
+<p>Let's take a look at the output to prove it:</p>
+<blockquote>
+<p>Hello world
+Hello world</p>
+</blockquote>
+<p>You'll notice that the output above doesn't contain quotes – they are part of the code, not part of the string itself. If we do want to include quotes in the output, the easiest thing to do is use the other type of quotes for surrounding the string:</p>
+<div class="highlight"><pre><span></span><code>print(&quot;She said, &#39;Hello world&#39;&quot;)
+print(&#39;He said, &quot;Hello world&quot;&#39;)
+</code></pre></div>
+
+<p>The above code will give the following output:</p>
+<blockquote>
+<p>She said, 'Hello world'
+He said, "Hello world"</p>
+</blockquote>
+<p>Be careful when writing and reading code that involves quotes – you have to make sure that the quotes at the beginning and end of the string match up. </p>
+<h2>Use comments to annotate your code</h2>
+<p>Occasionally, we want to write some text in a program that is for humans to read, rather than for the computer to execute. We call this type of line a comment. To include a comment in your source code, start the line with a hash symbol:</p>
+<div class="highlight"><pre><span></span><code># this is a comment, it will be ignored by the computer
+print(&quot;Comments are very useful!&quot;)
+</code></pre></div>
+
+<p>You're going to see a lot of comments in the source code examples in this book, and also in the solutions to the exercises. Comments are a very useful way to document your code, for a number of reasons:</p>
+<ul>
+<li>You can put the explanation of what a particular bit of code does right next to the code itself. This makes it much easier to find the documentation for a line of code that is in the middle of a large program, without having to search through a separate document.</li>
+<li>Because the comments are part of the source code, they can never get mixed up or separated. In other words, if you are looking at the source code for a particular program, then you automatically have the documentation as well. In contrast, if you keep the documentation in a separate file, it can easily become separated from the code.</li>
+<li>Having the comments right next to the code acts as a reminder to update the documentation whenever you change the code. The only thing worse than undocumented code is code with old documentation that is no longer accurate!</li>
+</ul>
+<p>Don't make the mistake, by the way, of thinking that comments are only useful if you are planning on showing your code to somebody else. When you start writing your own code, you will be amazed at how quickly you forget the purpose of a particular section or statement. If you are working on a program on Friday afternoon, then come back to it on Monday morning, it will probably take you quite a while to pick up where you left off. </p>
+<p>Comments can help with this problem by giving you hints about the purpose of code, meaning that you spend less time trying to understand your old code, thus speeding up your progress. A side benefit is that writing a comment for a bit of code reinforces your understanding at the time you are doing it. A good habit to get into is writing a quick one-line comment above any line of code that does something interesting:</p>
+<div class="highlight"><pre><span></span><code># print a friendly greeting
+print(&quot;Hello world&quot;)
+</code></pre></div>
+
+<p>You'll see this technique used a lot in the code examples on this website, and I encourage you to use it for your own code as well.</p>
+<h2>Error messages and debugging</h2>
+<p>It may seem depressing to be talking about errors so soon! However, it's worth pointing out at this early stage that computer programs almost never work correctly the first time. Programming languages are not like natural languages – they have a very strict set of rules, and if you break any of them, the computer will not attempt to guess what you intended, but instead will stop running and present you with an error message. You're going to be seeing a lot of these error messages in your programming career, so let's get used to them as soon as possible. </p>
+<h3>Forgetting quotes</h3>
+<p>Here's one possible error we can make when printing a line of output – we can forget to include the quotes:</p>
+<div class="highlight"><pre><span></span><code>print(Hello world)
+</code></pre></div>
+
+<p>This is easily done, so let's take a look at the output we'll get if we try to run the above code:</p>
+<blockquote>
+<p>File "error.py", line 1❶
+   print(Hello world) 
+                   ^❷
+SyntaxError❸: invalid syntax </p>
+</blockquote>
+<p>Looking at the output, we see that the error occurs on the first line of the file❶.  Python's best guess at the location of the error is just before the close parentheses❷. Depending on the type of error, this can be wrong by quite a bit, so don't rely on it too much! </p>
+<p>The type of error is a <code>SyntaxError</code>❸, which mean that Python can't understand the code – it breaks the rules in some way (in this case, the rule that strings must be surrounded by quotation marks). We'll see different types of errors later.</p>
+<h3>Spelling mistakes</h3>
+<p>What happens if we miss-spell the name of the function?:</p>
+<div class="highlight"><pre><span></span><code>prin(&quot;Hello world&quot;)
+</code></pre></div>
+
+<p>We get a different type of error – a <code>NameError</code> – and the error message is a bit more helpful:</p>
+<div class="highlight"><pre><span></span><code>Traceback (most recent call last): 
+   File &quot;error.py&quot;, line 1, in &lt;module&gt; 
+    prin(&quot;Hello world&quot;)❶ 
+NameError: name &#39;prin&#39;❷ is not defined
+</code></pre></div>
+
+<p>This time, Python doesn't try to show us where on the line the error occurred, it just shows us the whole line❶ . The error message tells us which word Python doesn't understand❷, so in this case, it's quite easy to fix. </p>
+<h2>Splitting a statement over two lines</h2>
+<p>What if we want to print some output that spans multiple lines? For example, we want to print the word "Hello" on one line and then the word "World" on the next line – like this:</p>
+<blockquote>
+<p>Hello
+World</p>
+</blockquote>
+<p>We might try putting a new line in the middle of our string like this:</p>
+<div class="highlight"><pre><span></span><code>print(&quot;Hello
+World&quot;)
+</code></pre></div>
+
+<p>but that won't work and we'll get the following error message:</p>
+<blockquote>
+<p>File "error.py", line 1
+print("Hello ❶
+               ^ 
+SyntaxError: EOL while scanning string literal❷</p>
+</blockquote>
+<p>Python finds the error when it gets to the end of the first line of code❶. The error message❷ is a bit more cryptic than the others. EOL stands for End Of Line, and string literal means a string in quotes. So to put this error message in plain English: "I started reading a string in quotes, and I got to the end of the line before I came to the closing quotation mark".</p>
+<p>If splitting the line up doesn't work, then how do we get the output we want.....?</p>
+<h2>Printing special characters</h2>
+<p>The reason that the code above didn't work is that Python got confused about whether the new line was part of the string (which is what we wanted) or part of the source code (which is how it was actually interpreted). What we need is a way to include a new line as part of a string, and luckily for us, Python has just such a tool built in. To include a new line, we write a backslash followed by the letter n – Python knows that this is a special character and will interpret it accordingly. Here's the code which prints "Hello world" across two lines:</p>
+<div class="highlight"><pre><span></span><code># <span class="nv">how</span> <span class="nv">to</span> <span class="k">include</span> <span class="nv">a</span> <span class="nv">newline</span> <span class="nv">in</span> <span class="nv">the</span> <span class="nv">middle</span> <span class="nv">of</span> <span class="nv">a</span> <span class="nv">string</span>
+<span class="nv">print</span><span class="ss">(</span><span class="s2">&quot;</span><span class="s">Hello</span><span class="se">\n</span><span class="s">world</span><span class="s2">&quot;</span><span class="ss">)</span>
+</code></pre></div>
+
+<p>Notice that there's no need for a space before or after the newline. </p>
+<p>There are a few other useful special characters as well, all of which consist of a backslash followed by a letter. The only ones which you are likely to need are the tab character (\t) and the carriage return character (\r).  The tab character can sometimes be useful when writing a program that will produce a lot of output. The carriage return character works a bit like a newline in that it puts the cursor back to the start of the line, but doesn't actually start a new line, so you can use it to overwrite output – this is sometimes useful for long-running programs. </p>
+<h2>Storing strings in variables</h2>
+<p>OK, we've been playing around with the <code>print()</code> function for a while; let's introduce something new. We can take a string and assign a name to it using an equals sign – we call this a variable:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># store a short DNA sequence in the variable my_dna</span>
+<span class="n">my_dna</span> <span class="o">=</span> <span class="s2">&quot;ATGCGTA&quot;</span>
+</code></pre></div>
+
+<p>The variable <code>my_dna</code> now points to the string "ATGCGTA". We call this assigning a variable, and once we've done it, we can use the variable name instead of the string itself – for example, we can use it in a <code>print()</code> statement:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># store a short DNA sequence in the variable my_dna</span>
+<span class="n">my_dna</span> <span class="o">=</span> <span class="s2">&quot;ATGCGTA&quot;</span>
+
+<span class="c1"># now print the DNA sequence</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">my_dna</span><span class="p">)</span>
+</code></pre></div>
+
+<p>Notice that when we use the variable in a <code>print()</code> statement, we don't need any quotation marks – the quotes are part of the string, so they are already "built in" to the variable <code>my_dna</code>. Also notice that this example includes a blank line to separate the different bits and make it easier to read. We are allowed to put as many blank lines as we like in our programs when writing Python – the computer will ignore them. </p>
+<p>A common error is to include quotes around a variable name:</p>
+<div class="highlight"><pre><span></span><code>my_dna = &quot;ATGCGTA&quot;
+print(&quot;my_dna&quot;)
+</code></pre></div>
+
+<p>but if we do this, then Python prints the name of the variable rather than its contents:</p>
+<blockquote>
+<p>my_dna</p>
+</blockquote>
+<p>We can change the value of a variable as many times as we like once we've created it:</p>
+<div class="highlight"><pre><span></span><code>my_dna = &quot;ATGCGTA&quot;
+print(my_dna)
+
+# change the value of my_dna
+my_dna = &quot;TGGTCCA&quot;
+</code></pre></div>
+
+<p>Here's a very important point that trips many beginners up: variable names are <strong>arbitrary</strong> – that means that we can pick whatever we like to be the name of a variable. So our code above would work in exactly the same way if we picked a different variable name:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># store a short DNA sequence in the variable banana</span>
+<span class="n">banana</span> <span class="o">=</span> <span class="s2">&quot;ATGCGTA&quot;</span>
+
+<span class="c1"># now print the DNA sequence</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">banana</span><span class="p">)</span>
+</code></pre></div>
+
+<p>What makes a good variable name? Generally, it's a good idea to use a variable name that gives us a clue as to what the variable refers to. In this example, <code>my_dna</code> is a good variable name, because it tells us that the content of the variable is a DNA sequence. Conversely, <code>banana</code> is a bad variable name, because it doesn't really tell us anything about the value that's stored.  As you read through the code examples in these pages, you'll get a better idea of what constitutes good and bad variable names. </p>
+<p>This idea – that names for things are arbitrary, and can be anything we like – is a theme that will occur many times, so it's important to keep it in mind. Occasionally you will see a variable name that looks like it has some sort of relationship with the value it points to:</p>
+<div class="highlight"><pre><span></span><code>my_file = &quot;my_file.txt&quot;
+</code></pre></div>
+
+<p>but don't be fooled! Variable names and strings are separate things.</p>
+<p>I said above that variable names can be anything we want, but it's actually not quite that simple – there are some rules we have to follow. We are only allowed to use letters, numbers, and underscores, so we can't have variable names that contain odd characters like £, ^ or %. We are not allowed to start a name with a number (though we can use numbers in the middle or at the end of a name).  Finally, we can't use a word that's already built in to the Python language like "print". </p>
+<p>It's also important to remember that variable names are case sensitive, so <code>my_dna</code>, <code>MY_DNA</code>, <code>My_DNA</code> and <code>My_Dna</code> are all different variables. Technically this means that you could use all four of those names in a Python program to store different values, but please don't do this – it is very easy to become confused when you use very similar variable names. </p>
+<h2>Tools for manipulating strings</h2>
+<p>Now we know how to store and print strings, we can take a look at a few of the facilities that Python has for manipulating them. Python has many built in tools for carrying out common operations, and in this next section we'll take a look at them one-by-one. </p>
+<h3>Concatenation</h3>
+<p>We can concatenate (stick together) two strings using the <code>+</code> symbol. This symbol will join together the string on the left with the string on the right:</p>
+<div class="highlight"><pre><span></span><code>my_dna = &quot;AATT&quot; + &quot;GGCC&quot;
+print(my_dna)
+</code></pre></div>
+
+<p>Let's take a look at the output:</p>
+<blockquote>
+<p>AATTGGCC</p>
+</blockquote>
+<p>In the above example, the things being concatenated were strings, but we can also use variables that point to strings:</p>
+<div class="highlight"><pre><span></span><code>upstream = &quot;AAA&quot;
+my_dna = upstream + &quot;ATGC&quot;
+# my_dna is now &quot;AAAATGC&quot;
+</code></pre></div>
+
+<p>We can even join multiple strings together in one go:</p>
+<div class="highlight"><pre><span></span><code>upstream = &quot;AAA&quot;
+downstream = &quot;GGG&quot;
+my_dna = upstream + &quot;ATGC&quot; + downstream
+# my_dna is now &quot;AAAATGCGGG&quot;
+</code></pre></div>
+
+<p>It's important to realize that the result of concatenating two strings together is itself a string. So it's perfectly OK to use a concatenation inside a <code>print</code> statement:</p>
+<div class="highlight"><pre><span></span><code>print(&quot;Hello&quot; + &quot; &quot; + &quot;world&quot;)
+</code></pre></div>
+
+<p>As we'll see in the rest of these pages, using one tool inside another is quite a common thing to do in Python.</p>
+<h3>Finding the length of a string</h3>
+<p>Another useful built in tool in Python is the <code>len()</code> function (len is short for length). Just like the <code>print()</code> function, the <code>len()</code> function takes a single argument (take a quick look back at when we were discussing the <code>print()</code> function for a reminder about what arguments are) which is a string. However, the behaviour of <code>len()</code> is quite different to that of <code>print()</code>. Instead of outputting text to the screen, <code>len()</code> outputs a value that can be stored – we call this the <strong>return value</strong>. In other words, if we write a program that uses <code>len()</code> to calculate the length of a string, the program will run but we won't see any output:</p>
+<div class="highlight"><pre><span></span><code># this line doesn&#39;t produce any output
+len(&quot;ATGC&quot;)
+</code></pre></div>
+
+<p>If we want to actually use the return value, we need to store it in a variable, and then do something useful with it (like printing it):</p>
+<div class="highlight"><pre><span></span><code>dna_length = len(&quot;AGTC&quot;)
+print(dna_length)
+</code></pre></div>
+
+<p>There's another interesting thing about the <code>len()</code> function: the result (or return value) is not a string, it's a number. This is a very important idea so I'm going to write it out in bold: <strong>Python treats strings and numbers differently.</strong></p>
+<p>We can see that this is the case if we try to concatenate together a number and a string. Consider this short program which calculates the length of a DNA sequence and then prints a message telling us the length:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># store the DNA sequence in a variable</span>
+<span class="n">my_dna</span> <span class="o">=</span> <span class="s2">&quot;ATGCGAGT&quot;</span>
+
+<span class="c1"># calculate the length of the sequence and store it in a variable</span>
+<span class="n">dna_length</span> <span class="o">=</span> <span class="n">len</span><span class="p">(</span><span class="n">my_dna</span><span class="p">)</span>
+
+<span class="c1"># print a message telling us the DNA sequence lenth</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The length of the DNA sequence is &quot;</span> <span class="o">+</span> <span class="n">dna_length</span><span class="p">)</span>
+</code></pre></div>
+
+<p>When we try to run this program, we get the following error:</p>
+<blockquote>
+<p>print("The length of the DNA sequence is " + dna_length) 
+TypeError: cannot concatenate 'str' and 'int' objects❶</p>
+</blockquote>
+<p>The error message❶ is short but informative: "cannot concatenate 'str' and 'int' objects". Python is complaining that it doesn't know how to concatenate a string (which it calls <code>str</code> for short) and a number (which it calls <code>int</code> – short for integer).  Strings and numbers are examples of types – different kinds of information that can exist inside a program.</p>
+<p>Happily, Python has a built in solution – a function called <code>str()</code> which turns a number into a string so that we can print it. Here's how we can modify our program to use it – I've removed the comments from this version to make it a bit more compact:</p>
+<div class="highlight"><pre><span></span><code>my_dna = &quot;ATGCGAGT&quot;
+dna_length = len(my_dna)
+
+print(&quot;The length of the DNA sequence is &quot; + str(dna_length))
+</code></pre></div>
+
+<p>The only thing we have changed is that we've replace <code>dna_length</code> with <code>str(dna_length)</code> inside the <code>print()</code> statement. Notice that because we're using one function (<code>str()</code>) inside another function (<code>print()</code>), our statement now ends with two closing parentheses. </p>
+<p>Let's take a moment to refresh our memory of all the new terms we've learned by writing out what we need to know about the <code>str()</code> function: </p>
+<p><em><code>str()</code> is a function which takes one argument (whose type is number), and returns a value (whose type is string) representing that number.</em> </p>
+<p>If you're unsure about the meanings of any of the words in italics, skip back to the earlier parts of this page where we discussed them. Understanding how types work is key to avoiding many of the frustrations which new programmers typically encounter, so make sure the idea is clear in your mind before moving on with the rest of this page.</p>
+<p>Sometimes we need to go the other way – we have a string that we need to turn into a number. The function for doing this is called <code>int()</code>, which is short for integer. It takes a string as its argument and returns a number:</p>
+<div class="highlight"><pre><span></span><code>number = 3 + int(&#39;4&#39;)
+# number is now 7
+</code></pre></div>
+
+<p>We won't need to use <code>int()</code> for a while, but once we start reading information from files later on it will become very useful. </p>
+<h3>Changing case</h3>
+<p>We can convert a string tolower case by using a new type of syntax – a <strong>method</strong> that belongs to strings. A method is like a function, but instead of being built in to the Python language, it belongs to a particular type. The method we are talking about here is called <code>lower()</code>, and we say that it belongs to the string type. Here's how we use it:</p>
+<div class="highlight"><pre><span></span><code>my_dna = &quot;ATGC&quot;
+# print my_dna in lower case
+print(my_dna.lower())
+</code></pre></div>
+
+<p>Notice how using a method looks different to using a function. When we use a function like <code>print()</code> or <code>len()</code>, we write the function name first and the arguments go in parentheses:</p>
+<div class="highlight"><pre><span></span><code>print(&quot;ATGC&quot;)
+len(my_dna)
+</code></pre></div>
+
+<p>When we use a method, we write the name of the variable first, followed by a period, then the name of the method, then the method arguments in parentheses. For the example we're looking at here, <code>lower()</code>, there is no argument, but we still need to put the opening and closing parentheses. </p>
+<p>It's important to notice that the <code>lower()</code> method does not actually change the variable; instead it returns a copy of the variable in lower case. We can prove that it works this way by printing the variable before and after running <code>lower()</code>. Here's the code to do so:</p>
+<div class="highlight"><pre><span></span><code><span class="n">my_dna</span> <span class="o">=</span> <span class="s2">&quot;ATGC&quot;</span>
+
+<span class="c1"># print the variable</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;before: &quot;</span> <span class="o">+</span> <span class="n">my_dna</span><span class="p">)</span>
+
+<span class="c1"># run the lower method and store the result</span>
+<span class="n">lowercase_dna</span> <span class="o">=</span> <span class="n">my_dna</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
+
+<span class="c1"># print the variable again</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;after: &quot;</span> <span class="o">+</span> <span class="n">my_dna</span><span class="p">)</span>
+</code></pre></div>
+
+<p>and here's the output we get:</p>
+<blockquote>
+<p>before: ATGC 
+after: ATGC </p>
+</blockquote>
+<p>Just like the <code>len()</code> function, in order to actually do anything useful with the <code>lower()</code> method, we need to store the result (or print it right away).</p>
+<p>Because the <code>lower()</code> method belongs to the string type, we can only use it on variables that are strings. If we try to use it on a number:</p>
+<div class="highlight"><pre><span></span><code>my_number = len(&quot;AGTC&quot;)
+# my_number is 4
+print(my_number.lower())
+</code></pre></div>
+
+<p>we will get an error that looks like this:</p>
+<blockquote>
+<p>AttributeError: 'int' object has no attribute 'lower'</p>
+</blockquote>
+<p>The error message is a bit cryptic, but hopefully you can grasp the meaning: something that is a number (an int, or integer) does not have a <code>lower()</code> method. This is a good example of the importance of types in Python code: we can only use methods on the type that they belong to.</p>
+<p>Before we move on, let's just mention that there is another method that belongs to the string type called <code>upper()</code> – you can probably guess what it does! </p>
+<h2>Replacement</h2>
+<p>Here's another example of a useful method that belongs to the string type: <code>replace()</code>. <code>replace()</code> is slightly different from anything we've seen before – it takes two arguments (both strings) and returns a copy of the variable where all occurrences of the first string are replaced by the second string. That's quite a long-winded description, so here are a few examples to make things clearer:</p>
+<div class="highlight"><pre><span></span><code><span class="n">protein</span> <span class="o">=</span> <span class="s2">&quot;vlspadktnv&quot;</span>
+
+<span class="c1"># replace valine with tyrosine</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">protein</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;v&quot;</span><span class="p">,</span> <span class="s2">&quot;y&quot;</span><span class="p">))</span>
+
+<span class="c1"># we can replace more than one character</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">protein</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;vls&quot;</span><span class="p">,</span> <span class="s2">&quot;ymt&quot;</span><span class="p">))</span>
+
+<span class="c1"># the original variable is not affected</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">protein</span><span class="p">)</span>
+</code></pre></div>
+
+<p>And this is the output we get:</p>
+<blockquote>
+<p>ylspadktny<br/> 
+ymtpadktnv<br/>
+vlspadktnv <br/></p>
+</blockquote>
+<p>Notice that in the first line out output, both "v" characters have been replaced with "y". We'll take a look at more tools for carrying out string replacement when we look at regular expressions.</p>
+<h2>Extracting part of a string</h2>
+<p>What do we do if we have a long string, but we only want a short portion of it? This is known as taking a <strong>substring</strong>, and it has its own notation in Python. To get a substring, we follow the variable name with a pair of square brackets which enclose a start and stop position, separated by a colon. Again, this is probably easier to visualize with a couple of examples – let's reuse our protein sequence from before:</p>
+<div class="highlight"><pre><span></span><code><span class="nv">protein</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="s">vlspadktnv</span><span class="s2">&quot;</span>
+
+# <span class="nv">print</span> <span class="nv">positions</span> <span class="nv">three</span> <span class="nv">to</span> <span class="nv">five</span>
+<span class="nv">print</span><span class="ss">(</span><span class="nv">protein</span>[<span class="mi">3</span>:<span class="mi">5</span>]<span class="ss">)</span>
+
+# <span class="nv">positions</span> <span class="nv">start</span> <span class="nv">at</span> <span class="nv">zero</span>, <span class="nv">not</span> <span class="nv">one</span>
+<span class="nv">print</span><span class="ss">(</span><span class="nv">protein</span>[<span class="mi">0</span>:<span class="mi">6</span>]<span class="ss">)</span>
+
+# <span class="k">if</span> <span class="nv">we</span> <span class="nv">miss</span> <span class="nv">out</span> <span class="nv">the</span> <span class="nv">last</span> <span class="nv">number</span>, <span class="nv">it</span> <span class="nv">goes</span> <span class="nv">to</span> <span class="nv">the</span> <span class="k">end</span> <span class="nv">of</span> <span class="nv">the</span> <span class="nv">string</span>
+<span class="nv">print</span><span class="ss">(</span><span class="nv">protein</span>[<span class="mi">2</span>:]<span class="ss">)</span>
+</code></pre></div>
+
+<p>and here's the output:</p>
+<blockquote>
+<p>pa
+vlspad
+spadktnv</p>
+</blockquote>
+<p>There are two important things to notice here. Firstly, we actually start counting from position zero, rather than one – in other words, position 3 is actually the fourth character.  This explains why the first character of the first line of output is <code>p</code> and not <code>s</code> as you might think.  Secondly, the positions are inclusive at the start, but exclusive at the stop. In other words, the expression <code>protein[3:5]</code> gives us everything starting at the fourth character, and stopping just before the sixth character (i.e. characters four and five). 
+If we just give a single number in the square brackets, we'll just get a single character:</p>
+<div class="highlight"><pre><span></span><code>protein = &quot;vlspadktnv&quot;
+first_residue = protein[2]
+</code></pre></div>
+
+<p>We'll learn a lot more about this type of notation, and what we can do with it, in the next section. </p>
+<h2>Counting and finding substrings</h2>
+<p>A very common job in biology is to count the number of times some pattern occurs in a DNA or protein sequence. In computer programming terms, what that translates to is counting the number of times a substring occurs in a string. The method that does the job is called <code>count()</code>. It takes a single argument whose type is string, and returns the number of times that the argument is found in the variable. The return type is a number, so be careful about how you use it!</p>
+<p>Let's use our protein sequence one last time as an example. Remember that we have to use our old friend <code>str()</code> to turn the counts into strings so that we can print them. </p>
+<div class="highlight"><pre><span></span><code>protein = &quot;vlspadktnv&quot;
+# count amino acid residues
+valine_count = protein.count(&#39;v&#39;)
+lsp_count = protein.count(&#39;lsp&#39;)
+tryptophan_count = protein.count(&#39;w&#39;)
+
+# now print the counts
+print(&quot;valines: &quot; + str(valine_count))
+print(&quot;lsp: &quot; + str(lsp_count))
+print(&quot;tryptophans: &quot; + str(tryptophan_count))
+</code></pre></div>
+
+<p>The output shows how the <code>count()</code> method behaves:</p>
+<blockquote>
+<p>valines: 2 
+lsp: 1 
+tryptophans: 0 </p>
+</blockquote>
+<p>A closely related problem to counting substrings is finding their location. What if instead of counting the number of proline residues in our protein sequence we want to know where they are? The <code>find()</code> method will give us the answer, at least for simple cases. <code>find()</code> takes a single string argument, just like <code>count()</code>, and returns a number which is the position at which that substring first appears in the string (in computing, we call that the <strong>index</strong> of the substring). </p>
+<p>Remember that in Python we start counting from zero rather than one, so position 0 is the first character, position 4 is the fifth character, etc. A couple of examples:</p>
+<div class="highlight"><pre><span></span><code>protein = &quot;vlspadktnv&quot; 
+print(str(protein.find(&#39;p&#39;))) 
+print(str(protein.find(&#39;kt&#39;))) 
+print(str(protein.find(&#39;w&#39;)))
+</code></pre></div>
+
+<p>And the output:</p>
+<blockquote>
+<p>3 
+6
+-1 </p>
+</blockquote>
+<p>Notice the behaviour of <code>find()</code> when we ask it to locate a substring that doesn't exist – we get -1 as the answer. </p>
+<p>Both <code>count()</code> and <code>find()</code> have a pretty serious limitation: you can only search for exact substrings. If you need to count the number of occurrences of a variable protein motif, or find the position of a variable transcription factor binding site, they will not help you. Take a look at the page on regular expressions for a set of tools that can do those kinds of jobs. </p>
+<p>Of the tools we've discussed in this section, three – <code>replace()</code>, <code>count()</code> and <code>find()</code> – require at least two strings to work, so be careful that you don't get confused about the order – remember that:</p>
+<div class="highlight"><pre><span></span><code>my_dna.count(my_motif)
+</code></pre></div>
+
+<p>is not the same as:</p>
+<div class="highlight"><pre><span></span><code>my_motif.count(my_dna)
+</code></pre></div>
+
+<h2>Splitting up a string into multiple bits</h2>
+<p>An obvious question which biologists often ask when learning to program is "how do we split a string (e.g. a DNA sequence) into multiple pieces?" That's a common job in biology, but unfortunately we can't do it yet using the tools from this chapter. We'll talk about various different ways of splitting strings soon. I mention it here just to reassure you that we will learn how to do it eventually!</p>
+<h3>Recap</h3>
+<p>We started this page talking about strings and how to work with them, but along the way we had to take a lot of diversions, all of which were necessary to understand how the different string tools work. Thankfully, that means that we've covered most of the nuts and bolts of the Python language, which will make future sections go much more smoothly.</p>
+<p>We've learned about some general features of the Python programming language like</p>
+<ul>
+<li>the difference between functions, statements and arguments</li>
+<li>the importance of comments and how to use them</li>
+<li>how to use Python's error messages to fix bugs in our programs</li>
+<li>how to store values in variables</li>
+<li>the way that types work, and the importance of understanding them</li>
+<li>the difference between functions and methods, and how to use them both</li>
+<li>And we've encountered some tools that are specifically for working with strings:</li>
+<li>concatenation</li>
+<li>different types of quotes</li>
+<li>special characters</li>
+<li>changing the case of a string</li>
+<li>finding and counting substrings </li>
+<li>replacing bits of a string with something new</li>
+<li>extracting bits of a string to make a new string</li>
+</ul>
+<p>Many of the above topics will crop up again in future sections, and will be discussed in more detail, but you can always return to this page if you want to brush up on the basics. The exercises for this section will allow you to practice using the string manipulation tools and to become familiar with them. They'll also give you the chance to practice building bigger programs by using the individual tools as building blocks.</p>
+<h2>Exercises</h2>
+<p>Reminder: the descriptions of the exercises are brief and may be kind of ambiguous – just like requirements for programs you will write in real life! You can always find complete solutions in the <a href="/python-books">Python for Biolgoists books</a>. </p>
+<h3>Calculating AT content</h3>
+<p>Here's a short DNA sequence:</p>
+<div class="highlight"><pre><span></span><code>ACTGATCGATTACGTATAGTATTTGCTATCATACATATATATCGATGCGTTCAT
+</code></pre></div>
+
+<p>Write a program that will print out the AT content of this DNA sequence (i.e. the proportion of bases that are either A or T). Hint: you can use normal mathematical symbols like add (+), subtract (-), multiply (*), divide (/) and parentheses to carry out calculations on numbers in Python. </p>
+<p>Reminder: if you're using Python 2 rather than Python 3, include this line at the top of your program:</p>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="n">division</span>
+</code></pre></div>
+
+<h3>Complementing DNA</h3>
+<p>Here's a short DNA sequence:</p>
+<div class="highlight"><pre><span></span><code>ACTGATCGATTACGTATAGTATTTGCTATCATACATATATATCGATGCGTTCAT
+</code></pre></div>
+
+<p>Write a program that will print the complement of this sequence. To find the complement we replace each base with its pair: A with T, T with A, C with G and G with C. </p>
+<h3>Restriction fragment lengths</h3>
+<p>Here's a short DNA sequence:</p>
+<div class="highlight"><pre><span></span><code>ACTGATCGATTACGTATAGTAGAATTCTATCATACATATATATCGATGCGTTCAT
+</code></pre></div>
+
+<p>The sequence contains a recognition site for the EcoRI restriction enzyme, which cuts at the motif <code>G*AATTC</code> (the position of the cut is indicated by an asterisk). Write a program which will calculate the size of the two fragments that will be produced when the DNA sequence is digested with EcoRI.</p>
+<h3>Splicing out introns, part one</h3>
+<p>Here's a short section of genomic DNA:</p>
+<div class="highlight"><pre><span></span><code>ATCGATCGATCGATCGACTGACTAGTCATAGCTATGCATGTAGCTACTCGATCGATCGATCGATCGATCGATCGATCGATCGATCATGCTATCATCGATCGATATCGATGCATCGACTACTAT
+</code></pre></div>
+
+<p>It comprises two exons and an intron. The first exon runs from the start of the sequence to base number 63 (starting counting from zero), and the second exon runs from base 91 (also counting from zero) to the end of the sequence. Write a program that will print just the coding regions of the DNA sequence. </p>
+<h3>Splicing out introns, part two</h3>
+<p>Using the data from part one, write a program that will calculate what percentage of the DNA sequence is coding.</p>
+<p>Reminder: if you're using Python 2 rather than Python 3, include this line at the top of your program:
+from <strong>future</strong> import division</p>
+<h3>Splicing out introns, part three</h3>
+<p>Using the data from part one, write a program that will print out the original genomic DNA sequence with coding bases in uppercase and non-coding bases in lowercase. </p>
+<h2>Solutions</h2>
+<p>You can find solutions to all the exercises, along with explanations of how they work, by signing up for the <a href="/python-for-biologists-online-course">online course</a>.</p>
+        </div>
+        <hr/>
+        <hr/>
+    </article>
+</div>
+        </div>
+<footer class="footer">
+   <div class="container bottom_border">
+   <ul class="foote_bottom_ul_amrc">
+    <h3 style="color:white;"  class="text-center">Sign up for the newsletter</h3>
+    <h5 style="color:white;"  class="text-center">Links to the best biological Python and bioinformatics content on the web, no spam.</h3>
+     <script async src="https://eomail5.com/form/fbc6d37e-0672-11ec-96e5-06b4694bee2a.js" data-form="fbc6d37e-0672-11ec-96e5-06b4694bee2a"></script>
+     </ul>
+   </div>
+   <div class="container">
+      <ul class="foote_bottom_ul_amrc">
+         <li><a href="/">HOME</a></li>
+         <li><a href="">ABOUT</a></li>
+         <li><a href="">ARCHIVE</a></li>
+      </ul>
+      <!--foote_bottom_ul_amrc ends here-->
+      <p class="text-center"></p>
+        
+          
+      </div>
+
+      <!--social_footer_ul ends here-->
+   </div>
+</footer>
+            <script type="text/javascript" src="https://mojones.github.io/pelican-p4b/theme/libs/jquery.min.js"></script>
+            <script type="text/javascript" src="https://mojones.github.io/pelican-p4b/theme/libs/bootstrap-4.2.1/dist/js/bootstrap.bundle.min.js"></script>
+
+        <script src="https://mojones.github.io/pelican-p4b/theme/libs/prism.js"></script>
+        <script src="https://mojones.github.io/pelican-p4b/theme/libs/Countable.js"></script>
+
+        <script>
+            Prism.plugins.NormalizeWhitespace.setDefaults({
+                'remove-trailing': true,
+                'remove-indent': true,
+                'left-trim': true,
+                'right-trim': true,
+                /*'break-lines': 80,
+                'indent': 2,
+                'remove-initial-line-feed': false,
+                'tabs-to-spaces': 4,
+                'spaces-to-tabs': 4*/
+            });
+        </script>
+
+
+        <script type="text/javascript" src="https://mojones.github.io/pelican-p4b/theme/js/custom.js"></script>
+            <script>
+                function validateForm(query)
+                {
+                    return (query.length > 0);
+                }
+            </script>
+    </body>
+</html>
+

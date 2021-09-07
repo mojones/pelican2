@@ -45,4 +45,6 @@ CARD_POSTS = {}
 
 THEME = 'themes/pelican-aegis-jupyter-theme'
 
+OUTPUT_PATH = 'docs/'
+
 

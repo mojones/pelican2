@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+
+            <meta name="author" content="Martin" />
+
+
+
+                <meta property="og:type" content="article" />
+            <meta name="twitter:card" content="summary"/>
+
+        <meta name="keywords" content="python, tutorial, books, "/>
+
+        <link rel="canonical" href="https://mojones.github.io/pelican-p4b/biological-data-exploration-book.html">
+    <meta property="og:title" content="Biological Data Exploration book | Python for Biologists"/>
+    <meta property="og:url" content="https://mojones.github.io/pelican-p4b/biological-data-exploration-book.html" />
+    <meta property="og:description" content="" />
+    <meta property="og:site_name" content="Python for Biologists" />
+    <meta property="og:article:author" content="Martin" />
+        <meta property="og:article:published_time" content="2010-12-03T10:20:00+01:00" />
+        <meta property="og:article:modified_time" content="2010-12-05T19:30:00+01:00" />
+    <meta name="twitter:title" content="Biological Data Exploration book | Python for Biologists">
+    <meta name="twitter:description" content="">
+
+
+        <title>    Biological Data Exploration book  | Python for Biologists
+</title>
+
+                <link rel="stylesheet" type="text/css" href="https://mojones.github.io/pelican-p4b/theme/libs/bootstrap-4.2.1/dist/css/bootstrap.min.css">
+                <link rel="stylesheet" type="text/css" href="https://mojones.github.io/pelican-p4b/theme/libs/fontawesome-free-5.2.0-web/css/all.min.css">
+            <link rel="stylesheet" type="text/css" href="https://mojones.github.io/pelican-p4b/theme/css/custom.css" media="screen">
+            <link rel="stylesheet" type="text/css" href="https://mojones.github.io/pelican-p4b/theme/css/ipynb.css" media="screen">
+
+            <style>
+                #progressBar::-webkit-progress-value {
+                    background-color: ;
+                }
+                #progressBar::-moz-progress-bar {
+                    background-color: ;
+                }
+            </style>
+
+        <link href="https://mojones.github.io/pelican-p4b/theme/libs/prism.css" rel="stylesheet" />
+<script type="text/x-mathjax-config">
+
+MathJax.Hub.Config({
+tex2jax: { inlineMath: [["$","$"],["\\(","\\)"]] },
+"HTML-CSS": {
+  linebreaks: { automatic: true, width: "container" }
+}
+});
+
+</script>
+<script type="text/javascript"
+  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+    </head>
+    <body>
+        <div class="banner-wrapper row" style="background-color: #24292e;">
+            <div class="banner">
+                <nav id="navbar" class="navbar navbar-expand-md navbar-light bg-light container">
+                    <div class="container navbar-title">
+                        <a href="/"><img id="banner-logo" src="https://mojones.github.io/pelican-p4b/images/logo.png" style="height: 40px; margin: 6px 0;"></a>
+                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                    </div>
+                <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent" style="margin-bottom: 6.5px;margin-top: 6.5px">
+                    <ul class="navbar-nav">
+                        <li class="nav-item active">
+                            <a class="nav-link rem_15" href="https://mojones.github.io/pelican-p4b/python-for-biologists-online-course">Learn&nbsp;Python</a>
+                        </li>
+                    </ul>
+                    <ul class="navbar-nav">
+                        <li class="nav-item active">
+                            <a class="nav-link rem_15" href="https://mojones.github.io/pelican-p4b/aboutcontact">About</a>
+                        </li>
+                    </ul>
+                    <ul class="navbar-nav">
+                        <li id="second-item" class="nav-item">
+                            <a class="nav-link rem_15" href="https://mojones.github.io/pelican-p4b/tutorial">Python&nbsp;tutorial</a>
+                        </li>
+                     </ul>
+                     
+                     <ul class="navbar-nav">
+                        <li id="second-item" class="nav-item">
+                            <a class="nav-link rem_15" href="https://mojones.github.io/pelican-p4b/training-courses">Training&nbsp;courses</a>
+                        </li>
+                     </ul>
+                     
+                       <ul class="navbar-nav">
+                        <li id="second-item" class="nav-item">
+                            <a class="nav-link rem_15" href="https://mojones.github.io/pelican-p4b/biological-data-exploration-book">Data&nbsp;exploration&nbsp;book</a>
+                        </li>
+                     </ul>
+                     
+                </div>
+                </nav>
+            </div>
+        </div>
+        <div id="wrap">
+<div id="post-container" class="container post index">
+    <article>
+
+        <div class="article_content">
+            
+            <h1>Time to get to grips with your data</h1>
+<h3>With Python, pandas and seaborn in your toolbox, you too can develop data exploration superpowers.</h3>
+<p><img src="/images/bde_book.png" alt="drawing" width="300" style="float:right; margin:50px;"/></p>
+<p>In biological research, we're currently in a <strong>golden age</strong> of data. It's never been easier to assemble large datasets to probe biological questions. </p>
+<p>But these large datasets come with their own problems:</p>
+<ul>
+<li>How to clean and validate data? </li>
+<li>How to combine datasets from multiple sources? </li>
+<li>And how to look for patterns in large, complex datasets and display your findings?</li>
+</ul>
+<p><strong>These are the questions that come up again and again, from multiple researchers, in every course I run.</strong></p>
+<p>The solution to these problems comes in the form of Python's scientific software stack. The combination of a friendly, expressive language and high quality packages makes a fantastic set of tools for data exploration. </p>
+<p>But the packages themselves can be <strong>hard to get to grips with</strong>. It's difficult to know where to get started, or which sets of tools will be most useful. </p>
+<p>You may have already encountered this. If you look at the matplotlib website, it's clear that it's a powerful charting tool - but looking at the tutorial can be daunting. The same goes for pandas: it can carry out almost any type of data manipulation, but that same power makes it hard to get to grips with.</p>
+<p><br/></p>
+<hr>
+<p><br/>
+Happily, learning to use Python effectively for data exploration is a <strong>superpower that you can learn</strong>. With a basic knowledge of Python, pandas (for data manipulation) and seaborn (for data visualization) you'll be able to understand complex datasets quickly and mine them for biological insight. </p>
+<p>You'll be able to make <strong>beautiful, informative charts</strong> for posters, papers and presentations, and rapidly update them to reflect new data or test new hypotheses. </p>
+<p>And you'll be able to quickly make sense of datasets from other projects and publications - millions of rows of data will no longer be a scary prospect!</p>
+<p>In this book, I have drawn on years of teaching experience to give you the tools you need to answer your research questions. Starting with the basics, you'll learn how to use Python, pandas, seaborn and matplotlib effectively using biological examples throughout. </p>
+<p><br/></p>
+<hr>
+<p><br/></p>
+<h3><strong>Just the best bits</strong> of the best data exploration packages</h3>
+<p><img src="/images/pages1.png" alt="drawing" width="300" style="float:right; margin:50px"/></p>
+<p>Rather than overwhelm you with information, the book concentrates on the tools most useful for biological data. Full color illustrations show hundreds of examples covering dozens of different chart types, with complete code samples that you can tweak and use for your own work. </p>
+<p>The book is designed to help you get over the most common obstacles that we encounter with biological data.</p>
+<p>You'll learn what to do if:</p>
+<ul>
+<li>your input files have errors, or missing data.</li>
+<li>your input files are too big to fit in memory</li>
+<li>you need to combine data from multiple sources</li>
+<li>you have to visualize datasets with thousands of rows or millions of columns</li>
+<li>you need to make complex filters for your data</li>
+<li>your data are in the wrong format for the analysis you want to do</li>
+</ul>
+<p>Once you understand the basics of pandas, seaborn and matplotlib, the chapters on visualization will show you how to make sophisticated charts with minimal code and how to best to use color to make clear charts. </p>
+<p><br/><br/></p>
+<p><img src="/images/laptop1.png" alt="drawing" width="500" style="float:right; margin:30px"/></p>
+<h3>All the chart types you’ll need</h3>
+<p>The book covers the most basic charts that we use every day - histograms, scatter plots and boxplots - and more exotic charts like clustermaps and violin plots - all with full working code and biological examples. </p>
+<p><br style="clear:both" /></p>
+<hr>
+<p><br/></p>
+<p>For getting started with data exploration in Python, the step-by-step approach offered by the book beats everything else. But the real power of Python's data processing stack becomes apparent when you combine the individual tools in a single project.</p>
+<h4>That's where the videos come in.</h4>
+<p>In each of the four detailed videos, we'll take a single biological dataset and walk through all the steps involved in analyzing it, starting with publicly available data files and ending with our final figures. The videos give us a chance to explore different types of data, demonstrate tips and techniques that don't fit in the book, and use visualization to answer interesting biological questions. </p>
+<p><img src="/images/laptop2.png" alt="drawing" width="500" style="float:right; margin:30px"/></p>
+<h3>Video 1: VCF files</h3>
+<p>Video one discusses reading a large variant call format (VCF) file taken from the 1000 genomes project</p>
+<p>In it you'll learn:</p>
+<ul>
+<li>how to benchmark and optimize time/memory usage for large files</li>
+<li>how to chunk input to deal with files too big to fit in memory</li>
+<li>how to filter genotypes</li>
+<li>how to merge sample and genotype data</li>
+<li>approaches to plotting genotype frequencies</li>
+</ul>
+<p><br style="clear:both" /></p>
+<hr>
+<p><br/></p>
+<p><img src="/images/laptop3.png" alt="drawing" width="500" style="float:left; margin:30px"/></p>
+<h3>Video 2: RNASeq expression data</h3>
+<p>In video two, we look at an example of RNASeq gene expression data taken from the Gene Expression Omnibus (GEO)</p>
+<p>In it we cover:</p>
+<ul>
+<li>how to transpose awkward data files</li>
+<li>how to use visualization for quality control on read count data</li>
+<li>how to cluster sample replicates</li>
+<li>making volcano plots and MD plots</li>
+</ul>
+<p><br style="clear:both" /></p>
+<hr>
+<p><br/></p>
+<p><img src="/images/laptop4.png" alt="drawing" width="500" style="float:right; margin:30px"/></p>
+<h3>Video 3: biodiversity data</h3>
+<p>In video three, we take a look at geographical biodiversity data taken from GBIF</p>
+<p>This video covers:</p>
+<ul>
+<li>choosing relevant columns from huge datasets</li>
+<li>log/log plots</li>
+<li>analyzing time series data, including resampling</li>
+<li>making geographical distribution plots</li>
+</ul>
+<p><br style="clear:both" /></p>
+<hr>
+<p><br/></p>
+<p><img src="/images/laptop5.png" alt="drawing" width="500" style="float:left; margin:30px"/></p>
+<h3>Video 4: experimental behavior data</h3>
+<p>In video four, we look at an example of an animal behavior experiment</p>
+<p>You'll learn:</p>
+<ul>
+<li>how to read Excel files with multiple sheets</li>
+<li>how to read data files directly from the web</li>
+<li>using visualization for quality control of repeated trials</li>
+<li>finding correlations and confounding variables using regression plots</li>
+</ul>
+<p><br style="clear:both" /></p>
+<p>Just like in the book, all the video files come with working code in Jupyter notebooks that you can use to run the same analysis live, or tweak for your own research. </p>
+<p><br style="clear:both" /></p>
+<hr>
+<p><br/></p>
+<p><strong>If you work with data of any size, getting to grips with data exploration in Python is one of the biggest boosts you can make to your research and your career.</strong></p>
+<p>Free your data from Excel! Transform your messy spreadsheets into clean, tidy tables! Understand your data better!</p>
+<p>Ready to get started? Check out the packages below (and if you want to see a complete chapter list, scroll down to the bottom of the page). </p>
+<p>All of the packages come with a no-questions-asked refund policy so you can buy with confidence. My goal with these books and videos is to make them directly useful to you - if they don’t work for you, you can get your money back right away. </p>
+<p>You can pay securely with a credit card or with Paypal. If you need an invoice instead, just email martin@pythonforbiologists.com and we’ll arrange it.</p>
+<p><br style="clear:both" /></p>
+<hr>
+<p><br/></p>
+<h3>The complete package: bookshelf plus videos</h3>
+<p><img src="/images/bundle_including_videos.png" alt="drawing" width="300" style="float:right; margin:30px"/></p>
+<p>Everything for complete beginners: the <em>Biological Data Exploration</em> book, the two previous <em>Python for Biologists</em> books, and all the videos</p>
+<p>This is the complete package, intended for those who’ve never used Python before, or who want a refresher before diving in to the data exploration material. </p>
+<p>It includes the first two Python for Biologists books (<em>Python for Biologists</em> and <em>Advanced Python for biologists</em>), which together will take you from the very basics of programming and Python to give you all the background you’ll need to follow everything in the data exploration book. </p>
+<p>These two books, along with the <em>Biological Data Exploration book</em>, come as searchable, DRM-free PDF files that you can keep forever and read on any device, along with exercise and example files to practice on. </p>
+<p>You’ll also get the dataset walkthrough videos as high definition files that you can download and watch on any device. The videos come with interactive Jupyter notebook files that you can run, edit, and reuse for your own datasets. </p>
+<p>Your files will be delivered by email, so you can start reading (and watching) right away. And you’ll get free access to any updates to the books (for example, when code changes to reflect changes in the libraries) and videos (for example, when new videos are added).</p>
+<script src="https://gumroad.com/js/gumroad.js"></script>
+<h2 style="text-align:center;">
+<a href="https://gumroad.com/l/GLgxn?wanted=true" data-gumroad-single-product="true">🛒 Click here to buy the complete package now for $169</a>
+</h2>
+
+<p><br style="clear:both" />
+<br/></p>
+<hr>
+<p><br/><br/></p>
+<h3>The bookshelf package</h3>
+<p><img src="/images/all.png" alt="drawing" width="300" style="float:right; margin:30px"/></p>
+<p>The <em>Biological Data Exploration</em> book plus the previous two <em>Python for Biologists</em> books</p>
+<p>Don’t like videos? This package includes the first two Python for Biologists books (Python for Biologists and Advanced Python for biologists), along with the Biological Data Exploration book.</p>
+<p>The books come as searchable, DRM-free PDF files that you can keep forever and read on any device, along with exercise and example files to practice on. </p>
+<p>And you’ll get free access to any updates to the books (for example, when code changes to reflect changes in the libraries).</p>
+<script src="https://gumroad.com/js/gumroad.js"></script>
+<h2 style="text-align:center;">
+<a href="https://gumroad.com/l/JvvROp?wanted=true" data-gumroad-single-product="true">🛒 Click here to buy the bookshelf package now for $79</a>
+</h2>
+
+<p><br style="clear:both" />
+<br/></p>
+<hr>
+<p><br/><br/></p>
+<h3>Just the book</h3>
+<p><img src="/images/bde_book.png" alt="drawing" width="300" style="float:right; margin:30px"/></p>
+<p>The <em>Biological Data Exploration</em> book, with example and data files</p>
+<p>Don’t like videos and already know the basics of Python? This package includes the <em>Biological Data Exploration book</em>.</p>
+<p>The book comes as a searchable, DRM-free PDF file that you can keep forever and read on any device, along with example code and data files to practice on. </p>
+<p>And you’ll get free access to any updates to the book (for example, when code changes to reflect changes in the libraries).
+<br style="clear:both" /></p>
+<script src="https://gumroad.com/js/gumroad.js"></script>
+<h2 style="text-align:center;">
+<a href="https://gumroad.com/l/lWlUs?wanted=true" data-gumroad-single-product="true">🛒 Click here to buy the book now for $39</a>
+</h2>
+
+<p><br style="clear:both" />
+<br/></p>
+<hr>
+<p><br/><br/></p>
+<h3>Frequently asked questions:</h3>
+<p><strong>What’s covered in the book?</strong></p>
+<p>Rather than trying to give an exhaustive tour pandas, seaborn, matplotlib and numpy (each of which could fill several books), the book concentrates on the most useful parts of each library. Here’s a complete list of chapters and topics:</p>
+<ul>
+<li>getting data into pandas: series and dataframes, read_csv, dtypes/info/describe/head/len, missing data, giving column names</li>
+<li>working with series: getting a single column, descriptive statistics, value_counts, broadcasting operations, numpy vectorized ufuncs, string methods, selecting multiple columns, setting an index, dropna, </li>
+<li>filtering and selecting: boolean masks, basic filtering, isin, selecting with strings, multiple conditions, filter/select/aggregate pattern</li>
+<li>pandas examples: turning series into list, iterating over unique values</li>
+<li>intro to seaborn and plotting distributions: imports, distplot, setting title, distplot in a loop, relplot, hue and size for numerical values, adding a new column and plotting</li>
+<li>special types of scatter plots: alpha/size/sample/hexbin/contour for large numbers, lmplot for regressions, pairwise plots</li>
+<li>conditioning charts on categories: hue with category, size for category, style for category, small multiples with row/column, multiples with relplot</li>
+<li>categorical axes wtih seaborn: about different types of categories, strip plots, swarm plots, multiples, box plots, problems with order, boxplots hide distribution details, violin plots, boxen plots, bar plots, point plots, line charts, count plots</li>
+<li>styling figures with seaborn: three levels (seaborn high. seaborn low, matplotlib), aspect/height, labels, styles and contexts, passing keywords, </li>
+<li>working with colours in seaborn: setting single colours, setting palettes, sequential data, don't use rainbows, custom sequential, categorical palettes, redundant information, diverging palettes, when to use colour, matching between charts, colour plus style, displaying redundant catfor book layoutegories, adding metadata, highlighting categories, using colours consistently, don't reuse</li>
+<li>working with groups in pandas: types of categories, uniqueness, groupby, grouping on multiple columns, aggregating, turning into dataframes, filtering, transforming, iterating over groups, sorting to get group names</li>
+<li>binning data: simple binary with filter and replace, increased options for visualisation, using pd.cut, range, uneven bins, exponential bins, using size for ordered categories, turning categories into ordered ones.</li>
+<li>Long vs wide form and indices: why long data is best for visualization, using unstack to make a summary, using melt to get data into tidy form, setting an index, index performance, multi indexing, index slicing and loc</li>
+<li>Matrix charts: displaying summary tables, setting scales, annotation, missing data, lots of categories, diverging palettes, binning, custom annotation, clustering walkthrough, row/col cluster, normalizing, color annotation, bubble grids, plotting context</li>
+<li>Tricky data files in pandas: awkward input files, skiprows, setting names, using columns, footers, comments, thousands/decimals, boolean values, method chaining, assign and pipe, concat, adding a column by assigning a series, merging, inner/outer, dealing with large datasets, skipping columns, categories, precision</li>
+<li>Using facet grids directly: making a facetgrid, using map for simple things, using map_dataframe with custom functions, reusing custom functions, using hue for single charts, small multiple heat maps</li>
+<li>Unexpected behaviours: missing groups in groupby, fixing it with categories, breaking it with multiple grouping, workarounds, unsorted categories after unstacking, min_count in sum, odd scales in seaborn</li>
+<li>High performance pandas: looping vs. vectorization, looping vs. apply, apply on dataframes, caching, replace and memoization, sampling large datasets, categories, indices, unique indices</li>
+<li>Further reading: datetimes, alternative syntax, plotting directly from pandas, jupyter widgets, bokeh, machine learning, statistics</li>
+</ul>
+<p><strong>Do I need to know Python in order to follow the book?</strong></p>
+<p>Yes - you don’t need to be a Python expert, but you do need to know the basics: the book isn’t intended for complete beginners. If you’ve never used Python before, you’ll need to learn the core of the language first. You can do this by buying one of the bookshelf packages (which includes <em>Python for Biologists</em>, which is intended for complete beginners), or following various introductory Python tutorials online (including the one on this site).</p>
+<p><strong>Who are you?</strong></p>
+<p>Hi, I’m Martin - formerly a bioinformatics researcher and lecturer at the University of Edinburgh; now a freelance Python writer and trainer. See the about page for more info.</p>
+<p><strong>Can I buy a group license for my lab/students/colleagues?</strong></p>
+<p>Sure, drop me an email martin@pythonforbiologists.com and we’ll work something out.</p>
+        </div>
+       
+    </article>
+</div>
+        </div>
+<footer class="footer">
+   <div class="container bottom_border">
+   <ul class="foote_bottom_ul_amrc">
+    <h3 style="color:white;"  class="text-center">Sign up for the newsletter</h3>
+    <h5 style="color:white;"  class="text-center">Links to the best biological Python and bioinformatics content on the web, no spam.</h3>
+     <script async src="https://eomail5.com/form/fbc6d37e-0672-11ec-96e5-06b4694bee2a.js" data-form="fbc6d37e-0672-11ec-96e5-06b4694bee2a"></script>
+     </ul>
+   </div>
+   <div class="container">
+      <ul class="foote_bottom_ul_amrc">
+         <li><a href="/">HOME</a></li>
+         <li><a href="">ABOUT</a></li>
+         <li><a href="">ARCHIVE</a></li>
+      </ul>
+      <!--foote_bottom_ul_amrc ends here-->
+      <p class="text-center"></p>
+        
+          
+      </div>
+
+      <!--social_footer_ul ends here-->
+   </div>
+</footer>
+            <script type="text/javascript" src="https://mojones.github.io/pelican-p4b/theme/libs/jquery.min.js"></script>
+            <script type="text/javascript" src="https://mojones.github.io/pelican-p4b/theme/libs/bootstrap-4.2.1/dist/js/bootstrap.bundle.min.js"></script>
+
+        <script src="https://mojones.github.io/pelican-p4b/theme/libs/prism.js"></script>
+        <script src="https://mojones.github.io/pelican-p4b/theme/libs/Countable.js"></script>
+
+        <script>
+            Prism.plugins.NormalizeWhitespace.setDefaults({
+                'remove-trailing': true,
+                'remove-indent': true,
+                'left-trim': true,
+                'right-trim': true,
+                /*'break-lines': 80,
+                'indent': 2,
+                'remove-initial-line-feed': false,
+                'tabs-to-spaces': 4,
+                'spaces-to-tabs': 4*/
+            });
+        </script>
+
+
+        <script type="text/javascript" src="https://mojones.github.io/pelican-p4b/theme/js/custom.js"></script>
+            <script>
+                function validateForm(query)
+                {
+                    return (query.length > 0);
+                }
+            </script>
+    </body>
+</html>
+
